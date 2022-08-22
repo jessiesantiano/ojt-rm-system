@@ -1,5 +1,8 @@
 <?php
-//    include('../../connection.php');
+    session_start();
+
+    if (isset($_SESSION['id']) && (isset($_SESSION['username']))) {
+        # code...
 ?>
 <!DOCTYPE html>
 <html>
@@ -193,3 +196,10 @@
   <!-- main script file  -->
   <script src="../../build/assets/js/soft-ui-dashboard-tailwind.js?v=1.0.4" async></script>
 </html>
+<?php
+    }else{
+          header("location: index.php");
+          exit();
+    }
+
+?>
