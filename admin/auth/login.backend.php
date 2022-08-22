@@ -1,7 +1,7 @@
 
 <?php
     session_start();
-    include "../connection.php";
+    include "../../connection.php";
 
     if(isset($_POST['username']) && isset($_POST['password'])) {
         function validate($data){
@@ -16,10 +16,10 @@
     
 
         if (empty($username)) {
-            header("Location: ../admin/index.php?error=Username is required");
+            header("Location: ../index.php?error=Username is required");
             exit();
         } else if(empty($password)){
-            header("Location: ../admin/index.php?error=Password is required");
+            header("Location: ../index.php?error=Password is required");
             exit();
         }
         // pag goods su username and pass amo kadi maga execute na code
@@ -41,18 +41,18 @@
                     $_SESSION['username'] = $row['username'];
                     $_SESSION['id'] = $row['id'];
 
-                    header('location: ../admin/pages/dashboard/');
+                    header('location: ../pages/dashboard/');
                     echo "tama";
 
                 }
                     else{
-                    header("Location: ../admin/index.php?error=username and password not match");
+                    header("Location: ../index.php?error=username and password not match");
                     exit();
               }
             }
 
     }else{
-        header("location: ../admin/index.php");
+        header("location: ../index.php");
         exit();
     }
 
