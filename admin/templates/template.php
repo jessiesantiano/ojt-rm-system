@@ -66,7 +66,11 @@
                   <i class="fa fa-user sm:mr-1"></i>
                   <span class="hidden sm:inline">Admin</span>
                 </a>
+                
               </li>
+               <a href="../../auth/logout.backend.php">
+                    <button class="w-full bg-green-300 p-3" name="login">LOGOUT</button>
+                </a>
               <li class="flex items-center pl-4 xl:hidden">
                 <a href="javascript:;" class="block p-0 transition-all ease-nav-brand text-sm text-slate-500" sidenav-trigger>
                   <div class="w-4.5 overflow-hidden">

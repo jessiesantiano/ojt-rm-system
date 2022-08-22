@@ -1,6 +1,4 @@
 <?php
-    session_start();
-
     if (isset($_SESSION['id']) && (isset($_SESSION['username']))) {
         # code...
 ?>
@@ -345,7 +343,7 @@
         </div>
         <?php
     }else{
-          header("location: index.php");
+          header("location: ../../admin/index.php");
           exit();
     }
 
