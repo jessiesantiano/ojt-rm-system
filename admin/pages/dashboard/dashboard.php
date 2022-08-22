@@ -1,7 +1,3 @@
-<?php
-    if (isset($_SESSION['id']) && (isset($_SESSION['username']))) {
-        # code...
-?>
 <div class="w-full px-6 py-6 mx-auto">
         <div class="flex flex-wrap -mx-3">
           <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
@@ -342,9 +338,3 @@
             </div>
         </div>
         <?php
-    }else{
-          header("location: ../../admin/index.php");
-          exit();
-    }
-
-?>
