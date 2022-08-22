@@ -19,8 +19,10 @@
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <!-- Main Styling -->
     <link href="../../../build/assets/css/soft-ui-dashboard-tailwind.css?v=1.0.4" rel="stylesheet" />
+    <link rel="stylesheet" href="soft-ui-dashboard-tailwind.css" />
     <!-- calendar -->
     <script src="../../../build/assets/js/fullcalendar.min.js"></script>
+    <script src="../path/to/soft-ui-dashboard-tailwind.js"></script>
     <link rel="stylesheet" href="soft-ui-dashboard-tailwind.css" />
 
   </head>
