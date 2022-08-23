@@ -3,7 +3,7 @@
     session_start();
     include "../../connection.php";
 
-    if(isset($_POST['username']) && isset($_POST['password'])) {
+    if(isset($_POST['email']) && isset($_POST['password'])) {
         function validate($data){
             $data = trim($data);
             $data = stripslashes($data);
@@ -11,34 +11,29 @@
             return $data;
         }
 
-        $username = validate($_POST['username']);
+        $email = validate($_POST['email']);
         $password = validate($_POST['password']);
     
 
-        if (empty($username)) {
-            header("Location: ../index.php?error=Username is required");
+        if (empty($email)) {
+            header("Location: ../index.php?error=email is required");
             exit();
         } else if(empty($password)){
             header("Location: ../index.php?error=Password is required");
             exit();
         }
-        // pag goods su username and pass amo kadi maga execute na code
         else{
-            $sql = "SELECT * FROM accounts WHERE username='$username' AND password='$password'";
-
+            $sql = "SELECT * FROM accounts WHERE email='$email' AND password='$password'";
             $result = mysqli_query($db, $sql);
-
-            // binutang ko ide kading insert to database para pag tama lang su username and pass saka lang sya maga insert sa database. 
-            // pag sala su username and pass diman da mangyayare na INSERT INTO database.
             if(mysqli_num_rows($result)) {
 
                  if (isset($_POST['login'])) {
-                    $username = $_POST['username'];
+                    $email = $_POST['email'];
                     $password = $_POST['password'];
                     }  
 
                     $row = mysqli_fetch_assoc($result);
-                    $_SESSION['username'] = $row['username'];
+                    $_SESSION['email'] = $row['email'];
                     $_SESSION['id'] = $row['id'];
 
                     header('location: ../pages/dashboard/');
@@ -46,7 +41,7 @@
 
                 }
                     else{
-                    header("Location: ../index.php?error=username and password not match");
+                    header("Location: ../index.php?error=email and password not match");
                     exit();
               }
             }
