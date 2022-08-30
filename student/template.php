@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Student Panel</title>
+  <title>OJT Monitoring Record System</title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
   <!-- Font Awesome Icons -->
@@ -19,6 +19,9 @@
   <script src="https://unpkg.com/@popperjs/core@2"></script>
   <!-- Main Styling -->
   <link href="../build/assets/css/soft-ui-dashboard-tailwind.css?v=1.0.4" rel="stylesheet" />
+  <link rel="stylesheet" href="soft-ui-dashboard-tailwind.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+ 
 
 </head>
 
@@ -35,7 +38,7 @@
 
 
         <li class="w-full mt-4">
-          <h6 class="pl-6 ml-2 font-bold leading-tight uppercase text-xs opacity-60">Student Pages</h6>
+          <h6 class="pl-6 ml-2 font-bold leading-tight uppercase text-xs opacity-60">Student Panel</h6>
         </li>
 
 
@@ -75,7 +78,7 @@
           </a>
         </li>
       </ul>
-      <hr class="my-8 h-px bg-gray-200 border-0 dark:bg-gray-700">
+      <hr class="my-8 h-px bg-gray-200 border-0 dark:bg-gray-300">
       <ul class="flex flex-col pl-0 mb-0">
         <li class="mt-0.5 w-full">
           <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" href="index.php?q=logout">
@@ -129,9 +132,7 @@
   </div>
 
 </body>
-
-<script src="../build/assets/js/perfect-scrollbar.js" async></script>
-<script src="../build/assets/js/soft-ui-dashboard-tailwind.min.js" async></script>
-<script async defer src="https://buttons.github.io/buttons.js"></script>
-
+<script src="../build/assets/js/soft-ui-dashboard-tailwind.js"></script>
+<script src="../build/assets/js/soft-ui-dashboard-tailwind.min.js"></script>
+<script src="https://unpkg.com/@popperjs/core@2"></script>
 </html>
