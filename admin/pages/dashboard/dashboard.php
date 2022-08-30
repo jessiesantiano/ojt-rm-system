@@ -9,7 +9,6 @@
                       <p class="mb-0 font-sans font-semibold leading-normal text-sm">BEED</p>
                       <h5 class="mb-0 font-bold">
                         54 students
-              
                       </h5>
                     </div>
                   </div>
