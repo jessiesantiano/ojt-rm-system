@@ -15,7 +15,7 @@
 				<tbody>
            <?php while ($row = mysqli_fetch_array($results)) { ?>
             <tr>
-              <td><?php echo $row['title']; ?></td>
+              <td><?php echo $row['name']; ?></td>
             </tr>
            <?php } ?>
 				</tbody>

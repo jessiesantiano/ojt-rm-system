@@ -22,13 +22,10 @@
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <!-- Main Styling -->
     <link href="../../../build/assets/css/soft-ui-dashboard-tailwind.css?v=1.0.4" rel="stylesheet" />
-    <link rel="stylesheet" href="soft-ui-dashboard-tailwind.css" />
+    <link rel="stylesheet" href="../../../build/css/soft-ui-dashboard-tailwind.css" />
     <!-- calendar -->
     <script src="../../../build/assets/js/fullcalendar.min.js"></script>
     <script src="../../../build/assets/js/soft-ui-dashboard-tailwind.js"></script>
-    <link rel="stylesheet" href="soft-ui-dashboard-tailwind.css" />
-
-
 
     <!--Regular Datatables CSS-->
     <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
@@ -261,7 +258,7 @@
       <!-- end Navbar -->
 
       <!-- Pages Content -->
-        <div class="bg-white" style="padding: 20px">
+        <div class="bg-white h-full" style="padding: 20px">
  		       <?php require_once $content; ?> 
         </div>
         
@@ -269,7 +266,7 @@
 
   </div>
   
-  <footer class="pt-4">
+  <!-- <footer class="pt-4">
     <div class="w-full px-6 mx-auto">
       <div class="flex flex-wrap items-center -mx-3 lg:justify-between">
         <div class="w-full max-w-full px-3 mt-0 mb-6 shrink-0 lg:mb-0 lg:w-1/2 lg:flex-none">
@@ -284,19 +281,19 @@
 
       </div>
     </div>
-  </footer>
+  </footer> -->
 </div>
       <!-- end cards -->
 </main>
   </body>
   <!-- plugin for charts  -->
-  <script src="../../build/assets/js/plugins/chartjs.min.js" async></script>
+  <script src="../../../build/assets/js/plugins/chartjs.min.js" async></script>
   <!-- plugin for scrollbar  -->
-  <script src="../../build/assets/js/plugins/perfect-scrollbar.min.js" async></script>
+  <script src="../../../build/assets/js/plugins/perfect-scrollbar.min.js" async></script>
   <!-- github button -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- main script file  -->
-  <script src="../../build/assets/js/soft-ui-dashboard-tailwind.js?v=1.0.4" async></script>
+  <script src="../../../build/assets/js/soft-ui-dashboard-tailwind.js?v=1.0.4" async></script>
   <!-- jQuery -->
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
@@ -313,14 +310,17 @@
 				.responsive.recalc();
 		});
 	</script>
-  <script type="text/javascript">
+  <!-- <script type="text/javascript">
             function toggleModal(modalID){
               document.getElementById(modalID).classList.toggle("hidden");
               document.getElementById(modalID + "-backdrop").classList.toggle("hidden");
               document.getElementById(modalID).classList.toggle("flex");
               document.getElementById(modalID + "-backdrop").classList.toggle("flex");
             }
-          </script>
+          </script> -->
+
+    <script src="../../../build/assets/js/bootstrap.min.js"></script>
+    <!-- <script src="../../../build/assets/js/jquery-1.12.4.js"></script> -->
 </html>
 <?php
     }else{

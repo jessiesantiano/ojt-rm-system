@@ -7,6 +7,9 @@ $title = "Students";
 		case 'list' :
 			$content = 'students.php';		
 			break;
+		case 'view' :
+			$content = 'profile.php';		
+			break;
 		default :
 		$content = 'students.php';			
 	}
