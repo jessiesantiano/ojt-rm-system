@@ -1,13 +1,14 @@
 <?php
 
  $view = (isset($_GET['view']) && $_GET['view'] != '') ? $_GET['view'] : '';
+ $title = "School";
  $header=$view; 
 	switch ($view) {
 		case 'list' :
-			$content = 'evakuation.php';		
+			$content = 'school.php';		
 			break;
 		default :
-		$content = 'evaluation.php';			
+			$content = 'school.php';		
 	}
 	require_once ("../../templates/template.php");
 

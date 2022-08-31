@@ -30,10 +30,10 @@
 
 
 
-	<!--Regular Datatables CSS-->
-	<link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
-	<!--Responsive Extension Datatables CSS-->
-	<link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet">
+    <!--Regular Datatables CSS-->
+    <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
+    <!--Responsive Extension Datatables CSS-->
+    <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet">
 
   <style>
 		/*Overrides for Tailwind CSS */
@@ -126,11 +126,8 @@
 			/*bg-indigo-500*/
 		}
 	</style>
-  
-
 
   </head>
-
   <body class="m-0 font-sans antialiased font-normal text-base leading-default bg-gray-50 text-slate-500">
     <!-- sidenav  -->
       <div class="w-full px-6 py-6 mx-auto">
@@ -267,9 +264,11 @@
         <div class="bg-white" style="padding: 20px">
  		       <?php require_once $content; ?> 
         </div>
+        
        <!--end Pages Content -->
 
   </div>
+  
   <footer class="pt-4">
     <div class="w-full px-6 mx-auto">
       <div class="flex flex-wrap items-center -mx-3 lg:justify-between">
