@@ -1,6 +1,11 @@
-    <div class="ease-soft-in-out  relative h-full max-h-screen bg-gray-50 transition-all duration-200">
-      
-
+ 
+ <?php include('process.php'); 
+ 	$id = $_GET['id'];
+ 	$students = mysqli_query($db, "SELECT * FROM students WHERE id = $id")
+ ?>
+ 
+<?php while ($row = mysqli_fetch_array($students)) { ?>  
+   <div class="ease-soft-in-out  relative h-full max-h-screen bg-gray-50 transition-all duration-200">
       <div class="w-full px-6 mx-auto">
         <div class="relative flex items-center p-0 mt-6 overflow-hidden bg-center bg-cover rounded-2xl" style="background-image: url('../assets/img/curved-images/curved0.jpg'); background-position-y: 50%">
         </div>
@@ -13,7 +18,7 @@
             </div>
             <div class="flex-none w-auto max-w-full px-3 my-auto">
               <div class="h-full">
-                <h5 class="mb-1">Alec Thompson</h5>
+                <h5 class="mb-1"><?php echo $row['name']?></h5>
                 <p class="mb-0 font-semibold leading-normal text-sm">BSED-Math</p>
               </div>
             </div>
@@ -21,7 +26,6 @@
         </div>
       </div>
       <div class="w-full p-6 mx-auto">
-		
         <div class="flex flex-wrap -mx-3">
 			 <div class="w-full max-w-full px-3 lg-max:mt-6 xl:w-4/12">
             <div class="relative flex flex-col h-full min-w-0 break-words bg-white border-0 shadow-soft-xl rounded-2xl bg-clip-border">
@@ -45,7 +49,7 @@
                 <p class="leading-normal text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur quod natus, quis reprehenderit amet voluptatum. Expedita rerum perspiciatis autem odio!</p>
                 <hr class="h-px my-6 bg-transparent bg-gradient-to-r from-transparent via-white to-transparent" />
                 <ul class="flex flex-col pl-0 mb-0 rounded-lg">
-                  <li class="relative block px-4 py-2 pt-0 pl-0 leading-normal bg-white border-0 rounded-t-lg text-sm text-inherit"><strong class="text-slate-700">Full Name:</strong> &nbsp; Alec M. Thompson</li>
+                  <li class="relative block px-4 py-2 pt-0 pl-0 leading-normal bg-white border-0 rounded-t-lg text-sm text-inherit"><strong class="text-slate-700">Full Name:</strong> &nbsp; <?php echo $row['name'] ?></li>
                   <li class="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-sm text-inherit"><strong class="text-slate-700">Internship:</strong> &nbsp; Ligao National High School</li>
                   <li class="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-sm text-inherit"><strong class="text-slate-700">Course:</strong> &nbsp; BSED Math</li>
                   <li class="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-sm text-inherit"><strong class="text-slate-700">Email:</strong> &nbsp; alecthompson@mail.com</li>
@@ -184,3 +188,4 @@
         </div>
       </div>
     </div>
+<?php } ?>

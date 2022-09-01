@@ -1,16 +1,14 @@
 <?php
-    // initialize variable
-    $id = 0;
-	$email = "";
-    $update = false;
 
     // connection
     $db = mysqli_connect('localhost', 'root', '', 'ojt-rms');
 
     // insert to database
-    if(isset($_POST['save'])){
+    if(isset($_POST['add'])){
+        $name = $_POST['name'];
         $email = $_POST['email'];
-        $query = "INSERT INTO accounts (email) VALUES ('$email')";
+        $password = $_POST['password'];
+        $query = "INSERT INTO accounts (name, email, password) VALUES ('$name','$email','$password')";
         mysqli_query($db, $query);
 
         $_SESSION['message'] = "new record has been saved";
@@ -19,16 +17,18 @@
         header("location: index.php");
     }
 
-    // code for retrieve from database
+    // get data from the database
     $results = mysqli_query($db, "SELECT * FROM accounts ");
 
 
     // update 
     if (isset($_POST['update'])) {
             $id = $_POST['id'];
+            $name = $_POST['name'];
             $email = $_POST['email'];
+            $password = $_POST['password'];
 
-            mysqli_query($db, "UPDATE accounts SET email='$email' WHERE id=$id");
+            mysqli_query($db, "UPDATE accounts SET name='$name', email='$email', password='$password' WHERE id=$id");
             $_SESSION['message'] = "record updated";
             $_SESSION['msg_type'] = "green-500";
            
