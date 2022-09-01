@@ -1,16 +1,13 @@
 <?php
-    // initialize variable
-    $id = 0;
-	$name = "";
-    $update = false;
 
-    // connection
+   // connection
     $db = mysqli_connect('localhost', 'root', '', 'ojt-rms');
 
     // insert to database
-    if(isset($_POST['save'])){
-        $name = $_POST['name'];
-        $query = "INSERT INTO students (name) VALUES ('$name')";
+    if(isset($_POST['add'])){
+        $title = $_POST['title'];
+        $whatfor = $_POST['whatfor'];
+        $query = "INSERT INTO announcements (title, whatfor) VALUES ('$title', '$whatfor')";
         mysqli_query($db, $query);
 
         $_SESSION['message'] = "new record has been saved";
@@ -20,15 +17,15 @@
     }
 
     // code for retrieve from database
-    $results = mysqli_query($db, "SELECT * FROM students ");
+    $results = mysqli_query($db, "SELECT * FROM announcements ");
 
 
     // update 
     if (isset($_POST['update'])) {
             $id = $_POST['id'];
-            $name = $_POST['name'];
-
-            mysqli_query($db, "UPDATE students SET name='$name' WHERE id=$id");
+            $title = $_POST['title'];
+            $whatfor = $_POST['whatfor'];
+            mysqli_query($db, "UPDATE announcements SET title='$title', whatfor='$whatfor' WHERE id=$id");
             $_SESSION['message'] = "record updated";
             $_SESSION['msg_type'] = "green-500";
            
@@ -38,7 +35,7 @@
     // delete
     if (isset($_GET['del'])) {
             $id = $_GET['del'];
-            mysqli_query($db, "DELETE FROM students WHERE id=$id");
+            mysqli_query($db, "DELETE FROM announcements WHERE id=$id");
             $_SESSION['message'] = "Address deleted!"; 
             header('location: index.php');
         }
