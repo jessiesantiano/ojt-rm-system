@@ -1,12 +1,4 @@
 <?php
-    // initialize variable
-    $id = 0;
-	$name = "";
-    $email = "";
-    $studentid = "";
-    $contactno = "";
-    $address = "";
-    $update = false;
 
     // connection
     $db = mysqli_connect('localhost', 'root', '', 'ojt-rms');

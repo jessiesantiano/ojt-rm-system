@@ -1,16 +1,13 @@
 <?php
-    // initialize variable
-    $id = 0;
-	$school = "";
-    $update = false;
 
     // connection
     $db = mysqli_connect('localhost', 'root', '', 'ojt-rms');
 
     // insert to database
-    if(isset($_POST['save'])){
+    if(isset($_POST['add'])){
         $school = $_POST['school'];
-        $query = "INSERT INTO schools (school) VALUES ('$school')";
+        $supervisor = $_POST['supervisor'];
+        $query = "INSERT INTO schools (school, supervisor) VALUES ('$school', '$supervisor')";
         mysqli_query($db, $query);
 
         $_SESSION['message'] = "new record has been saved";
@@ -19,7 +16,7 @@
         header("location: index.php");
     }
 
-    // code for retrieve from database
+    // get data from the database
     $results = mysqli_query($db, "SELECT * FROM schools ");
 
 
@@ -27,8 +24,8 @@
     if (isset($_POST['update'])) {
             $id = $_POST['id'];
             $school = $_POST['school'];
-
-            mysqli_query($db, "UPDATE schools SET school='$school' WHERE id=$id");
+            $supervisor = $_POST['supervisor'];
+            mysqli_query($db, "UPDATE schools SET school='$school', supervisor='$supervisor' WHERE id=$id");
             $_SESSION['message'] = "record updated";
             $_SESSION['msg_type'] = "green-500";
            
