@@ -2,8 +2,8 @@
     session_start();
 
     if (isset($_SESSION['id']) && (isset($_SESSION['email']))) {
+    include "../../../connection.php";
     $id = $_SESSION['id'];
-    $db = mysqli_connect('localhost', 'root', '', 'ojt-rms');
     $getUserLoggedin = mysqli_query($db, "SELECT * FROM accounts WHERE id = $id");
 ?>
 <!DOCTYPE html>

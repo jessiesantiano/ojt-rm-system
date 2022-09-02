@@ -1,7 +1,7 @@
 <?php
 
     // connection
-    $db = mysqli_connect('localhost', 'root', '', 'ojt-rms');
+     include "../../../connection.php";
 
     // insert to database
     if(isset($_POST['add'])){
