@@ -14,7 +14,7 @@
 				<thead>
 					<tr>
 						<th data-priority="1">Title</th>
-						<th data-priority="1">What for ?</th>
+						<th data-priority="1">Date Added</th>
 						<th data-priority="1">Action</th>
 					</tr>
 				</thead>
@@ -22,14 +22,16 @@
 				<?php while ($row = mysqli_fetch_array($results)) { ?>
 					<tr>
 						<td><?php echo $row['title']; ?></td>
-						<td><?php echo $row['whatfor']; ?></td>
+						<td>
+ 							<?php echo $row['dateAdded']; ?>
+					    </td>
 						<td>
 							<a href="#edit<?php echo $row['id'];?>" data-toggle="modal">
                          	   <i class="far fa-edit text-gray-400 cursor-pointer hover:text-blue-300 transition-all" style="font-size: 13px"></i>
                        		 </a>
-							<a href="index.php?view=view&id=<?php echo $row['id']; ?>">
+							<a href="#view<?php echo $row['id'];?>" data-toggle="modal">
                          	  <button type="button" class="ml-2 inline-block px-2 py-1 font-bold text-center text-white uppercase align-middle transition-all rounded-lg cursor-pointer bg-gradient-to-tl from-purple-700 to-pink-500 leading-pro text-xs ease-soft-in tracking-tight-soft shadow-soft-md bg-150 bg-x-25 hover:scale-102 active:opacity-85 hover:shadow-soft-xs">
-								View
+								What for?
 							  </button>
                        		 </a>
 						</td>
@@ -42,3 +44,4 @@
 
 	<?php include './modals/addModal.php'; ?> 
 	<?php include './modals/editModal.php'; ?> 
+	<?php include './modals/viewModal.php'; ?> 

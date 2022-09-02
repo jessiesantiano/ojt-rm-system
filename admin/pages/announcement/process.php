@@ -3,11 +3,16 @@
    // connection
     include "../../../connection.php";
 
+    // correct timezone
+    date_default_timezone_set("Asia/Manila");
+    $date = date("D M d, Y");
+
     // insert to database
     if(isset($_POST['add'])){
         $title = $_POST['title'];
         $whatfor = $_POST['whatfor'];
-        $query = "INSERT INTO announcements (title, whatfor) VALUES ('$title', '$whatfor')";
+        $dateAdded = $date;
+        $query = "INSERT INTO announcements (title, whatfor, dateAdded) VALUES ('$title', '$whatfor', '$dateAdded')";
         mysqli_query($db, $query);
 
         $_SESSION['message'] = "new record has been saved";
