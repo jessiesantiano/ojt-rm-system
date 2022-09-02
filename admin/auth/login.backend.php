@@ -33,6 +33,7 @@
                     }  
 
                     $row = mysqli_fetch_assoc($result);
+                    $name = $_POST['name'];
                     $_SESSION['email'] = $row['email'];
                     $_SESSION['id'] = $row['id'];
 
