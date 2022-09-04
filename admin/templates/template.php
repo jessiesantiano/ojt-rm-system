@@ -128,6 +128,7 @@
 
   </head>
   <body class="m-0 font-sans antialiased font-normal text-base leading-default bg-gray-50 text-slate-500">
+     <?php while ($row = mysqli_fetch_array($getUserLoggedin)) { ?> 
     <!-- sidenav  -->
       <div class="w-full px-6 py-6 mx-auto">
         <?php include 'sidebar.php'; ?> 
@@ -138,7 +139,7 @@
       <!-- Navbar -->
       <nav class="relative flex flex-wrap items-center justify-between px-0 py-2 mx-6 transition-all shadow-none duration-250 ease-soft-in rounded-2xl lg:flex-nowrap lg:justify-start" navbar-main navbar-scroll="true">
         <div class="flex items-center justify-between w-full px-4 py-1 mx-auto flex-wrap-inherit">
-          <?php while ($row = mysqli_fetch_array($getUserLoggedin)) { ?> 
+         
         <nav>
             <!-- breadcrumb -->
             <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
@@ -160,7 +161,7 @@
                   <i class="fa fa-user sm:mr-1"></i>
                  
                       <span class="hidden sm:inline"><?php echo $row['name']?></span>
-                    <?php } ?>
+                 
                 </a>
                 
               </li>
@@ -266,8 +267,8 @@
         <div class="bg-white h-full" style="padding: 20px">
  		       <?php require_once $content; ?> 
         </div>
-        
        <!--end Pages Content -->
+    <?php } ?>
 
   </div>
   
