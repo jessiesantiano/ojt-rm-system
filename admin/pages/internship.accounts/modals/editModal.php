@@ -4,7 +4,7 @@
 		<div class="fixed w-full h-full top-0 left-0 flex justify-center items-center" style="background: rgba(0,0,0,0.5);">
 			<div class="w-2/5 h-f ll relative flex  flex-col  bg-white border border-solid pointer-events-auto dark:bg-gray-950 bg-clip-padding border-black/20 rounded-xl outline-0">
 				<div class="flex items-center justify-between p-4 border-b border-solid shrink-0 border-slate-100 rounded-t-xl">
-					<h5 class="mb-0 leading-normal dark:text-white" id="ModalLabel">Edit Student</h5>
+					<h5 class="mb-0 leading-normal dark:text-white" id="ModalLabel">Edit Account</h5>
 					<div>
 						 <a href="process.php?del=<?php echo $row['id']; ?>">
 						    <i style="margin-right: 10px" class="fa fa-trash w-4 h-4 box-content p-2 text-black dark:text-white border-0 rounded-1.5 opacity-50 cursor-pointer"></i>

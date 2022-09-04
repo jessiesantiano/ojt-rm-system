@@ -138,11 +138,12 @@
       <!-- Navbar -->
       <nav class="relative flex flex-wrap items-center justify-between px-0 py-2 mx-6 transition-all shadow-none duration-250 ease-soft-in rounded-2xl lg:flex-nowrap lg:justify-start" navbar-main navbar-scroll="true">
         <div class="flex items-center justify-between w-full px-4 py-1 mx-auto flex-wrap-inherit">
-          <nav>
+          <?php while ($row = mysqli_fetch_array($getUserLoggedin)) { ?> 
+        <nav>
             <!-- breadcrumb -->
             <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
               <li class="leading-normal text-sm">
-                <a class="opacity-50 text-slate-700" href="javascript:;">Pages</a>
+                <a class="font-bold uppercase text-slate-700" href="javascript:;"><?php echo $row['accountFor']?></a>
               </li>
               <li class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']" aria-current="page"><?php echo $title ?></li>
             </ol>
@@ -157,7 +158,7 @@
               <li class="flex items-center">
                 <a href="#" class="block px-0 py-2 font-semibold transition-all ease-nav-brand text-sm text-slate-500">
                   <i class="fa fa-user sm:mr-1"></i>
-                   <?php while ($row = mysqli_fetch_array($getUserLoggedin)) { ?>
+                 
                       <span class="hidden sm:inline"><?php echo $row['name']?></span>
                     <?php } ?>
                 </a>

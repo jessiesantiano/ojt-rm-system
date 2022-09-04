@@ -18,7 +18,7 @@
     }
 
     // get data from the database
-    $results = mysqli_query($db, "SELECT * FROM accounts ");
+    $results = mysqli_query($db, "SELECT * FROM accounts WHERE courseCode IS NOT NULL");
 
 
     // update 

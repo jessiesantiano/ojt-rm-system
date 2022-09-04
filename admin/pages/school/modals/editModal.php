@@ -6,7 +6,7 @@
 				<div class="flex items-center justify-between p-4 border-b border-solid shrink-0 border-slate-100 rounded-t-xl">
 					<h5 class="mb-0 leading-normal dark:text-white" id="ModalLabel">Edit School</h5>
 					<div>
-						 <a href="process.php?del=<?php echo $row['id']; ?>">
+						 <a href="process.php?del=<?php echo $row['id'] ?>&<?php echo $row['supervisor'] ?>">
 						    <i style="margin-right: 10px" class="fa fa-trash w-4 h-4 box-content p-2 text-black dark:text-white border-0 rounded-1.5 opacity-50 cursor-pointer"></i>
 						 </a>
 						<button type="button" data-toggle="modal" class=" fa fa-close w-5 h-5  box-content p-2 text-black dark:text-white border-0 rounded-1.5 opacity-50 cursor-pointer -m-2 " data-dismiss="modal"></button>
