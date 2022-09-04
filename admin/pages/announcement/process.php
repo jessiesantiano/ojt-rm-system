@@ -11,8 +11,9 @@
     if(isset($_POST['add'])){
         $title = $_POST['title'];
         $whatfor = $_POST['whatfor'];
+        $postedBy = $_POST['postedBy'];
         $dateAdded = $date;
-        $query = "INSERT INTO announcements (title, whatfor, dateAdded) VALUES ('$title', '$whatfor', '$dateAdded')";
+        $query = "INSERT INTO announcements (title, whatfor, postedBy, dateAdded) VALUES ('$title', '$whatfor', '$postedBy', '$dateAdded')";
         mysqli_query($db, $query);
 
         $_SESSION['message'] = "new record has been saved";

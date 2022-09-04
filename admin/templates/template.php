@@ -5,6 +5,9 @@
     include "../../../connection.php";
     $id = $_SESSION['id'];
     $getUserLoggedin = mysqli_query($db, "SELECT * FROM accounts WHERE id = $id");
+
+    // $loggedin = mysqli_fetch_array($getUserLoggedin);
+    // $name = $loggedin['name'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -159,9 +162,7 @@
               <li class="flex items-center">
                 <a href="#" class="block px-0 py-2 font-semibold transition-all ease-nav-brand text-sm text-slate-500">
                   <i class="fa fa-user sm:mr-1"></i>
-                 
                       <span class="hidden sm:inline"><?php echo $row['name']?></span>
-                 
                 </a>
                 
               </li>

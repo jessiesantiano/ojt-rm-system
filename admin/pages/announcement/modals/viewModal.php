@@ -1,4 +1,9 @@
-<?php $announcements = mysqli_query($db, "SELECT * FROM announcements"); ?>
+<?php $announcements = mysqli_query($db, "SELECT * FROM announcements"); 
+    $id = $_SESSION['id'];
+    $getUserLoggedin = mysqli_query($db, "SELECT * FROM accounts WHERE id = $id");
+    $loggedin = mysqli_fetch_array($getUserLoggedin);
+    $name = $loggedin['name'];
+?>
 <?php while ($row = mysqli_fetch_array($announcements)) { ?>
     <div id="view<?php echo $row['id']; ?>" class="show fade hidden">
 		<div class="fixed w-full h-full top-0 left-0 flex justify-center items-center" style="background: rgba(0,0,0,0.5);">
@@ -16,6 +21,16 @@
 					<div>
 						<p><b>What for: </b> <?php echo $row['whatfor'] ?></p>
 					</div>
+					
+					 
+					<?php if ($row['postedBy'] == $name) : ?>
+						<small><i><b>Posted by you! </b></i></small> 
+					<?php else : ?>
+						<div>
+							<small><b>Posted by: </b> <?php echo $row['postedBy'] ?></small> / 
+							<small>Course Trainees Supervisor</small>
+					    </div>
+					<?php endif; ?>
 			   </div>
 			</div>
 		</div>
