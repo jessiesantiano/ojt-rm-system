@@ -2,6 +2,10 @@
 
     // connection
      include "../../../connection.php";
+    $id = $_SESSION['id'];
+    $getUserLoggedin = mysqli_query($db, "SELECT * FROM accounts WHERE id = $id");
+    $getUserLoggedin = $getUserLoggedin -> fetch_assoc();
+    ['courseCode' => $courseCode] = $getUserLoggedin;
 
     // insert to database
     if(isset($_POST['add'])){
@@ -10,7 +14,8 @@
         $studentid = $_POST['studentid'];
         $contactno = $_POST['contactno'];
         $address = $_POST['address'];
-        $query = "INSERT INTO students (name, email, studentid, contactno, address) VALUES ('$name','$email', '$studentid', '$contactno', '$address')";
+        $courseCode = $_POST['courseCode'];
+        $query = "INSERT INTO students (name, email, studentid, contactno, address, courseCode) VALUES ('$name','$email', '$studentid', '$contactno', '$address', '$courseCode')";
         mysqli_query($db, $query);
 
         $_SESSION['message'] = "new record has been saved";
@@ -20,8 +25,7 @@
     }
 
     // code for retrieve from database
-    $results = mysqli_query($db, "SELECT * FROM students ");
-
+     $results = mysqli_query($db, "SELECT * FROM students WHERE courseCode = '$courseCode'");
 
     // update 
     if (isset($_POST['update'])) {
