@@ -13,6 +13,7 @@
 			<table id="example" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
 				<thead>
 					<tr>
+						<th data-priority="1">Course</th>
 						<th data-priority="1">Name</th>
 						<th data-priority="1">Email</th>
 						<th data-priority="1">Action</th>
@@ -21,6 +22,7 @@
 				<tbody class="text-center">
 				<?php while ($row = mysqli_fetch_array($results)) { ?>
 					<tr>
+						<td><?php echo $row['accountFor']; ?></td>
 						<td><?php echo $row['name']; ?></td>
 						<td><?php echo $row['email']; ?></td>
 						<td>

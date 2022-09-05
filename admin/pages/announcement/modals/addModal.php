@@ -10,7 +10,7 @@
 						<div class="relative flex-auto p-4">
 
 							<input type="text" placeholder="Title" name="title" value="" class="dark:bg-gray-950 mb-4 focus:shadow-soft-primary-outline dark:placeholder:text-white/80 dark:text-white/80 text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none">
-							<input type="text" placeholder="What for ?" name="whatfor" class="dark:bg-gray-950 mb-4 focus:shadow-soft-primary-outline dark:placeholder:text-white/80 dark:text-white/80 text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none">
+							<textarea name="whatfor" rows="5" placeholder="Write your thoughts here..."  class="focus:shadow-soft-primary-outline min-h-unset text-sm leading-5.6 ease-soft block h-auto w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none mb-4"></textarea>
 							<?php while ($row = mysqli_fetch_array($getUserLoggedin)) { ?> 
 							 	<input type="hidden" name="postedBy" value="<?php echo $row['name'] ?>">
                             <?php } ?>

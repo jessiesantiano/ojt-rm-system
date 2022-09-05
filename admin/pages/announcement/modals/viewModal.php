@@ -1,5 +1,6 @@
-<?php $announcements = mysqli_query($db, "SELECT * FROM announcements"); 
+<?php 
     $id = $_SESSION['id'];
+	$announcements = mysqli_query($db, "SELECT * FROM announcements"); 
     $getUserLoggedin = mysqli_query($db, "SELECT * FROM accounts WHERE id = $id");
     $loggedin = mysqli_fetch_array($getUserLoggedin);
     $name = $loggedin['name'];
