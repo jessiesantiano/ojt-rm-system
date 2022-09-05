@@ -1,11 +1,7 @@
 <?php
 
     // connection
-     include "../../../connection.php";
-    $id = $_SESSION['id'];
-    $getUserLoggedin = mysqli_query($db, "SELECT * FROM accounts WHERE id = $id");
-    $getUserLoggedin = $getUserLoggedin -> fetch_assoc();
-    ['courseCode' => $courseCode] = $getUserLoggedin;
+    include "../../../connection.php";
 
     // insert to database
     if(isset($_POST['add'])){

@@ -1,10 +1,4 @@
-<?php 
-    $id = $_SESSION['id'];
-	$announcements = mysqli_query($db, "SELECT * FROM announcements"); 
-    $getUserLoggedin = mysqli_query($db, "SELECT * FROM accounts WHERE id = $id");
-    $loggedin = mysqli_fetch_array($getUserLoggedin);
-    $name = $loggedin['name'];
-?>
+<?php $announcements = mysqli_query($db, "SELECT * FROM announcements"); ?>
 <?php while ($row = mysqli_fetch_array($announcements)) { ?>
     <div id="view<?php echo $row['id']; ?>" class="show fade hidden">
 		<div class="fixed w-full h-full top-0 left-0 flex justify-center items-center" style="background: rgba(0,0,0,0.5);">

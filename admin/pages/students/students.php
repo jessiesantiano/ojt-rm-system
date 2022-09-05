@@ -3,8 +3,8 @@
 	<div class="container w-full md:w-4/5 xl:w-3/5  mx-auto px-2">
 		<div class="flex justify-between items-center py-5">
 			 
-              <?php if ($row['courseCode'] != NULL) : ?>
-              	<h5><?php echo $row['courseCode'] ?> Students List</h5>
+              <?php if ($courseCode != NULL) : ?>
+              	<h5><?php echo $courseCode ?> Students List</h5>
               <?php else : ?>
                 <h5>All trainees</h5>
               <?php endif; ?>

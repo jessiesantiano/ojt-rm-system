@@ -4,7 +4,7 @@
     if (isset($_SESSION['id']) && (isset($_SESSION['email']))) {
     include "../../../connection.php";
     $id = $_SESSION['id'];
-    $getUserLoggedin = mysqli_query($db, "SELECT * FROM accounts WHERE id = $id");
+    $getUserLoggedin= mysqli_query($db, "SELECT * FROM accounts WHERE id = $id");
 
     // $loggedin = mysqli_fetch_array($getUserLoggedin);
     // $name = $loggedin['name'];
@@ -164,6 +164,7 @@
                   <i class="fa fa-user sm:mr-1"></i>
                       <span class="hidden sm:inline"><?php echo $row['name']?></span>
                 </a>
+    <?php } ?>
                 
               </li>
               <li class="flex items-center">
@@ -266,10 +267,15 @@
 
       <!-- Pages Content -->
         <div class="bg-white h-full" style="padding: 20px">
- 		       <?php require_once $content; ?> 
+ 		       <?php 
+              $id = $_SESSION['id'];
+              $getUserLoggedin= mysqli_query($db, "SELECT * FROM accounts WHERE id = $id");
+              $getUserLoggedin = $getUserLoggedin -> fetch_assoc();
+              ['courseCode' => $courseCode, 'name' => $name] = $getUserLoggedin;
+              require_once $content;
+             ?> 
         </div>
        <!--end Pages Content -->
-    <?php } ?>
 
   </div>
   

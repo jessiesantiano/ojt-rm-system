@@ -23,7 +23,7 @@
     }
 
     // code for retrieve from database
-    $results = mysqli_query($db, "SELECT * FROM announcements ");
+    $results = mysqli_query($db, "SELECT * FROM announcements");
 
 
     // update 
