@@ -3,6 +3,7 @@
     // connection
     include "../../../connection.php";
 
+
     // insert to database
     if(isset($_POST['add'])){
         $name = $_POST['name'];
@@ -21,6 +22,7 @@
     }
 
     // code for retrieve from database
+    // $courseCode is a global variable / in template
      $results = mysqli_query($db, "SELECT * FROM students WHERE courseCode = '$courseCode'");
 
     // update 
