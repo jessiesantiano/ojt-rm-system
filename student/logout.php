@@ -1,8 +1,7 @@
 <?php
-    session_start();
-    session_unset();
-    session_destroy();
+// remove all session variables
+session_unset();
+// destroy the session
+session_destroy();
+echo "<script>window.location.href='index.php'</script>";
 
-    header("location: ../index.php")
-
-?>
