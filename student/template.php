@@ -33,6 +33,8 @@ if(!isset($_SESSION["id"])) {
   <script src="../build/assets/js/jquery-1.12.4.js"></script>
   <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />
   
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" rel="stylesheet" />
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
 
   
 
@@ -129,6 +131,7 @@ if(!isset($_SESSION["id"])) {
 
 
       <?php require_once $content; ?>
+      <?php include("./alert.php"); ?>
 
 
 
@@ -161,5 +164,6 @@ if(!isset($_SESSION["id"])) {
 <script src="../build/assets/js/soft-ui-dashboard-tailwind.min.js"></script>
 <script src="../build/assets/js/sidenav-burger.js"></script>
 <script src="https://unpkg.com/@popperjs/core@2"></script>
+
 </html>
 

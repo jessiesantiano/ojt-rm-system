@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 05, 2022 at 06:27 PM
+-- Generation Time: Sep 09, 2022 at 02:01 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -33,7 +33,7 @@ CREATE TABLE `accounts` (
   `name` text NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `type` tinyint(1) NOT NULL
+  `type` tinyint(1) NOT NULL COMMENT '1=admin , 2=supervisor, 3=student'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -43,7 +43,42 @@ CREATE TABLE `accounts` (
 INSERT INTO `accounts` (`id`, `studentID`, `name`, `email`, `password`, `type`) VALUES
 (1, '', 'Administrator', 'admin@admin.com', 'admin123', 1),
 (2, '', 'Supervisor', 'super@super.com', 'super123', 2),
-(3, 'lcc-01-2022', 'Student Test', 'lcc-01-2022', 'test123', 3);
+(3, 'lcc-01-2022', 'Student Test', 'lcc-01-2022', 'test123', 3),
+(4, 'lcc-02-2022', 'Student Test 2', 'lcc-02-2022', 'test123', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `documents`
+--
+
+CREATE TABLE `documents` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `destination` varchar(255) NOT NULL,
+  `studentID` varchar(255) NOT NULL,
+  `size` varchar(255) NOT NULL,
+  `name` text NOT NULL,
+  `downloads` int(255) NOT NULL,
+  `date` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reports`
+--
+
+CREATE TABLE `reports` (
+  `id` int(11) NOT NULL,
+  `name` text NOT NULL,
+  `size` varchar(255) NOT NULL,
+  `downloads` varchar(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `studentID` varchar(255) NOT NULL,
+  `date` datetime NOT NULL DEFAULT current_timestamp(),
+  `status` varchar(255) NOT NULL COMMENT '1=pending, 2=checked, 3=failed'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -88,7 +123,7 @@ CREATE TABLE `student_info` (
 --
 
 INSERT INTO `student_info` (`studentID`, `Sname`, `Slname`, `Smname`, `Sstreet`, `Scity`, `Sstate`, `Szipcode`, `Sage`, `Sbday`, `Snumber`, `Semail`, `Sphoto`, `Sinsurance`, `Sph`, `Sparentph`, `Sphnumber`, `Svax`, `S1dose`, `S2dose`, `Sbooster`, `Svaxbooster`, `Swstatus`, `Swname`, `Swcompany`, `Swnumber`, `Swlocation`, `Swemployer`, `Swcontact`) VALUES
-('lcc-01-2022', 'Jessie', 'Santiano', 'Tardecilla', '#133 Panonowan Street', 'Oas', 'Albay', '4505', '21', '2000-09-06', '09453075374', 'jessie.santiano@gmail.com', '', 'Philhealth', 'with Philhealth', 'Alfredo Jr. P. Santiano', '999-999-999-999', 'AstraZeneca', '2022-04-13', '2022-05-13', 'None', 'N/A', 'Non Working Student', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A');
+('lcc-02-2022', 'Juan', 'Dela Cruz', 'Rizal', 'Rizal Street', '', '', '', '', '0000-00-00', '', '', '', '', '', '', '', '', '0000-00-00', '0000-00-00', '', '', '', '', '', '', '', '', '');
 
 --
 -- Indexes for dumped tables
@@ -98,6 +133,18 @@ INSERT INTO `student_info` (`studentID`, `Sname`, `Slname`, `Smname`, `Sstreet`,
 -- Indexes for table `accounts`
 --
 ALTER TABLE `accounts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `documents`
+--
+ALTER TABLE `documents`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `reports`
+--
+ALTER TABLE `reports`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -114,7 +161,19 @@ ALTER TABLE `student_info`
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `documents`
+--
+ALTER TABLE `documents`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `reports`
+--
+ALTER TABLE `reports`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
