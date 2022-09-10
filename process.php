@@ -15,10 +15,10 @@ include 'conn.php';
 // }
 
 if (isset($_POST['submit'])) {
-    $email = $_POST['email'];
+    $studentID = $_POST['studentID'];
     $password = $_POST['password'];
 
-    $sql = "SELECT * FROM accounts WHERE email='$email' AND password='$password'";
+    $sql = "SELECT * FROM students WHERE studentID='$studentID' AND password='$password'";
     $result = mysqli_query($conn, $sql);
 
     if ($result->num_rows > 0) {
@@ -35,20 +35,20 @@ if (isset($_POST['submit'])) {
         $row = mysqli_fetch_assoc($result);
 
         if ($row['type'] == '1') {
-            $_SESSION['email'] = $row['email'];
+            $_SESSION['studentID'] = $row['studentID'];
             $_SESSION['id'] = $row['id'];
             $_SESSION['name'] = $row['name'];
             // $_SESSION['user_username'] = $row['user_username'];
             header("Location: ./admin/index.php");
         } else {
-            $_SESSION['email'] = $row['email'];
+            $_SESSION['studentID'] = $row['studentID'];
             $_SESSION['id'] = $row['id'];
             $_SESSION['name'] = $row['name'];
             // $_SESSION['user_username'] = $row['user_username'];
             header("Location: ./student/index.php");
         }
     } else {
-        echo "<script>alert('Woops! Email or Password is Wrong.')
+        echo "<script>alert('Woops! studentID or Password is Wrong.')
         </script>";
         
     }

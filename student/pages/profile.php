@@ -1,7 +1,7 @@
 <?php
 $id = $_SESSION['id'];
 
-$result = mysqli_query($conn, "SELECT * FROM accounts INNER JOIN student_info ON accounts.studentID = student_info.studentID where id='$id'");
+$result = mysqli_query($conn, "SELECT * FROM accounts INNER JOIN students ON accounts.studentID = student_info.studentID where id='$id'");
 while ($row = mysqli_fetch_array($result)){
 
 
