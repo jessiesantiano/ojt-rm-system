@@ -1,7 +1,7 @@
 <?php
 session_start();
 // connect to the database
-require_once('../../conn.php');
+require_once('../../connection.php');
 // Uploads Document Files
 if (isset($_POST['Dupload'])) { // if upload button on the form is clicked
     // data initialization

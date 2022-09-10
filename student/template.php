@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once '../conn.php';
+require_once '../connection.php';
 if(!isset($_SESSION["id"])) {
     header("Location:../index.php");
     }
@@ -102,7 +102,7 @@ if(!isset($_SESSION["id"])) {
                     
                   </img>
                 </span>
-                <span class="text-xs px-3"><?php echo $_SESSION["name"]; ?></span>
+                <span class="text-xs px-3"><?php echo $_SESSION["Sname"]; ?> <?php echo $_SESSION["Slname"]; ?></span>
               </div>
       <ul class="flex flex-col pl-0 mb-0">
         

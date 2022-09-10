@@ -81,11 +81,9 @@
         <?php
 
 
-$result = mysqli_query($conn, "SELECT * FROM reports WHERE studentID ='" . $_SESSION['email'] ."' ");
-while ($row = mysqli_fetch_array($result)) {
-
-
-?>
+      $result = mysqli_query($db, "SELECT * FROM reports WHERE studentID ='" . $_SESSION['Semail'] ."' ");
+      while ($row = mysqli_fetch_array($result)) {
+      ?>
         <li class="relative flex justify-between px-4 py-2 pl-0 mb-2 bg-white border-0 rounded-t-inherit text-inherit rounded-xl">
           <div class="flex items-center">
  
@@ -94,7 +92,7 @@ while ($row = mysqli_fetch_array($result)) {
               <?php echo $row["title"]; ?>
               </h6>
               <span class="leading-tight text-xs"><?php $date = DateTime::createFromFormat('Y-m-d H:i:s', $row['date']);
-echo $date->format('F d, Y h:i:s A'); // Change format as needed ?></span>
+                  echo $date->format('F d, Y h:i:s A'); // Change format as needed ?></span>
             </div>
           </div>
           <div class="flex flex-col items-center justify-center">
@@ -103,9 +101,7 @@ echo $date->format('F d, Y h:i:s A'); // Change format as needed ?></span>
             </p>
           </div>
         </li>
-
-
-<?php }?>
+        <?php }?>
       </ul>
 
     </div>

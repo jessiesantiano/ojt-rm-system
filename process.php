@@ -3,7 +3,7 @@
 <?php
 
 session_start();
-include 'conn.php';
+include 'connection.php';
 
 
 
@@ -16,10 +16,10 @@ include 'conn.php';
 
 if (isset($_POST['submit'])) {
     $studentID = $_POST['studentID'];
-    $password = $_POST['password'];
+    $Spassword = $_POST['Spassword'];
 
-    $sql = "SELECT * FROM students WHERE studentID='$studentID' AND password='$password'";
-    $result = mysqli_query($conn, $sql);
+    $sql = "SELECT * FROM students WHERE studentID='$studentID' AND Spassword='$Spassword'";
+    $result = mysqli_query($db, $sql);
 
     if ($result->num_rows > 0) {
         // $row = mysqli_fetch_assoc($result);
@@ -37,13 +37,15 @@ if (isset($_POST['submit'])) {
         if ($row['type'] == '1') {
             $_SESSION['studentID'] = $row['studentID'];
             $_SESSION['id'] = $row['id'];
-            $_SESSION['name'] = $row['name'];
+            $_SESSION['Sname'] = $row['Sname'];
             // $_SESSION['user_username'] = $row['user_username'];
             header("Location: ./admin/index.php");
         } else {
             $_SESSION['studentID'] = $row['studentID'];
             $_SESSION['id'] = $row['id'];
-            $_SESSION['name'] = $row['name'];
+            $_SESSION['Sname'] = $row['Sname'];
+            $_SESSION['Slname'] = $row['Slname'];
+            $_SESSION['Semail'] = $row['Semail'];
             // $_SESSION['user_username'] = $row['user_username'];
             header("Location: ./student/index.php");
         }

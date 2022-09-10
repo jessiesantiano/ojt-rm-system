@@ -81,7 +81,7 @@
     <?php
 
 
-    $result = mysqli_query($conn, "SELECT * FROM documents WHERE studentID ='" . $_SESSION['email'] . "' AND destination='Before OJT Requirements' ");
+    $result = mysqli_query($db, "SELECT * FROM documents WHERE studentID ='" . $_SESSION['Semail'] . "' AND destination='Before OJT Requirements' ");
     while ($row = mysqli_fetch_array($result)) {
 
 
@@ -95,7 +95,7 @@
               </h6>
 
               <span class="leading-tight text-xs"><?php $date = DateTime::createFromFormat('Y-m-d H:i:s', $row['date']);
-echo $date->format('F d, Y h:i:s A'); // Change format as needed ?></span>
+                echo $date->format('F d, Y h:i:s A'); // Change format as needed ?></span>
             </div>
             <div class="flex items-center leading-normal text-sm">
 
@@ -135,7 +135,7 @@ echo $date->format('F d, Y h:i:s A'); // Change format as needed ?></span>
     <?php
 
 
-    $result = mysqli_query($conn, "SELECT * FROM documents WHERE studentID ='" . $_SESSION['email'] . "' AND destination='After OJT Requirements' ");
+    $result = mysqli_query($db, "SELECT * FROM documents WHERE studentID ='" . $_SESSION['Semail'] . "' AND destination='After OJT Requirements' ");
     while ($row = mysqli_fetch_array($result)) {
 
 

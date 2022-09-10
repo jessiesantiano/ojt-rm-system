@@ -27,13 +27,14 @@
 
     // update 
     if (isset($_POST['update'])) {
+            $id = $_POST['id'];
             $Sname = $_POST['Sname'];
             $Slname = $_POST['Slname'];
             $Smname = $_POST['Smname'];
             $Semail = $_POST['Semail'];
             $studentID = $_POST['studentID'];
 
-            mysqli_query($db, "UPDATE students SET Sname='$Sname', Smname='$Smname', Sname='$Slname', Semail='$Semail', studentID='$studentID' WHERE id=$id");
+            mysqli_query($db, "UPDATE students SET Sname='$Sname', Smname='$Smname', Slname='$Slname', Semail='$Semail', studentID='$studentID' WHERE id=$id");
             $_SESSION['message'] = "record updated";
             $_SESSION['msg_type'] = "green-500";
            
