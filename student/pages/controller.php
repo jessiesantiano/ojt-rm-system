@@ -1,13 +1,13 @@
 <?php
 session_start();
-// connect to the database
+// dbect to the database
 require_once('../../connection.php');
 // Uploads Document Files
 if (isset($_POST['Dupload'])) { // if upload button on the form is clicked
     // data initialization
     $title = $_POST['title'];
     $des = $_POST['des'];
-    $studentID = $_SESSION['email'];
+    $studentID = $_SESSION['studentID'];
 
 
     // name of the uploaded file
@@ -26,24 +26,33 @@ if (isset($_POST['Dupload'])) { // if upload button on the form is clicked
     if (!in_array($extension, ['jpeg', 'pdf', 'docx'])) {
 
         
-        echo "You file extension must be .jpeg, .pdf or .docx";
+      
+        header('location: ../index.php?q=documents');
+        $_SESSION['status'] = "Woo hoo!";
+        $_SESSION['text'] = "You file extension must be .jpeg, .pdf or .docx";
+        $_SESSION['icon'] = "warning";
     } elseif ($_FILES['myfile']['size'] > 10000000) { // file shouldn't be larger than 10Megabyte
-        echo "File too large!";
+        header('location: ../index.php?q=documents');
+        $_SESSION['status'] = "Woo hoo!";
+        $_SESSION['text'] = "You file is too large!";
+        $_SESSION['icon'] = "warning";
     } else {
         // move the uploaded (temporary) file to the specified destination
         if (move_uploaded_file($file, $destination)) {
             $sql = "INSERT INTO documents (name, size, downloads, title, destination, studentID) VALUES 
             ('$filename', $size, 0, '$title', '$des', '$studentID')";
-            if (mysqli_query($conn, $sql)) {
+            if (mysqli_query($db, $sql)) {
 
                 header('location: ../index.php?q=documents');
                 $_SESSION['status'] = "Woo hoo!";
-                $_SESSION['text'] = "Documents uploaded successfully!";
+                $_SESSION['text'] = "Document uploaded successfully!";
                 $_SESSION['icon'] = "success";
             }
         } else {
-            $_SESSION['text'] = "Upload Failed!";
-            $_SESSION['icon'] = "warning";
+            header('location: ../index.php?q=documents');
+            $_SESSION['status'] = "Woo hoo!";
+            $_SESSION['text'] = "Upload file failed.";
+            $_SESSION['icon'] = "error";
         }
     }
 }
@@ -56,7 +65,7 @@ if (isset($_GET['file_id'])) {
 
     // fetch file to download from database
     $sql = "SELECT * FROM documents WHERE id=$id";
-    $result = mysqli_query($conn, $sql);
+    $result = mysqli_query($db, $sql);
 
     $file = mysqli_fetch_assoc($result);
     $filepath = 'uploads/' . $file['name'];
@@ -74,7 +83,11 @@ if (isset($_GET['file_id'])) {
         // Now update downloads count
         $newCount = $file['downloads'] + 1;
         $updateQuery = "UPDATE documents SET downloads=$newCount WHERE id=$id";
-        mysqli_query($conn, $updateQuery);
+        mysqli_query($db, $updateQuery);
+        header('location: ../index.php?q=documents');
+        $_SESSION['status'] = "Woo hoo!";
+        $_SESSION['text'] = "Document downloaded successfully!";
+        $_SESSION['icon'] = "success";
         exit;
     }
 }
@@ -83,11 +96,12 @@ if (isset($_GET['file_id'])) {
 if (isset($_GET['delete_id'])) {
 
     $id = $_GET['delete_id'];
-    mysqli_query($conn, "DELETE FROM documents WHERE id=$id");
+    mysqli_query($db, "DELETE FROM documents WHERE id=$id");
 
-
-    echo "File deleted successfully";
     header('location: ../index.php?q=documents');
+    $_SESSION['status'] = "Woo hoo!";
+    $_SESSION['text'] = "Document deleted successfully!";
+    $_SESSION['icon'] = "success";
 }
 
 
@@ -96,7 +110,7 @@ if (isset($_GET['view_id'])) {
     $id = $_GET['view_id'];
     // fetch file to download from database
     $sql = "SELECT * FROM documents WHERE id=$id";
-    $result = mysqli_query($conn, $sql);
+    $result = mysqli_query($db, $sql);
 
     $file = mysqli_fetch_assoc($result);
     $filename = 'uploads/' . $file['name'];
@@ -125,7 +139,7 @@ if (isset($_GET['view_id'])) {
 if (isset($_POST['Rupload'])) { // if upload button on the form is clicked
     // data initialization
     $title = $_POST['title'];
-    $studentID = $_SESSION['email'];
+    $studentID = $_SESSION['studentID'];
     $status = 'pending';
 
 
@@ -142,21 +156,33 @@ if (isset($_POST['Rupload'])) { // if upload button on the form is clicked
     $file = $_FILES['myfile']['tmp_name'];
     $size = $_FILES['myfile']['size'];
 
-    if (!in_array($extension, ['jpeg', 'pdf', 'docx'])) {
-        echo "You file extension must be .jpeg, .pdf or .docx";
+    if (!in_array($extension, ['pdf', 'docx'])) {
+
+        header('location: ../index.php?q=reports');
+        $_SESSION['status'] = "Woo hoo!";
+        $_SESSION['text'] = "Your file must be .pdf or .docx";
+        $_SESSION['icon'] = "warning";
     } elseif ($_FILES['myfile']['size'] > 10000000) { // file shouldn't be larger than 10Megabyte
-        echo "File too large!";
+        header('location: ../index.php?q=reports');
+        $_SESSION['status'] = "Woo hoo!";
+        $_SESSION['text'] = "Your file is too large.";
+        $_SESSION['icon'] = "warning";
     } else {
         // move the uploaded (temporary) file to the specified destination
         if (move_uploaded_file($file, $destination)) {
             $sql = "INSERT INTO reports (name, size, downloads, title, studentID, status) VALUES 
             ('$filename', $size, 0, '$title', '$studentID', '$status')";
-            if (mysqli_query($conn, $sql)) {
-                echo "File uploaded successfully";
+            if (mysqli_query($db, $sql)) {
                 header('location: ../index.php?q=reports');
+                $_SESSION['status'] = "Woo hoo!";
+                $_SESSION['text'] = "Report uploaded successfully!";
+                $_SESSION['icon'] = "success";
             }
         } else {
-            echo "Failed to upload file.";
+            header('location: ../index.php?q=reports');
+            $_SESSION['status'] = "Woo hoo!";
+            $_SESSION['text'] = "File upload failed!";
+            $_SESSION['icon'] = "error";
         }
     }
 }

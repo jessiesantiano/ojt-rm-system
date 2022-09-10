@@ -28,7 +28,7 @@
                       <div>
                         <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Report Title</label>
                         <input type="text" name="title" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Report file name" required="">
-                        <input type="hidden" name="studentID" value="<?php echo $_SESSION["email"]; ?>">
+                        <input type="hidden" name="studentID" value="<?php echo $_SESSION["studentID"]; ?>">
                       </div>
 
                       <div class="flex justify-between">
@@ -39,7 +39,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
                               </svg>
                               <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to upload</span></p>
-                              <p class="text-xs text-gray-500 dark:text-gray-400">PDF, PNG, JPG (MAX. 15MB)</p>
+                              <p class="text-xs text-gray-500 dark:text-gray-400">PDF (MAX. 15MB)</p>
                             </div>
                             <input name="myfile" id="dropzone-file" type="file" class="rounded-lg border " />
                           </label>
@@ -81,7 +81,7 @@
         <?php
 
 
-      $result = mysqli_query($db, "SELECT * FROM reports WHERE studentID ='" . $_SESSION['Semail'] ."' ");
+      $result = mysqli_query($db, "SELECT * FROM reports WHERE studentID ='" . $_SESSION['studentID'] ."' ");
       while ($row = mysqli_fetch_array($result)) {
       ?>
         <li class="relative flex justify-between px-4 py-2 pl-0 mb-2 bg-white border-0 rounded-t-inherit text-inherit rounded-xl">

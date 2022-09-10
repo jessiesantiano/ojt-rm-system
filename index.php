@@ -11,15 +11,11 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-    <!-- Nucleo Icons -->
-    <link href="build/assets/css/nucleo-icons.css" rel="stylesheet" />
-    <link href="build/assets/css/nucleo-svg.css" rel="stylesheet" />
     <!-- Main Styling -->
     <link href="build/assets/css/soft-ui-dashboard-tailwind.css?v=1.0.4" rel="stylesheet" />
 
-    <script src="sweetalert2.all.min.js"></script>
-    <script src="sweetalert2.min.js"></script>
-<link rel="stylesheet" href="sweetalert2.min.css">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  
 
   </head>
 
@@ -47,9 +43,23 @@
                 <div class="relative flex flex-col min-w-0 mt-32 break-words bg-transparent border-0 shadow-none rounded-2xl bg-clip-border">
                   <div class="p-6 pb-0 mb-0 bg-transparent border-b-0 rounded-t-2xl">
                     <h3 class="relative z-10 font-bold text-transparent bg-gradient-to-tl from-blue-600 to-cyan-400 bg-clip-text">Welcome back</h3>
-                    <p class="mb-0">Enter your email and password to sign in</p>
+
+
+                    <?php if (!isset($_GET['error'])) { ?>
+                      <p class="mb-0">Enter your email and password to sign in</p>
+            <?php } ?>
+
+            <?php if (isset($_GET['error'])) { ?>
+               
+              <p class="mb-0 text-red-500 text-sm">
+                    <?php echo $_GET['error']; ?>
+            </p>
+     
+                <?php } ?>
                   </div>
                   
+                  
+
                   <div class="flex-auto p-6">
                     <form role="form" action='process.php' method='POST'>
                       <label class="mb-2 ml-1 font-bold text-xs text-slate-700">Student ID</label>
@@ -86,6 +96,8 @@
             </div>
           </div>
         </div>
+
+
       </section>
     </main>
     <footer class="py-12">
@@ -104,8 +116,7 @@
       </div>
     </footer>
   </body>
-  <!-- plugin for scrollbar  -->
-  <script src="../assets/js/plugins/perfect-scrollbar.min.js" async></script>
-  <!-- main script file  -->
-  <script src="../assets/js/soft-ui-dashboard-tailwind.js?v=1.0.4" async></script>
+
+
+  <script src="sweetalert2.all.min.js"></script>
 </html>

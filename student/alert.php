@@ -1,17 +1,23 @@
-<!DOCTYPE html>
-<html>
+<style>
+    .swal2-popup {
+        font-size: 12px !important;
+    }
+</style>
 
-<head>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-</head>
-
-<body>
-
+<?php
+if (isset($_SESSION['status']) && $_SESSION['status'] != '') {
+?>
     <script>
-swal("Good job!", "You clicked the button!", "success");
+        Swal.fire({
+
+            icon: '<?php echo $_SESSION['icon'] ?>',
+            text: '<?php echo $_SESSION['text'] ?>',
+            showConfirmButton: false,
+            timer: 1800,
+
+        })
     </script>
-
-
-</body>
-
-</html>
+<?php
+    unset($_SESSION['status']);
+}
+?>

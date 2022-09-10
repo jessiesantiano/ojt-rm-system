@@ -4,15 +4,9 @@
 
 session_start();
 include 'connection.php';
+error_reporting();
 
 
-
-
-
-
-// if (isset($_SESSION['user_name']) && ($_SESSION['user_username'])) {
-//     header("Location: main.php");
-// }
 
 if (isset($_POST['submit'])) {
     $studentID = $_POST['studentID'];
@@ -22,36 +16,23 @@ if (isset($_POST['submit'])) {
     $result = mysqli_query($db, $sql);
 
     if ($result->num_rows > 0) {
-        // $row = mysqli_fetch_assoc($result);
-        // $_SESSION['user_name'] = $row['user_name'];
-        // $_SESSION['user_username'] = $row['user_username'];
-
-        // if($_SESSION['status'] = $row['status = "1"']){
-        // 	header("location: admin/index.php");
-        // }else{
-        // 	header("Location: main.php");
-        // }
 
         $row = mysqli_fetch_assoc($result);
 
-        if ($row['type'] == '1') {
-            $_SESSION['studentID'] = $row['studentID'];
-            $_SESSION['id'] = $row['id'];
-            $_SESSION['Sname'] = $row['Sname'];
-            // $_SESSION['user_username'] = $row['user_username'];
-            header("Location: ./admin/index.php");
-        } else {
             $_SESSION['studentID'] = $row['studentID'];
             $_SESSION['id'] = $row['id'];
             $_SESSION['Sname'] = $row['Sname'];
             $_SESSION['Slname'] = $row['Slname'];
             $_SESSION['Semail'] = $row['Semail'];
-            // $_SESSION['user_username'] = $row['user_username'];
+      
             header("Location: ./student/index.php");
-        }
+            $_SESSION['status'] = "Woo hoo!";
+            $_SESSION['text'] = "You logged in successfully!";
+            $_SESSION['icon'] = "success";
+        
     } else {
-        echo "<script>alert('Woops! studentID or Password is Wrong.')
-        </script>";
+    
+        header("Location: ./index.php?error=Incorrect Student ID / Password");
         
     }
 }
