@@ -22,17 +22,15 @@
 						<th data-priority="1">Name</th>
 						<th data-priority="1">Email</th>
 						<th data-priority="1">Student ID</th>
-						<th data-priorit y="1">Contact No</th>
 						<th data-priority="1">Action</th>
 					</tr>
 				</thead>
 				<tbody class="text-center">
 				<?php while ($row = mysqli_fetch_array($results)) { ?>
 					<tr>
-						<td><?php echo $row['name']; ?></td>
-						<td><?php echo $row['email']; ?></td>
-						<td><?php echo $row['studentid']; ?></td>
-						<td><?php echo $row['contactno']; ?></td>
+						<td><?php echo $row['Sname']; ?> <?php echo $row['Slname']; ?></td>
+						<td><?php echo $row['Semail']; ?></td>
+						<td><?php echo $row['studentID']; ?></td>
 						<td>
 							<a href="#edit<?php echo $row['id'];?>" data-toggle="modal">
                          	   <i class="far fa-edit text-gray-400 cursor-pointer hover:text-blue-300 transition-all" style="font-size: 13px"></i>

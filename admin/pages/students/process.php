@@ -6,13 +6,13 @@
 
     // insert to database
     if(isset($_POST['add'])){
-        $name = $_POST['name'];
-        $email = $_POST['email'];
-        $studentid = $_POST['studentid'];
-        $contactno = $_POST['contactno'];
-        $address = $_POST['address'];
+        $Sname = $_POST['Sname'];
+        $Slname = $_POST['Slname'];
+        $Smname = $_POST['Smname'];
+        $Semail = $_POST['Semail'];
+        $studentID = $_POST['studentID'];
         $courseCode = $_POST['courseCode'];
-        $query = "INSERT INTO students (name, email, studentid, contactno, address, courseCode) VALUES ('$name','$email', '$studentid', '$contactno', '$address', '$courseCode')";
+        $query = "INSERT INTO students (Sname, Slname, Smname, Semail, studentID, courseCode) VALUES ('$Sname', '$Slname', '$Smname', '$Semail', '$studentID', '$courseCode')";
         mysqli_query($db, $query);
 
         $_SESSION['message'] = "new record has been saved";
@@ -27,14 +27,13 @@
 
     // update 
     if (isset($_POST['update'])) {
-            $id = $_POST['id'];
-            $name = $_POST['name'];
-            $email = $_POST['email'];
-            $studentid = $_POST['studentid'];
-            $contactno = $_POST['contactno'];
-            $address = $_POST['address'];
+            $Sname = $_POST['Sname'];
+            $Slname = $_POST['Slname'];
+            $Smname = $_POST['Smname'];
+            $Semail = $_POST['Semail'];
+            $studentID = $_POST['studentID'];
 
-            mysqli_query($db, "UPDATE students SET name='$name', email='$email', studentid='$studentid', contactno='$contactno', address='$address' WHERE id=$id");
+            mysqli_query($db, "UPDATE students SET Sname='$Sname', Smname='$Smname', Sname='$Slname', Semail='$Semail', studentID='$studentID' WHERE id=$id");
             $_SESSION['message'] = "record updated";
             $_SESSION['msg_type'] = "green-500";
            
