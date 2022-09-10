@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Sep 09, 2022 at 02:01 PM
+-- Host: localhost
+-- Generation Time: Sep 10, 2022 at 05:11 AM
 -- Server version: 10.4.24-MariaDB
--- PHP Version: 7.4.29
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,22 +29,44 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `accounts` (
   `id` int(11) NOT NULL,
-  `studentID` varchar(255) NOT NULL,
-  `name` text NOT NULL,
   `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `type` tinyint(1) NOT NULL COMMENT '1=admin , 2=supervisor, 3=student'
+  `password` text NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `accountFor` varchar(255) NOT NULL,
+  `courseCode` varchar(255) DEFAULT NULL COMMENT 'NULL is equal to school account'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `accounts`
 --
 
-INSERT INTO `accounts` (`id`, `studentID`, `name`, `email`, `password`, `type`) VALUES
-(1, '', 'Administrator', 'admin@admin.com', 'admin123', 1),
-(2, '', 'Supervisor', 'super@super.com', 'super123', 2),
-(3, 'lcc-01-2022', 'Student Test', 'lcc-01-2022', 'test123', 3),
-(4, 'lcc-02-2022', 'Student Test 2', 'lcc-02-2022', 'test123', 3);
+INSERT INTO `accounts` (`id`, `email`, `password`, `name`, `accountFor`, `courseCode`) VALUES
+(1, 'juan@gmail.com', '12345', 'Juan Dela Cruz', 'Bachelor of Early Childhood Education', 'BECEd'),
+(2, 'paul@gmail.com', '12345', 'Paul Justine Pintang', 'Bachelor of Arts in Economics', 'AB Eco'),
+(7, 'john@gmail.com', '12345', 'John De Leon', 'Bachelor of Elementary Education', 'BEEd'),
+(8, 'merry@gmail.com', '12345', 'Mary Merry A. Yudip', 'Bachelor of Secondary Education ', 'BSEd'),
+(10, 'test@gmail.com', '12345', 'Jose Rizal', 'Ligao National High School', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `announcements`
+--
+
+CREATE TABLE `announcements` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `whatfor` longtext NOT NULL,
+  `dateAdded` varchar(255) NOT NULL,
+  `postedBy` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `announcements`
+--
+
+INSERT INTO `announcements` (`id`, `title`, `whatfor`, `dateAdded`, `postedBy`) VALUES
+(1, 'Orientation', 'Orientation is the process of bringing employees up to speed on organisational policies, job roles and responsibilities and other organisational attributes and concepts that will help them transition efficiently into the position. In larger companies, and for roles with greater responsibilities, the orientation process may include time spent in several departments as well as specialist learning programmes.', 'Sat Sep 10, 2022', 'Mary Merry A. Yudip');
 
 -- --------------------------------------------------------
 
@@ -83,47 +105,69 @@ CREATE TABLE `reports` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `student_info`
+-- Table structure for table `schools`
 --
 
-CREATE TABLE `student_info` (
-  `studentID` varchar(255) NOT NULL,
-  `Sname` varchar(255) NOT NULL,
-  `Slname` varchar(255) NOT NULL,
-  `Smname` varchar(255) NOT NULL,
-  `Sstreet` varchar(255) NOT NULL,
-  `Scity` varchar(255) NOT NULL,
-  `Sstate` varchar(255) NOT NULL,
-  `Szipcode` varchar(255) NOT NULL,
-  `Sage` varchar(255) NOT NULL,
-  `Sbday` date NOT NULL,
-  `Snumber` varchar(255) NOT NULL,
-  `Semail` varchar(255) NOT NULL,
-  `Sphoto` varchar(255) NOT NULL,
-  `Sinsurance` varchar(255) NOT NULL,
-  `Sph` varchar(255) NOT NULL,
-  `Sparentph` varchar(255) NOT NULL,
-  `Sphnumber` varchar(255) NOT NULL,
-  `Svax` varchar(255) NOT NULL,
-  `S1dose` date NOT NULL,
-  `S2dose` date NOT NULL,
-  `Sbooster` varchar(255) NOT NULL,
-  `Svaxbooster` varchar(255) NOT NULL,
-  `Swstatus` varchar(255) NOT NULL,
-  `Swname` varchar(255) NOT NULL,
-  `Swcompany` varchar(255) NOT NULL,
-  `Swnumber` varchar(255) NOT NULL,
-  `Swlocation` varchar(255) NOT NULL,
-  `Swemployer` varchar(255) NOT NULL,
-  `Swcontact` varchar(255) NOT NULL
+CREATE TABLE `schools` (
+  `id` int(11) NOT NULL,
+  `school` varchar(255) NOT NULL,
+  `supervisor` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `schools`
+--
+
+INSERT INTO `schools` (`id`, `school`, `supervisor`) VALUES
+(1, 'Ligao National High School', 'Jose Rizal');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `students`
+--
+
+CREATE TABLE `students` (
+  `id` int(11) NOT NULL,
+  `Sname` varchar(255) DEFAULT NULL,
+  `Slname` varchar(255) DEFAULT NULL,
+  `Smname` varchar(255) DEFAULT NULL,
+  `Semail` varchar(255) DEFAULT NULL,
+  `studentID` varchar(255) DEFAULT NULL,
+  `Spassword` varchar(255) DEFAULT NULL,
+  `Sstreet` varchar(255) DEFAULT NULL,
+  `Scity` varchar(255) DEFAULT NULL,
+  `Sstate` varchar(255) DEFAULT NULL,
+  `Szipcode` varchar(255) DEFAULT NULL,
+  `Sage` varchar(255) DEFAULT NULL,
+  `Sbday` date DEFAULT NULL,
+  `Snumber` varchar(255) DEFAULT NULL,
+  `Sphoto` varchar(255) DEFAULT NULL,
+  `Sinsurance` varchar(255) DEFAULT NULL,
+  `Sph` varchar(255) DEFAULT NULL,
+  `Sparentph` varchar(255) DEFAULT NULL,
+  `Sphnumber` varchar(255) DEFAULT NULL,
+  `Svax` varchar(255) DEFAULT NULL,
+  `S1dose` date DEFAULT NULL,
+  `S2dose` date DEFAULT NULL,
+  `Sbooster` varchar(255) DEFAULT NULL,
+  `Svaxbooster` varchar(255) DEFAULT NULL,
+  `Swstatus` varchar(255) DEFAULT NULL,
+  `Swname` varchar(255) DEFAULT NULL,
+  `Swcompany` varchar(255) DEFAULT NULL,
+  `Swnumber` varchar(255) DEFAULT NULL,
+  `Swlocation` varchar(255) DEFAULT NULL,
+  `Swemployer` varchar(255) DEFAULT NULL,
+  `Swcontact` varchar(255) DEFAULT NULL,
+  `courseCode` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `student_info`
+-- Dumping data for table `students`
 --
 
-INSERT INTO `student_info` (`studentID`, `Sname`, `Slname`, `Smname`, `Sstreet`, `Scity`, `Sstate`, `Szipcode`, `Sage`, `Sbday`, `Snumber`, `Semail`, `Sphoto`, `Sinsurance`, `Sph`, `Sparentph`, `Sphnumber`, `Svax`, `S1dose`, `S2dose`, `Sbooster`, `Svaxbooster`, `Swstatus`, `Swname`, `Swcompany`, `Swnumber`, `Swlocation`, `Swemployer`, `Swcontact`) VALUES
-('lcc-02-2022', 'Juan', 'Dela Cruz', 'Rizal', 'Rizal Street', '', '', '', '', '0000-00-00', '', '', '', '', '', '', '', '', '0000-00-00', '0000-00-00', '', '', '', '', '', '', '', '', '');
+INSERT INTO `students` (`id`, `Sname`, `Slname`, `Smname`, `Semail`, `studentID`, `Spassword`, `Sstreet`, `Scity`, `Sstate`, `Szipcode`, `Sage`, `Sbday`, `Snumber`, `Sphoto`, `Sinsurance`, `Sph`, `Sparentph`, `Sphnumber`, `Svax`, `S1dose`, `S2dose`, `Sbooster`, `Svaxbooster`, `Swstatus`, `Swname`, `Swcompany`, `Swnumber`, `Swlocation`, `Swemployer`, `Swcontact`, `courseCode`) VALUES
+(1, 'Paul Justine', 'Pintang', 'Prena', 'paul@gmail.com', 'LCC-32423', 'LCC-631c003740a29', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'BSEd');
 
 --
 -- Indexes for dumped tables
@@ -133,6 +177,12 @@ INSERT INTO `student_info` (`studentID`, `Sname`, `Slname`, `Smname`, `Sstreet`,
 -- Indexes for table `accounts`
 --
 ALTER TABLE `accounts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `announcements`
+--
+ALTER TABLE `announcements`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -148,10 +198,16 @@ ALTER TABLE `reports`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `student_info`
+-- Indexes for table `schools`
 --
-ALTER TABLE `student_info`
-  ADD PRIMARY KEY (`studentID`);
+ALTER TABLE `schools`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `students`
+--
+ALTER TABLE `students`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -161,7 +217,13 @@ ALTER TABLE `student_info`
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `announcements`
+--
+ALTER TABLE `announcements`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `documents`
@@ -174,6 +236,18 @@ ALTER TABLE `documents`
 --
 ALTER TABLE `reports`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `schools`
+--
+ALTER TABLE `schools`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `students`
+--
+ALTER TABLE `students`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
