@@ -6,13 +6,14 @@
 
     // insert to database
     if(isset($_POST['add'])){
+        $Spassword = uniqid();
         $Sname = $_POST['Sname'];
         $Slname = $_POST['Slname'];
         $Smname = $_POST['Smname'];
         $Semail = $_POST['Semail'];
         $studentID = $_POST['studentID'];
         $courseCode = $_POST['courseCode'];
-        $query = "INSERT INTO students (Sname, Slname, Smname, Semail, studentID, courseCode) VALUES ('$Sname', '$Slname', '$Smname', '$Semail', '$studentID', '$courseCode')";
+        $query = "INSERT INTO students (Sname, Slname, Smname, Semail, Spassword, studentID, courseCode) VALUES ('$Sname', '$Slname', '$Smname', '$Semail', 'LCC-$Spassword', '$studentID', '$courseCode')";
         mysqli_query($db, $query);
 
         $_SESSION['message'] = "new record has been saved";

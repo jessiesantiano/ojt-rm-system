@@ -24,34 +24,30 @@
       <!-- end banner -->
 
       <!-- iba ibang content -->
-        <div class="flex flex-wrap">
+      <?php $results = mysqli_query($db, "SELECT * FROM announcements"); ?>
+      	<?php while ($row = mysqli_fetch_array($results)) { ?>
+					 <div class="flex flex-wrap">
           <div class="w-full max-w-full">
             <div class="relative flex flex-col h-full min-w-0 break-words bg-white border-0 shadow-soft-xl rounded-2xl bg-clip-border">
               <div class="p-4 pb-0 mb-0 bg-white border-b-0 rounded-t-2xl">
-                <h6 class="mb-0">Announcement Title</h6>
+                <h1 class="mb-0"><?php echo $row['title']?></h1>
               </div>
               <div class="flex-auto p-4">
-                <h6 class="font-bold leading-tight uppercase text-xs text-slate-500">Date</h6>
-                <ul class="flex flex-col pl-0 mb-0 rounded-lg">
-                  <li class="relative block px-0 py-2 bg-white border-0 rounded-t-lg text-inherit">
-                    <div class="min-h-6 mb-0.5 block pl-0 font-normal cursor-pointer select-none text-sm">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem porro commodi aliquid animi exercitationem nostrum quasi eaque hic. Consequuntur dicta laborum, deserunt aspernatur optio non quasi facilis tenetur aliquam reprehenderit.  
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus reiciendis nihil dicta illo eius hic obcaecati dolorem rerum nulla, pariatur aperiam labore fuga nesciunt? Corporis dolor voluptate nulla magnam veritatis.
-                    </div>
-                  </li>
-                  <li class="relative block px-0 py-2 bg-white border-0 rounded-t-lg text-inherit">
-                    <div class="min-h-6 mb-0.5 block pl-0 font-normal cursor-pointer select-none text-sm">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem porro commodi aliquid animi exercitationem nostrum quasi eaque hic. Consequuntur dicta laborum, deserunt aspernatur optio non quasi facilis tenetur aliquam reprehenderit.  
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus reiciendis nihil dicta illo eius hic obcaecati dolorem rerum nulla, pariatur aperiam labore fuga nesciunt? Corporis dolor voluptate nulla magnam veritatis.
-                    </div>
-                  </li>
-                </ul>
-                <h6 class=" leading-tight uppercase text-xs text-slate-500">Posted by:</h6>
-
+                <h6 class="font-bold leading-tight uppercase text-xs text-slate-500">Date: <?php echo $row['dateAdded']?></h6>
+                <div>
+                <h6 class="font-bold leading-tight uppercase text-xs text-slate-500">What For ?</h6>
+                  <p>
+                    <?php echo $row['whatfor']?>
+                  </p>
+                </div>
+                 <h6 class="font-bold leading-tight uppercase text-xs text-slate-500 mt-4">Posted by: <?php echo $row['postedBy']?></h6>
               </div>
             </div>
           </div>
         </div>
+				<?php } ?>
+
+       
 
       <!-- end iba ibang content -->
 
