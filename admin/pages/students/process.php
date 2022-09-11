@@ -10,10 +10,11 @@
         $Sname = $_POST['Sname'];
         $Slname = $_POST['Slname'];
         $Smname = $_POST['Smname'];
+        $Sgender = $_POST['Sgender'];
         $Semail = $_POST['Semail'];
         $studentID = $_POST['studentID'];
         $courseCode = $_POST['courseCode'];
-        $query = "INSERT INTO students (Sname, Slname, Smname, Semail, Spassword, studentID, courseCode) VALUES ('$Sname', '$Slname', '$Smname', '$Semail', 'LCC-$Spassword', '$studentID', '$courseCode')";
+        $query = "INSERT INTO students (Sname, Slname, Smname, Sgender, Semail, Spassword, studentID, courseCode) VALUES ('$Sname', '$Slname', '$Smname', '$Sgender', '$Semail', 'LCC-$Spassword', '$studentID', '$courseCode')";
         mysqli_query($db, $query);
 
         $_SESSION['message'] = "new record has been saved";
@@ -33,9 +34,10 @@
             $Slname = $_POST['Slname'];
             $Smname = $_POST['Smname'];
             $Semail = $_POST['Semail'];
+            $Sgender = $_POST['Sgender'];
             $studentID = $_POST['studentID'];
 
-            mysqli_query($db, "UPDATE students SET Sname='$Sname', Smname='$Smname', Slname='$Slname', Semail='$Semail', studentID='$studentID' WHERE id=$id");
+            mysqli_query($db, "UPDATE students SET Sname='$Sname', Smname='$Smname', Slname='$Slname', Semail='$Semail', Sgender='$Sgender', studentID='$studentID' WHERE id=$id");
             $_SESSION['message'] = "record updated";
             $_SESSION['msg_type'] = "green-500";
            
