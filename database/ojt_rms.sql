@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 10, 2022 at 05:11 AM
+-- Generation Time: Sep 11, 2022 at 06:48 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -45,7 +45,8 @@ INSERT INTO `accounts` (`id`, `email`, `password`, `name`, `accountFor`, `course
 (2, 'paul@gmail.com', '12345', 'Paul Justine Pintang', 'Bachelor of Arts in Economics', 'AB Eco'),
 (7, 'john@gmail.com', '12345', 'John De Leon', 'Bachelor of Elementary Education', 'BEEd'),
 (8, 'merry@gmail.com', '12345', 'Mary Merry A. Yudip', 'Bachelor of Secondary Education ', 'BSEd'),
-(10, 'test@gmail.com', '12345', 'Jose Rizal', 'Ligao National High School', NULL);
+(10, 'test@gmail.com', '12345', 'Jose Rizal', 'Ligao National High School', NULL),
+(11, 'licomco.coordinator@gmail.com', 'coordinator123', 'Coordinator Account', 'coordinator', 'Coordinator');
 
 -- --------------------------------------------------------
 
@@ -140,6 +141,7 @@ CREATE TABLE `students` (
   `Sstate` varchar(255) DEFAULT NULL,
   `Szipcode` varchar(255) DEFAULT NULL,
   `Sage` varchar(255) DEFAULT NULL,
+  `Sgender` varchar(255) DEFAULT NULL,
   `Sbday` date DEFAULT NULL,
   `Snumber` varchar(255) DEFAULT NULL,
   `Sphoto` varchar(255) DEFAULT NULL,
@@ -166,8 +168,15 @@ CREATE TABLE `students` (
 -- Dumping data for table `students`
 --
 
-INSERT INTO `students` (`id`, `Sname`, `Slname`, `Smname`, `Semail`, `studentID`, `Spassword`, `Sstreet`, `Scity`, `Sstate`, `Szipcode`, `Sage`, `Sbday`, `Snumber`, `Sphoto`, `Sinsurance`, `Sph`, `Sparentph`, `Sphnumber`, `Svax`, `S1dose`, `S2dose`, `Sbooster`, `Svaxbooster`, `Swstatus`, `Swname`, `Swcompany`, `Swnumber`, `Swlocation`, `Swemployer`, `Swcontact`, `courseCode`) VALUES
-(1, 'Paul Justine', 'Pintang', 'Prena', 'paul@gmail.com', 'LCC-32423', 'LCC-631c003740a29', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'BSEd');
+INSERT INTO `students` (`id`, `Sname`, `Slname`, `Smname`, `Semail`, `studentID`, `Spassword`, `Sstreet`, `Scity`, `Sstate`, `Szipcode`, `Sage`, `Sgender`, `Sbday`, `Snumber`, `Sphoto`, `Sinsurance`, `Sph`, `Sparentph`, `Sphnumber`, `Svax`, `S1dose`, `S2dose`, `Sbooster`, `Svaxbooster`, `Swstatus`, `Swname`, `Swcompany`, `Swnumber`, `Swlocation`, `Swemployer`, `Swcontact`, `courseCode`) VALUES
+(1, 'Paul Justine', 'Pintang', 'Prena', 'paul@gmail.com', 'LCC-32423', 'LCC-631c003740a29', NULL, NULL, NULL, NULL, NULL, 'Male', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'BSEd'),
+(2, 'dsad', 'asdasd', 'asd', 'asd', 'asdasdas', 'LCC-631d2d679bdd6', NULL, NULL, NULL, NULL, NULL, 'Male', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'BECEd'),
+(3, 'das', 'asdas', 'dasd', 'dasd', 'asdasd', 'LCC-631d2d88af0fd', NULL, NULL, NULL, NULL, NULL, 'Male', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'BECEd'),
+(4, 'fds', 'sdfsdf', 'fsdf', 'sdf', 'sdfsdf', 'LCC-631d2eeaa9ce2', NULL, NULL, NULL, NULL, NULL, 'Female', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'BECEd'),
+(5, 'fdsf', 'dfsd', 'sdfs', 'fsdfsd', 'fsdfsdf', 'LCC-631d2ef04c3f4', NULL, NULL, NULL, NULL, NULL, 'Female', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'BECEd'),
+(6, 'Paul Justine', 'Pintang', 'Prena', 'dasd', 'sadasd', 'LCC-631d339f873f8', NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Ligao National High School ', NULL, NULL, NULL, NULL, 'BECEd'),
+(7, 'dsad', 'asd', 'sad', 'asdas', 'dasdasd', 'LCC-631d34b1b419d', NULL, NULL, NULL, NULL, NULL, 'Female', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'BECEd'),
+(8, 'gdsfgdf', 'fdsgfdg', 'gsdfg', 'sdfgsdfg', 'sfdgsdfg', 'LCC-631d661b9e201', NULL, NULL, NULL, NULL, NULL, 'Male', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AB Eco');
 
 --
 -- Indexes for dumped tables
@@ -217,13 +226,13 @@ ALTER TABLE `students`
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `announcements`
 --
 ALTER TABLE `announcements`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `documents`
@@ -247,7 +256,7 @@ ALTER TABLE `schools`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
