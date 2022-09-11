@@ -41,7 +41,8 @@
 								<label for="checkbox-1" class="cursor-pointer select-none text-slate-700 ml-2">Female</label>
 							</div>
 						</div>
-						<input type="hidden" name="courseCode" value="<?php echo $courseCode?>">
+						<input type="hidden" name="courseCode" value="<?php echo $_SESSION['courseCode']?>">
+						<input type="hidden" name="Swcompany" value="<?php echo $courseCode?>">
 						<div class="flex flex-wrap items-center justify-end p-3 border-t border-solid shrink-0 border-slate-100 rounded-b-xl">
 							<button   data-toggle="modal" type="submit" name="add" class="inline-block px-8 py-2 m-1 mb-4 text-xs font-bold text-center text-white uppercase align-middle transition-all border-0 rounded-lg cursor-pointer ease-soft-in leading-pro tracking-tight-soft bg-gradient-to-tl from-purple-700 to-pink-500 shadow-soft-md bg-150 bg-x-25 hover:scale-102 active:opacity-85">Add</button>
 						</div>

@@ -96,7 +96,7 @@ if(!isset($_SESSION["id"])) {
       <hr class="my-8 h-px bg-gray-200 border-0 dark:bg-gray-300">
       <div class="mt-1 pl-7 flex items-center ">
                 <span class="inline-block h-8 w-8 overflow-hidden rounded-full bg-gray-100 flex justify-center">
-                  <img src="./image/team-3.jpg" >
+                  <img src="./image/" >
                     
                   </img>
                 </span>

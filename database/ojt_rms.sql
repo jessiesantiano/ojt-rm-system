@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Sep 11, 2022 at 06:48 AM
+-- Host: 127.0.0.1
+-- Generation Time: Sep 11, 2022 at 03:16 PM
 -- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- PHP Version: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -41,12 +41,10 @@ CREATE TABLE `accounts` (
 --
 
 INSERT INTO `accounts` (`id`, `email`, `password`, `name`, `accountFor`, `courseCode`) VALUES
-(1, 'juan@gmail.com', '12345', 'Juan Dela Cruz', 'Bachelor of Early Childhood Education', 'BECEd'),
-(2, 'paul@gmail.com', '12345', 'Paul Justine Pintang', 'Bachelor of Arts in Economics', 'AB Eco'),
-(7, 'john@gmail.com', '12345', 'John De Leon', 'Bachelor of Elementary Education', 'BEEd'),
-(8, 'merry@gmail.com', '12345', 'Mary Merry A. Yudip', 'Bachelor of Secondary Education ', 'BSEd'),
-(10, 'test@gmail.com', '12345', 'Jose Rizal', 'Ligao National High School', NULL),
-(11, 'licomco.coordinator@gmail.com', 'coordinator123', 'Coordinator Account', 'coordinator', 'Coordinator');
+(1, 'coordinator1@gmail.com', 'admin1', 'Alicia O. Retona', 'Coordinator', 'Education Dep.'),
+(2, 'coordinator2@gmail.com', 'admin2', 'Lennie Rose P. Podrido', 'Coordinator', 'Economic Dep.'),
+(4, 'supervisor1', 'supervisor1', 'Mrs. Diana L. Desuyo', 'AMTIC HIGH SCHOOL', NULL),
+(5, 'schoolhead1', 'schoolhead1', 'Mrs. Iniz R. Paz', 'BARAYONG HIGH SCHOOL', NULL);
 
 -- --------------------------------------------------------
 
@@ -103,6 +101,13 @@ CREATE TABLE `reports` (
   `status` varchar(255) NOT NULL COMMENT '1=pending, 2=checked, 3=failed'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `reports`
+--
+
+INSERT INTO `reports` (`id`, `name`, `size`, `downloads`, `title`, `studentID`, `date`, `status`) VALUES
+(1, 'Drivers License.pdf', '226577', '0', 'MLBB Tournament 2021', 'LCC-0001', '2022-09-11 21:05:58', 'pending');
+
 -- --------------------------------------------------------
 
 --
@@ -120,7 +125,8 @@ CREATE TABLE `schools` (
 --
 
 INSERT INTO `schools` (`id`, `school`, `supervisor`) VALUES
-(1, 'Ligao National High School', 'Jose Rizal');
+(1, 'AMTIC HIGH SCHOOL', 'Mrs. Diana L. Desuyo'),
+(2, 'BARAYONG HIGH SCHOOL', 'Mrs. Iniz R. Paz');
 
 -- --------------------------------------------------------
 
@@ -136,6 +142,9 @@ CREATE TABLE `students` (
   `Semail` varchar(255) DEFAULT NULL,
   `studentID` varchar(255) DEFAULT NULL,
   `Spassword` varchar(255) DEFAULT NULL,
+  `Scourse` varchar(255) DEFAULT NULL,
+  `Syear` varchar(255) DEFAULT NULL,
+  `Sblock` varchar(255) DEFAULT NULL,
   `Sstreet` varchar(255) DEFAULT NULL,
   `Scity` varchar(255) DEFAULT NULL,
   `Sstate` varchar(255) DEFAULT NULL,
@@ -168,15 +177,9 @@ CREATE TABLE `students` (
 -- Dumping data for table `students`
 --
 
-INSERT INTO `students` (`id`, `Sname`, `Slname`, `Smname`, `Semail`, `studentID`, `Spassword`, `Sstreet`, `Scity`, `Sstate`, `Szipcode`, `Sage`, `Sgender`, `Sbday`, `Snumber`, `Sphoto`, `Sinsurance`, `Sph`, `Sparentph`, `Sphnumber`, `Svax`, `S1dose`, `S2dose`, `Sbooster`, `Svaxbooster`, `Swstatus`, `Swname`, `Swcompany`, `Swnumber`, `Swlocation`, `Swemployer`, `Swcontact`, `courseCode`) VALUES
-(1, 'Paul Justine', 'Pintang', 'Prena', 'paul@gmail.com', 'LCC-32423', 'LCC-631c003740a29', NULL, NULL, NULL, NULL, NULL, 'Male', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'BSEd'),
-(2, 'dsad', 'asdasd', 'asd', 'asd', 'asdasdas', 'LCC-631d2d679bdd6', NULL, NULL, NULL, NULL, NULL, 'Male', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'BECEd'),
-(3, 'das', 'asdas', 'dasd', 'dasd', 'asdasd', 'LCC-631d2d88af0fd', NULL, NULL, NULL, NULL, NULL, 'Male', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'BECEd'),
-(4, 'fds', 'sdfsdf', 'fsdf', 'sdf', 'sdfsdf', 'LCC-631d2eeaa9ce2', NULL, NULL, NULL, NULL, NULL, 'Female', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'BECEd'),
-(5, 'fdsf', 'dfsd', 'sdfs', 'fsdfsd', 'fsdfsdf', 'LCC-631d2ef04c3f4', NULL, NULL, NULL, NULL, NULL, 'Female', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'BECEd'),
-(6, 'Paul Justine', 'Pintang', 'Prena', 'dasd', 'sadasd', 'LCC-631d339f873f8', NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Ligao National High School ', NULL, NULL, NULL, NULL, 'BECEd'),
-(7, 'dsad', 'asd', 'sad', 'asdas', 'dasdasd', 'LCC-631d34b1b419d', NULL, NULL, NULL, NULL, NULL, 'Female', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'BECEd'),
-(8, 'gdsfgdf', 'fdsgfdg', 'gsdfg', 'sdfgsdfg', 'sfdgsdfg', 'LCC-631d661b9e201', NULL, NULL, NULL, NULL, NULL, 'Male', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AB Eco');
+INSERT INTO `students` (`id`, `Sname`, `Slname`, `Smname`, `Semail`, `studentID`, `Spassword`, `Scourse`, `Syear`, `Sblock`, `Sstreet`, `Scity`, `Sstate`, `Szipcode`, `Sage`, `Sgender`, `Sbday`, `Snumber`, `Sphoto`, `Sinsurance`, `Sph`, `Sparentph`, `Sphnumber`, `Svax`, `S1dose`, `S2dose`, `Sbooster`, `Svaxbooster`, `Swstatus`, `Swname`, `Swcompany`, `Swnumber`, `Swlocation`, `Swemployer`, `Swcontact`, `courseCode`) VALUES
+(1, 'Merdilene', 'Pomay', 'B.', 'merdilene.pomay@gmail.com', 'LCC-0001', 'LCC-631dc11a867b1', '', '', '', NULL, NULL, NULL, NULL, NULL, 'Female', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'BARAYONG HIGH SCHOOL', NULL, NULL, NULL, NULL, 'Education Dep.'),
+(2, 'Jonalyn', 'Btaller', 'B.', 'jonalyn.btaller@gmail.com', 'LCC-0002', 'LCC-631dd6d733f40', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Female', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '');
 
 --
 -- Indexes for dumped tables
@@ -226,7 +229,7 @@ ALTER TABLE `students`
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `announcements`
@@ -244,19 +247,19 @@ ALTER TABLE `documents`
 -- AUTO_INCREMENT for table `reports`
 --
 ALTER TABLE `reports`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `schools`
 --
 ALTER TABLE `schools`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

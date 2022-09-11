@@ -16,8 +16,7 @@ while ($row = mysqli_fetch_array($result)){
     <div class="md:grid md:grid-cols-3 md:gap-6">
       <div class="md:col-span-1">
         <div class="px-4 sm:px-0"></div>
-        <!-- <h3 class="text-lg font-medium leading-6 text-gray-900">Profile</h3>
-        <p class="mt-1 text-sm text-gray-600">This information will be displayed publicly so be careful what you share.</p> -->
+
       </div>
     </div>
     <div class="mt-5 md:col-span-2 md:mt-0">
@@ -40,6 +39,22 @@ while ($row = mysqli_fetch_array($result)){
                   <label for="last-name" class="block text-sm font-medium text-gray-700">Middle name</label>
                   <input readonly value="<?php echo $row['Smname']; ?>" type="text" name="last-name" id="last-name" autocomplete="family-name" class="text-center mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                 </div>
+
+                <div class="col-span-6 sm:col-span-4">
+                  <label for="first-name" class="block text-sm font-medium text-gray-700">Course</label>
+                  <input readonly value="<?php echo $row['Scourse']; ?>" type="text" name="first-name" id="first-name" autocomplete="given-name" class="text-center mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                </div>
+
+                <div class="col-span-6 sm:col-span-1">
+                  <label for="last-name" class="block text-sm font-medium text-gray-700">Year</label>
+                  <input readonly value="<?php echo $row['Syear']; ?>" type="text" name="last-name" id="last-name" autocomplete="family-name" class="text-center mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                </div>
+
+                <div class="col-span-6 sm:col-span-1">
+                  <label for="last-name" class="block text-sm font-medium text-gray-700">Block</label>
+                  <input readonly value="<?php echo $row['Sblock']; ?>" type="text" name="last-name" id="last-name" autocomplete="family-name" class="text-center mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                </div>
+
 
 
                 <div class="col-span-6">
@@ -91,7 +106,7 @@ while ($row = mysqli_fetch_array($result)){
               <label class="block text-sm font-medium text-gray-700">Photo</label>
               <div class="mt-1 flex items-center justify-center">
                 <span class="inline-block h-20 w-20 overflow-hidden rounded-full bg-gray-100 flex justify-center">
-                  <img src="./image/team-3.jpg">
+                  <img  src="./image/">
 
                   </img>
                 </span>
@@ -155,19 +170,19 @@ while ($row = mysqli_fetch_array($result)){
         <div class="overflow-hidden shadow sm:rounded-md">
           <div class="bg-white px-4 py-5 sm:p-6">
             <div class="grid grid-cols-6 gap-6">
-              <div class="col-span-6 sm:col-span-4">
+              <!-- <div class="col-span-6 sm:col-span-4">
                 <label for="email-address" class="block text-sm font-medium text-gray-700">Insurance</label>
                 <input value="<?php echo $row['Sinsurance']; ?>" type="text" class="text-center mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-              </div>
-              <div class="col-span-6 sm:col-span-4">
+              </div> -->
+              <!-- <div class="col-span-6 sm:col-span-4">
                 <label for="country" class="block text-sm font-medium text-gray-700">Philhealth</label>
                 <select id="country" name="country" autocomplete="country-name" class="text-center mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
                   <option selected value="<?php echo $row['Sph']; ?>"><?php echo $row['Sph']; ?></option>  
                   <option>with Philhealth</option>
                   <option>wihtout Philhealth</option>
                 </select>
-              </div>
-              <div class="col-span-6 sm:col-span-3">
+              </div> -->
+              <!-- <div class="col-span-6 sm:col-span-3">
                 <label for="first-name" class="block text-sm font-medium text-gray-700">Name of parent with Philhealth</label>
                 <input value="<?php echo $row['Sparentph']; ?>" type="text" name="first-name" id="first-name" autocomplete="given-name" class="text-center mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
               </div>
@@ -175,11 +190,11 @@ while ($row = mysqli_fetch_array($result)){
               <div class="col-span-6 sm:col-span-3">
                 <label for="last-name" class="block text-sm font-medium text-gray-700">Philhealth number</label>
                 <input value="<?php echo $row['Sphnumber']; ?>" type="text" name="last-name" id="last-name" autocomplete="family-name" class="text-center mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-              </div>
+              </div> -->
 
               <div class="col-span-6 sm:col-span-4">
                 <label for="email-address" class="block text-sm font-medium text-gray-700">Vaccination Status</label>
-                <input value="<?php echo $row['Svax']; ?>" type="text" class="text-center mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                <!-- <input value="<?php echo $row['Svax']; ?>" type="text" class="text-center mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"> -->
               </div>
 
               <div class="col-span-6 sm:col-span-3">
@@ -206,25 +221,7 @@ while ($row = mysqli_fetch_array($result)){
                 </select>
               </div>
 
-              <!-- <div class="col-span-6">
-                <label for="street-address" class="block text-sm font-medium text-gray-700">Street address</label>
-                <input type="text" name="street-address" id="street-address" autocomplete="street-address" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-              </div>
 
-              <div class="col-span-6 sm:col-span-6 lg:col-span-2">
-                <label for="city" class="block text-sm font-medium text-gray-700">City</label>
-                <input type="text" name="city" id="city" autocomplete="address-level2" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-              </div>
-
-              <div class="col-span-6 sm:col-span-3 lg:col-span-2">
-                <label for="region" class="block text-sm font-medium text-gray-700">State / Province</label>
-                <input type="text" name="region" id="region" autocomplete="address-level1" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-              </div>
-
-              <div class="col-span-6 sm:col-span-3 lg:col-span-2">
-                <label for="postal-code" class="block text-sm font-medium text-gray-700">ZIP / Postal code</label>
-                <input type="text" name="postal-code" id="postal-code" autocomplete="postal-code" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-              </div> -->
             </div>
           </div>
           <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
@@ -258,27 +255,18 @@ while ($row = mysqli_fetch_array($result)){
               <!-- <legend class="sr-only">By Email</legend> -->
               <!-- <div class="text-base font-medium text-gray-900" aria-hidden="true">By Email</div> -->
               <div class="mt-6 space-y-6 items-center">
-                <div class="flex justify-center">
-                  <div class="col-span-6 sm:col-span-6">
-                    <label for="comments" class="font-medium text-gray-700">Are you a?</label>
-                    <select id="country" name="country" autocomplete="country-name" class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
-                    <option value="<?php echo $row['Swstatus']; ?>"><?php echo $row['Swstatus']; ?></option>  
-                    <option>Working Student</option>
-                      <option>Non Working Student</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-span-6 sm:col-span-4">
+
+                <!-- <div class="col-span-6 sm:col-span-4">
                   <label for="email-address" class="block text-sm font-medium text-gray-700">Nature of Work / Type of Job</label>
                   <input value="<?php echo $row['Swname']; ?>" type="text" class="text-center text-center mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-                </div>
+                </div> -->
                 <div class="col-span-6 sm:col-span-4">
-                  <label for="email-address" class="block text-sm font-medium text-gray-700">Name of Company</label>
+                  <label for="email-address" class="block text-sm font-medium text-gray-700">Name of Company/School</label>
                   <input value="<?php echo $row['Swcompany']; ?>" type="text" class="text-center mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                 </div>
 
                 <div class="col-span-6 sm:col-span-4">
-                  <label for="email-address" class="block text-sm font-medium text-gray-700">No. of Year or Months Employed in the Company</label>
+                  <label for="email-address" class="block text-sm font-medium text-gray-700">OJT no. hours</label>
                   <input value="<?php echo $row['Swnumber']; ?>" type="text" class="text-center mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                 </div>
 
@@ -288,7 +276,7 @@ while ($row = mysqli_fetch_array($result)){
                 </div>
 
                 <div class="col-span-6 sm:col-span-4">
-                  <label for="email-address" class="block text-sm font-medium text-gray-700">Name of Employer</label>
+                  <label for="email-address" class="block text-sm font-medium text-gray-700">Schoolhead / Supervisor Name</label>
                   <input value="<?php echo $row['Swemployer']; ?>" type="text" class="text-center mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                 </div>
                 <div class="col-span-6 sm:col-span-4">
