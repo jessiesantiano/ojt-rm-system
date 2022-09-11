@@ -7,6 +7,12 @@
 		case 'list' :
 			$content = 'school.php';		
 			break;
+		case 'view' :
+			$content = 'trainees.php';		
+			break;
+		case 'trainee' :
+			$content = 'trainee.profile.php';		
+			break;
 		default :
 			$content = 'school.php';		
 	}
