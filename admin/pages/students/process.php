@@ -25,7 +25,7 @@
 
     // code for retrieve from database
     // $courseCode is a global variable / in template
-     $results = mysqli_query($db, "SELECT * FROM students WHERE courseCode = '$courseCode'");
+     $results = mysqli_query($db, "SELECT * FROM students WHERE courseCode = '$courseCode' OR Swcompany = '$school'");
 
     // update 
     if (isset($_POST['update'])) {
