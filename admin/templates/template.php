@@ -273,7 +273,7 @@
               $id = $_SESSION['id'];
               $getUserLoggedin= mysqli_query($db, "SELECT * FROM accounts WHERE id = $id");
               $getUserLoggedin = $getUserLoggedin -> fetch_assoc();
-              ['courseCode' => $courseCode, 'name' => $name, 'school' => $school] = $getUserLoggedin;
+              ['courseCode' => $courseCode, 'name' => $name, 'accountFor' => $accountFor] = $getUserLoggedin;
               require_once $content;
              ?> 
         </div>

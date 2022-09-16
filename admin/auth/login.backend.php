@@ -36,7 +36,7 @@
                     $name = $_POST['name'];
                     $_SESSION['email'] = $row['email'];
                     $_SESSION['courseCode'] = $row['courseCode'];
-                    $_SESSION['school'] = $row['school'];
+                    $_SESSION['accountFor'] = $row['accountFor'];
                     $_SESSION['id'] = $row['id'];
 
                     header('location: ../pages/dashboard/');

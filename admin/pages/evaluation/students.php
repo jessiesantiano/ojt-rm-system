@@ -49,5 +49,4 @@
 		</div>
 	</div>
 	
-	<?php include './modals/addModal.php'; ?> 
-	<?php include './modals/editModal.php'; ?> 
+	<?php include './modals/evaluateModal.php'; ?> 
