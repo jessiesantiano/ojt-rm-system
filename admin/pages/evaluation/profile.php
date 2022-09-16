@@ -115,6 +115,8 @@ while ($row = mysqli_fetch_array($students)) { ?>
  	</div>
  <?php } ?>
 
+	<?php include './modals/evaluateModal.php'; ?> 
+
 <!-- Documents / Report Section -->
 
 
