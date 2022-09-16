@@ -96,9 +96,15 @@
             </div>
           </div>
           <div class="flex flex-col items-center justify-center">
-            <p class="bg-gradient-to-tl from-slate-600 to-slate-300 px-3 text-xs rounded-1.8 py-2 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">
-            <?php echo $row["status"]; ?>
-            </p>
+          <?php
+                    if ($row['status'] == 'pending') {
+                      echo '<span class="bg-gradient-to-tl from-slate-600 to-slate-300 px-3 text-xs rounded-1.8 py-2 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">Pending</span>';
+                    } elseif ($row['status'] == 'checked') {
+                      echo '<span class="bg-gradient-to-tl from-green-600 to-green-300 px-3 text-xs rounded-1.8 py-2 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">Checked</span>';
+                    } else{
+                      echo '<span class="bg-gradient-to-tl from-red-600 to-red-300 px-3 text-xs rounded-1.8 py-2 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">Failed</span>';
+                    }
+                    ?>
           </div>
         </li>
         <?php }?>
