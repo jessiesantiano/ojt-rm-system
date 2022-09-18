@@ -13,23 +13,23 @@
 								<small>Course Long Term Plan – logical flow,content sufficient and appropriate to level</small>
 								<div class="flex justify-between w-full px-8">
 									<div class="flex flex-col items-center justify-center gap-2 h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="0" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">0</label>
 									</div>
 									<div class="flex flex-col items-center justify-between gap-2  h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="1" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">1</label>
 									</div>
 									<div class="flex flex-col items-center justify-between gap-2 h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="2" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">2</label>
 									</div>
 									<div class="flex flex-col items-center justify-between gap-2 h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="3" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">3</label>
 									</div>
 									<div class="flex flex-col items-center justify-between gap-2h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="4" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">4</label>
 									</div>
 								</div>
@@ -38,23 +38,23 @@
 								<small>Lesson Plan – accurate content and activities flow smoothly. Easily referenced.</small>
 								<div class="flex justify-between w-full px-8">
 									<div class="flex flex-col items-center justify-center gap-2 h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="0" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">0</label>
 									</div>
 									<div class="flex flex-col items-center justify-between gap-2  h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="1" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">1</label>
 									</div>
 									<div class="flex flex-col items-center justify-between gap-2 h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="2" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">2</label>
 									</div>
 									<div class="flex flex-col items-center justify-between gap-2 h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="3" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">3</label>
 									</div>
 									<div class="flex flex-col items-center justify-between gap-2h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="4" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">4</label>
 									</div>
 								</div>
@@ -63,23 +63,23 @@
 								<small>Demonstrates clear understanding of methodology or strategy being taught.</small>
 								<div class="flex justify-between w-full px-8">
 									<div class="flex flex-col items-center justify-center gap-2 h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="0" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">0</label>
 									</div>
 									<div class="flex flex-col items-center justify-between gap-2  h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="1" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">1</label>
 									</div>
 									<div class="flex flex-col items-center justify-between gap-2 h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="2" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">2</label>
 									</div>
 									<div class="flex flex-col items-center justify-between gap-2 h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="3" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">3</label>
 									</div>
 									<div class="flex flex-col items-center justify-between gap-2h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="4" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">4</label>
 									</div>
 								</div>
@@ -88,23 +88,23 @@
 								<small>Opportunities for candidate evaluation throughout</small>
 								<div class="flex justify-between w-full px-8">
 									<div class="flex flex-col items-center justify-center gap-2 h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="0" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">0</label>
 									</div>
 									<div class="flex flex-col items-center justify-between gap-2  h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="1" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">1</label>
 									</div>
 									<div class="flex flex-col items-center justify-between gap-2 h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="2" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">2</label>
 									</div>
 									<div class="flex flex-col items-center justify-between gap-2 h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="3" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">3</label>
 									</div>
 									<div class="flex flex-col items-center justify-between gap-2h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="4" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">4</label>
 									</div>
 								</div>
@@ -116,23 +116,23 @@
 								<small>Teaching methods chosen are appropriate and effective for topic/skill and encourages maximum class participation</small>
 								<div class="flex justify-between w-full px-8">
 									<div class="flex flex-col items-center justify-center gap-2 h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="0" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">0</label>
 									</div>
 									<div class="flex flex-col items-center justify-between gap-2  h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="1" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">1</label>
 									</div>
 									<div class="flex flex-col items-center justify-between gap-2 h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="2" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">2</label>
 									</div>
 									<div class="flex flex-col items-center justify-between gap-2 h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="3" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">3</label>
 									</div>
 									<div class="flex flex-col items-center justify-between gap-2h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="4" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">4</label>
 									</div>
 								</div>
@@ -141,23 +141,23 @@
 								<small>Voice is clear and audible, keeps directions short and simple</small>
 								<div class="flex justify-between w-full px-8">
 									<div class="flex flex-col items-center justify-center gap-2 h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="0" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">0</label>
 									</div>
 									<div class="flex flex-col items-center justify-between gap-2  h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="1" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">1</label>
 									</div>
 									<div class="flex flex-col items-center justify-between gap-2 h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="2" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">2</label>
 									</div>
 									<div class="flex flex-col items-center justify-between gap-2 h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="3" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">3</label>
 									</div>
 									<div class="flex flex-col items-center justify-between gap-2h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="4" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">4</label>
 									</div>
 								</div>
@@ -166,23 +166,23 @@
 								<small>Visual and tactile communication used when appropriate</small>
 								<div class="flex justify-between w-full px-8">
 									<div class="flex flex-col items-center justify-center gap-2 h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="0" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">0</label>
 									</div>
 									<div class="flex flex-col items-center justify-between gap-2  h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="1" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">1</label>
 									</div>
 									<div class="flex flex-col items-center justify-between gap-2 h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="2" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">2</label>
 									</div>
 									<div class="flex flex-col items-center justify-between gap-2 h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="3" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">3</label>
 									</div>
 									<div class="flex flex-col items-center justify-between gap-2h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="4" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">4</label>
 									</div>
 								</div>
@@ -192,23 +192,23 @@
 								<small>Teaching of topic/skill done in logical manageable chunks</small>
 								<div class="flex justify-between w-full px-8">
 									<div class="flex flex-col items-center justify-center gap-2 h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="0" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">0</label>
 									</div>
 									<div class="flex flex-col items-center justify-between gap-2  h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="1" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">1</label>
 									</div>
 									<div class="flex flex-col items-center justify-between gap-2 h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="2" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">2</label>
 									</div>
 									<div class="flex flex-col items-center justify-between gap-2 h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="3" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">3</label>
 									</div>
 									<div class="flex flex-col items-center justify-between gap-2h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="4" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">4</label>
 									</div>
 								</div>
@@ -224,23 +224,23 @@
 									needed for success</small>
 								<div class="flex justify-between w-full px-8">
 									<div class="flex flex-col items-center justify-center gap-2 h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="0" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">0</label>
 									</div>
 									<div class="flex flex-col items-center justify-between gap-2  h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="1" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">1</label>
 									</div>
 									<div class="flex flex-col items-center justify-between gap-2 h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="2" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">2</label>
 									</div>
 									<div class="flex flex-col items-center justify-between gap-2 h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="3" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">3</label>
 									</div>
 									<div class="flex flex-col items-center justify-between gap-2h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="4" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">4</label>
 									</div>
 								</div>
@@ -250,23 +250,23 @@
 								references performance award must sees</small>
 								<div class="flex justify-between w-full px-8">
 									<div class="flex flex-col items-center justify-center gap-2 h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="0" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">0</label>
 									</div>
 									<div class="flex flex-col items-center justify-between gap-2  h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="1" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">1</label>
 									</div>
 									<div class="flex flex-col items-center justify-between gap-2 h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="2" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">2</label>
 									</div>
 									<div class="flex flex-col items-center justify-between gap-2 h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="3" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">3</label>
 									</div>
 									<div class="flex flex-col items-center justify-between gap-2h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="4" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">4</label>
 									</div>
 								</div>
@@ -276,23 +276,23 @@
 									breaks down skill when correcting</small>
 								<div class="flex justify-between w-full px-8">
 									<div class="flex flex-col items-center justify-center gap-2 h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="0" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">0</label>
 									</div>
 									<div class="flex flex-col items-center justify-between gap-2  h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="1" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">1</label>
 									</div>
 									<div class="flex flex-col items-center justify-between gap-2 h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="2" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">2</label>
 									</div>
 									<div class="flex flex-col items-center justify-between gap-2 h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="3" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">3</label>
 									</div>
 									<div class="flex flex-col items-center justify-between gap-2h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="4" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">4</label>
 									</div>
 								</div>
@@ -303,23 +303,23 @@
 									evaluation and evaluation standards</small>
 								<div class="flex justify-between w-full px-8">
 									<div class="flex flex-col items-center justify-center gap-2 h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="0" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">0</label>
 									</div>
 									<div class="flex flex-col items-center justify-between gap-2  h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="1" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">1</label>
 									</div>
 									<div class="flex flex-col items-center justify-between gap-2 h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="2" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">2</label>
 									</div>
 									<div class="flex flex-col items-center justify-between gap-2 h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="3" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">3</label>
 									</div>
 									<div class="flex flex-col items-center justify-between gap-2h-full mb-4">
-										<input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+										<input id="default-radio-1" type="radio" value="4" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
 										<label for="default-radio-1" class=" text-xs font-medium text-gray-900 dark:text-gray-300">4</label>
 									</div>
 								</div>
@@ -330,19 +330,19 @@
 					</div>
 					<div class="flex p-3 gap-2">
 						<div>
-							<small class="font-bold">Excellent = 4</small> /
+							<small class="font-bold">Excellent/Outstanding = 4</small> /
 						</div>
 						<div>
-							<small class="font-bold">Very Good = 3</small> /
+							<small class="font-bold">very satisfactory= 3</small> /
 						</div>
 						<div>
-							<small class="font-bold">Good = 2</small> /
+							<small class="font-bold">Satisfactory = 2</small> /
 						</div>
 						<div>
-							<small class="font-bold">Poor = 1</small> /
+							<small class="font-bold">Unsatisfactory = 1</small> /
 						</div>
 						<div>
-							<small class="font-bold">Unsatisfactory = 0</small>
+							<small class="font-bold">Poor = 0</small>
 						</div>
 					</div>
 					<div class="flex flex-wrap items-center justify-end p-3  rounded-b-xl">
