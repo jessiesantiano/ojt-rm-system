@@ -331,6 +331,8 @@
 									</div>
 								</div>
 							</div>
+
+							
 							<div class="space-y-3">
 								<small>6. Portrays Professional image at all times</small>
 								<div class="flex justify-between w-full px-8">
@@ -356,6 +358,7 @@
 									</div>
 								</div>
 							</div>
+
 							<div class="space-y-3">
 								<small>7. Uses teaching resources, curriculum materials, and content area standards</small>
 								<div class="flex justify-between w-full px-8">
@@ -553,6 +556,6 @@
            </div>
         </div>
     </div>
-</div>
+  </div>
 </div>
  <!-- end modal -->
