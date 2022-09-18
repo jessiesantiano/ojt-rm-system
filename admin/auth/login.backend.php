@@ -35,6 +35,8 @@
                     $row = mysqli_fetch_assoc($result);
                     $name = $_POST['name'];
                     $_SESSION['email'] = $row['email'];
+                    $_SESSION['courseCode'] = $row['courseCode'];
+                    $_SESSION['accountFor'] = $row['accountFor'];
                     $_SESSION['id'] = $row['id'];
 
                     header('location: ../pages/dashboard/');

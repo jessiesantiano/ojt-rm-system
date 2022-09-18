@@ -1,7 +1,7 @@
  <?php include('process.php') ?>
 	<!--Container-->
-		<div class="container w-full md:w-4/5 xl:w-3/5  mx-auto px-2">
-		<div class="flex justify-between items-center py-5">
+	<div class="w-full md:w-4/5 xl:w-3/5" style="padding: 0 40px 0 40px">
+		<div class="flex justify-between items-center py-2">
 			<h5>LICOMCO Coordinator Accounts</h5>
 			<?php if ($courseCode == "Coordinator") : ?>
 				<a href="#addAccount" data-toggle="modal">
@@ -12,7 +12,7 @@
             <?php endif; ?>
 
 		</div>
-			<div id='recipients' class="p-8 mt-6 xl:mt-0 rounded shadow bg-white">
+			<div id='recipients' class="mt-6 xl:mt-0 bg-white">
 			<table id="example" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
 				<thead>
 					<tr>

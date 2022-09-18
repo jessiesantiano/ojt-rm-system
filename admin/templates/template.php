@@ -25,6 +25,8 @@
     <!-- Nucleo Icons -->
     <link href="../../../build/assets/css/nucleo-icons.css" rel="stylesheet" />
     <link href="../../../build/assets/css/nucleo-svg.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />
+
     <!-- Popper -->
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <!-- Main Styling -->
@@ -171,7 +173,7 @@
               </li>
               <li class="flex items-center">
                 <a href="../../auth/logout.backend.php" class="pl-4  block px-0 py-2 font-semibold transition-all ease-nav-brand text-sm text-slate-500 ">
-                    <button class="w-full bg-green-300 p-3 " name="login">Sign out</button>
+                    <button class="w-full  " name="login">Sign out</button>
                 </a>
               </li>
               <li class="flex items-center pl-4 xl:hidden">
@@ -268,12 +270,12 @@
       <!-- end Navbar -->
 
       <!-- Pages Content -->
-        <div class="bg-white h-full" style="padding: 20px">
+        <div class="bg-white h-full py-5">
  		       <?php 
               $id = $_SESSION['id'];
               $getUserLoggedin= mysqli_query($db, "SELECT * FROM accounts WHERE id = $id");
               $getUserLoggedin = $getUserLoggedin -> fetch_assoc();
-              ['courseCode' => $courseCode, 'name' => $name] = $getUserLoggedin;
+              ['courseCode' => $courseCode, 'name' => $name, 'accountFor' => $accountFor] = $getUserLoggedin;
               require_once $content;
              ?> 
         </div>
@@ -336,6 +338,10 @@
 
     <script src="../../../build/assets/js/bootstrap.min.js"></script>
     <!-- <script src="../../../build/assets/js/jquery-1.12.4.js"></script> -->
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
+
+
 </html>
 <?php
     }else{
