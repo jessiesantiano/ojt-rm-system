@@ -1,31 +1,13 @@
-<div id="addStudent" class="show fade">
-    <div class="fixed w-full top-0 left-0 flex justify-center items-center" style="background: rgba(0,0,0,0.5);">
+  <div id="addStudent" class="show fade ">
+		<div class="fixed w-full h-full top-0 left-0 flex justify-center items-center" style="background: rgba(0,0,0,0.5);">
 			<div class="m-5 w-full h-full bg-white border border-solid pointer-events-auto dark:bg-gray-950 bg-clip-padding border-black/20 rounded-xl outline-0">
 				<div class="flex items-center justify-between p-4 border-b border-solid shrink-0 border-slate-100 rounded-t-xl">
 					<h5 class="mb-0 leading-normal dark:text-white" id="ModalLabel">Evaluate Trainee</h5>
 					<button type="button"  data-toggle="modal" class="fa fa-close w-4 h-4 ml-auto box-content p-2 text-black dark:text-white border-0 rounded-1.5 opacity-50 cursor-pointer -m-2 " data-dismiss="modal"></button>
 				</div>
-                 <div class="overflow-y-auto rounded-xl outline-0" style="height: calc(100vh - 100px)">
-                   <form action="reports.php" method="GET" target="_blank">
-					<div class="flex p-4 gap-2">
-						<div>
-							<small class="font-bold">Excellent/Outstanding = 5</small> /
-						</div>
-						<div>
-							<small class="font-bold">very satisfactory = 4</small> /
-						</div>
-						<div>
-							<small class="font-bold">Satisfactory = 3</small> /
-						</div>
-						<div>
-							<small class="font-bold">Unsatisfactory = 2</small> /
-						</div>
-						<div>
-							<small class="font-bold">Poor = 1</small>
-						</div>
-					</div>
+			     <form action="reports.php" method="GET" target="_blank">
 					<div class="grid grid-cols-3 gap-6 p-4 h-full overflow-y-auto">
-						<div class="h-full bg-gray-200 p-3 rounded-md">
+						<div class="h-full bg-gray-200 p-3">
 							<h6>Section 1 - PLANNING </h6>
 							<div class="space-y-3">
 								<small>1. Course Long Term Plan – logical flow,content sufficient and appropriate to level</small>
@@ -203,7 +185,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="h-full bg-blue-100 p-3 rounded-md">
+						<div class="h-full bg-blue-100 p-3">
 							<h6>Section 2 – TEACHING APPROACH</h6>
 							<div class="space-y-3">
 								<small>1. Teaching methods chosen are appropriate and effective for topic/skill and encourages maximum class participation</small>
@@ -383,7 +365,7 @@
 							</div>
 							
 						</div>
-						<div class="h-full bg-green-200 p-3 rounded-md">
+						<div class="h-full bg-green-200 p-3">
 							<h6>Section 3 – EVALUATION</h6>
 							<div class="space-y-3">
 								<small>1. Recognizes the need for and provides
@@ -544,15 +526,29 @@
 							</div>
 							
 						</div>
+						
 					</div>
-					<div class="flex flex-wrap items-center justify-end p-3 rounded-b-xl">
-						<button data-toggle="modal" type="submit" name="evaluate" class="inline-block px-8 py-2 m-1 mb-3 text-xs font-bold text-center text-white uppercase align-middle transition-all border-0 rounded-lg cursor-pointer ease-soft-in leading-pro tracking-tight-soft bg-gradient-to-tl from-purple-700 to-pink-500 shadow-soft-md bg-150 bg-x-25 hover:scale-102 active:opacity-85">Evaluate</button>
+					<div class="flex p-3 gap-2">
+						<div>
+							<small class="font-bold">Excellent/Outstanding = 5</small> /
+						</div>
+						<div>
+							<small class="font-bold">very satisfactory = 4</small> /
+						</div>
+						<div>
+							<small class="font-bold">Satisfactory = 3</small> /
+						</div>
+						<div>
+							<small class="font-bold">Unsatisfactory = 2</small> /
+						</div>
+						<div>
+							<small class="font-bold">Poor = 1</small>
+						</div>
+					</div>
+					<div class="flex flex-wrap items-center justify-end p-3  rounded-b-xl">
+						<button data-toggle="modal" type="submit" name="evaluate" class="inline-block px-8 py-2 m-1 mb-4 text-xs font-bold text-center text-white uppercase align-middle transition-all border-0 rounded-lg cursor-pointer ease-soft-in leading-pro tracking-tight-soft bg-gradient-to-tl from-purple-700 to-pink-500 shadow-soft-md bg-150 bg-x-25 hover:scale-102 active:opacity-85">Proceed</button>
 					</div>
 				</form>
-              </div>
-           </div>
-        </div>
-    </div>
-</div>
-</div>
- <!-- end modal -->
+			</div>
+		</div>
+	</div>

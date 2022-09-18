@@ -124,13 +124,27 @@ $html = '<!DOCTYPE html>
                 $s3rate3 = $_GET['s3-rate3'];
                 $s3rate4 = $_GET['s3-rate4'];
 
+                $s1total = $s1rate1 + $s1rate2 + $s1rate3 + $s1rate4;
+                $s2total = $s2rate1 + $s2rate2 + $s2rate3 + $s2rate4;
+                $s3total = $s3rate1 + $s3rate2 + $s3rate3 + $s3rate4;
+
+                // formula
+                // stotal/100x50+50 = average
+
+
+                $s1Avg = $s1total/100*50+50;
+                $s2Avg = $s2total/100*50+50;
+                $s3Avg = $s3total/100*50+50;
+                
+
+
                 $html.=' 
                 <h6>Section 1 - PLANNING</h6>
                 <p>1. Course Long Term Plan – logical flow,content sufficient and appropriate to level. = <b>'.$s1rate1.'</b></p>
                     <p>2. Lesson Plan – accurate content and activities flow smoothly. Easily referenced. = <b>'.$s1rate2.'</b></p>
                     <p>3. Demonstrates clear understanding of methodology or strategy being taught. = <b>'.$s1rate3.'</b></p>
                     <p>4. Opportunities for candidate evaluation throughout. = <b>'.$s1rate4.'</b></p>
-                    <b>Total/Average = 97</b>
+                    <b>Total/Average = '.$s1Avg.'</b>
                     </div>
                     <div>
                         <h6>Section 2 – TEACHING APPROACH</h6>
@@ -138,7 +152,7 @@ $html = '<!DOCTYPE html>
                         <p>2. Voice is clear and audible, keeps directions short and simple = <b>'.$s2rate2.'</b></p>
                         <p>3. Visual and tactile communication used when appropriate = <b>'.$s2rate3.'</b></p>
                         <p>4. Teaching of topic/skill done in logical manageable chunks. = <b>'.$s2rate4.'</b></p>
-                        <b>Total/Average = 97</b>
+                        <b>Total/Average = '.$s2Avg.'</b>
                     </div>
                     <div>
                         <h6>Section 3 – EVALUATION</h6>
@@ -152,7 +166,7 @@ $html = '<!DOCTYPE html>
                         breaks down skill when correcting. = <b>'.$s3rate3.'</b></p>
                         <p>4. Understands and demonstrates principles of
                         evaluation and evaluation standards. = <b>'.$s3rate4.'</b></p>
-                        <b>Total/Average = 97</b>
+                        <b>Total/Average = '.$s3Avg.'</b>
                     </div>
 		<h5>Total Grade = 1.2</h5>';
     }
