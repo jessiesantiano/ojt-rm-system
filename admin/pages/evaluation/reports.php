@@ -1,7 +1,7 @@
 <?php 
 
 // Include the main TCPDF library (search for installation path).
-require_once('TCPDF/tcpdf.php');
+require_once('../../TCPDF-main/tcpdf.php');
 
 date_default_timezone_set("Asia/Manila");
     $date = date("D M d, Y h:i: A");

@@ -1,8 +1,3 @@
-<<<<<<< HEAD
- <?php include('process.php'); ?>
- <!--Container-->
- <div class="container w-full md:w-4/5 xl:w-3/5  mx-auto px-2">
-=======
  <?php include('process.php');?>
 	<!--Container-->
 	<div class="w-full md:w-4/5 xl:w-3/5" style="padding: 0 40px 0 40px">
@@ -14,11 +9,20 @@
                 <h5>All trainees</h5>
               <?php endif; ?>
 		
-			<a href="#addStudent" data-toggle="modal">
-				<button type="button" class="inline-block px-6 py-3 font-bold text-center text-white uppercase align-middle transition-all rounded-lg cursor-pointer bg-gradient-to-tl from-purple-700 to-pink-500 leading-pro text-xs ease-soft-in tracking-tight-soft shadow-soft-md bg-150 bg-x-25 hover:scale-102 active:opacity-85 hover:shadow-soft-xs">
-					Add
-				</button>
-			</a>
+			  <div class="flex gap-2 items-center">
+				<a href="#addStudent" data-toggle="modal">
+					<button type="button" class="inline-block px-6 py-3 font-bold text-center text-white uppercase align-middle transition-all rounded-lg cursor-pointer bg-gradient-to-tl from-purple-700 to-pink-500 leading-pro text-xs ease-soft-in tracking-tight-soft shadow-soft-md bg-150 bg-x-25 hover:scale-102 active:opacity-85 hover:shadow-soft-xs">
+						Add
+					</button>
+				</a>
+				 <form action="student-listpdf.php" method="GET" target="_blank">
+					<input type="hidden" name="courseCode" value="<?php echo $courseCode; ?>">
+					<button type="submit" name="generate_report" class="flex justify-between  px-6 py-3 font-bold text-center text-white uppercase align-middle transition-all rounded-lg cursor-pointer bg-gradient-to-tl from-purple-700 to-pink-500 leading-pro text-xs ease-soft-in tracking-tight-soft shadow-soft-md bg-150 bg-x-25 hover:scale-102 active:opacity-85 hover:shadow-soft-xs">
+						<i class="fa fa-folder-open" aria-hidden="true"></i>&nbsp; Generate Report
+					</button>
+				 </form>
+			  </div>
+			
 		</div>
 		<div id='recipients' class="mt-2 xl:mt-0 rounded  bg-white">
 			<table id="example" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
@@ -53,9 +57,8 @@
 			</table>
 		</div>
 	</div>
->>>>>>> evaluate
 	
- 	<div class="flex justify-between py-5">
+ 	<!-- <div class="flex justify-between py-5">
 
  		<?php if ($courseCode != NULL) : ?>
  			<h5><?php echo $courseCode ?> Students List</h5>
@@ -110,7 +113,7 @@
  			</tbody>
  		</table>
  	</div>
- </div>
+ </div> -->
 
  <?php include './modals/addModal.php'; ?>
  <?php include './modals/editModal.php'; ?>

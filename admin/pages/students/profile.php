@@ -9,35 +9,29 @@ while ($row = mysqli_fetch_array($students)) {
   <!-- Student Profile -->
   <div class="ease-soft-in-out  relative h-full  transition-all duration-200">
     <div class="w-full px-6 mx-auto">
-      <div class="relative flex items-center p-0 mt-6 overflow-hidden bg-center bg-cover rounded-2xl" style="background-image: url('../assets/img/curved-images/curved0.jpg'); background-position-y: 50%">
-      </div>
-      <div class="relative flex flex-col flex-auto min-w-0 p-4 mx-6 -mt-10 overflow-hidden break-words border-0 shadow-blur rounded-2xl bg-white/80 bg-clip-border backdrop-blur-2xl backdrop-saturate-200">
-        <div class="flex flex-wrap -mx-3">
-          <div class="flex-none w-auto max-w-full px-3">
-            <div class="text-base ease-soft-in-out h-18.5 w-18.5 relative inline-flex items-center justify-center rounded-xl text-white transition-all duration-200">
-              <img src="" alt="profile_image" class="w-full shadow-soft-sm rounded-xl" />
-            </div>
-          </div>
-          <div class="flex-none w-auto max-w-full px-3 my-auto">
-            <div class="h-full">
-              <h5 class="mb-1"><?php echo $row['Sname'] ?> <?php echo $row['Smname'] ?> <?php echo $row['Slname'] ?></h5>
-              <p class="mb-0 font-semibold leading-normal text-sm"><?php echo $row['courseCode'] ?></p>
-            </div>
-          </div>
-          <div class="flex justify-between align-items-end">
-            <form action="student-profilepdf.php" method="GET" target="_blank">
+      <div class="flex justify-between items-center">
+ 				<div class="flex flex-wrap -mx-3">
+ 					<div class="flex-none w-auto max-w-full px-3">
+ 						<div class="text-base ease-soft-in-out h-18.5 w-18.5 relative inline-flex items-center justify-center rounded-xl text-white transition-all duration-200">
+ 							<img src="" alt="profile_image" class="w-full shadow-soft-sm rounded-xl" />
+ 						</div>
+ 					</div>
+ 					<div class="flex-none w-auto max-w-full px-3 my-auto">
+ 						<div class="h-full">
+ 							<h5 class="mb-1"><?php echo $row['Sname'] ?> <?php echo $row['Smname'] ?> <?php echo $row['Slname'] ?></h5>
+ 							<p class="mb-0 font-semibold leading-normal text-sm"><?php echo $row['courseCode'] ?></p>
+ 						</div>
+ 					</div>
+ 				</div>
+        <div>
+        <form action="student-profilepdf.php" method="GET" target="_blank">
               <input type="hidden" name="id" value="<?php echo $id; ?>">
               <input type="hidden" name="studentID" value="<?php echo $row['studentID']; ?>">
               <button type="submit" name="generate_id" class="ml-2 inline-block px-2 py-1 font-bold text-center text-white uppercase align-middle transition-all rounded-lg cursor-pointer bg-gradient-to-tl from-purple-700 to-pink-500 leading-pro text-xs ease-soft-in tracking-tight-soft shadow-soft-md bg-150 bg-x-25 hover:scale-102 active:opacity-85 hover:shadow-soft-xs">
                 <i class="fa fa-folder-open" aria-hidden="true"></i>&nbsp; Generate Report
               </button>
             </form>
-          </div>
         </div>
-        <div>
-
-
-
         </div>
       </div>
     </div>
