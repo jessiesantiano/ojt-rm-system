@@ -21,13 +21,13 @@ class PDF extends TCPDF{
     // PAGE FOOTER
     public function Footer(){
     // test some inline CSS
-        // $html = '<p style="color:#CC0000;">Note: Invalid without department head signature</p>';
-        // $this->writeHTML($html, true, false, true, false, '');
+        $html = '<p style="color:#CC0000;">Note: Invalid without supervisor signature</p>';
+        $this->writeHTML($html, true, false, true, false, '');
     }
 }
 
 // create new PDF document
-$pdf = new PDF('p', 'mm', 'A4', true, 'UTF-8', false);
+$pdf = new PDF('p', 'mm', 'LEGAL', true, 'UTF-8', false);
 
 // set document information
 $pdf->SetCreator(PDF_CREATOR);
@@ -99,11 +99,47 @@ $html = '<!DOCTYPE html>
 			5 means, Excellent/Outstanding: 4 means, very
 			satisfactory: 3 means, Satisfactory: 2 means Unsatisfactory: and 1 means Poor.
 		</i></b>
-		<h6>Midterm Evaluation Result</h6>
-		<p>1. Shows tact in dealing with different people he/she comes in contact with. = <b>5</b></p>
-		<p>2. Show respect and courtesy in dealing with peers and superiors. = <b>5</b></p>
+        <div>
+            <h6>Section 1 - PLANNING</h6>
+            <p>1. Course Long Term Plan – logical flow,content sufficient and appropriate to level. = <b>5</b></p>
+            <p>2. Lesson Plan – accurate content and activities flow smoothly. Easily referenced. = <b>5</b></p>
+            <p>3. Demonstrates clear understanding of methodology or strategy being taught. = <b>5</b></p>
+            <p>4. Opportunities for candidate evaluation throughout. = <b>5</b></p>
+        </div>
+        <div>
+            <h6>Section 2 – TEACHING APPROACH</h6>
+            <p>1. Teaching methods chosen are appropriate and effective for topic/skill and encourages maximum class participation = <b>5</b></p>
+            <p>2. Voice is clear and audible, keeps directions short and simple = <b>5</b></p>
+            <p>3. Visual and tactile communication used when appropriate = <b>5</b></p>
+            <p>4. Teaching of topic/skill done in logical manageable chunks. = <b>5</b></p>
+        </div>
+        <div>
+            <h6>Section 3 – EVALUATION</h6>
+            <p>1. Recognizes the need for and provides
+            immediate, specific and constructive feedback
+            during practice attempts, varies approach as
+            needed for success. = <b>5</b></p>
+            <p>2. Demonstrates ongoing evaluation and
+            references performance award must sees. = <b>5</b></p>
+            <p>3. Uses a variety of corrective techniques and
+            breaks down skill when correcting. = <b>5</b></p>
+            <p>4. Understands and demonstrates principles of
+            evaluation and evaluation standards. = <b>5</b></p>
+        </div>
+		<h5>Total = 1.5</h5>
 
-		<h6>Total = 1.5</h6>
+		<h6>Equivalent Rating</h6>
+        <div>
+            1.0 – 99 -100%; 1.1 – 98%; 1.2 – 97%; 1.3 – 96%; 1.4 – 95% (Outstanding); 1.5 – 94%; 1.6 – 93%;
+            1.7 – 92% (Superior); 1.8 – 91%; 1.9 – 90%; 2.0 – 89%; 2.1 – 88%; 2.2 – 87%; 2.3 – 86%; 2.4 –
+            85% (Very Satisfactory); 2.5 – 84%; 2.6 – 82-83%; 2.7 – 80-81% (Satisfactory); 2.8 – 78-79%; 2.9
+            – 76-77%; 3.0 – 75% (Fair); 3.1-4.0 CONDITIONAL FAILURE (Lowest Possible Rating)
+            5.0 – Failure; INC - INCOMPLETE
+        </div>
+
+        <p style="margin-top: 20px;">
+            Supervisor Signature
+        </p>
 	</div>
 </body>
 </html>';
