@@ -190,3 +190,6 @@ if (isset($_GET['downloadR_id'])) {
         // header ("location: index.php?view=view&id=$id");
         
     }
+
+
+

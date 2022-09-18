@@ -13,7 +13,9 @@ $title = "Students";
 		case 'documents' :
 			$content = 'documents.php';		
 			break;
+
 		default :
 		$content = 'students.php';			
 	}
 	require_once ("../../templates/template.php");
+?>

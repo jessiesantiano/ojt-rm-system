@@ -24,6 +24,20 @@ while ($row = mysqli_fetch_array($students)) {
               <p class="mb-0 font-semibold leading-normal text-sm"><?php echo $row['courseCode'] ?></p>
             </div>
           </div>
+          <div class="flex justify-between align-items-end">
+            <form action="student-profilepdf.php" method="GET" target="_blank">
+              <input type="hidden" name="id" value="<?php echo $id; ?>">
+              <input type="hidden" name="studentID" value="<?php echo $row['studentID']; ?>">
+              <button type="submit" name="generate_id" class="ml-2 inline-block px-2 py-1 font-bold text-center text-white uppercase align-middle transition-all rounded-lg cursor-pointer bg-gradient-to-tl from-purple-700 to-pink-500 leading-pro text-xs ease-soft-in tracking-tight-soft shadow-soft-md bg-150 bg-x-25 hover:scale-102 active:opacity-85 hover:shadow-soft-xs">
+                <i class="fa fa-folder-open" aria-hidden="true"></i>&nbsp; Generate Report
+              </button>
+            </form>
+          </div>
+        </div>
+        <div>
+
+
+
         </div>
       </div>
     </div>
@@ -191,7 +205,7 @@ while ($row = mysqli_fetch_array($students)) {
   </div>
   <!-- Document Section End -->
 
-<!-- Report Section -->
+  <!-- Report Section -->
 
   <div class="flex flex-wrap -mx-3 py-3">
     <div class="flex-none w-full max-w-full px-3">
@@ -234,15 +248,15 @@ while ($row = mysqli_fetch_array($students)) {
 
                     <td class="p-2 leading-normal text-center align-middle bg-transparent border-b text-sm whitespace-nowrap shadow-transparent">
 
-                    <?php
-                    if ($row['status'] == 'pending') {
-                      echo '<span class="bg-gradient-to-tl from-slate-600 to-slate-300 px-3 text-xs rounded-1.8 py-2 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">Pending</span>';
-                    } elseif ($row['status'] == 'checked') {
-                      echo '<span class="bg-gradient-to-tl from-green-600 to-green-300 px-3 text-xs rounded-1.8 py-2 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">Checked</span>';
-                    } else{
-                      echo '<span class="bg-gradient-to-tl from-red-600 to-red-300 px-3 text-xs rounded-1.8 py-2 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">Failed</span>';
-                    }
-                    ?>
+                      <?php
+                      if ($row['status'] == 'pending') {
+                        echo '<span class="bg-gradient-to-tl from-slate-600 to-slate-300 px-3 text-xs rounded-1.8 py-2 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">Pending</span>';
+                      } elseif ($row['status'] == 'checked') {
+                        echo '<span class="bg-gradient-to-tl from-green-600 to-green-300 px-3 text-xs rounded-1.8 py-2 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">Checked</span>';
+                      } else {
+                        echo '<span class="bg-gradient-to-tl from-red-600 to-red-300 px-3 text-xs rounded-1.8 py-2 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">Failed</span>';
+                      }
+                      ?>
 
 
                     </td>
@@ -256,13 +270,12 @@ while ($row = mysqli_fetch_array($students)) {
                       <a href="./process.php?downloadR_id=<?php echo $row['id'] ?>" class="font-semibold leading-tight text-sm text-slate-400 px-3"> <i class="fa fa-download" aria-hidden="true"></i> &nbsp;Download </a>
 
                       <?php
-                    if ($row['status'] == 'pending') {
-                      echo "<a href='#check_id".$row['id']."' data-toggle='modal' href='' class='font-semibold leading-tight text-sm text-slate-400'><i class='fa fa-check-circle'></i> &nbsp;Mark as check </a>";
-                    } elseif ($row['status'] == 'checked') {
-                      
-                    }
-                    ?>
-                      
+                      if ($row['status'] == 'pending') {
+                        echo "<a href='#check_id" . $row['id'] . "' data-toggle='modal' href='' class='font-semibold leading-tight text-sm text-slate-400'><i class='fa fa-check-circle'></i> &nbsp;Mark as check </a>";
+                      } elseif ($row['status'] == 'checked') {
+                      }
+                      ?>
+
                     </td>
                   <?php } ?>
                   </tr>
@@ -275,8 +288,8 @@ while ($row = mysqli_fetch_array($students)) {
   </div>
 
 
-<!-- Report Section End -->
+  <!-- Report Section End -->
 
 <?php } ?>
 
-<?php include './modals/addModal.php'; ?> 
+<?php include './modals/addModal.php'; ?>
