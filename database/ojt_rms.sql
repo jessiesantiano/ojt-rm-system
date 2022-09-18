@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 11, 2022 at 03:16 PM
+-- Generation Time: Sep 16, 2022 at 04:35 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -84,6 +84,17 @@ CREATE TABLE `documents` (
   `date` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `documents`
+--
+
+INSERT INTO `documents` (`id`, `title`, `destination`, `studentID`, `size`, `name`, `downloads`, `date`) VALUES
+(1, 'MLBB Tournament 2021', 'Before OJT Requirements', 'LCC-0001', '226577', 'Drivers License.pdf', 1, '2022-09-13 19:12:27'),
+(2, 'COD ', 'Before OJT Requirements', 'LCC-0002', '226577', 'Drivers License.pdf', 0, '2022-09-14 09:53:42'),
+(3, 'COD ', 'After OJT Requirements', 'LCC-0001', '226577', 'Drivers License.pdf', 1, '2022-09-14 14:15:24'),
+(4, 'sample req', 'After OJT Requirements', 'LCC-0002', '3902636', 'layout.docx', 0, '2022-09-15 22:43:59'),
+(5, 'sample pdf', 'After OJT Requirements', 'LCC-0002', '150738', 'Jessie Santiano.pdf', 0, '2022-09-15 22:48:03');
+
 -- --------------------------------------------------------
 
 --
@@ -98,6 +109,7 @@ CREATE TABLE `reports` (
   `title` varchar(255) NOT NULL,
   `studentID` varchar(255) NOT NULL,
   `date` datetime NOT NULL DEFAULT current_timestamp(),
+  `comment` text NOT NULL,
   `status` varchar(255) NOT NULL COMMENT '1=pending, 2=checked, 3=failed'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -105,8 +117,11 @@ CREATE TABLE `reports` (
 -- Dumping data for table `reports`
 --
 
-INSERT INTO `reports` (`id`, `name`, `size`, `downloads`, `title`, `studentID`, `date`, `status`) VALUES
-(1, 'Drivers License.pdf', '226577', '0', 'MLBB Tournament 2021', 'LCC-0001', '2022-09-11 21:05:58', 'pending');
+INSERT INTO `reports` (`id`, `name`, `size`, `downloads`, `title`, `studentID`, `date`, `comment`, `status`) VALUES
+(1, 'Drivers License.pdf', '226577', '0', 'MLBB Tournament 2021', 'LCC-0001', '2022-09-11 21:05:58', '', 'checked'),
+(2, 'Santiano, Jessie T. (PSA).pdf', '1672525', '0', 'sample', 'LCC-0002', '2022-09-15 22:42:58', 'sample comment', 'fa'),
+(3, 'Jessie Santiano.pdf', '150738', '0', 'sample report', 'LCC-0002', '2022-09-15 22:48:14', '', 'checked'),
+(4, 'img20220731_08060207.pdf', '886279', '0', 'Sample Report Pending', 'LCC-0002', '2022-09-16 10:20:03', '', 'pending');
 
 -- --------------------------------------------------------
 
@@ -179,7 +194,7 @@ CREATE TABLE `students` (
 
 INSERT INTO `students` (`id`, `Sname`, `Slname`, `Smname`, `Semail`, `studentID`, `Spassword`, `Scourse`, `Syear`, `Sblock`, `Sstreet`, `Scity`, `Sstate`, `Szipcode`, `Sage`, `Sgender`, `Sbday`, `Snumber`, `Sphoto`, `Sinsurance`, `Sph`, `Sparentph`, `Sphnumber`, `Svax`, `S1dose`, `S2dose`, `Sbooster`, `Svaxbooster`, `Swstatus`, `Swname`, `Swcompany`, `Swnumber`, `Swlocation`, `Swemployer`, `Swcontact`, `courseCode`) VALUES
 (1, 'Merdilene', 'Pomay', 'B.', 'merdilene.pomay@gmail.com', 'LCC-0001', 'LCC-631dc11a867b1', '', '', '', NULL, NULL, NULL, NULL, NULL, 'Female', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'BARAYONG HIGH SCHOOL', NULL, NULL, NULL, NULL, 'Education Dep.'),
-(2, 'Jonalyn', 'Btaller', 'B.', 'jonalyn.btaller@gmail.com', 'LCC-0002', 'LCC-631dd6d733f40', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Female', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '');
+(2, 'Jonalyn', 'Btaller', 'B.', 'jonalyn.btaller@gmail.com', 'LCC-0002', 'LCC-631dd6d733f40', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Female', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Education Dep.');
 
 --
 -- Indexes for dumped tables
@@ -241,13 +256,13 @@ ALTER TABLE `announcements`
 -- AUTO_INCREMENT for table `documents`
 --
 ALTER TABLE `documents`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `reports`
 --
 ALTER TABLE `reports`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `schools`
@@ -259,7 +274,7 @@ ALTER TABLE `schools`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

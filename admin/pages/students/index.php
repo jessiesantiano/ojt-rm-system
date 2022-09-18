@@ -10,9 +10,12 @@ $title = "Students";
 		case 'view' :
 			$content = 'profile.php';		
 			break;
+		case 'documents' :
+			$content = 'documents.php';		
+			break;
+
 		default :
 		$content = 'students.php';			
 	}
 	require_once ("../../templates/template.php");
-
 ?>

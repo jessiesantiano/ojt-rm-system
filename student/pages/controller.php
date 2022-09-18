@@ -23,13 +23,13 @@ if (isset($_POST['Dupload'])) { // if upload button on the form is clicked
     $file = $_FILES['myfile']['tmp_name'];
     $size = $_FILES['myfile']['size'];
 
-    if (!in_array($extension, ['jpeg', 'pdf', 'docx'])) {
+    if (!in_array($extension, ['pdf'])) {
 
         
       
         header('location: ../index.php?q=documents');
         $_SESSION['status'] = "Woo hoo!";
-        $_SESSION['text'] = "You file extension must be .jpeg, .pdf or .docx";
+        $_SESSION['text'] = "You file extension must be .pdf";
         $_SESSION['icon'] = "warning";
     } elseif ($_FILES['myfile']['size'] > 10000000) { // file shouldn't be larger than 10Megabyte
         header('location: ../index.php?q=documents');
@@ -156,11 +156,11 @@ if (isset($_POST['Rupload'])) { // if upload button on the form is clicked
     $file = $_FILES['myfile']['tmp_name'];
     $size = $_FILES['myfile']['size'];
 
-    if (!in_array($extension, ['pdf', 'docx'])) {
+    if (!in_array($extension, ['pdf'])) {
 
         header('location: ../index.php?q=reports');
         $_SESSION['status'] = "Woo hoo!";
-        $_SESSION['text'] = "Your file must be .pdf or .docx";
+        $_SESSION['text'] = "Your file must be .pdf";
         $_SESSION['icon'] = "warning";
     } elseif ($_FILES['myfile']['size'] > 10000000) { // file shouldn't be larger than 10Megabyte
         header('location: ../index.php?q=reports');
