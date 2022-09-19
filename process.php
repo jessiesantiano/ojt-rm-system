@@ -24,9 +24,6 @@ if (isset($_POST['submit'])) {
             $_SESSION['Sname'] = $row['Sname'];
             $_SESSION['Slname'] = $row['Slname'];
             $_SESSION['Semail'] = $row['Semail'];
-            // eval request
-            $_SESSION['iSmidterm'] = $row['iSmidterm'];
-            $_SESSION['iSfinal'] = $row['iSfinal'];
       
             header("Location: ./student/index.php");
             $_SESSION['status'] = "Woo hoo!";

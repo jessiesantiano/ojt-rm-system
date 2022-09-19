@@ -1,13 +1,19 @@
+
 <?php
     session_start();
     require_once '../connection.php';
     if (isset($_SESSION['id'])) {
-
       $id = $_SESSION['id'];
       if (isset($_POST['midterm'])) {
         $iSmidterm = $_POST['iSmidterm'];
         mysqli_query($db, "UPDATE students SET iSmidterm='$iSmidterm' WHERE id=$id");
       }
+
+      if (isset($_POST['final'])) {
+        $iSfinal = $_POST['iSfinal'];
+        mysqli_query($db, "UPDATE students SET iSfinal='$iSfinal' WHERE id=$id");
+      }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -105,20 +111,60 @@
           </span>
           <span class="text-xs px-3"><?php echo $_SESSION["Sname"]; ?> <?php echo $_SESSION["Slname"]; ?></span>
         </div>
-      <div class="p-3 pl-9">
-        <small>Evaluation Status</small>
-        <div>
-          <b><small>MIDTERM</small></b>
-          <form action="" method="POST">
-            <input type="text" value="requested" name="iSmidterm" hidden>
-            <button type="submit" name="midterm" class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-xs px-5 py-2.5 text-center mr-2 mb-2">Request for Midterm Grade</button>
-          </form>
-        </div>
-        <div>
-          <b><small>FINAL</small></b>
-          <button disabled type="button" class="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-xs px-5 py-2.5 text-center mr-2 mb-2">Request for Final Grade</button>
-        </div>
-      </div>
+    
+        <?php
+          $students = mysqli_query($db, "SELECT * FROM students WHERE id = $id");
+          while ($row = mysqli_fetch_array($students)) {
+          $iSmidterm = $row['iSmidterm'];  
+          $iSfinal = $row['iSfinal'];  
+          ?>
+              <div class="p-3 pl-9">
+                <small>Evaluation Status</small>
+                <div>
+                  <b><small>MIDTERM</small></b>
+                  <?php if ($iSmidterm == 'requested') : ?>
+                    <div>
+                      <div>
+                        <b><small>Status: </small></b>
+                        <?php if ($iSmidterm == 'requested') : ?>
+                          <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-yellow-200 dark:text-yellow-900">Pending</span>
+                        <?php else : ?>
+                            <span class="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-green-200 dark:text-green-900">Graded</span>
+                        <?php endif; ?>
+                      </div>
+                    </div>
+                  <?php else : ?>
+                    <form action="" method="POST">
+                      <input type="text" value="requested" name="iSmidterm" hidden>
+                      <button type="submit" name="midterm" class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-xs px-5 py-2.5 text-center mr-2 mb-2">Request for Midterm Grade</button>
+                    </form>
+                  <?php endif; ?>
+                </div>
+
+
+                <?php if ($iSmidterm == 'graded') : ?>
+                  <div>
+                    <b><small>FINAL</small></b>
+                    <?php if ($iSfinal == 'requested') : ?>
+                      <div>
+                          <b><small>Status: </small></b>
+                          <?php if ($iSfinal == 'requested') : ?>
+                            <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-yellow-200 dark:text-yellow-900">Pending</span>
+                          <?php else : ?>
+                              <span class="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-green-200 dark:text-green-900">Graded</span>
+                          <?php endif; ?>
+                      </div>
+                    <?php else : ?>
+                      <form action="" method="POST">
+                          <input type="text" value="requested" name="iSfinal" hidden>
+                          <button disabled type="button" name="final" class="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-xs px-5 py-2.5 text-center mr-2 mb-2">Request for Final Grade</button>
+                      </form>
+                    <?php endif; ?>
+                  </div>
+               <?php endif; ?>
+           </div>
+				<?php } ?>
+      
         <ul class="flex flex-col pl-0 mb-0">
         <li class="mt-0.5 w-full">
           <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" href="index.php?q=logout">
