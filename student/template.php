@@ -141,7 +141,6 @@
                   <?php endif; ?>
                 </div>
 
-
                 <?php if ($iSmidterm == 'graded') : ?>
                   <div>
                     <b><small>FINAL</small></b>

@@ -31,7 +31,13 @@
 					<tr>
 						<td><?php echo $row['Sname']; ?> <?php echo $row['Slname']; ?></td>
 						<td><?php echo $row['studentID']; ?></td>
-						<td>Midterm Evaluation</td>
+						<td>
+							<?php if ($row['iSmidterm'] == 'requested') : ?>
+								Midterm Evaluation
+							<?php else : ?>
+								Final Evaluation
+							<?php endif;?>
+						</td>
 						<td>
 							<!-- <a href="#edit<?php echo $row['id'];?>" data-toggle="modal">
                          	   <i class="far fa-edit text-gray-400 cursor-pointer hover:text-blue-300 transition-all" style="font-size: 13px"></i>
