@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Sep 16, 2022 at 04:35 AM
+-- Host: localhost
+-- Generation Time: Sep 19, 2022 at 02:39 PM
 -- Server version: 10.4.24-MariaDB
--- PHP Version: 7.4.29
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -185,16 +185,18 @@ CREATE TABLE `students` (
   `Swlocation` varchar(255) DEFAULT NULL,
   `Swemployer` varchar(255) DEFAULT NULL,
   `Swcontact` varchar(255) DEFAULT NULL,
-  `courseCode` varchar(255) DEFAULT NULL
+  `courseCode` varchar(255) DEFAULT NULL,
+  `iSmidterm` varchar(255) DEFAULT NULL COMMENT 'NULL = ready to request\r\nrequested = request for evaluation\r\ngraded = done evaluating by the supervisor',
+  `iSfinal` varchar(255) DEFAULT NULL COMMENT 'NULL = ready to request\r\nrequested = request for evaluation\r\ngraded = done evaluating by the supervisor'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `students`
 --
 
-INSERT INTO `students` (`id`, `Sname`, `Slname`, `Smname`, `Semail`, `studentID`, `Spassword`, `Scourse`, `Syear`, `Sblock`, `Sstreet`, `Scity`, `Sstate`, `Szipcode`, `Sage`, `Sgender`, `Sbday`, `Snumber`, `Sphoto`, `Sinsurance`, `Sph`, `Sparentph`, `Sphnumber`, `Svax`, `S1dose`, `S2dose`, `Sbooster`, `Svaxbooster`, `Swstatus`, `Swname`, `Swcompany`, `Swnumber`, `Swlocation`, `Swemployer`, `Swcontact`, `courseCode`) VALUES
-(1, 'Merdilene', 'Pomay', 'B.', 'merdilene.pomay@gmail.com', 'LCC-0001', 'LCC-631dc11a867b1', '', '', '', NULL, NULL, NULL, NULL, NULL, 'Female', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'BARAYONG HIGH SCHOOL', NULL, NULL, NULL, NULL, 'Education Dep.'),
-(2, 'Jonalyn', 'Btaller', 'B.', 'jonalyn.btaller@gmail.com', 'LCC-0002', 'LCC-631dd6d733f40', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Female', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Education Dep.');
+INSERT INTO `students` (`id`, `Sname`, `Slname`, `Smname`, `Semail`, `studentID`, `Spassword`, `Scourse`, `Syear`, `Sblock`, `Sstreet`, `Scity`, `Sstate`, `Szipcode`, `Sage`, `Sgender`, `Sbday`, `Snumber`, `Sphoto`, `Sinsurance`, `Sph`, `Sparentph`, `Sphnumber`, `Svax`, `S1dose`, `S2dose`, `Sbooster`, `Svaxbooster`, `Swstatus`, `Swname`, `Swcompany`, `Swnumber`, `Swlocation`, `Swemployer`, `Swcontact`, `courseCode`, `iSmidterm`, `iSfinal`) VALUES
+(1, 'Merdilene', 'Pomay', 'B.', 'merdilene.pomay@gmail.com', 'LCC-0001', 'LCC-631dc11a867b1', '', '', '', NULL, NULL, NULL, NULL, NULL, 'Female', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'BARAYONG HIGH SCHOOL', NULL, NULL, NULL, NULL, 'Education Dep.', NULL, NULL),
+(2, 'Jonalyn', 'Bataller', 'B.', 'jonalyn.btaller@gmail.com', 'LCC-0002', 'LCC-631dd6d733f40', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Female', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AMTIC HIGH SCHOOL', NULL, NULL, NULL, NULL, 'Education Dep.', 'requested', NULL);
 
 --
 -- Indexes for dumped tables
