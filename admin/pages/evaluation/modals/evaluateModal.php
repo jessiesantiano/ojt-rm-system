@@ -1,12 +1,18 @@
-<div id="addStudent" class="show fade hidden">
+<?php $students = mysqli_query($db, "SELECT * FROM students"); ?>
+<?php while ($row = mysqli_fetch_array($students)) { ?>
+    <div id="evaluate<?php echo $row['id']; ?>" class="show fade hidden">
     <div class="fixed w-full top-0 left-0 flex justify-center items-center" style="background: rgba(0,0,0,0.5);">
 			<div class="m-5 w-full h-full bg-white border border-solid pointer-events-auto dark:bg-gray-950 bg-clip-padding border-black/20 rounded-xl outline-0">
 				<div class="flex items-center justify-between p-4 border-b border-solid shrink-0 border-slate-100 rounded-t-xl">
-					<h5 class="mb-0 leading-normal dark:text-white" id="ModalLabel">Evaluate Trainee</h5>
+					<h5 class="mb-0 leading-normal dark:text-white" id="ModalLabel">Evaluate Trainee <?php echo $row['id']?></h5>
 					<button type="button"  data-toggle="modal" class="fa fa-close w-4 h-4 ml-auto box-content p-2 text-black dark:text-white border-0 rounded-1.5 opacity-50 cursor-pointer -m-2 " data-dismiss="modal"></button>
 				</div>
                  <div class="overflow-y-auto rounded-xl outline-0" style="height: calc(100vh - 100px)">
+				 	<div class="pl-4">
+						<small class="font-bold">Trainee Name: <span class="pl-3"><?php echo $row['Sname'] ?> <?php echo $row['Smname'] ?> <?php echo $row['Slname'] ?></span></small>
+					</div>
                    <form action="reports.php" method="GET" target="_blank">
+              		 <input type="hidden" name="id" value="<?php echo $id; ?>">
 					<div class="flex p-4 gap-2">
 						<div>
 							<small class="font-bold">Excellent/Outstanding = 5</small> /
@@ -558,4 +564,5 @@
     </div>
   </div>
 </div>
+<?php } ?>
  <!-- end modal -->

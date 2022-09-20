@@ -1,6 +1,7 @@
 <?php 
 
 // Include the main TCPDF library (search for installation path).
+require_once ("../../../connection.php");
 require_once('../../TCPDF-main/tcpdf.php');
 
 date_default_timezone_set("Asia/Manila");
@@ -10,29 +11,75 @@ date_default_timezone_set("Asia/Manila");
     //     $section1 = $_GET['section1'];
     //     echo $section1;
     // }
+           if (isset($_GET['evaluate'])) {
+                // profile info
+                $id = $_GET['id'];
+                $getStudent = mysqli_query($db, "SELECT * FROM students WHERE id=$id");
+                while($row = mysqli_fetch_array($getStudent)){
+                    $Sname = $row['Sname'];
+                    $Smname = $row['Smname'];
+                    $Slname = $row['Slname'];
+                    $Scourse = $row['Scourse'];
+                }
+                // section 1 -planning
+                $s1rate1 = $_GET['s1-rate1'];
+                $s1rate2 = $_GET['s1-rate2'];
+                $s1rate3 = $_GET['s1-rate3'];
+                $s1rate4 = $_GET['s1-rate4'];
+                $s1rate5 = $_GET['s1-rate5'];
+                $s1rate6 = $_GET['s1-rate6'];
+                $s1rate7 = $_GET['s1-rate7'];
+                // section 2 - teaching approach
+                $s2rate1 = $_GET['s2-rate1'];
+                $s2rate2 = $_GET['s2-rate2'];
+                $s2rate3 = $_GET['s2-rate3'];
+                $s2rate4 = $_GET['s2-rate4'];
+                $s2rate5 = $_GET['s2-rate5'];
+                $s2rate6 = $_GET['s2-rate6'];
+                $s2rate7 = $_GET['s2-rate7'];
+                // section 3 - evaluation
+                $s3rate1 = $_GET['s3-rate1'];
+                $s3rate2 = $_GET['s3-rate2'];
+                $s3rate3 = $_GET['s3-rate3'];
+                $s3rate4 = $_GET['s3-rate4'];
+                $s3rate5 = $_GET['s3-rate5'];
+                $s3rate6 = $_GET['s3-rate6'];
+
+                $s1total = $s1rate1 + $s1rate2 + $s1rate3 + $s1rate4 + $s1rate5 + $s1rate6 + $s1rate7;
+                $s2total = $s2rate1 + $s2rate2 + $s2rate3 + $s2rate4 + $s2rate5 + $s2rate6 + $s2rate7;
+                $s3total = $s3rate1 + $s3rate2 + $s3rate3 + $s3rate4 + $s3rate5 + $s3rate6;
+
+                // subtotal
+                $subTotal = $s1total + $s2total +$s3total;
+
+                // formula
+                // stotal/100x50+50 = average
+                 $Average = $subTotal/100*50+50;
+
+            }
 
 
 class PDF extends TCPDF{
-    // PAGE HEADER
     public function Header(){
-        $imageFile = K_PATH_IMAGES.'img.png';
-        // $this->Image($imageFile, 40, 10, 20, '', 'PNG', '', 'T', false, 300, '', false, false, 0, false, false, false);
-        $this->Ln(5);
-        $this->SetFont('helvetica', 'B', 9);
-        // width
-        $this->Cell(189, 5, 'Ligao Community College', 0, 1, 'C');
-        $this->Cell(189, 5, 'Ligao City, Albay', 0, 1, 'C');
+        $imageFile = K_PATH_IMAGES.'logo.jpg';
+        $this->Image($imageFile, 40, 10, 20, '', 'JPG', '', 'T', false, 300, '', false, false,
+        0, false, false, false);
+        $this->Ln(0);
+
+        $this->SetFont('helvetica', '', 8,);
+        $this->Cell(180, 3, 'Republic of the Philippines', 0, 1, 'C');
+        $this->Cell(180, 3, 'Commision on Higher Education', 0,1, 'C');
+        $this->Cell(180, 3, 'Region V', 0,1, 'C');
+        $this->SetFont('helvetica', 'B', 11);
+        $this->Cell(180, 3, 'LIGAO COMMUNITY COLLEGE', 0, 1, 'C');
+        $this->SetFont('helvetica', '', 8,);
+        $this->Cell(180, 3, 'Soledad Street, Guilid, Ligao City, 4505', 0, 1, 'C');
+        $this->SetFont('helvetica', 'B', 11);
+        $this->Cell(180, 1, '________________________________________________________________________________', 0, 1, 'C');
+
     }
 
-
-    // PAGE FOOTER
-    public function Footer(){
-    // test some inline CSS
-        $html = '<p style="color:#CC0000;">Note: Invalid without supervisor signature</p>';
-        $this->writeHTML($html, true, false, true, false, '');
-    }
 }
-
 // create new PDF document
 $pdf = new PDF('p', 'mm', 'LEGAL', true, 'UTF-8', false);
 
@@ -98,7 +145,7 @@ $html = '<!DOCTYPE html>
 </head>
 <body style="font-size: 12px;">
     <div>
-        <p style="background-color: #f8f8ff;">Trainee: <b>Paul Justine Pintang</b></p>
+        <p style="background-color: #f8f8ff;">Trainee: <b>'.$Sname.' '.$Smname.' '.$Slname.'</b></p>
         <p >DATE: '.$date.'</p>
 	</div>
     <div>
@@ -106,45 +153,7 @@ $html = '<!DOCTYPE html>
 			5 means, Excellent/Outstanding: 4 means, very
 			satisfactory: 3 means, Satisfactory: 2 means Unsatisfactory: and 1 means Poor.
 		</i></b>
-        <div>';
-             if (isset($_GET['evaluate'])) {
-                // section 1 -planning
-                $s1rate1 = $_GET['s1-rate1'];
-                $s1rate2 = $_GET['s1-rate2'];
-                $s1rate3 = $_GET['s1-rate3'];
-                $s1rate4 = $_GET['s1-rate4'];
-                $s1rate5 = $_GET['s1-rate5'];
-                $s1rate6 = $_GET['s1-rate6'];
-                $s1rate7 = $_GET['s1-rate7'];
-                // section 2 - teaching approach
-                $s2rate1 = $_GET['s2-rate1'];
-                $s2rate2 = $_GET['s2-rate2'];
-                $s2rate3 = $_GET['s2-rate3'];
-                $s2rate4 = $_GET['s2-rate4'];
-                $s2rate5 = $_GET['s2-rate5'];
-                $s2rate6 = $_GET['s2-rate6'];
-                $s2rate7 = $_GET['s2-rate7'];
-                // section 3 - evaluation
-                $s3rate1 = $_GET['s3-rate1'];
-                $s3rate2 = $_GET['s3-rate2'];
-                $s3rate3 = $_GET['s3-rate3'];
-                $s3rate4 = $_GET['s3-rate4'];
-                $s3rate5 = $_GET['s3-rate5'];
-                $s3rate6 = $_GET['s3-rate6'];
-
-                $s1total = $s1rate1 + $s1rate2 + $s1rate3 + $s1rate4 + $s1rate5 + $s1rate6 + $s1rate7;
-                $s2total = $s2rate1 + $s2rate2 + $s2rate3 + $s2rate4 + $s2rate5 + $s2rate6 + $s2rate7;
-                $s3total = $s3rate1 + $s3rate2 + $s3rate3 + $s3rate4 + $s3rate5 + $s3rate6;
-
-
-                // subtotal
-                $subTotal = $s1total + $s2total +$s3total;
-
-                // formula
-                // stotal/100x50+50 = average
-                 $Average = $subTotal/100*50+50;
-
-                $html.='
+        <div>
                     <div>
                         <h6>Section 1 - PLANNING</h6>
                         <p>1. Course Long Term Plan – logical flow,content sufficient and appropriate to level. = <b>'.$s1rate1.'</b></p>
@@ -183,9 +192,7 @@ $html = '<!DOCTYPE html>
                         <p>6. Encourages self-assurance in all students. = <b>'.$s3rate6.'</b></p>
                         <b>Total/Average = '.$s3total.'</b>
                     </div>
-		<h5>Total = '.$Average.'</h5>';
-    }
-       $html.=' 
+		<h5>Total = '.$Average.'</h5>
 		<h6>Equivalent Rating</h6>
         <div>
             1.0 – 99 -100%; 1.1 – 98%; 1.2 – 97%; 1.3 – 96%; 1.4 – 95% (Outstanding); 1.5 – 94%; 1.6 – 93%;
