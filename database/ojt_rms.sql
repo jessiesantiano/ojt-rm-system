@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Sep 19, 2022 at 02:39 PM
+-- Host: 127.0.0.1
+-- Generation Time: Sep 20, 2022 at 08:25 AM
 -- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- PHP Version: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -44,7 +44,8 @@ INSERT INTO `accounts` (`id`, `email`, `password`, `name`, `accountFor`, `course
 (1, 'coordinator1@gmail.com', 'admin1', 'Alicia O. Retona', 'Coordinator', 'Education Dep.'),
 (2, 'coordinator2@gmail.com', 'admin2', 'Lennie Rose P. Podrido', 'Coordinator', 'Economic Dep.'),
 (4, 'supervisor1', 'supervisor1', 'Mrs. Diana L. Desuyo', 'AMTIC HIGH SCHOOL', NULL),
-(5, 'schoolhead1', 'schoolhead1', 'Mrs. Iniz R. Paz', 'BARAYONG HIGH SCHOOL', NULL);
+(5, 'schoolhead1', 'schoolhead1', 'Mrs. Iniz R. Paz', 'BARAYONG HIGH SCHOOL', NULL),
+(9, 'supervisor3', 'supervisor3', 'Mr. Joshua P. Tolarba', 'Pixel 8', NULL);
 
 -- --------------------------------------------------------
 
@@ -66,6 +67,30 @@ CREATE TABLE `announcements` (
 
 INSERT INTO `announcements` (`id`, `title`, `whatfor`, `dateAdded`, `postedBy`) VALUES
 (1, 'Orientation', 'Orientation is the process of bringing employees up to speed on organisational policies, job roles and responsibilities and other organisational attributes and concepts that will help them transition efficiently into the position. In larger companies, and for roles with greater responsibilities, the orientation process may include time spent in several departments as well as specialist learning programmes.', 'Sat Sep 10, 2022', 'Mary Merry A. Yudip');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `courses`
+--
+
+CREATE TABLE `courses` (
+  `id` int(11) NOT NULL,
+  `course` varchar(255) NOT NULL,
+  `courseCode` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `courses`
+--
+
+INSERT INTO `courses` (`id`, `course`, `courseCode`) VALUES
+(1, 'BSED English', 'Education Dep.'),
+(2, 'BSED Mathematics', 'Education Dep.'),
+(3, 'BSED Filipino', 'Education Dep.'),
+(4, 'BSED Social Studies', 'Education Dep.'),
+(5, 'BSED Values Education', 'Education Dep.'),
+(6, 'AB Economics', 'Economic Dep.');
 
 -- --------------------------------------------------------
 
@@ -94,6 +119,32 @@ INSERT INTO `documents` (`id`, `title`, `destination`, `studentID`, `size`, `nam
 (3, 'COD ', 'After OJT Requirements', 'LCC-0001', '226577', 'Drivers License.pdf', 1, '2022-09-14 14:15:24'),
 (4, 'sample req', 'After OJT Requirements', 'LCC-0002', '3902636', 'layout.docx', 0, '2022-09-15 22:43:59'),
 (5, 'sample pdf', 'After OJT Requirements', 'LCC-0002', '150738', 'Jessie Santiano.pdf', 0, '2022-09-15 22:48:03');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `evaluation`
+--
+
+CREATE TABLE `evaluation` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `name` text NOT NULL,
+  `date` datetime NOT NULL DEFAULT current_timestamp(),
+  `size` varchar(255) NOT NULL,
+  `des` varchar(255) NOT NULL,
+  `studentID` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `evaluation`
+--
+
+INSERT INTO `evaluation` (`id`, `title`, `name`, `date`, `size`, `des`, `studentID`) VALUES
+(1, 'Final Evaluation', 'midterm.pdf', '2022-09-20 13:45:52', '154430', 'Final', 'LCC-0002'),
+(2, 'Midterm Evaluation', 'midterm.pdf', '2022-09-20 13:45:52', '154430', 'Midterm', 'LCC-0001'),
+(3, 'Midterm Evaluation', 'midterm.pdf', '2022-09-20 13:50:09', '154430', 'Midterm', 'LCC-0002'),
+(4, 'Midterm Eval', 'midterm.pdf', '2022-09-20 14:21:04', '154430', 'Midterm', 'LCC-0002');
 
 -- --------------------------------------------------------
 
@@ -132,16 +183,18 @@ INSERT INTO `reports` (`id`, `name`, `size`, `downloads`, `title`, `studentID`, 
 CREATE TABLE `schools` (
   `id` int(11) NOT NULL,
   `school` varchar(255) NOT NULL,
-  `supervisor` varchar(255) NOT NULL
+  `supervisor` varchar(255) NOT NULL,
+  `courseCode` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `schools`
 --
 
-INSERT INTO `schools` (`id`, `school`, `supervisor`) VALUES
-(1, 'AMTIC HIGH SCHOOL', 'Mrs. Diana L. Desuyo'),
-(2, 'BARAYONG HIGH SCHOOL', 'Mrs. Iniz R. Paz');
+INSERT INTO `schools` (`id`, `school`, `supervisor`, `courseCode`) VALUES
+(1, 'AMTIC HIGH SCHOOL', 'Mrs. Diana L. Desuyo', 'Education Dep.'),
+(2, 'BARAYONG HIGH SCHOOL', 'Mrs. Iniz R. Paz', 'Education Dep.'),
+(7, 'Pixel 8', 'Mr. Joshua P. Tolarba', 'Economic Dep.');
 
 -- --------------------------------------------------------
 
@@ -195,8 +248,9 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`id`, `Sname`, `Slname`, `Smname`, `Semail`, `studentID`, `Spassword`, `Scourse`, `Syear`, `Sblock`, `Sstreet`, `Scity`, `Sstate`, `Szipcode`, `Sage`, `Sgender`, `Sbday`, `Snumber`, `Sphoto`, `Sinsurance`, `Sph`, `Sparentph`, `Sphnumber`, `Svax`, `S1dose`, `S2dose`, `Sbooster`, `Svaxbooster`, `Swstatus`, `Swname`, `Swcompany`, `Swnumber`, `Swlocation`, `Swemployer`, `Swcontact`, `courseCode`, `iSmidterm`, `iSfinal`) VALUES
-(1, 'Merdilene', 'Pomay', 'B.', 'merdilene.pomay@gmail.com', 'LCC-0001', 'LCC-631dc11a867b1', '', '', '', NULL, NULL, NULL, NULL, NULL, 'Female', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'BARAYONG HIGH SCHOOL', NULL, NULL, NULL, NULL, 'Education Dep.', NULL, NULL),
-(2, 'Jonalyn', 'Bataller', 'B.', 'jonalyn.btaller@gmail.com', 'LCC-0002', 'LCC-631dd6d733f40', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Female', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AMTIC HIGH SCHOOL', NULL, NULL, NULL, NULL, 'Education Dep.', 'requested', NULL);
+(1, 'Merdilene', 'Pomay', 'B.', 'merdilene.pomay@gmail.com', 'LCC-0001', 'LCC-631dc11a867b1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Female', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AMTIC HIGH SCHOOL', NULL, NULL, NULL, NULL, 'Education Dep.', 'requested', NULL),
+(2, 'Jonalyn', 'Bataller', 'B.', '', 'LCC-0002', 'LCC-631dd6d733f40', 'BSED Mathematics', '4', 'B', NULL, NULL, NULL, NULL, NULL, 'Female', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'BARAYONG HIGH SCHOOL', NULL, NULL, NULL, NULL, 'Education Dep.', 'requested', NULL),
+(10, 'Jessie', 'Santiano', 'Tardecilla', '', 'LCC-0004', 'LCC-63293f34893bf', 'AB Economics', '4', 'B', NULL, NULL, NULL, NULL, NULL, 'Male', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Pixel 8', NULL, NULL, NULL, NULL, 'Economic Dep.', NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -215,9 +269,21 @@ ALTER TABLE `announcements`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `courses`
+--
+ALTER TABLE `courses`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `documents`
 --
 ALTER TABLE `documents`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `evaluation`
+--
+ALTER TABLE `evaluation`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -246,7 +312,7 @@ ALTER TABLE `students`
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `announcements`
@@ -255,10 +321,22 @@ ALTER TABLE `announcements`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `courses`
+--
+ALTER TABLE `courses`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `documents`
 --
 ALTER TABLE `documents`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `evaluation`
+--
+ALTER TABLE `evaluation`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `reports`
@@ -270,13 +348,13 @@ ALTER TABLE `reports`
 -- AUTO_INCREMENT for table `schools`
 --
 ALTER TABLE `schools`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
