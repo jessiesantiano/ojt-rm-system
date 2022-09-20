@@ -67,6 +67,72 @@
         }
     }
 
+// View Evaluated Report
+    // View files
+if (isset($_GET['view_id'])) {
+    $id = $_GET['view_id'];
+
+    // fetch file to download from database
+    $select = "SELECT * FROM `evaluation` WHERE id=$id";
+    $result = $db->query($select);
+    while($row = $result->fetch_object()){
+
+    $path = './uploads/';
+    $pdf = $row->name;
+    $filename = $path.$pdf;
+    }
+
+        // Header content type
+        header('Content-type: application/pdf');
+
+        header('Content-Disposition: inline; filename="' . $filename . '"');
+
+        header('Content-Transfer-Encoding: binary');
+
+        header('Accept-Ranges: bytes');
+
+        // Read the file
+        @readfile($filename);
+
+
+
+}
+
+// Downloads files
+if (isset($_GET['download_id'])) {
+    $id = $_GET['download_id'];
+
+    // fetch file to download from database
+    $sql = "SELECT * FROM evaluation WHERE id=$id";
+    $result = mysqli_query($db, $sql);
+
+    $file = mysqli_fetch_assoc($result);
+    $filepath = './uploads/' . $file['name'];
+
+    if (file_exists($filepath)) {
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/octet-stream');
+        header('Content-Disposition: attachment; filename=' . basename($filepath));
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate');
+        header('Pragma: public');
+        header('Content-Length: ' . filesize('./uploads/' . $file['name']));
+        readfile('./uploads/' . $file['name']);
+
+    }
+}
+
+// Delete files
+if (isset($_GET['delete_id'])) {
+
+    $id = $_GET['delete_id'];
+    mysqli_query($db, "DELETE FROM evaluation WHERE id=$id");
+
+    header("location: index.php");
+    $_SESSION['status'] = "Woo hoo!";
+    $_SESSION['text'] = "Document deleted successfully!";
+    $_SESSION['icon'] = "success";
+}
 
     
 ?>
