@@ -29,8 +29,37 @@
 								<input type="text" placeholder="Name" name="Slname" value="<?php echo $row['Slname'] ?>" class="dark:bg-gray-950 mb-2 focus:shadow-soft-primary-outline dark:placeholder:text-white/80 dark:text-white/80 text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none">
 							</div>
 						</div>
-  						<b>Email</b>
-						<input type="text" placeholder="Email" name="Semail" value="<?php echo $row['Semail']?>" class="dark:bg-gray-950 mb-2 focus:shadow-soft-primary-outline dark:placeholder:text-white/80 dark:text-white/80 text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none">
+
+						<div class="flex w-full justify-between"">
+						<div>
+							<b>Course</b>
+							<select name="Scourse" class="dark:bg-gray-950 mb-2 focus:shadow-soft-primary-outline dark:placeholder:text-white/80 dark:text-white/80 text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none">
+								<option hidden selected><?php echo $row['Scourse'] ?></option>
+
+								<?php $result = mysqli_query($db, "SELECT * FROM courses WHERE courseCode = '$courseCode'");
+								while ($course = mysqli_fetch_array($result)) { ?>
+									<option value="<?php echo $course['course']; ?>"><?php echo $course['course']; ?></option>
+								<?php } ?>
+							</select>
+						</div>
+						<div>
+							<b>Year</b>
+							<select name="Syear" class="dark:bg-gray-950 mb-2 focus:shadow-soft-primary-outline dark:placeholder:text-white/80 dark:text-white/80 text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none">
+								<option hidden selected><?php echo $row['Syear'] ?></option>
+								<option value="4">4th Year</option>
+							</select>
+						</div>
+						<div>
+							<b>Block</b>
+							<select name="Sblock" class="dark:bg-gray-950 mb-2 focus:shadow-soft-primary-outline dark:placeholder:text-white/80 dark:text-white/80 text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none">
+								<option hidden selected><?php echo $row['Sblock'] ?></option>
+								<option value="A">Block A</option>
+								<option value="B">Block B</option>
+							</select>
+						</div>
+					</div>
+  						<!-- <b>Email</b>
+						<input type="text" placeholder="Email" name="Semail" value="<?php echo $row['Semail']?>" class="dark:bg-gray-950 mb-2 focus:shadow-soft-primary-outline dark:placeholder:text-white/80 dark:text-white/80 text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none"> -->
   						<b>Student ID</b>
 						<input type="text" placeholder="Student ID" name="studentID" value="<?php echo $row['studentID']?>" class="dark:bg-gray-950 mb-2 focus:shadow-soft-primary-outline dark:placeholder:text-white/80 dark:text-white/80 text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none">
 						<b>Gender</b>
@@ -44,6 +73,17 @@
 								<label for="checkbox-1" class="cursor-pointer select-none text-slate-700 ml-2">Female</label>
 							</div>
 						</div>
+						<br>
+					<b>OJT School/Company</b>
+
+					<select name="Swcompany" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+						<option hidden selected><?php echo $row['Swcompany'] ?></option>
+
+						<?php $result = mysqli_query($db, "SELECT * FROM schools WHERE courseCode = '$courseCode'");
+						while ($row = mysqli_fetch_array($result)) { ?>
+							<option value="<?php echo $row['school']; ?>"><?php echo $row['school']; ?></option>
+						<?php } ?>
+					</select>
 						<div class="flex flex-wrap items-center justify-end p-3 border-t border-solid shrink-0 border-slate-100 rounded-b-xl">
 							<button  data-toggle="modal" type="submit" name="update" class="inline-block px-8 py-2 m-1 mb-4 text-xs font-bold text-center text-white uppercase align-middle transition-all border-0 rounded-lg cursor-pointer ease-soft-in leading-pro tracking-tight-soft bg-gradient-to-tl from-purple-700 to-pink-500 shadow-soft-md bg-150 bg-x-25 hover:scale-102 active:opacity-85">Update</button>
 						</div>

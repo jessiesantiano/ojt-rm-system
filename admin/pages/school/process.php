@@ -9,7 +9,8 @@
         $supervisor = $_POST['supervisor'];
         $email = $_POST['email'];
         $password = $_POST['password'];
-        $query = "INSERT INTO schools (school, supervisor) VALUES ('$school', '$supervisor')";
+        $courseCode = $_POST['courseCode'];
+        $query = "INSERT INTO schools (school, supervisor, courseCode) VALUES ('$school', '$supervisor', '$courseCode')";
         $credentials = "INSERT INTO accounts (accountFor, name, email, password) VALUES ('$school', '$supervisor', '$email', '$password')";
         mysqli_query($db, $query);
         mysqli_query($db, $credentials);

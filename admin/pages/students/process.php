@@ -10,11 +10,15 @@
         $Sname = $_POST['Sname'];
         $Slname = $_POST['Slname'];
         $Smname = $_POST['Smname'];
+        $Scourse = $_POST['Scourse'];
+        $Syear = $_POST['Syear'];
+        $Sblock = $_POST['Sblock'];
         $Sgender = $_POST['Sgender'];
         $Semail = $_POST['Semail'];
         $studentID = $_POST['studentID'];
         $courseCode = $_POST['courseCode'];
-        $query = "INSERT INTO students (Sname, Slname, Smname, Sgender, Semail, Spassword, studentID, courseCode) VALUES ('$Sname', '$Slname', '$Smname', '$Sgender', '$Semail', 'LCC-$Spassword', '$studentID', '$courseCode')";
+        $Swcompany = $_POST['Swcompany'];
+        $query = "INSERT INTO students (Sname, Slname, Smname, Scourse, Syear, Sblock, Sgender, Semail, Spassword, studentID, courseCode, Swcompany) VALUES ('$Sname', '$Slname', '$Smname', '$Scourse', '$Syear', '$Sblock', '$Sgender', '$Semail', 'LCC-$Spassword', '$studentID', '$courseCode', '$Swcompany')";
         mysqli_query($db, $query);
 
         $_SESSION['message'] = "new record has been saved";
@@ -33,11 +37,15 @@
             $Sname = $_POST['Sname'];
             $Slname = $_POST['Slname'];
             $Smname = $_POST['Smname'];
-            $Semail = $_POST['Semail'];
+            // $Semail = $_POST['Semail'];
+            $Scourse = $_POST['Scourse'];
+            $Syear = $_POST['Syear'];
+            $Sblock = $_POST['Sblock'];
             $Sgender = $_POST['Sgender'];
             $studentID = $_POST['studentID'];
+            $Swcompany = $_POST['Swcompany'];
 
-            mysqli_query($db, "UPDATE students SET Sname='$Sname', Smname='$Smname', Slname='$Slname', Semail='$Semail', Sgender='$Sgender', studentID='$studentID' WHERE id=$id");
+            mysqli_query($db, "UPDATE students SET Sname='$Sname', Smname='$Smname', Slname='$Slname', Scourse='$Scourse', Syear='$Syear', Sblock='$Sblock', Sgender='$Sgender', studentID='$studentID', Swcompany='$Swcompany' WHERE id=$id");
             $_SESSION['message'] = "record updated";
             $_SESSION['msg_type'] = "green-500";
            

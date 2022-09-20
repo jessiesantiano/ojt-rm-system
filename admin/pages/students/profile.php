@@ -51,8 +51,8 @@ while ($row = mysqli_fetch_array($students)) {
 
               <ul class="flex flex-col pl-0 mb-0 rounded-lg text-sm">
                 <li class="relative block px-4 py-2 pt-0 pl-0 leading-normal bg-white border-0 rounded-t-lg text-sm text-inherit"><strong class="text-slate-700">Full Name:</strong> &nbsp; <?php echo $row['Sname'] ?> <?php echo $row['Smname'] ?> <?php echo $row['Slname'] ?></li>
-                <li class="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-sm text-inherit"><strong class="text-slate-700">Internship:</strong> &nbsp; <?php echo $row['Swcompany'] ?></li>
-                <li class="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-sm text-inherit"><strong class="text-slate-700">Course:</strong> &nbsp; <?php echo $row['Scourse'] ?> <?php echo $row['Syear'] ?> <?php echo $row['Sblock'] ?></li>
+                <!-- <li class="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-sm text-inherit"><strong class="text-slate-700">Internship:</strong> &nbsp; <?php echo $row['Swcompany'] ?></li> -->
+                <li class="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-sm text-inherit"><strong class="text-slate-700">Course:</strong> &nbsp; <?php echo $row['Scourse'] ?> <?php echo $row['Syear'] ?>-<?php echo $row['Sblock'] ?></li>
                 <li class="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-sm text-inherit"><strong class="text-slate-700">Email:</strong> &nbsp; <?php echo $row['studentID'] ?></li>
                 <li class="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-sm text-inherit"><strong class="text-slate-700">Address:</strong> &nbsp; <?php echo $row['Sstreet'] ?> <?php echo $row['Scity'] ?> <?php echo $row['Sstate'] ?> <?php echo $row['Szipcode'] ?></li>
                 <li class="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-sm text-inherit"><strong class="text-slate-700">Age:</strong> &nbsp; <?php echo $row['Sage'] ?></li>
@@ -105,11 +105,11 @@ while ($row = mysqli_fetch_array($students)) {
 
 
               <ul class="flex flex-col pl-0 mb-0 rounded-lg text-sm">
-                <li class="relative block px-4 py-2 pt-0 pl-0 leading-normal bg-white border-0 rounded-t-lg text-sm text-inherit"><strong class="text-slate-700">Name of Company/School:</strong> &nbsp; <?php echo $row['Sinsurance'] ?> </li>
-                <li class="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-sm text-inherit"><strong class="text-slate-700">No. of hours to complete:</strong> &nbsp; <?php echo $row['Sph'] ?></li>
-                <li class="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-sm text-inherit"><strong class="text-slate-700">Address:</strong> &nbsp; <?php echo $row['Sparentph'] ?> </li>
-                <li class="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-sm text-inherit"><strong class="text-slate-700">Name of Supervisor:</strong> &nbsp; <?php echo $row['Sphnumber'] ?></li>
-                <li class="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-sm text-inherit"><strong class="text-slate-700">Contact no.:</strong> &nbsp; <?php echo $row['Svax'] ?></li>
+                <li class="relative block px-4 py-2 pt-0 pl-0 leading-normal bg-white border-0 rounded-t-lg text-sm text-inherit"><strong class="text-slate-700">Name of Company/School:</strong> <br> <?php echo $row['Swcompany'] ?> </li>
+                <li class="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-sm text-inherit"><strong class="text-slate-700">No. of hours to complete:</strong> &nbsp; <?php echo $row['Swnumber'] ?></li>
+                <li class="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-sm text-inherit"><strong class="text-slate-700">Address:</strong> &nbsp; <?php echo $row['Swlocation'] ?> </li>
+                <li class="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-sm text-inherit"><strong class="text-slate-700">Name of Supervisor:</strong> &nbsp; <?php echo $row['Swemployer'] ?></li>
+                <li class="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-sm text-inherit"><strong class="text-slate-700">Contact no.:</strong> &nbsp; <?php echo $row['Swcontact'] ?></li>
 
 
               </ul>
