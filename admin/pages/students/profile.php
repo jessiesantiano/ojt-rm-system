@@ -207,7 +207,6 @@ while ($row = mysqli_fetch_array($students)) {
   <!-- Document Section End -->
 
   <!-- Report Section -->
-
   <div class="flex flex-wrap -mx-3 py-3">
     <div class="flex-none w-full max-w-full px-3">
       <div class="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border">
@@ -215,7 +214,7 @@ while ($row = mysqli_fetch_array($students)) {
           <h6>List of Reports</h6>
         </div>
         <div class="flex-auto px-0 pt-0 pb-2">
-          <div class="p-0 overflow-x-auto">
+          <div class="p-0">
             <table class="items-center w-full mb-0 align-top border-gray-200 text-slate-500 p-5">
               <thead class="align-bottom">
                 <tr>
@@ -270,23 +269,29 @@ while ($row = mysqli_fetch_array($students)) {
                       ?>
 
                     </td>
-                  <?php } ?>
                   </tr>
               </tbody>
             </table>
-          </div>
-            <div class="flex flex-wrap -mx-3 mt-4 p-5">
-                <div class="max-w-full px-3 md:w-1/2 md:flex-none">
-                  <h6 class="mb-0">Evaluation Reports (Midterm/Final)</h6>
+            </div>
+          <?php } ?>
+
+          
+    <?php $result = mysqli_query($db, "SELECT * FROM students WHERE studentID ='$studentID'");
+            while ($row = mysqli_fetch_array($result)) { ?>
+              <div class="flex flex-wrap -mx-3 mt-4 p-5">
+                  <div class="max-w-full px-3 md:w-1/2 md:flex-none">
+                    <h6 class="mb-0">Evaluation Reports (Midterm/Final)</h6>
+                  </div>
+                  <div class="flex items-center justify-end max-w-full px-3 md:w-1/2 md:flex-none">
+                    <a href="#upload<?php echo $row['studentID']; ?>" data-toggle="modal">
+                      <button type="button" class="inline-block px-6 py-3 font-bold text-center text-white uppercase align-middle transition-all rounded-lg cursor-pointer bg-gradient-to-tl from-purple-700 to-pink-500 leading-pro text-xs ease-soft-in tracking-tight-soft shadow-soft-md bg-150 bg-x-25 hover:scale-102 active:opacity-85 hover:shadow-soft-xs">
+                        Upload Report
+                      </button>
+                    </a>
+                  </div>
                 </div>
-                <div class="flex items-center justify-end max-w-full px-3 md:w-1/2 md:flex-none">
-                  <a href="#upload<?php echo $row['studentID']; ?>" data-toggle="modal">
-                    <button type="button" class="inline-block px-6 py-3 font-bold text-center text-white uppercase align-middle transition-all rounded-lg cursor-pointer bg-gradient-to-tl from-purple-700 to-pink-500 leading-pro text-xs ease-soft-in tracking-tight-soft shadow-soft-md bg-150 bg-x-25 hover:scale-102 active:opacity-85 hover:shadow-soft-xs">
-                      Upload Report
-                    </button>
-                  </a>
-                </div>
-              </div>
+            <?php } ?>
+
               <div class="p-5">
                 <div>
                   <h6 class="mb-0 font-semibold leading-normal text-sm text-slate-700">Midterm Evaluation</h6>
@@ -305,9 +310,9 @@ while ($row = mysqli_fetch_array($students)) {
                                                                                                                           ?></span></span>
                           </div>
                           <div class="ml-auto text-right">
-                          <a target="_blank" class="relative inline-block px-4 py-3 mb-0 font-bold text-center text-transparent uppercase align-middle transition-all border-0 rounded-lg shadow-none cursor-pointer leading-pro text-xs ease-soft-in bg-800 bg-gradient-to-tl from-blue-600 to-blue-200 hover:scale-102 active:opacity-85 bg-x-25 bg-clip-text" href="./process.php?view_id=<?php echo $row['id'] ?>"><i class="mr-2 far fa-eye bg-150 bg-blue-600 bg-x-25 bg-clip-text"></i>View</a>
-                            <a class="relative inline-block px-4 py-3 mb-0 font-bold text-center text-transparent uppercase align-middle transition-all border-0 rounded-lg shadow-none cursor-pointer leading-pro text-xs ease-soft-in bg-800 bg-gradient-to-tl from-blue-600 to-blue-200 hover:scale-102 active:opacity-85 bg-x-25 bg-clip-text" href="./process.php?download_id=<?php echo $row['id'] ?>"><i class="mr-2 fa fa-download bg-150 bg-blue-600 bg-x-25 bg-clip-text"></i>Download</a>
-                            <a class="relative inline-block px-4 py-3 mb-0 font-bold text-center text-transparent uppercase align-middle transition-all border-0 rounded-lg shadow-none cursor-pointer leading-pro text-xs ease-soft-in bg-800 bg-gradient-to-tl from-blue-600 to-blue-200 hover:scale-102 active:opacity-85 bg-x-25 bg-clip-text" href="./process.php?delete_id=<?php echo $row['id'] ?>"><i class="mr-2 fa fa-trash bg-150 bg-blue-600 bg-x-25 bg-clip-text"></i>Delete</a>
+                          <a target="_blank" class="relative inline-block px-4 py-3 mb-0 font-bold text-center text-transparent uppercase align-middle transition-all border-0 rounded-lg shadow-none cursor-pointer leading-pro text-xs ease-soft-in bg-800 bg-gradient-to-tl from-blue-600 to-blue-200 hover:scale-102 active:opacity-85 bg-x-25 bg-clip-text" href="./eval_process.php?view_id=<?php echo $row['id'] ?>"><i class="mr-2 far fa-eye bg-150 bg-blue-600 bg-x-25 bg-clip-text"></i>View</a>
+                            <a class="relative inline-block px-4 py-3 mb-0 font-bold text-center text-transparent uppercase align-middle transition-all border-0 rounded-lg shadow-none cursor-pointer leading-pro text-xs ease-soft-in bg-800 bg-gradient-to-tl from-blue-600 to-blue-200 hover:scale-102 active:opacity-85 bg-x-25 bg-clip-text" href="./eval_process.php?download_id=<?php echo $row['id'] ?>"><i class="mr-2 fa fa-download bg-150 bg-blue-600 bg-x-25 bg-clip-text"></i>Download</a>
+                            <a class="relative inline-block px-4 py-3 mb-0 font-bold text-center text-transparent uppercase align-middle transition-all border-0 rounded-lg shadow-none cursor-pointer leading-pro text-xs ease-soft-in bg-800 bg-gradient-to-tl from-blue-600 to-blue-200 hover:scale-102 active:opacity-85 bg-x-25 bg-clip-text" href="./eval_process.php?delete_id=<?php echo $row['id'] ?>"><i class="mr-2 fa fa-trash bg-150 bg-blue-600 bg-x-25 bg-clip-text"></i>Delete</a>
                           </div>
                         </li>
                       <?php } ?>
@@ -340,13 +345,8 @@ while ($row = mysqli_fetch_array($students)) {
                       <?php } ?>
                     </ul>
                   </div>
-
                 </div>
               </div>
-
-            </div>
-          </div>
-          </div>
 
 
   <!-- Report Section End -->
