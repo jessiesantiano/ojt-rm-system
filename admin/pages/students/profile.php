@@ -135,11 +135,9 @@ while ($row = mysqli_fetch_array($students)) {
     </a> -->
   </div>
   <br>
-
   <!-- Student Profile Section End -->
 
   <!-- Document Section -->
-
   <div class="flex flex-wrap">
     <div class="w-full max-w-full px-3 mt-6 md:w-6/12 md:flex-none">
       <div class="relative flex flex-col min-w-0 break-words bg-white border-0 shadow-soft-xl rounded-2xl bg-clip-border">
@@ -169,8 +167,6 @@ while ($row = mysqli_fetch_array($students)) {
         </div>
       </div>
     </div>
-
-
     <div class="w-full max-w-full px-3 mt-6 md:w-6/12 md:flex-none">
       <div class="relative flex flex-col min-w-0 break-words bg-white border-0 shadow-soft-xl rounded-2xl bg-clip-border">
         <div class="p-6 px-4 pb-0 mb-0 bg-white border-b-0 rounded-t-2xl">
@@ -202,19 +198,17 @@ while ($row = mysqli_fetch_array($students)) {
         </div>
       </div>
     </div>
-
   </div>
   <!-- Document Section End -->
 
   <!-- Report Section -->
   <div class="flex flex-wrap py-3">
-    <div class="flex-none w-full max-w-full px-3">
+    <div class="flex-none w-full max-w-full px-3 ">
       <div class="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border">
         <div class="p-6 pb-0 mb-0 bg-white border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
           <h6>List of Reports</h6>
         </div>
         <div class="flex-auto px-0 pt-0 pb-2">
-          <div class="p-0">
             <table class="items-center w-full mb-0 align-top border-gray-200 text-slate-500 p-5">
               <thead class="align-bottom">
                 <tr>
@@ -271,12 +265,12 @@ while ($row = mysqli_fetch_array($students)) {
                     </td>
                   </tr>
               </tbody>
+              <?php } ?>
             </table>
-            </div>
-          <?php } ?>
-
-          
-    <?php $result = mysqli_query($db, "SELECT * FROM students WHERE studentID ='$studentID'");
+        </div>
+      </div>
+      <div class="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border">
+       <?php $result = mysqli_query($db, "SELECT * FROM students WHERE studentID ='$studentID'");
             while ($row = mysqli_fetch_array($result)) { ?>
               <div class="flex flex-wrap -mx-3 mt-4 p-5">
                   <div class="max-w-full px-3 md:w-1/2 md:flex-none">
@@ -295,7 +289,6 @@ while ($row = mysqli_fetch_array($students)) {
               <div class="p-5">
                 <div>
                   <h6 class="mb-0 font-semibold leading-normal text-sm text-slate-700">Midterm Evaluation</h6>
-                  <!-- document here -->
                   <div class="flex-auto p-4 pt-6">
                     <ul class="flex flex-col pl-0 mb-0 rounded-lg">
                       <?php $result = mysqli_query($db, "SELECT * FROM evaluation WHERE studentID ='$studentID' AND des='Midterm'");
@@ -304,7 +297,6 @@ while ($row = mysqli_fetch_array($students)) {
                           <div class="flex flex-col">
                             <h6 class="mb-4 leading-normal text-sm"><?php echo $row['title'] ?></h6>
                             <span class="mb-2 leading-tight text-xs">File name: <span class="font-semibold text-slate-700 sm:ml-2"><?php echo $row['name'] ?></span></span>
-                            <!-- <span class="mb-2 leading-tight text-xs">Size: <span class="font-semibold text-slate-700 sm:ml-2"><?php echo $row['size'] ?></span></span> -->
                             <span class="leading-tight text-xs">Date: <span class="font-semibold text-slate-700 sm:ml-2"><?php $date = DateTime::createFromFormat('Y-m-d H:i:s', $row['date']);
                                                                                                                           echo $date->format('F d, Y h:i:s A'); // Change format as needed 
                                                                                                                           ?></span></span>
@@ -322,7 +314,6 @@ while ($row = mysqli_fetch_array($students)) {
                 </div>
                 <div>
                   <h6 class="mb-0 font-semibold leading-normal text-sm text-slate-700">Final Evaluation</h6>
-                  <!-- document here -->
                   <div class="flex-auto p-4 pt-6">
                     <ul class="flex flex-col pl-0 mb-0 rounded-lg">
                       <?php $result = mysqli_query($db, "SELECT * FROM evaluation WHERE studentID ='$studentID' AND des='Final'");
@@ -331,7 +322,6 @@ while ($row = mysqli_fetch_array($students)) {
                           <div class="flex flex-col">
                             <h6 class="mb-4 leading-normal text-sm"><?php echo $row['title'] ?></h6>
                             <span class="mb-2 leading-tight text-xs">File name: <span class="font-semibold text-slate-700 sm:ml-2"><?php echo $row['name'] ?></span></span>
-                            <!-- <span class="mb-2 leading-tight text-xs">Size: <span class="font-semibold text-slate-700 sm:ml-2"><?php echo $row['size'] ?></span></span> -->
                             <span class="leading-tight text-xs">Date: <span class="font-semibold text-slate-700 sm:ml-2"><?php $date = DateTime::createFromFormat('Y-m-d H:i:s', $row['date']);
                                                                                                                           echo $date->format('F d, Y h:i:s A'); // Change format as needed 
                                                                                                                           ?></span></span>
@@ -347,8 +337,9 @@ while ($row = mysqli_fetch_array($students)) {
                   </div>
                 </div>
               </div>
-
-
+      </div>
+    </div>
+</div>
   <!-- Report Section End -->
 
 <?php } ?>
@@ -356,3 +347,5 @@ while ($row = mysqli_fetch_array($students)) {
 <?php include './modals/addModal.php'; ?>
 <?php include './modals/evaluateModal.php'; ?> 
 <?php include './modals/uploadDocument.php'; ?> 
+
+ 
