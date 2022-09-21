@@ -122,8 +122,12 @@
                 <small>Evaluation Status</small>
                 <div>
                   <b><small>MIDTERM</small></b>
-                  <?php if ($iSmidterm == 'requested') : ?>
-                    <div>
+                  <?php if ($iSmidterm == NULL) : ?>
+                    <form action="" method="POST">
+                      <input type="text" value="requested" name="iSmidterm" hidden>
+                      <button type="submit" name="midterm" class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-xs px-5 py-2.5 text-center mr-2 mb-2">Request for Midterm Grade</button>
+                    </form>
+                  <?php else :?>
                       <div>
                         <b><small>Status: </small></b>
                         <?php if ($iSmidterm == 'requested') : ?>
@@ -132,19 +136,18 @@
                             <span class="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-green-200 dark:text-green-900">Graded</span>
                         <?php endif; ?>
                       </div>
-                    </div>
-                  <?php else : ?>
-                    <form action="" method="POST">
-                      <input type="text" value="requested" name="iSmidterm" hidden>
-                      <button type="submit" name="midterm" class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-xs px-5 py-2.5 text-center mr-2 mb-2">Request for Midterm Grade</button>
-                    </form>
                   <?php endif; ?>
                 </div>
 
                 <?php if ($iSmidterm == 'graded') : ?>
                   <div>
                     <b><small>FINAL</small></b>
-                    <?php if ($iSfinal == 'requested') : ?>
+                    <?php if ($iSfinal == NULL) : ?>
+                      <form action="" method="POST">
+                          <input type="text" value="requested" name="iSfinal" hidden>
+                          <button type="submit" name="final" class="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-xs px-5 py-2.5 text-center mr-2 mb-2">Request for Final Grade</button>
+                      </form>
+                    <?php else : ?>
                       <div>
                           <b><small>Status: </small></b>
                           <?php if ($iSfinal == 'requested') : ?>
@@ -153,11 +156,6 @@
                               <span class="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-green-200 dark:text-green-900">Graded</span>
                           <?php endif; ?>
                       </div>
-                    <?php else : ?>
-                      <form action="" method="POST">
-                          <input type="text" value="requested" name="iSfinal" hidden>
-                          <button disabled type="button" name="final" class="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-xs px-5 py-2.5 text-center mr-2 mb-2">Request for Final Grade</button>
-                      </form>
                     <?php endif; ?>
                   </div>
                <?php endif; ?>
