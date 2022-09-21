@@ -1,5 +1,5 @@
 <?php 
-
+session_start();
 // Include the main TCPDF library (search for installation path).
 require_once ("../../../connection.php");
 require_once('../../TCPDF-main/tcpdf.php');
@@ -11,6 +11,7 @@ date_default_timezone_set("Asia/Manila");
     //     $section1 = $_GET['section1'];
     //     echo $section1;
     // }
+            $evaluator = $_SESSION['name'];
            if (isset($_GET['evaluate'])) {
                 // profile info
                 $id = $_GET['id'];
@@ -145,14 +146,14 @@ $html = '<!DOCTYPE html>
 <body style="font-size: 12px;">
     <div>
         <p style="background-color: #f8f8ff;">Trainee: <b>'.$Sname.' '.$Smname.' '.$Slname.'</b></p>
-        <p >DATE: '.$date.'</p>
+        <p style="background-color: #f8f8ff;">Evaluate by: <b>'.$evaluator.'</b></p>
+        <p style="background-color: #f8f8ff;">DATE: '.$date.'</p>
 	</div>
     <div>
 		<b><i>
 			5 means, Excellent/Outstanding: 4 means, very
 			satisfactory: 3 means, Satisfactory: 2 means Unsatisfactory: and 1 means Poor.
 		</i></b>
-        <div>
                     <div>
                         <h6>Section 1 - PLANNING</h6>
                         <p>1. Course Long Term Plan – logical flow,content sufficient and appropriate to level. = <b>'.$s1rate1.'</b></p>
@@ -203,11 +204,11 @@ $html = '<!DOCTYPE html>
                         5.0 – Failure; INC - INCOMPLETE
                     </div>
 
-                    <p style="margin-top: 20px;">
-                        Supervisor Signature
+                    <p>
+                        Evaluator Signature
                     </p>
+
                 </div>
-	</div>
 </body>
 </html>';
      $pdf->writeHTML($html, true, false, true, false, '');

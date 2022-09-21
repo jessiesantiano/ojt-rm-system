@@ -34,6 +34,7 @@
 
                     $row = mysqli_fetch_assoc($result);
                     $name = $_POST['name'];
+                    $_SESSION['name'] = $row['name'];
                     $_SESSION['email'] = $row['email'];
                     $_SESSION['courseCode'] = $row['courseCode'];
                     $_SESSION['accountFor'] = $row['accountFor'];
