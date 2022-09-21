@@ -11,7 +11,7 @@
 				 	<div class="pl-4">
 						<small class="font-bold">Trainee Name: <span class="pl-3"><?php echo $row['Sname'] ?> <?php echo $row['Smname'] ?> <?php echo $row['Slname'] ?></span></small>
 					</div>
-                   <form action="reports.php" method="GET" target="_blank">
+                   <form action="evaluatepdf.php" method="GET" target="_blank">
               		 <input type="hidden" name="id" value="<?php echo $id; ?>">
 					<div class="flex p-4 gap-2">
 						<div>
