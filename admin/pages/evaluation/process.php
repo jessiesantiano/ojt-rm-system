@@ -5,7 +5,7 @@
 
     // code for retrieve from database
     // $courseCode is a global variable / in template
-     $results = mysqli_query($db, "SELECT * FROM students WHERE courseCode = '$courseCode' OR Swcompany = '$accountFor' OR iSmidterm = 'requested' OR iSfinal = 'requested'");
+     $results = mysqli_query($db, "SELECT * FROM students WHERE Swcompany = '$accountFor' AND iSmidterm = 'requested' OR iSfinal = 'requested'");
 
 
     //  Upload Evaluation
@@ -14,8 +14,7 @@
         $title = $_POST['title'];
         $des = $_POST['des'];
         $studentID = $_POST['studentID'];
-        $iSmidterm = $_POST['iSmidterm'];
-    
+
         // name of the uploaded file
         $filename = $_FILES['myfile']['name'];
     
@@ -48,8 +47,12 @@
                 $sql = "INSERT INTO evaluation (name, size,  title, des, studentID) VALUES 
                 ('$filename', $size, '$title', '$des', '$studentID')";
   
-//   update su iSmidterm status sa students table
-
+                //   update su iSmidterm status sa students table
+                if ($des == 'Midterm') {
+                    mysqli_query($db, "UPDATE students SET iSmidterm='graded' WHERE id=$studentID");
+                } else {
+                    mysqli_query($db, "UPDATE students SET iSfinal='graded' WHERE id=$studentID");
+                }
 
                 if (mysqli_query($db, $sql)) {
     
