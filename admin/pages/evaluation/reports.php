@@ -1,5 +1,5 @@
 <?php 
-
+session_start();
 // Include the main TCPDF library (search for installation path).
 require_once ("../../../connection.php");
 require_once('../../TCPDF-main/tcpdf.php');
@@ -11,6 +11,7 @@ date_default_timezone_set("Asia/Manila");
     //     $section1 = $_GET['section1'];
     //     echo $section1;
     // }
+            $evaluator = $_SESSION['name'];
            if (isset($_GET['evaluate'])) {
                 // profile info
                 $id = $_GET['id'];
@@ -76,7 +77,6 @@ class PDF extends TCPDF{
         $this->Cell(180, 3, 'Soledad Street, Guilid, Ligao City, 4505', 0, 1, 'C');
         $this->SetFont('helvetica', 'B', 11);
         $this->Cell(180, 1, '________________________________________________________________________________', 0, 1, 'C');
-
     }
 
 }
@@ -146,14 +146,14 @@ $html = '<!DOCTYPE html>
 <body style="font-size: 12px;">
     <div>
         <p style="background-color: #f8f8ff;">Trainee: <b>'.$Sname.' '.$Smname.' '.$Slname.'</b></p>
-        <p >DATE: '.$date.'</p>
+        <p style="background-color: #f8f8ff;">Evaluate by: <b>'.$evaluator.'</b></p>
+        <p style="background-color: #f8f8ff;">DATE: '.$date.'</p>
 	</div>
     <div>
 		<b><i>
 			5 means, Excellent/Outstanding: 4 means, very
 			satisfactory: 3 means, Satisfactory: 2 means Unsatisfactory: and 1 means Poor.
 		</i></b>
-        <div>
                     <div>
                         <h6>Section 1 - PLANNING</h6>
                         <p>1. Course Long Term Plan – logical flow,content sufficient and appropriate to level. = <b>'.$s1rate1.'</b></p>
@@ -192,20 +192,23 @@ $html = '<!DOCTYPE html>
                         <p>6. Encourages self-assurance in all students. = <b>'.$s3rate6.'</b></p>
                         <b>Total/Average = '.$s3total.'</b>
                     </div>
-		<h5>Total = '.$Average.'</h5>
-		<h6>Equivalent Rating</h6>
-        <div>
-            1.0 – 99 -100%; 1.1 – 98%; 1.2 – 97%; 1.3 – 96%; 1.4 – 95% (Outstanding); 1.5 – 94%; 1.6 – 93%;
-            1.7 – 92% (Superior); 1.8 – 91%; 1.9 – 90%; 2.0 – 89%; 2.1 – 88%; 2.2 – 87%; 2.3 – 86%; 2.4 –
-            85% (Very Satisfactory); 2.5 – 84%; 2.6 – 82-83%; 2.7 – 80-81% (Satisfactory); 2.8 – 78-79%; 2.9
-            – 76-77%; 3.0 – 75% (Fair); 3.1-4.0 CONDITIONAL FAILURE (Lowest Possible Rating)
-            5.0 – Failure; INC - INCOMPLETE
-        </div>
+                    
+                <div style="position: absolute">
+                    <h5>Total = '.$Average.'</h5>
+                    <h6>Equivalent Rating</h6>
+                    <div>
+                        1.0 – 99 -100%; 1.1 – 98%; 1.2 – 97%; 1.3 – 96%; 1.4 – 95% (Outstanding); 1.5 – 94%; 1.6 – 93%;
+                        1.7 – 92% (Superior); 1.8 – 91%; 1.9 – 90%; 2.0 – 89%; 2.1 – 88%; 2.2 – 87%; 2.3 – 86%; 2.4 –
+                        85% (Very Satisfactory); 2.5 – 84%; 2.6 – 82-83%; 2.7 – 80-81% (Satisfactory); 2.8 – 78-79%; 2.9
+                        – 76-77%; 3.0 – 75% (Fair); 3.1-4.0 CONDITIONAL FAILURE (Lowest Possible Rating)
+                        5.0 – Failure; INC - INCOMPLETE
+                    </div>
 
-        <p style="margin-top: 20px;">
-            Supervisor Signature
-        </p>
-	</div>
+                    <p>
+                        Evaluator Signature
+                    </p>
+
+                </div>
 </body>
 </html>';
      $pdf->writeHTML($html, true, false, true, false, '');
