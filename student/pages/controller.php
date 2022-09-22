@@ -2,6 +2,101 @@
 session_start();
 // dbect to the database
 require_once('../../connection.php');
+
+// Update Student Profile 
+if (isset($_POST['update_id'])) {
+    $id = $_SESSION['id'];
+
+    $Sstreet = $_POST['Sstreet'];
+    $Scity = $_POST['Scity'];
+    $Sstate = $_POST['Sstate'];
+    $Szipcode = $_POST['Szipcode'];
+    $Sage = $_POST['Sage'];
+    $Sbday = $_POST['Sbday'];
+    $Snumber = $_POST['Snumber'];
+    $Semail = $_POST['Semail'];
+
+    // name of the uploaded file
+    $Sphoto = $_FILES['myfile']['name'];
+
+    // destination of the file on the server
+    $destination = '../image/' . $Sphoto;
+
+    // get the file extension
+    $extension = pathinfo($Sphoto, PATHINFO_EXTENSION);
+
+    // the physical file on a temporary uploads directory on the server
+    $file = $_FILES['myfile']['tmp_name'];
+
+    $S1dose = $_POST['S1dose'];
+    $S2dose = $_POST['S2dose'];
+    $Sbooster = $_POST['Sbooster'];
+    $Svaxbooster = $_POST['Svaxbooster'];
+
+    // $Swcompany = $_POST['Swcompany'];
+    $Swnumber = $_POST['Swnumber'];
+    $Swlocation = $_POST['Swlocation'];
+    $Swcontact = $_POST['Swcontact'];
+
+    $size = $_FILES['myfile']['size'];
+
+    if (!in_array($extension, ['png', 'jpg', 'jpeg'])) {
+
+
+
+        header('location: ../index.php?q=profile');
+        $_SESSION['status'] = "Woo hoo!";
+        $_SESSION['text'] = "You picture extension must be .png .jpg .jpeg";
+        $_SESSION['icon'] = "warning";
+    } elseif ($_FILES['myfile']['size'] > 10000000) { // file shouldn't be larger than 10Megabyte
+        header('location: ../index.php?q=profile');
+        $_SESSION['status'] = "Woo hoo!";
+        $_SESSION['text'] = "You file is too large. (10MB max)";
+        $_SESSION['icon'] = "warning";
+    } else {
+
+
+        if (move_uploaded_file($file, $destination)) {
+            mysqli_query($db, "UPDATE students SET 
+    Sage='$Sage',
+    Sstreet='$Sstreet', 
+    Scity='$Scity',
+    Sstate='$Sstate',
+    Szipcode='$Szipcode',
+    Sage='$Sage',
+    Sbday='$Sbday',
+    Snumber='$Snumber',
+    Semail='$Semail',
+
+        Sphoto='$Sphoto',
+
+    -- Svax='$Svax',
+    S1dose='$S1dose',
+    S2dose='$S2dose',
+    Sbooster='$Sbooster',
+    Svaxbooster='$Svaxbooster',
+
+    -- Swcompany='$Swcompany',
+    Swnumber='$Swnumber',
+    Swlocation='$Swlocation',
+    -- Swemployer='$Swemployer',
+    Swcontact='$Swcontact'
+     WHERE id=$id");
+
+            header('location: ../index.php?q=profile');
+            $_SESSION['status'] = "Woo hoo!";
+            $_SESSION['text'] = "Document uploaded successfully!";
+            $_SESSION['icon'] = "success";
+        } else {
+            header('location: ../index.php?q=profile');
+            $_SESSION['status'] = "Woo hoo!";
+            $_SESSION['text'] = "Upload file failed.";
+            $_SESSION['icon'] = "error";
+        }
+    }
+}
+
+
 // Uploads Document Files
 if (isset($_POST['Dupload'])) { // if upload button on the form is clicked
     // data initialization
@@ -25,8 +120,8 @@ if (isset($_POST['Dupload'])) { // if upload button on the form is clicked
 
     if (!in_array($extension, ['pdf'])) {
 
-        
-      
+
+
         header('location: ../index.php?q=documents');
         $_SESSION['status'] = "Woo hoo!";
         $_SESSION['text'] = "You file extension must be .pdf";

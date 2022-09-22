@@ -83,6 +83,8 @@
 
       $result = mysqli_query($db, "SELECT * FROM reports WHERE studentID ='" . $_SESSION['studentID'] ."' ");
       while ($row = mysqli_fetch_array($result)) {
+
+
       ?>
         <li class="relative flex justify-between px-4 py-2 pl-0 mb-2 bg-white border-0 rounded-t-inherit text-inherit rounded-xl">
           <div class="flex items-center">
@@ -107,7 +109,9 @@
                     ?>
           </div>
         </li>
-        <?php }?>
+        <?php }
+        
+                ?>
       </ul>
 
     </div>
