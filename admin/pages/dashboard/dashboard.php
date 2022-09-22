@@ -99,19 +99,35 @@
               <div class="flex-auto p-4">
                 <div class="flex flex-row -mx-3">
                   <div class="flex-none w-2/3 max-w-full px-3">
-                    <div>
-                      <p class="mb-0 font-sans font-semibold leading-normal text-sm">Today Report's</p>
-                      <h5 class="mb-0 font-bold">
-                       2 reports / 
-                       <?php
-                            $students = "SELECT count(id) AS total FROM students WHERE courseCode='$courseCode'";
-                            $rows_results = mysqli_query($db, $students);
-                            $values = mysqli_fetch_assoc($rows_results);
-                            $totalStudents = $values['total'];
-                            echo $totalStudents
-                          ?> 
-                      </h5>
-                    </div>
+                    <?php if ($accountFor == 'Coordinator') : ?>
+                       <div>
+                          <p class="mb-0 font-sans font-semibold leading-normal text-sm">Evaluation/Grades</p>
+                          <h5 class="mb-0 font-bold">
+                          <?php
+                                $graded = "SELECT count(id) AS total FROM students WHERE courseCode = '$courseCode' AND iSmidterm = 'graded' OR iSfinal = 'graded'";
+                                $rows_results = mysqli_query($db, $graded);
+                                $values = mysqli_fetch_assoc($rows_results);
+                                $totalStudents = $values['total'];
+                                echo $totalStudents
+                              ?> results
+                          </h5>
+                        </div>
+                    <?php else : ?>
+                      <div>
+                          <p class="mb-0 font-sans font-semibold leading-normal text-sm">Evaluation Request</p>
+                          <h5 class="mb-0 font-bold">
+                          <?php
+                                $request = "SELECT count(id) AS total FROM students WHERE Swcompany = '$accountFor' AND iSmidterm = 'requested' OR iSfinal = 'requested'";
+                                $rows_results = mysqli_query($db, $request);
+                                $values = mysqli_fetch_assoc($rows_results);
+                                $totalStudents = $values['total'];
+                                echo $totalStudents
+                              ?> request
+                          </h5>
+                      </div>
+                    <?php endif; ?>
+
+                   
                   </div>
                   <div class="px-3 text-right basis-1/3">
                     <div class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-purple-700 to-pink-500">
