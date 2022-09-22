@@ -9,12 +9,13 @@
 				</div>
 			 <div class="py-6 px-6 lg:px-8">
                     <form  action="eval_process.php" method="post" enctype="multipart/form-data">
-                      <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
                       <div class="space-y-3">
                           <div>
                             <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Title</label>
                             <input type="text" name="title" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Document file name" required="">
                             <input type="hidden" name="studentID" value="<?php echo $row['studentID']; ?>">
+
+                            <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
                             <input type="text" value="graded" name="iSmidterm" hidden>
                           </div>
                           <div>

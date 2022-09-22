@@ -27,6 +27,7 @@ if (isset($_POST['update_id'])) {
 
     // the physical file on a temporary uploads directory on the server
     $file = $_FILES['myfile']['tmp_name'];
+    $size = $_FILES['myfile']['size'];
 
     $S1dose = $_POST['S1dose'];
     $S2dose = $_POST['S2dose'];
@@ -38,16 +39,14 @@ if (isset($_POST['update_id'])) {
     $Swlocation = $_POST['Swlocation'];
     $Swcontact = $_POST['Swcontact'];
 
-    $size = $_FILES['myfile']['size'];
+
 
     if (!in_array($extension, ['png', 'jpg', 'jpeg'])) {
-
-
-
         header('location: ../index.php?q=profile');
         $_SESSION['status'] = "Woo hoo!";
         $_SESSION['text'] = "You picture extension must be .png .jpg .jpeg";
         $_SESSION['icon'] = "warning";
+
     } elseif ($_FILES['myfile']['size'] > 10000000) { // file shouldn't be larger than 10Megabyte
         header('location: ../index.php?q=profile');
         $_SESSION['status'] = "Woo hoo!";
