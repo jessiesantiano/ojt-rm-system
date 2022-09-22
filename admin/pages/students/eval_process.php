@@ -11,6 +11,7 @@
     //  Upload Evaluation
      if (isset($_POST['upload'])) { // if upload button on the form is clicked
         // data initialization
+        $id = $_POST['id'];
         $title = $_POST['title'];
         $des = $_POST['des'];
         $studentID = $_POST['studentID'];
@@ -49,9 +50,9 @@
   
                 //   update su iSmidterm status sa students table
                 if ($des == 'Midterm') {
-                    mysqli_query($db, "UPDATE students SET iSmidterm='graded' WHERE id=$studentID");
+                    mysqli_query($db, "UPDATE students SET iSmidterm='graded' WHERE id=$id");
                 } else {
-                    mysqli_query($db, "UPDATE students SET iSfinal='graded' WHERE id=$studentID");
+                    mysqli_query($db, "UPDATE students SET iSfinal='graded' WHERE id=$id");
                 }
 
                 if (mysqli_query($db, $sql)) {
