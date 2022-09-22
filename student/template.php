@@ -102,22 +102,30 @@
           </a>
         </li>
       </ul>
+      <?php
+          $students = mysqli_query($db, "SELECT * FROM students WHERE id = $id");
+          while ($row = mysqli_fetch_array($students)) {
+          $iSmidterm = $row['iSmidterm'];  
+          $iSfinal = $row['iSfinal'];  
+          ?>
       <hr class="my-8 h-px bg-gray-200 border-0 dark:bg-gray-300">
       <div class="mt-1 pl-7 flex items-center ">
           <span class=" h-8 w-8 overflow-hidden rounded-full bg-gray-100 flex justify-center">
-            <img src="./image/" >
+            <img src="<?php
+                     if ($row['Sphoto'] == NULL) {
+                      echo './image/temp-profile.jpg';
+                     }else{
+                        echo './image/' . $row['Sphoto'];
+                      }
+                    
+                        ?>" >
               
             </img>
           </span>
           <span class="text-xs px-3"><?php echo $_SESSION["Sname"]; ?> <?php echo $_SESSION["Slname"]; ?></span>
         </div>
     
-        <?php
-          $students = mysqli_query($db, "SELECT * FROM students WHERE id = $id");
-          while ($row = mysqli_fetch_array($students)) {
-          $iSmidterm = $row['iSmidterm'];  
-          $iSfinal = $row['iSfinal'];  
-          ?>
+
               <div class="p-3 pl-9">
                 <small>Evaluation Status</small>
                 <div>
