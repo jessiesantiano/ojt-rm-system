@@ -10,7 +10,7 @@
                       <p class="mb-0 font-sans font-semibold leading-normal text-sm">No. of Students</p>
                       <h5 class="mb-0 font-bold">
                           <?php
-                            $students = "SELECT count(id) AS total FROM students WHERE courseCode='$courseCode'";
+                            $students = "SELECT count(id) AS total FROM students WHERE Swcompany='$accountFor' OR courseCode='$courseCode'";
                             $rows_results = mysqli_query($db, $students);
                             $values = mysqli_fetch_assoc($rows_results);
                             $totalStudents = $values['total'];
@@ -38,7 +38,11 @@
                       <p class="mb-0 font-sans font-semibold leading-normal text-sm">Male</p>
                       <h5 class="mb-0 font-bold">
                          <?php
-                            $students = "SELECT count(id) AS total FROM students WHERE Sgender='Male' AND courseCode='$courseCode'";
+                            if ($accountFor == 'Coordinator') {
+                               $students = "SELECT count(id) AS total FROM students WHERE Sgender='Male' AND courseCode='$courseCode'";
+                            } else {
+                               $students = "SELECT count(id) AS total FROM students WHERE Sgender='Male' AND Swcompany='$accountFor' OR courseCode='$courseCode'";
+                            }
                             $rows_results = mysqli_query($db, $students);
                             $values = mysqli_fetch_assoc($rows_results);
                             $totalMale = $values['total'];
@@ -66,7 +70,11 @@
                       <p class="mb-0 font-sans font-semibold leading-normal text-sm">Female</p>
                       <h5 class="mb-0 font-bold">
                        <?php
-                            $students = "SELECT count(id) AS total FROM students WHERE Sgender='Female' AND courseCode='$courseCode'";
+                            if ($accountFor == 'Coordinator') {
+                               $students = "SELECT count(id) AS total FROM students WHERE Sgender='Female' AND courseCode='$courseCode'";
+                            } else {
+                               $students = "SELECT count(id) AS total FROM students WHERE Sgender='Female' AND Swcompany='$accountFor' OR courseCode='$courseCode'";
+                            }
                             $rows_results = mysqli_query($db, $students);
                             $values = mysqli_fetch_assoc($rows_results);
                             $totalFemale = $values['total'];
