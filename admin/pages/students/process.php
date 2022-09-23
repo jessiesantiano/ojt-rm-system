@@ -1,5 +1,4 @@
 <?php
-
     // connection
     include "../../../connection.php";
 
@@ -25,10 +24,11 @@
         $query = "INSERT INTO students (Sname, Slname, Smname, Scourse, Syear, Sblock, Sgender, Semail, Spassword, studentID, courseCode, Swcompany, Swemployer) VALUES ('$Sname', '$Slname', '$Smname', '$Scourse', '$Syear', '$Sblock', '$Sgender', '$Semail', 'LCC-$Spassword', '$studentID', '$courseCode', '$Swcompany', '$supervisor')";
         mysqli_query($db, $query);
 
-        $_SESSION['message'] = "new record has been saved";
-        $_SESSION['msg_type'] = "green-500";
-
         header("location: index.php");
+        session_start();
+        $_SESSION['status'] = "Woo hoo!";
+        $_SESSION['text'] = "New student added successfully!";
+        $_SESSION['icon'] = "success";
     }
 
     // code for retrieve from database
@@ -54,6 +54,10 @@
             $_SESSION['msg_type'] = "green-500";
            
             header('location: index.php');
+            session_start();
+            $_SESSION['status'] = "Woo hoo!";
+            $_SESSION['text'] = "Student details updated successfully!";
+            $_SESSION['icon'] = "success";
         }
     
     // delete
@@ -62,6 +66,10 @@
             mysqli_query($db, "DELETE FROM students WHERE id=$id");
             $_SESSION['message'] = "Address deleted!"; 
             header('location: index.php');
+            session_start();
+            $_SESSION['status'] = "Woo hoo!";
+            $_SESSION['text'] = "Student deleted successfully!";
+            $_SESSION['icon'] = "success";
         }
 
 

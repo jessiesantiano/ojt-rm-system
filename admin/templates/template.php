@@ -42,7 +42,9 @@
     <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet">
 
 
-<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
   <style>
 		/*Overrides for Tailwind CSS */
@@ -278,6 +280,7 @@
               ['courseCode' => $courseCode, 'name' => $name, 'accountFor' => $accountFor] = $getUserLoggedin;
               require_once $content;
              ?> 
+               <?php include("alert.php"); ?>
         </div>
        <!--end Pages Content -->
 
@@ -340,6 +343,8 @@
     <!-- <script src="../../../build/assets/js/jquery-1.12.4.js"></script> -->
 <script src="https://unpkg.com/@popperjs/core@2"></script>
 <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
+<script src="sweetalert2.all.min.js"></script>
+
 
 
 </html>

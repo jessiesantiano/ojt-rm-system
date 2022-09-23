@@ -13,7 +13,7 @@ if (isset($_SESSION['status']) && $_SESSION['status'] != '') {
             icon: '<?php echo $_SESSION['icon'] ?>',
             text: '<?php echo $_SESSION['text'] ?>',
             showConfirmButton: false,
-            timer: 13800,
+            timer: 1900,
 
         })
     </script>
