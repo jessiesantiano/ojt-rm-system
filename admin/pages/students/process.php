@@ -127,6 +127,7 @@ if (isset($_GET['download_id'])) {
         $updateQuery = "UPDATE documents SET downloads=$newCount WHERE id=$id";
         mysqli_query($db, $updateQuery);
         header('location: ../index.php?q=documents');
+            session_start();
         $_SESSION['status'] = "Woo hoo!";
         $_SESSION['text'] = "Document downloaded successfully!";
         $_SESSION['icon'] = "success";
@@ -190,9 +191,7 @@ if (isset($_GET['downloadR_id'])) {
         $updateQuery = "UPDATE reports SET downloads=$newCount WHERE id=$id";
         mysqli_query($db, $updateQuery);
         header('location: index.php');
-        $_SESSION['status'] = "Woo hoo!";
-        $_SESSION['text'] = "Document downloaded successfully!";
-        $_SESSION['icon'] = "success";
+
         exit;
     }
 }
@@ -208,6 +207,7 @@ if (isset($_GET['downloadR_id'])) {
         mysqli_query($db, "UPDATE reports SET status='checked', comment='$comment' WHERE id=$id");
 
             header ("location: index.php");
+
         // header ("location: index.php?view=view&id=$id");
         
     }

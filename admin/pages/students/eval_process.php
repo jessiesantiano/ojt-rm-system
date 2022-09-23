@@ -30,15 +30,14 @@
         $size = $_FILES['myfile']['size'];
     
         if (!in_array($extension, ['pdf'])) {
-    
-            
-          
+            session_start();
             header('location: index.php');
             $_SESSION['status'] = "Woo hoo!";
             $_SESSION['text'] = "You file extension must be .pdf";
             $_SESSION['icon'] = "warning";
         } elseif ($_FILES['myfile']['size'] > 10000000) { // file shouldn't be larger than 10Megabyte
             header('location: index.php?q=documents');
+            session_start();
             $_SESSION['status'] = "Woo hoo!";
             $_SESSION['text'] = "You file is too large!";
             $_SESSION['icon'] = "warning";
@@ -58,11 +57,13 @@
                 if (mysqli_query($db, $sql)) {
     
                     header('location: index.php');
+                    session_start();
                     $_SESSION['status'] = "Woo hoo!";
                     $_SESSION['text'] = "Document uploaded successfully!";
                     $_SESSION['icon'] = "success";
                 }
             } else {
+                 session_start();
                 header('location: index.php');
                 $_SESSION['status'] = "Woo hoo!";
                 $_SESSION['text'] = "Upload file failed.";
@@ -133,6 +134,7 @@ if (isset($_GET['delete_id'])) {
     mysqli_query($db, "DELETE FROM evaluation WHERE id=$id");
 
     header("location: index.php");
+    session_start();
     $_SESSION['status'] = "Woo hoo!";
     $_SESSION['text'] = "Document deleted successfully!";
     $_SESSION['icon'] = "success";
