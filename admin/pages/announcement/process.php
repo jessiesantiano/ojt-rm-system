@@ -16,9 +16,6 @@
         $query = "INSERT INTO announcements (title, whatfor, postedBy, dateAdded) VALUES ('$title', '$whatfor', '$postedBy', '$dateAdded')";
         mysqli_query($db, $query);
 
-        $_SESSION['message'] = "new record has been saved";
-        $_SESSION['msg_type'] = "green-500";
-
         header("location: index.php");
         session_start();
         $_SESSION['status'] = "Woo hoo!";
@@ -36,8 +33,6 @@
             $title = $_POST['title'];
             $whatfor = $_POST['whatfor'];
             mysqli_query($db, "UPDATE announcements SET title='$title', whatfor='$whatfor' WHERE id=$id");
-            $_SESSION['message'] = "record updated";
-            $_SESSION['msg_type'] = "green-500";
            
             header('location: index.php');
              session_start();

@@ -15,10 +15,11 @@
         mysqli_query($db, $query);
         mysqli_query($db, $credentials);
 
-        $_SESSION['message'] = "new record has been saved";
-        $_SESSION['msg_type'] = "green-500";
-
         header("location: index.php");
+        session_start();
+        $_SESSION['status'] = "Woo hoo!";
+        $_SESSION['text'] = "School added successfully!";
+        $_SESSION['icon'] = "success";
     }
 
     // get data from the database
@@ -31,10 +32,12 @@
             $school = $_POST['school'];
             $supervisor = $_POST['supervisor'];
             mysqli_query($db, "UPDATE schools SET school='$school', supervisor='$supervisor' WHERE id=$id");
-            $_SESSION['message'] = "record updated";
-            $_SESSION['msg_type'] = "green-500";
            
             header('location: index.php');
+             session_start();
+            $_SESSION['status'] = "Woo hoo!";
+            $_SESSION['text'] = "School details updated successfully!";
+            $_SESSION['icon'] = "success";
         }
     
     // delete
@@ -43,7 +46,10 @@
             $supervisor = $_GET['del'];
             mysqli_query($db, "DELETE FROM schools WHERE id=$id");
             mysqli_query($db, "DELETE FROM accounts WHERE name=$supervisor");
-            $_SESSION['message'] = "Address deleted!"; 
             header('location: index.php');
+             session_start();
+            $_SESSION['status'] = "Woo hoo!";
+            $_SESSION['text'] = "School deleted successfully!";
+            $_SESSION['icon'] = "success";
         }
 ?>
