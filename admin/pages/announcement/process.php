@@ -20,6 +20,10 @@
         $_SESSION['msg_type'] = "green-500";
 
         header("location: index.php");
+        session_start();
+        $_SESSION['status'] = "Woo hoo!";
+        $_SESSION['text'] = "New announcement added successfully!";
+        $_SESSION['icon'] = "success";
     }
 
     // code for retrieve from database
@@ -36,13 +40,20 @@
             $_SESSION['msg_type'] = "green-500";
            
             header('location: index.php');
+             session_start();
+            $_SESSION['status'] = "Woo hoo!";
+            $_SESSION['text'] = "Announcement details updated successfully!";
+            $_SESSION['icon'] = "success";
         }
     
     // delete
     if (isset($_GET['del'])) {
             $id = $_GET['del'];
             mysqli_query($db, "DELETE FROM announcements WHERE id=$id");
-            $_SESSION['message'] = "Address deleted!"; 
             header('location: index.php');
+             session_start();
+            $_SESSION['status'] = "Woo hoo!";
+            $_SESSION['text'] = "Announcement deleted successfully!";
+            $_SESSION['icon'] = "success";
         }
 ?>
