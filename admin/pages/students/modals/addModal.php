@@ -77,7 +77,7 @@
 
 						<?php $result = mysqli_query($db, "SELECT * FROM schools WHERE courseCode = '$courseCode'");
 						while ($row = mysqli_fetch_array($result)) { ?>
-							<option value="<?php echo $row['school']; ?>"><?php echo $row['school']; ?></option>
+							<option value="<?php echo $row['school']; ?> "><?php echo $row['school']; ?> - <?php echo $row['supervisor'] ?></option>
 						<?php } ?>
 					</select>
 

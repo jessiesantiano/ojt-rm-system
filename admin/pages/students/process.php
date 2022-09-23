@@ -3,7 +3,7 @@
     // connection
     include "../../../connection.php";
 
-
+    // $id = $_GET['id'];
     // insert to database
     if(isset($_POST['add'])){
         $Spassword = uniqid();
@@ -177,7 +177,7 @@ if (isset($_GET['downloadR_id'])) {
         $newCount = $file['downloads'] + 1;
         $updateQuery = "UPDATE reports SET downloads=$newCount WHERE id=$id";
         mysqli_query($db, $updateQuery);
-        header('location: ../index.php?q=documents');
+        header('location: index.php');
         $_SESSION['status'] = "Woo hoo!";
         $_SESSION['text'] = "Document downloaded successfully!";
         $_SESSION['icon'] = "success";
@@ -188,6 +188,7 @@ if (isset($_GET['downloadR_id'])) {
 
     // Mark as check
     if (isset($_POST['check_id'])) {
+
         $id = $_POST['id'];
         $comment = $_POST['comment'];
 
