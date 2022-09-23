@@ -14,11 +14,16 @@
         $Syear = $_POST['Syear'];
         $Sblock = $_POST['Sblock'];
         $Sgender = $_POST['Sgender'];
-        $Semail = $_POST['Semail'];
+        // $Semail = $_POST['Semail'];
         $studentID = $_POST['studentID'];
         $courseCode = $_POST['courseCode'];
         $Swcompany = $_POST['Swcompany'];
-        $query = "INSERT INTO students (Sname, Slname, Smname, Scourse, Syear, Sblock, Sgender, Semail, Spassword, studentID, courseCode, Swcompany) VALUES ('$Sname', '$Slname', '$Smname', '$Scourse', '$Syear', '$Sblock', '$Sgender', '$Semail', 'LCC-$Spassword', '$studentID', '$courseCode', '$Swcompany')";
+
+        // $getSupervisor= mysqli_query($db, "SELECT * FROM schools WHERE  Swcompany = '$Swcompany'");
+        // $getSupervisor = $getSupervisor -> fetch_assoc();
+        // ['supervisor' => $supervisor] = $getSupervisor;
+
+        $query = "INSERT INTO students (Sname, Slname, Smname, Scourse, Syear, Sblock, Sgender, Spassword, studentID, courseCode, Swcompany) VALUES ('$Sname', '$Slname', '$Smname', '$Scourse', '$Syear', '$Sblock', '$Sgender', 'LCC-$Spassword', '$studentID', '$courseCode')";
         mysqli_query($db, $query);
 
         $_SESSION['message'] = "new record has been saved";
