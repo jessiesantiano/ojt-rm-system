@@ -111,7 +111,7 @@ while ($row = mysqli_fetch_array($result)) {
                       echo './image/temp-profile.jpg';
                     } else {
                       echo './image/' . $row['Sphoto'];
-                    } ?>" id="profileDisplay" onClick="triggerClick()" name="myfile">
+                    } ?>" id="profileDisplay" onClick="triggerClick()">
                     </img>
                   </span>
 
@@ -133,7 +133,7 @@ while ($row = mysqli_fetch_array($result)) {
 
 
                           <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="file_input">Upload file</label>
-                          <input name="myfile" onChange="displayImage(this)" id="profileImage" class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file">
+                          <input value="" name="myfile" onChange="displayImage(this)" id="profileImage" class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file">
                           <br>
                           <button data-modal-toggle="popup-modal" type="button" class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
                             Upload
@@ -197,9 +197,17 @@ while ($row = mysqli_fetch_array($result)) {
                 <input value="<?php echo $row['Sphnumber']; ?>" type="text" name="last-name" id="last-name" autocomplete="family-name" class="text-center mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
               </div> -->
 
-                  <div class="col-span-6 sm:col-span-4">
+                  <div class="col-span-6 sm:col-span-6">
                     <label for="email-address" class="block text-sm font-medium text-gray-700">Vaccination Status</label>
-                    <!-- <input value="<?php echo $row['Svax']; ?>" type="text" class="text-center mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"> -->
+                    <label for="country" class="block text-sm font-medium text-gray-700">Name of Vaccine</label>
+                    <select id="country" name="Svax" autocomplete="country-name" class="text-center mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
+                      <option hidden value="<?php echo $row['Svax']; ?>"><?php echo $row['Svax']; ?></option>
+                      <option value="Pfizer-BioNTech">Pfizer-BioNTech</option>
+                      <option value="Sinovac-CoronaVac">Sinovac-CoronaVac</option>
+                      <option value="Moderna">Moderna</option>
+                      <option value="Johnson & Johnson">Johnson & Johnson</option>
+                      <option value="Oxford-AstraZeneca">Oxford-AstraZeneca</option>
+                    </select>
                   </div>
 
                   <div class="col-span-6 sm:col-span-3">
@@ -213,18 +221,24 @@ while ($row = mysqli_fetch_array($result)) {
                   </div>
 
                   <div class="col-span-6 sm:col-span-3">
+                    <label for="country" class="block text-sm font-medium text-gray-700">Vaccine for Booster</label>
+                    <select id="country" name="Svaxbooster" autocomplete="country-name" class="text-center mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
+                      <option hidden value="<?php echo $row['Svaxbooster']; ?>"><?php echo $row['Svaxbooster']; ?></option>
+                      <option value="Pfizer-BioNTech">Pfizer-BioNTech</option>
+                      <option value="Sinovac-CoronaVac">Sinovac-CoronaVac</option>
+                      <option value="Moderna">Moderna</option>
+                      <option value="Johnson & Johnson">Johnson & Johnson</option>
+                      <option value="Oxford-AstraZeneca">Oxford-AstraZeneca</option>
+                      <option value="N/A">N/A</option>
+                    </select>
+                  </div>
+
+                  <div class="col-span-6 sm:col-span-3">
                     <label for="last-name" class="block text-sm font-medium text-gray-700">Date of Booster</label>
                     <input value="<?php echo $row['Sbooster']; ?>" type="date" name="Sbooster" id="last-name" autocomplete="family-name" class="text-center mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                   </div>
 
-                  <div class="col-span-6 sm:col-span-3">
-                    <label for="country" class="block text-sm font-medium text-gray-700">Vaccine for Booster</label>
-                    <select id="country" name="Svaxbooster" autocomplete="country-name" class="text-center mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
-                      <option hidden value="<?php echo $row['Svaxbooster']; ?>"><?php echo $row['Svaxbooster']; ?></option>
-                      <option>Pfizer</option>
-                      <option>Sinovac</option>
-                    </select>
-                  </div>
+
 
 
                 </div>

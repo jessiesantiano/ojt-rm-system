@@ -82,52 +82,38 @@
 
 
     $result = mysqli_query($db, "SELECT * FROM documents WHERE studentID ='" . $_SESSION['studentID'] . "' AND destination='Before OJT Requirements' ");
-    while ($row = mysqli_fetch_array($result)) {
-
-      if ($_SESSION['studentID'] == NULL){
-        echo '<section class="flex items-center h-full sm:p-16 dark:bg-gray-900 dark:text-gray-100">
-        <div class="container flex flex-col items-center justify-center px-5 mx-auto my-8 space-y-8 text-center sm:max-w-md">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-40 h-40 dark:text-gray-600">
-            <path fill="currentColor" d="M256,16C123.452,16,16,123.452,16,256S123.452,496,256,496,496,388.548,496,256,388.548,16,256,16ZM403.078,403.078a207.253,207.253,0,1,1,44.589-66.125A207.332,207.332,0,0,1,403.078,403.078Z"></path>
-            <rect width="176" height="32" x="168" y="320" fill="currentColor"></rect>
-            <polygon fill="currentColor" points="210.63 228.042 186.588 206.671 207.958 182.63 184.042 161.37 162.671 185.412 138.63 164.042 117.37 187.958 141.412 209.329 120.042 233.37 143.958 254.63 165.329 230.588 189.37 251.958 210.63 228.042"></polygon>
-            <polygon fill="currentColor" points="383.958 182.63 360.042 161.37 338.671 185.412 314.63 164.042 293.37 187.958 317.412 209.329 296.042 233.37 319.958 254.63 341.329 230.588 365.37 251.958 386.63 228.042 362.588 206.671 383.958 182.63"></polygon>
-          </svg>
-          <p class="text-3xl">Looks like our services are currently offline</p>
-          <a rel="noopener noreferrer" href="#" class="px-8 py-3 font-semibold rounded dark:bg-violet-400 dark:text-gray-900">Back to homepage</a>
-        </div>
-      </section>';
-      }else{
-        
-
-
-    ?>
-      <div class="flex-auto p-4 pb-0">
+      if (mysqli_num_rows($result) > 0){
+        while ($row = mysqli_fetch_array($result)) {
+          $id = $row['id'];
+        echo '<div class="flex-auto px-20 pb-0">
         <ul class="flex flex-col pl-0 mb-0 rounded-lg">
           <li class="relative flex justify-between px-4 py-2 pl-0 mb-2 bg-white border-0 rounded-t-inherit text-inherit rounded-xl">
             <div class="flex flex-col">
-              <h6 class="mb-1 font-semibold leading-normal text-sm text-slate-700">
-                <?php echo $row["title"]; ?>
-              </h6>
+              <h6 class="mb-1 font-semibold leading-normal text-sm text-slate-700">';
+              echo $row["title"]; 
+              echo '</h6>
 
-              <span class="leading-tight text-xs"><?php $date = DateTime::createFromFormat('Y-m-d H:i:s', $row['date']);
-                echo $date->format('F d, Y h:i:s A'); // Change format as needed ?></span>
+              <span class="leading-tight text-xs">
+              ';
+           $date = DateTime::createFromFormat('Y-m-d H:i:s', $row['date']);
+                echo $date->format('F d, Y h:i:s A'); // Change format as needed
+                echo '</span>
             </div>
             <div class="flex items-center leading-normal text-sm">
 
-              <a href="./pages/controller.php?view_id=<?php echo $row['id'] ?>">
+              <a target="_blank" href="./pages/controller.php?view_id='.$id.'">
                 <button class="inline-block px-0 py-3 mb-0 ml-6 font-bold leading-normal text-center uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-sm active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700">
                   <i class="mr-1 fas fa-file-pdf text-lg"></i> View
                 </button>
               </a>
 
-              <a href="./pages/controller.php?file_id=<?php echo $row['id'] ?>">
+              <a href="./pages/controller.php?file_id='.$id.'">
                 <button class="inline-block px-0 py-3 mb-0 ml-6 font-bold leading-normal text-center uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-sm active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700">
                   <i class="fa fa-download" aria-hidden="true"></i> Download
                 </button>
               </a>
 
-              <a href="./pages/controller.php?delete_id=<?php echo $row['id'] ?>">
+              <a href="./pages/controller.php?delete_id='.$id.'">
                 <button name="delete" class="inline-block px-0 py-3 mb-0 ml-6 font-bold leading-normal text-center uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-sm active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700">
                   <i class="fa fa-trash" aria-hidden="true"></i> Delete
                 </button>
@@ -135,64 +121,87 @@
             </div>
           </li>
         </ul>
+      </div>';
+
+
+    ?>
+      
+
+
+    <?php }
+    } else echo '<section class="flex items-center h-full p-5  dark:text-gray-100">
+    <div class="container flex flex-col items-center justify-center px-5 mx-auto my-8">
+      <div class="max-w-md text-center">
+        <p class="dark:text-gray-400 text-md font-semibold">Sorry, no documents to be display.</p>
       </div>
+    </div>
+  </section>';?>
 
 
-    <?php } 
-    }?>
-
-
-    <div class="inline-flex justify-center items-center w-full">
+<div class="inline-flex justify-center items-center w-full">
       <hr class="my-8 w-64 h-px bg-gray-200 border-0 dark:bg-gray-700">
       <span class="absolute left-1/2 px-3 font-medium text-gray-900 bg-white -translate-x-1/2 ">
         <h6 class="mb-0 font-semibold leading-normal text-sm text-slate-700">Documents After the OJT</h6>
       </span>
     </div>
-
     <?php
 
 
     $result = mysqli_query($db, "SELECT * FROM documents WHERE studentID ='" . $_SESSION['studentID'] . "' AND destination='After OJT Requirements' ");
-    while ($row = mysqli_fetch_array($result)) {
-
-
-    ?>
-      <div class="flex-auto p-4 pb-0">
+      if (mysqli_num_rows($result) > 0){
+        while ($row = mysqli_fetch_array($result)) {
+          $id = $row['id'];
+        echo '<div class="flex-auto px-20 pb-0">
         <ul class="flex flex-col pl-0 mb-0 rounded-lg">
           <li class="relative flex justify-between px-4 py-2 pl-0 mb-2 bg-white border-0 rounded-t-inherit text-inherit rounded-xl">
             <div class="flex flex-col">
-              <h6 class="mb-1 font-semibold leading-normal text-sm text-slate-700">
-                <?php echo $row["title"]; ?>
-              </h6>
+              <h6 class="mb-1 font-semibold leading-normal text-sm text-slate-700">';
+              echo $row["title"]; 
+              echo '</h6>
 
-              <span class="leading-tight text-xs"><?php echo $row["date"]; ?></span>
+              <span class="leading-tight text-xs">
+              ';
+           $date = DateTime::createFromFormat('Y-m-d H:i:s', $row['date']);
+                echo $date->format('F d, Y h:i:s A'); // Change format as needed
+                echo '</span>
             </div>
             <div class="flex items-center leading-normal text-sm">
 
-            <a href="./pages/controller.php?view_id=<?php echo $row['id'] ?>">
+              <a target="_blank" href="./pages/controller.php?view_id='.$id.'">
                 <button class="inline-block px-0 py-3 mb-0 ml-6 font-bold leading-normal text-center uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-sm active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700">
-                  <i class="mr-1 fas fa-file text-lg"></i> View
+                  <i class="mr-1 fas fa-file-pdf text-lg"></i> View
                 </button>
               </a>
 
-              <a href="./pages/controller.php?file_id=<?php echo $row['id'] ?>">
+              <a href="./pages/controller.php?file_id='.$id.'">
                 <button class="inline-block px-0 py-3 mb-0 ml-6 font-bold leading-normal text-center uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-sm active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700">
                   <i class="fa fa-download" aria-hidden="true"></i> Download
                 </button>
               </a>
 
-              <a href="./pages/controller.php?delete_id=<?php echo $row['id'] ?>">
+              <a href="./pages/controller.php?delete_id='.$id.'">
                 <button name="delete" class="inline-block px-0 py-3 mb-0 ml-6 font-bold leading-normal text-center uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-sm active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700">
                   <i class="fa fa-trash" aria-hidden="true"></i> Delete
                 </button>
               </a>
-
             </div>
           </li>
         </ul>
-      </div>
+      </div>';
 
-    <?php } ?>
+
+    ?>
+      
+
+
+    <?php }
+    } else echo '<section class="flex items-center h-full p-5  dark:text-gray-100">
+    <div class="container flex flex-col items-center justify-center px-5 mx-auto my-8">
+      <div class="max-w-md text-center">
+        <p class="dark:text-gray-400 text-md font-semibold">Sorry, no documents to be display.</p>
+      </div>
+    </div>
+  </section>';?>
   </color:div>
 </div>
 <br>

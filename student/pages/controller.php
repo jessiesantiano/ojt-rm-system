@@ -29,6 +29,7 @@ if (isset($_POST['update_id'])) {
     $file = $_FILES['myfile']['tmp_name'];
     $size = $_FILES['myfile']['size'];
 
+    $Svax = $_POST['Svax'];
     $S1dose = $_POST['S1dose'];
     $S2dose = $_POST['S2dose'];
     $Sbooster = $_POST['Sbooster'];
@@ -39,24 +40,28 @@ if (isset($_POST['update_id'])) {
     $Swlocation = $_POST['Swlocation'];
     $Swcontact = $_POST['Swcontact'];
 
-
-
     if (!in_array($extension, ['png', 'jpg', 'jpeg'])) {
         header('location: ../index.php?q=profile');
         $_SESSION['status'] = "Woo hoo!";
         $_SESSION['text'] = "You picture extension must be .png .jpg .jpeg";
         $_SESSION['icon'] = "warning";
-
     } elseif ($_FILES['myfile']['size'] > 10000000) { // file shouldn't be larger than 10Megabyte
         header('location: ../index.php?q=profile');
         $_SESSION['status'] = "Woo hoo!";
         $_SESSION['text'] = "You file is too large. (10MB max)";
         $_SESSION['icon'] = "warning";
     } else {
-
-
         if (move_uploaded_file($file, $destination)) {
-            mysqli_query($db, "UPDATE students SET 
+            mysqli_query($db, "UPDATE students SET Sphoto='$Sphoto' WHERE id=$id");
+        }
+    }
+
+
+
+
+
+    // if (move_uploaded_file($file, $destination)) {
+    mysqli_query($db, "UPDATE students SET 
     Sage='$Sage',
     Sstreet='$Sstreet', 
     Scity='$Scity',
@@ -67,9 +72,9 @@ if (isset($_POST['update_id'])) {
     Snumber='$Snumber',
     Semail='$Semail',
 
-        Sphoto='$Sphoto',
+        -- Sphoto='$Sphoto',
 
-    -- Svax='$Svax',
+    Svax='$Svax',
     S1dose='$S1dose',
     S2dose='$S2dose',
     Sbooster='$Sbooster',
@@ -82,17 +87,17 @@ if (isset($_POST['update_id'])) {
     Swcontact='$Swcontact'
      WHERE id=$id");
 
-            header('location: ../index.php?q=profile');
-            $_SESSION['status'] = "Woo hoo!";
-            $_SESSION['text'] = "Document uploaded successfully!";
-            $_SESSION['icon'] = "success";
-        } else {
-            header('location: ../index.php?q=profile');
-            $_SESSION['status'] = "Woo hoo!";
-            $_SESSION['text'] = "Upload file failed.";
-            $_SESSION['icon'] = "error";
-        }
-    }
+    header('location: ../index.php?q=profile');
+    $_SESSION['status'] = "Woo hoo!";
+    $_SESSION['text'] = "Update successfully!";
+    $_SESSION['icon'] = "success";
+    // } else {
+    //     header('location: ../index.php?q=profile');
+    //     $_SESSION['status'] = "Woo hoo!";
+    //     $_SESSION['text'] = "Update Error";
+    //     $_SESSION['icon'] = "error";
+    // }
+    // }
 }
 
 
@@ -203,14 +208,14 @@ if (isset($_GET['delete_id'])) {
 if (isset($_GET['view_id'])) {
     $id = $_GET['view_id'];
     // fetch file to download from database
-    $sql = "SELECT * FROM documents WHERE id=$id";
-    $result = mysqli_query($db, $sql);
+    $select = "SELECT * FROM `documents` WHERE id=$id";
+    $result = $db->query($select);
+    while($row = $result->fetch_object()){
 
-    $file = mysqli_fetch_assoc($result);
-    $filename = 'uploads/' . $file['name'];
-
-    if (file_exists($filename)) {
-
+    $path = 'uploads/';
+    $pdf = $row->name;
+    $filename = $path.$pdf;
+    }
         // Header content type
         header('Content-type: application/pdf');
 
@@ -221,11 +226,8 @@ if (isset($_GET['view_id'])) {
         header('Accept-Ranges: bytes');
 
         // Read the file
-        @readfile($file);
-    }
+        @readfile($filename);
 }
-
-
 
 // Upload Report Files
 

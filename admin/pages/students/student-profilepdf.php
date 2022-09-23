@@ -148,7 +148,7 @@ body{
 margin: 24px 0 12px 0;" class="imgcontainer">
   <img style="  width: 70px;
   height: 70px;
-  border-radius: 50%;" src="" alt="Avatar" class="avatar">
+  border-radius: 50%;" src=src="../../../student/image/'.$Sphoto.'" alt="Avatar" class="avatar">
 </div>
 
 <p><b>Name:</b> <span>'.$Sname.' '.$Smname.' '.$Slname.'</span> </p>
@@ -173,7 +173,7 @@ margin: 24px 0 12px 0;" class="imgcontainer">
 <p></p>
 
 <center><h4 style="text-align:center;">On-the-Job Training (OJT) Information</h4></center>
-<p><b>Name of Company/School:</b> <span>'.$Swname.'</span> </p>
+<p><b>Name of Company/School:</b> <span>'.$Swcompany.'</span> </p>
 <p><b>No. of hours to complete:</b> <span>'.$Swnumber.'</span> </p>
 <p><b>Company/School Address:</b> <span>'.$Swlocation.'</span> </p>
 <p><b>Name of Supervisor:</b> <span>'.$Swemployer.'</span> </p>
