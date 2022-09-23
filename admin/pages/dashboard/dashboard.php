@@ -101,7 +101,7 @@
                   <div class="flex-none w-2/3 max-w-full px-3">
                     <?php if ($accountFor == 'Coordinator') : ?>
                        <div>
-                          <p class="mb-0 font-sans font-semibold leading-normal text-sm">Evaluation/Grades</p>
+                          <p class="mb-0 font-sans font-semibold leading-normal text-sm">Evaluation</p>
                           <h5 class="mb-0 font-bold">
                           <?php
                                 $graded = "SELECT count(id) AS total FROM students WHERE courseCode = '$courseCode' AND iSmidterm = 'graded' OR iSfinal = 'graded'";
@@ -114,7 +114,7 @@
                         </div>
                     <?php else : ?>
                       <div>
-                          <p class="mb-0 font-sans font-semibold leading-normal text-sm">Evaluation Request</p>
+                          <p class="mb-0 font-sans font-semibold leading-normal text-sm">Request</p>
                           <h5 class="mb-0 font-bold">
                           <?php
                                 $request = "SELECT count(id) AS total FROM students WHERE Swcompany = '$accountFor' AND iSmidterm = 'requested' OR iSfinal = 'requested'";
