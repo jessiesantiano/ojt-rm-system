@@ -36,7 +36,7 @@ while ($row = mysqli_fetch_array($result)) {
                   </div>
 
                   <div class="col-span-6 sm:col-span-2">
-                    <label for="last-name" class="block text-sm font-medium text-gray-700">Middle name</label>
+                    <label for="last-name" class="block text-sm font-medium text-gray-700">Middle Initial</label>
                     <input readonly value="<?php echo $row['Smname']; ?>" type="text" name="Smname" id="last-name" autocomplete="family-name" class="text-center mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                   </div>
 
