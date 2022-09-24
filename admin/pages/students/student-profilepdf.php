@@ -148,7 +148,7 @@ body{
 margin: 24px 0 12px 0;" class="imgcontainer">
   <img style="  width: 70px;
   height: 70px;
-  border-radius: 50%;" src=src="../../../student/image/'.$Sphoto.'" alt="Avatar" class="avatar">
+  border-radius: 50%;" src="../../../student/image/'.$Sphoto.'" alt="Avatar" class="avatar">
 </div>
 
 <p><b>Name:</b> <span>'.$Sname.' '.$Smname.' '.$Slname.'</span> </p>
