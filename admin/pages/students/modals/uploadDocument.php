@@ -1,6 +1,6 @@
 <?php $students = mysqli_query($db, "SELECT * FROM students WHERE id=$id"); ?>
 <?php while ($row = mysqli_fetch_array($students)) { ?>
-  <div id="upload<?php echo $row['studentID']; ?>" class="show fade hidden">
+  <div id="upload_eval<?php echo $row['studentID']; ?>" class="show fade hidden">
 		<div class="fixed w-full h-full top-0 left-0 flex justify-center items-center" style="background: rgba(0,0,0,0.5);">
 			<div class="w-2/5 h-f ll relative flex  flex-col  bg-white border border-solid pointer-events-auto dark:bg-gray-950 bg-clip-padding border-black/20 rounded-xl outline-0">
 				<div class="flex items-center justify-between p-4 border-b border-solid shrink-0 border-slate-100 rounded-t-xl">

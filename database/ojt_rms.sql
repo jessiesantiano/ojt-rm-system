@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 23, 2022 at 07:30 AM
+-- Generation Time: Sep 24, 2022 at 03:24 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -90,7 +90,8 @@ INSERT INTO `courses` (`id`, `course`, `courseCode`) VALUES
 (3, 'BSED Filipino', 'Education Dep.'),
 (4, 'BSED Social Studies', 'Education Dep.'),
 (5, 'BSED Values Education', 'Education Dep.'),
-(6, 'AB Economics', 'Economic Dep.');
+(6, 'AB Economics', 'Economic Dep.'),
+(7, 'BE Childhood Education', 'Education Dep.');
 
 -- --------------------------------------------------------
 
@@ -118,7 +119,9 @@ INSERT INTO `documents` (`id`, `title`, `destination`, `studentID`, `size`, `nam
 (2, 'COD ', 'Before OJT Requirements', 'LCC-0002', '226577', 'Drivers License.pdf', 0, '2022-09-14 09:53:42'),
 (3, 'COD ', 'After OJT Requirements', 'LCC-0001', '226577', 'Drivers License.pdf', 1, '2022-09-14 14:15:24'),
 (4, 'sample req', 'After OJT Requirements', 'LCC-0002', '3902636', 'layout.docx', 0, '2022-09-15 22:43:59'),
-(5, 'sample pdf', 'After OJT Requirements', 'LCC-0002', '150738', 'Jessie Santiano.pdf', 0, '2022-09-15 22:48:03');
+(5, 'sample pdf', 'After OJT Requirements', 'LCC-0002', '150738', 'Jessie Santiano.pdf', 0, '2022-09-15 22:48:03'),
+(13, 'Sample Doc for Before OJT', 'Before OJT Requirements', 'LCC-0004', '186731', 'midterm.pdf', 0, '2022-09-23 20:05:40'),
+(15, 'Sample Doc for Before OJT', 'Before OJT Requirements', 'LCC-0004', '186731', 'midterm.pdf', 0, '2022-09-23 20:45:18');
 
 -- --------------------------------------------------------
 
@@ -141,8 +144,8 @@ CREATE TABLE `evaluation` (
 --
 
 INSERT INTO `evaluation` (`id`, `title`, `name`, `date`, `size`, `des`, `studentID`) VALUES
-(2, 'Midterm Evaluation', 'midterm.pdf', '2022-09-20 13:45:52', '154430', 'Midterm', 'LCC-0001'),
-(12, 'Sample Midterm Eval', 'midterm.pdf', '2022-09-23 11:53:45', '186731', 'Midterm', 'LCC-0004');
+(12, 'Sample Midterm Eval', 'midterm.pdf', '2022-09-23 11:53:45', '186731', 'Midterm', 'LCC-0004'),
+(15, 'Sample Doc for Before OJT', 'midterm.pdf', '2022-09-23 21:51:48', '186731', 'Midterm', 'LCC-0001');
 
 -- --------------------------------------------------------
 
@@ -170,7 +173,9 @@ INSERT INTO `reports` (`id`, `name`, `size`, `downloads`, `title`, `studentID`, 
 (1, 'Drivers License.pdf', '226577', '0', 'MLBB Tournament 2021', 'LCC-0001', '2022-09-11 21:05:58', '', 'checked'),
 (2, 'Santiano, Jessie T. (PSA).pdf', '1672525', '0', 'sample', 'LCC-0002', '2022-09-15 22:42:58', 'sample comment', 'fa'),
 (3, 'Jessie Santiano.pdf', '150738', '0', 'sample report', 'LCC-0002', '2022-09-15 22:48:14', '', 'checked'),
-(4, 'img20220731_08060207.pdf', '886279', '0', 'Sample Report Pending', 'LCC-0002', '2022-09-16 10:20:03', '', 'pending');
+(4, 'img20220731_08060207.pdf', '886279', '0', 'Sample Report Pending', 'LCC-0002', '2022-09-16 10:20:03', '', 'pending'),
+(13, 'midterm.pdf', '186731', '0', 'Sample Doc for Before OJT', 'LCC-0004', '2022-09-23 21:20:12', '', 'pending'),
+(14, 'midterm.pdf', '186731', '0', 'Sample report', 'LCC-0004', '2022-09-23 21:20:35', '', 'checked');
 
 -- --------------------------------------------------------
 
@@ -246,9 +251,9 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`id`, `Sname`, `Slname`, `Smname`, `Semail`, `studentID`, `Spassword`, `Scourse`, `Syear`, `Sblock`, `Sstreet`, `Scity`, `Sstate`, `Szipcode`, `Sage`, `Sgender`, `Sbday`, `Snumber`, `Sphoto`, `Sinsurance`, `Sph`, `Sparentph`, `Sphnumber`, `Svax`, `S1dose`, `S2dose`, `Sbooster`, `Svaxbooster`, `Swstatus`, `Swname`, `Swcompany`, `Swnumber`, `Swlocation`, `Swemployer`, `Swcontact`, `courseCode`, `iSmidterm`, `iSfinal`) VALUES
-(1, 'Merdilene', 'Pomay', 'B.', 'merdilene.pomay@gmail.com', 'LCC-0001', 'LCC-631dc11a867b1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Female', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AMTIC HIGH SCHOOL', NULL, NULL, NULL, NULL, 'Education Dep.', 'requested', NULL),
+(1, 'Merdilene', 'Pomay', 'B.', 'merdilene.pomay@gmail.com', 'LCC-0001', 'LCC-631dc11a867b1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Female', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AMTIC HIGH SCHOOL', NULL, NULL, NULL, NULL, 'Education Dep.', 'graded', NULL),
 (2, 'Jonalyn', 'Bataller', 'B.', '', 'LCC-0002', 'LCC-631dd6d733f40', 'BSED Mathematics', '4', 'B', NULL, NULL, NULL, NULL, NULL, 'Female', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'BARAYONG HIGH SCHOOL', NULL, NULL, NULL, NULL, 'Education Dep.', 'requested', NULL),
-(10, 'Jessie', 'Santiano', 'Tardecilla', 'jessie.santiano@gmail.com', 'LCC-0004', 'LCC-63293f34893bf', 'AB Economics', '4', 'B', '133 Panonowan, Ilaor Sur', 'Albay', 'Bicol', '4505', '22 years old', 'Male', '2000-09-06', '09453075374', 'logo.jpg', NULL, NULL, NULL, NULL, 'Oxford-AstraZeneca', '2022-09-15', '2022-09-13', '0000-00-00', 'N/A', NULL, NULL, 'Pixel 8', '480 hours', 'Legazpi', NULL, '0936 279 9918', 'Economic Dep.', 'graded', 'requested');
+(10, 'Jessie', 'Santiano', 'Tardecilla', 'jessie.santiano@gmail.com', 'LCC-0004', 'test', 'AB Economics', '4', 'B', '133 Panonowan, Ilaor Sur', 'Albay', 'Bicol', '4505', '22 years old', 'Male', '2000-09-06', '09453075374', 'logo.jpg', NULL, NULL, NULL, NULL, 'Oxford-AstraZeneca', '2022-09-15', '2022-09-13', '0000-00-00', 'N/A', NULL, NULL, 'Pixel 8', '480 hours', 'Legazpi', NULL, '0936 279 9918', 'Economic Dep.', 'graded', 'requested');
 
 --
 -- Indexes for dumped tables
@@ -322,25 +327,25 @@ ALTER TABLE `announcements`
 -- AUTO_INCREMENT for table `courses`
 --
 ALTER TABLE `courses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `documents`
 --
 ALTER TABLE `documents`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `evaluation`
 --
 ALTER TABLE `evaluation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `reports`
 --
 ALTER TABLE `reports`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `schools`

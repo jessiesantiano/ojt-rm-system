@@ -115,8 +115,8 @@
         <section class="flex items-center h-full p-5  dark:text-gray-100">
 	        <div class="container flex flex-col items-center justify-center px-5 mx-auto my-8">
 		        <div class="max-w-md text-center">
-              
-              <p class="dark:text-gray-400 text-xl font-semibold">Sorry, no reports to be display.</p>
+            <i class="fa dark:text-gray-200 text-9xl fa-file-pdf-o" aria-hidden="true"></i>
+              <p class="dark:text-gray-400 text-xl font-semibold">Sorry, no reports to display.</p>
               <p class="mt-4 text-xs mb-8 dark:text-gray-400">But dont worry, you can upload your reports here.</p>
 		        </div>
 	        </div>
