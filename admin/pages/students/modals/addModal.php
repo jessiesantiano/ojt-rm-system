@@ -47,6 +47,8 @@
 								<option hidden selected>Select</option>
 								<option value="A">Block A</option>
 								<option value="B">Block B</option>
+								<option value="C">Block C</option>
+								<option value="D">Block D</option>
 							</select>
 						</div>
 					</div>
