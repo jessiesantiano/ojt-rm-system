@@ -98,9 +98,9 @@ while ($row = mysqli_fetch_array($students)) {
  								<li class="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-sm text-inherit"><strong class="text-slate-700">Parent Philhealth Name:</strong> &nbsp; <?php echo $row['Sparentph'] ?> </li>
  								<li class="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-sm text-inherit"><strong class="text-slate-700">Philhealth Number:</strong> &nbsp; <?php echo $row['Sphnumber'] ?></li> -->
               <li class="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-sm text-inherit"><strong class="text-slate-700">Vaccination Status:</strong> &nbsp; <?php echo $row['Svax'] ?></li>
-              <li class="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-sm text-inherit"><strong class="text-slate-700">First Dose:</strong> &nbsp; <?php echo $row['S1dose'] ?> &nbsp;&nbsp;<strong class="text-slate-700">Second Dose:</strong>&nbsp; <?php echo $row['S2dose'] ?></li>
-              <li class="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-sm text-inherit"><strong class="text-slate-700">Booster:</strong> &nbsp; <?php echo $row['Sbooster'] ?></li>
-              <li class="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-sm text-inherit"><strong class="text-slate-700">Vax Booster:</strong> &nbsp; <?php echo $row['Svaxbooster'] ?></li>
+              <li class="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-sm text-inherit"><strong class="text-slate-700">First Dose:</strong> &nbsp; <?php echo $row['S1dose'] ?> <br><strong class="text-slate-700">Second Dose:</strong>&nbsp; <?php echo $row['S2dose'] ?></li>
+              <li class="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-sm text-inherit"><strong class="text-slate-700">Booster:</strong> &nbsp; <?php echo $row['Svaxbooster'] ?></li>
+              <li class="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-sm text-inherit"><strong class="text-slate-700">Vax Booster:</strong> &nbsp; <?php echo $row['Sbooster'] ?></li>
 
             </ul>
           </div>
