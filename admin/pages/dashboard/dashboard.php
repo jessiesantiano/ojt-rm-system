@@ -148,7 +148,7 @@
           <div class="flex gap-2 px-3 items-center w-full py-5">
               <div class="bg-white rounded-lg pt-10 md:pt-0 lg:pt-0 w-full h-full  px-2 md:px-0 lg:px-0">
                     <div class="py-3 w-full">
-                      <h4 class="mb-3 text-gray-800 w-full" style="line-height: 18px"><span class="text-pink-400 font-bold pr-1">Generate </span>Profile Report</h4>
+                      <h5 class="mb-3 text-gray-800 w-full" style="line-height: 18px"><span class="text-pink-400 font-bold pr-1">Generate </span>Profile Report</h5>
                         <table class="min-w-full divide-y divide-gray-200 border-collapse w-full">
                           <thead class="sticky top-0">
                               <tr>
@@ -159,7 +159,10 @@
                                     Course
                                   </th>
                                   <th scope="col" class="px-3 md:px-6 lg:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider bg-white shadow-sm">
-                                    Gender
+                                    Midterm
+                                  </th>
+                                  <th scope="col" class="px-3 md:px-6 lg:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider bg-white shadow-sm">
+                                    Final
                                   </th>
                                   <th scope="col" class="md:hidden lg:hidden px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider bg-white shadow-sm">
                                   </th>
@@ -193,14 +196,28 @@
                                         <?php echo $row['Scourse']; ?>
                                     </td>
                                     <td class="px-3 md:px-6 lg:px-6 py-2 whitespace-nowrap">
-                                        <?php echo $row['Sgender']; ?>
+                                        <?php if ($row['iSmidterm'] == 'graded') : ?>
+                                            <span class="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-green-200 dark:text-green-900">Graded</span>
+                                         <?php else : ?>
+                                          <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-yellow-200 dark:text-yellow-900">Pending</span>
+                                        <?php endif; ?>
                                     </td>
-
                                     <td class="px-3 md:px-6 lg:px-6 py-2 whitespace-nowrap">
-                                  
-                                      <button type="submit" name="generate_id" class="ml-2  px-2 py-1 font-bold text-center text-white uppercase align-middle transition-all rounded-lg cursor-pointer bg-gradient-to-tl from-purple-700 to-pink-500 leading-pro text-xs ease-soft-in tracking-tight-soft shadow-soft-md bg-150 bg-x-25 hover:scale-102 active:opacity-85 hover:shadow-soft-xs">
+                                        <?php if ($row['iSfinal'] == 'graded') : ?>
+                                            <span class="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-green-200 dark:text-green-900">Graded</span>
+                                         <?php else : ?>
+                                          <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-yellow-200 dark:text-yellow-900">Pending</span>
+                                        <?php endif; ?>
+                                    </td>
+                                    <td class="px-3 md:px-6 lg:px-6 py-2 whitespace-nowrap">
+                                    <form action="../students/student-profilepdf.php" method="GET" target="_blank">
+                                     <input type="hidden" name="id" value="<?php echo $id; ?>">
+                                     <input type="hidden" name="studentID" value="<?php echo $row['studentID']; ?>">  
+                                     <button type="submit" name="generate_id" class="ml-2  px-2 py-1 font-bold text-center text-white uppercase align-middle transition-all rounded-lg cursor-pointer bg-gradient-to-tl from-purple-700 to-pink-500 leading-pro text-xs ease-soft-in tracking-tight-soft shadow-soft-md bg-150 bg-x-25 hover:scale-102 active:opacity-85 hover:shadow-soft-xs">
                                         <i class="fa fa-folder-open" aria-hidden="true"></i>&nbsp; Generate
-                                      </button>
+                                     </button>
+                                    </form>
+
                                     </td>
                                 </tr>
                             </tbody>
