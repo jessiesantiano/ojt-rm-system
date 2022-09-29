@@ -28,8 +28,11 @@
             $id = $_POST['id'];
             $name = $_POST['name'];
             $email = $_POST['email'];
+            $school = $_POST['school'];
+
             $password = $_POST['password'];
             mysqli_query($db, "UPDATE accounts SET name='$name', email='$email', password='$password' WHERE id=$id");
+            mysqli_query($db, "UPDATE students SET Swemployer='$name' WHERE Swcompany='$school'");
           
             header('location: index.php');
               session_start();
