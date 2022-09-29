@@ -32,6 +32,7 @@
             $school = $_POST['school'];
             $supervisor = $_POST['supervisor'];
             mysqli_query($db, "UPDATE schools SET school='$school', supervisor='$supervisor' WHERE id=$id");
+            mysqli_query($db, "UPDATE accounts SET name='$supervisor' WHERE accountFor='$school'");
            
             header('location: index.php');
              session_start();
@@ -43,9 +44,9 @@
     // delete
     if (isset($_GET['del'])) {
             $id = $_GET['del'];
-            $supervisor = $_GET['del'];
+            $supervisor = $_GET['supervisor'];
             mysqli_query($db, "DELETE FROM schools WHERE id=$id");
-            mysqli_query($db, "DELETE FROM accounts WHERE name=$supervisor");
+            mysqli_query($db, "DELETE FROM accounts WHERE name='$supervisor'");
             header('location: index.php');
              session_start();
             $_SESSION['status'] = "Woo hoo!";

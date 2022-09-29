@@ -6,7 +6,7 @@
 				<div class="flex items-center justify-between p-4 border-b border-solid shrink-0 border-slate-100 rounded-t-xl">
 					<h5 class="mb-0 leading-normal dark:text-white" id="ModalLabel">Edit School</h5>
 					<div>
-						 <a href="process.php?del=<?php echo $row['id'] ?>&<?php echo $row['supervisor'] ?>">
+						 <a href="process.php?del=<?php echo $row['id'] ?>&supervisor=<?php echo $row['supervisor'] ?>">
 						    <i style="margin-right: 10px" class="fa fa-trash w-4 h-4 box-content p-2 text-black dark:text-white border-0 rounded-1.5 opacity-50 cursor-pointer"></i>
 						 </a>
 						<button type="button" data-toggle="modal" class=" fa fa-close w-5 h-5  box-content p-2 text-black dark:text-white border-0 rounded-1.5 opacity-50 cursor-pointer -m-2 " data-dismiss="modal"></button>
@@ -15,6 +15,7 @@
 			   <form action="process.php" method="POST">
 					<div class="relative flex-auto p-4">
 						<input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+						<input type="hidden" name="school" value="<?php echo $row['school']; ?>">
 						<b>School</b>
 						<input type="text" placeholder="Name" name="school" value="<?php echo $row['school']?>" class="dark:bg-gray-950 mb-2 focus:shadow-soft-primary-outline dark:placeholder:text-white/80 dark:text-white/80 text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none">
 						<b>Trainees Supervisor</b>

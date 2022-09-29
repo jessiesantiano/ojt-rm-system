@@ -454,6 +454,7 @@ while ($row = mysqli_fetch_array($students)) {
                       <a target="_blank" class="px-3 font-bold text-center uppercase align-middle shadow-none text-xs border-b-solid tracking-none whitespace-nowrap text-blue-400" href="./eval_process.php?view_id='.$id.'"><i class="mr-2 far fa-eye bg-150 bg-blue-600 bg-x-25 bg-clip-text"></i>View</a>
                       <a class="px-3 font-bold text-center uppercase align-middle shadow-none text-xs border-b-solid tracking-none whitespace-nowrap text-blue-400" href="./eval_process.php?download_id='.$id.'"><i class="mr-2 fa fa-download bg-150 bg-blue-600 bg-x-25 bg-clip-text"></i>Download</a>
                       ';
+                  
                      if ($_SESSION['accountFor'] == 'Coordinator') {
                         echo '';
                       } else echo '
@@ -461,6 +462,7 @@ while ($row = mysqli_fetch_array($students)) {
                     '; ?>
                     </div>
                   </li>
+                  
                 <?php }
                 } else echo '<section class="flex items-center h-full p-1  dark:text-gray-100">
                 <div class="container flex flex-col items-center justify-center px-5 mx-auto my-8">
@@ -471,6 +473,7 @@ while ($row = mysqli_fetch_array($students)) {
                   </div>
                 </div>
               </section>'; ?>
+
               </ul>
             </div>
           </div>

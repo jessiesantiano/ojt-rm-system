@@ -133,6 +133,7 @@ if (isset($_GET['delete_id'])) {
     $id = $_GET['delete_id'];
     mysqli_query($db, "DELETE FROM evaluation WHERE id=$id");
 
+
     header("location: index.php");
     session_start();
     $_SESSION['status'] = "Woo hoo!";
