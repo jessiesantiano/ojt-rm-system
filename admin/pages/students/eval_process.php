@@ -129,10 +129,17 @@ if (isset($_GET['download_id'])) {
 
 // Delete files
 if (isset($_GET['delete_id'])) {
+    $delID = $_GET['delete_id'];
+    $id = $_GET['update_id'];
+    $request = $_GET['request'];
 
-    $id = $_GET['delete_id'];
-    mysqli_query($db, "DELETE FROM evaluation WHERE id=$id");
+    mysqli_query($db, "DELETE FROM evaluation WHERE id=$delID");
 
+    if ($request == 'Midterm') {
+        mysqli_query($db, "UPDATE students SET iSmidterm='requested' WHERE id=$id");
+    } else {
+        mysqli_query($db, "UPDATE students SET iSfinal='requested' WHERE id=$id");
+    }
 
     header("location: index.php");
     session_start();
