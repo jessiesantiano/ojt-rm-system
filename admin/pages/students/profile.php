@@ -1,8 +1,12 @@
 <?php include('process.php');
 $id = $_GET['id'];
+$update_id = $_GET['id'];
 
 // Data Initialization on DATABASE
 $students = mysqli_query($db, "SELECT * FROM students WHERE id = $id");
+  //  $deleteGet= mysqli_query($db, "SELECT * FROM students WHERE id = $id");
+  //   $deleteGet = $deleteGet -> fetch_assoc();
+  //   ['evalRequest' => 'Midterm'] = $deleteGet
 while ($row = mysqli_fetch_array($students)) {
 
   $studentID = $row['studentID']; ?>
@@ -399,11 +403,7 @@ while ($row = mysqli_fetch_array($students)) {
                       <span class="leading-tight text-xs">Date: <span class="font-semibold text-slate-700 sm:ml-2">';
                       $date = DateTime::createFromFormat('Y-m-d H:i:s', $row['date']);
                       echo $date->format('F d, Y h:i:s A'); // Change format as needed 
-                  
-                  $students = mysqli_query($db, "SELECT * FROM students WHERE id = $id");
-                  while ($row = mysqli_fetch_array($students)) {
-                  $update_id = $_GET['id'];
-                  $evalRequest = 'Midterm';
+                
                    echo '   
                     </span></span>
                     </div>
@@ -411,15 +411,14 @@ while ($row = mysqli_fetch_array($students)) {
                       <a target="_blank" class="px-3 font-bold text-center uppercase align-middle shadow-none text-xs border-b-solid tracking-none whitespace-nowrap text-blue-400" href="./eval_process.php?view_id='.$id.'"><i class="mr-2 far fa-eye bg-150 bg-blue-600 bg-x-25 bg-clip-text"></i>View</a>
                       <a class="px-3 font-bold text-center uppercase align-middle shadow-none text-xs border-b-solid tracking-none whitespace-nowrap text-blue-400" href="./eval_process.php?download_id='.$id.'"><i class="mr-2 fa fa-download bg-150 bg-blue-600 bg-x-25 bg-clip-text"></i>Download</a>
                       ';
-                     if ($_SESSION['accountFor'] == 'Coordinator') {
+                     if ($accountFor == 'Coordinator') {
                         echo '';
-                      } else echo '
-                      <a class="font-bold text-center uppercase align-middle shadow-none text-xs border-b-solid tracking-none whitespace-nowrap text-blue-400" href="./eval_process.php?delete_id=' . $id . '&update_id=' .$update_id. '&request='. $evalRequest .'"><i class="mr-2 fa fa-trash bg-150 bg-blue-600 bg-x-25 bg-clip-text"></i>Delete</a>
-                    '; ?>
+                      } else 
+                        echo '
+                            <a class="font-bold text-center uppercase align-middle shadow-none text-xs border-b-solid tracking-none whitespace-nowrap text-blue-400" href="./eval_process.php?delete_id=' . $id . '&update_id=' .$update_id. '&request=Midterm"><i class="mr-2 fa fa-trash bg-150 bg-blue-600 bg-x-25 bg-clip-text"></i>Delete</a>
+                        ';?>
                     </div>
                   </li>
-                  <?php } ?>
-
                 <?php }
                 } else echo '<section class="flex items-center h-full p-1  dark:text-gray-100">
                 <div class="container flex flex-col items-center justify-center px-5 mx-auto my-8">
@@ -454,10 +453,6 @@ while ($row = mysqli_fetch_array($students)) {
                       $date = DateTime::createFromFormat('Y-m-d H:i:s', $row['date']);
                       echo $date->format('F d, Y h:i:s A'); // Change format as needed 
                   
-                  $students = mysqli_query($db, "SELECT * FROM students WHERE id = $id");
-                  while ($row = mysqli_fetch_array($students)) {
-                  $update_id = $_GET['id'];
-                  $evalRequest = 'Final';
                    echo '   
                     </span></span>
                     </div>
@@ -469,11 +464,10 @@ while ($row = mysqli_fetch_array($students)) {
                      if ($_SESSION['accountFor'] == 'Coordinator') {
                         echo '';
                       } else echo '
-                      <a class="font-bold text-center uppercase align-middle shadow-none text-xs border-b-solid tracking-none whitespace-nowrap text-blue-400" href="./eval_process.php?delete_id=' . $id . '&update_id=' .$update_id. '&request='.$evalRequest.'"><i class="mr-2 fa fa-trash bg-150 bg-blue-600 bg-x-25 bg-clip-text"></i>Delete</a>
+                      <a class="font-bold text-center uppercase align-middle shadow-none text-xs border-b-solid tracking-none whitespace-nowrap text-blue-400" href="./eval_process.php?delete_id=' . $id . '&update_id=' .$update_id. '&request=Final"><i class="mr-2 fa fa-trash bg-150 bg-blue-600 bg-x-25 bg-clip-text"></i>Delete</a>
                     '; ?>
                     </div>
                   </li>
-                   <?php } ?>
 
 
                 <?php }
