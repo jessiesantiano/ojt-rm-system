@@ -461,7 +461,7 @@ while ($row = mysqli_fetch_array($students)) {
                       <a class="px-3 font-bold text-center uppercase align-middle shadow-none text-xs border-b-solid tracking-none whitespace-nowrap text-blue-400" href="./eval_process.php?download_id='.$id.'"><i class="mr-2 fa fa-download bg-150 bg-blue-600 bg-x-25 bg-clip-text"></i>Download</a>
                       ';
                   
-                     if ($_SESSION['accountFor'] == 'Coordinator') {
+                     if ($accountFor == 'Coordinator') {
                         echo '';
                       } else echo '
                       <a class="font-bold text-center uppercase align-middle shadow-none text-xs border-b-solid tracking-none whitespace-nowrap text-blue-400" href="./eval_process.php?delete_id=' . $id . '&update_id=' .$update_id. '&request=Final"><i class="mr-2 fa fa-trash bg-150 bg-blue-600 bg-x-25 bg-clip-text"></i>Delete</a>
