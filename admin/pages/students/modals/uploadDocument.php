@@ -1,4 +1,4 @@
-<?php $students = mysqli_query($db, "SELECT * FROM students"); ?>
+<?php $students = mysqli_query($db, "SELECT * FROM students "); ?>
 <?php while ($row = mysqli_fetch_array($students)) { ?>
   <div id="upload<?php echo $row['id']; ?>" class="show fade hidden">
 		<div class="fixed w-full h-full top-0 left-0 flex justify-center items-center" style="background: rgba(0,0,0,0.5);">

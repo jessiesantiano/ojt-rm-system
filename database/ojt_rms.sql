@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 24, 2022 at 03:24 AM
+-- Generation Time: Sep 25, 2022 at 06:55 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -43,9 +43,7 @@ CREATE TABLE `accounts` (
 INSERT INTO `accounts` (`id`, `email`, `password`, `name`, `accountFor`, `courseCode`) VALUES
 (1, 'coordinator1@gmail.com', 'admin1', 'Alicia O. Retona', 'Coordinator', 'Education Dep.'),
 (2, 'coordinator2@gmail.com', 'admin2', 'Lennie Rose P. Podrido', 'Coordinator', 'Economic Dep.'),
-(4, 'supervisor1', 'supervisor1', 'Mrs. Diana L. Desuyo', 'AMTIC HIGH SCHOOL', NULL),
-(5, 'schoolhead1', 'schoolhead1', 'Mrs. Iniz R. Paz', 'BARAYONG HIGH SCHOOL', NULL),
-(9, 'supervisor3', 'supervisor3', 'Mr. Joshua P. Tolarba', 'Pixel 8', NULL);
+(10, 'supervisor1', 'supervisor1', 'Mrs. Gina R. David', 'Ligao Municipal Hall', NULL);
 
 -- --------------------------------------------------------
 
@@ -115,13 +113,8 @@ CREATE TABLE `documents` (
 --
 
 INSERT INTO `documents` (`id`, `title`, `destination`, `studentID`, `size`, `name`, `downloads`, `date`) VALUES
-(1, 'MLBB Tournament 2021', 'Before OJT Requirements', 'LCC-0001', '226577', 'Drivers License.pdf', 1, '2022-09-13 19:12:27'),
-(2, 'COD ', 'Before OJT Requirements', 'LCC-0002', '226577', 'Drivers License.pdf', 0, '2022-09-14 09:53:42'),
-(3, 'COD ', 'After OJT Requirements', 'LCC-0001', '226577', 'Drivers License.pdf', 1, '2022-09-14 14:15:24'),
-(4, 'sample req', 'After OJT Requirements', 'LCC-0002', '3902636', 'layout.docx', 0, '2022-09-15 22:43:59'),
-(5, 'sample pdf', 'After OJT Requirements', 'LCC-0002', '150738', 'Jessie Santiano.pdf', 0, '2022-09-15 22:48:03'),
-(13, 'Sample Doc for Before OJT', 'Before OJT Requirements', 'LCC-0004', '186731', 'midterm.pdf', 0, '2022-09-23 20:05:40'),
-(15, 'Sample Doc for Before OJT', 'Before OJT Requirements', 'LCC-0004', '186731', 'midterm.pdf', 0, '2022-09-23 20:45:18');
+(1, 'Sample Before Requirements', 'Before OJT Requirements', '2018-01-0018 ECO', '186731', 'midterm.pdf', 0, '2022-09-24 09:48:12'),
+(2, 'Sample After Req', 'After OJT Requirements', '2018-01-0018 ECO', '4931946', '5000 Fresh Hits Account.pdf', 0, '2022-09-24 09:48:34');
 
 -- --------------------------------------------------------
 
@@ -144,8 +137,7 @@ CREATE TABLE `evaluation` (
 --
 
 INSERT INTO `evaluation` (`id`, `title`, `name`, `date`, `size`, `des`, `studentID`) VALUES
-(12, 'Sample Midterm Eval', 'midterm.pdf', '2022-09-23 11:53:45', '186731', 'Midterm', 'LCC-0004'),
-(15, 'Sample Doc for Before OJT', 'midterm.pdf', '2022-09-23 21:51:48', '186731', 'Midterm', 'LCC-0001');
+(2, 'Sample Midterm Eval', 'midterm.pdf', '2022-09-24 10:33:39', '186731', 'Midterm', '2018-01-0018 ECO');
 
 -- --------------------------------------------------------
 
@@ -170,12 +162,7 @@ CREATE TABLE `reports` (
 --
 
 INSERT INTO `reports` (`id`, `name`, `size`, `downloads`, `title`, `studentID`, `date`, `comment`, `status`) VALUES
-(1, 'Drivers License.pdf', '226577', '0', 'MLBB Tournament 2021', 'LCC-0001', '2022-09-11 21:05:58', '', 'checked'),
-(2, 'Santiano, Jessie T. (PSA).pdf', '1672525', '0', 'sample', 'LCC-0002', '2022-09-15 22:42:58', 'sample comment', 'fa'),
-(3, 'Jessie Santiano.pdf', '150738', '0', 'sample report', 'LCC-0002', '2022-09-15 22:48:14', '', 'checked'),
-(4, 'img20220731_08060207.pdf', '886279', '0', 'Sample Report Pending', 'LCC-0002', '2022-09-16 10:20:03', '', 'pending'),
-(13, 'midterm.pdf', '186731', '0', 'Sample Doc for Before OJT', 'LCC-0004', '2022-09-23 21:20:12', '', 'pending'),
-(14, 'midterm.pdf', '186731', '0', 'Sample report', 'LCC-0004', '2022-09-23 21:20:35', '', 'checked');
+(1, 'orgchrt.pdf', '577066', '0', 'Sample Report', '2018-01-0018 ECO', '2022-09-24 09:48:48', '', 'pending');
 
 -- --------------------------------------------------------
 
@@ -195,9 +182,7 @@ CREATE TABLE `schools` (
 --
 
 INSERT INTO `schools` (`id`, `school`, `supervisor`, `courseCode`) VALUES
-(1, 'AMTIC HIGH SCHOOL', 'Mrs. Diana L. Desuyo', 'Education Dep.'),
-(2, 'BARAYONG HIGH SCHOOL', 'Mrs. Iniz R. Paz', 'Education Dep.'),
-(7, 'Pixel 8', 'Mr. Joshua P. Tolarba', 'Economic Dep.');
+(1, 'Ligao Municipal Hall', 'Mrs. Gina R. David', 'Economic Dep.');
 
 -- --------------------------------------------------------
 
@@ -251,9 +236,7 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`id`, `Sname`, `Slname`, `Smname`, `Semail`, `studentID`, `Spassword`, `Scourse`, `Syear`, `Sblock`, `Sstreet`, `Scity`, `Sstate`, `Szipcode`, `Sage`, `Sgender`, `Sbday`, `Snumber`, `Sphoto`, `Sinsurance`, `Sph`, `Sparentph`, `Sphnumber`, `Svax`, `S1dose`, `S2dose`, `Sbooster`, `Svaxbooster`, `Swstatus`, `Swname`, `Swcompany`, `Swnumber`, `Swlocation`, `Swemployer`, `Swcontact`, `courseCode`, `iSmidterm`, `iSfinal`) VALUES
-(1, 'Merdilene', 'Pomay', 'B.', 'merdilene.pomay@gmail.com', 'LCC-0001', 'LCC-631dc11a867b1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Female', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AMTIC HIGH SCHOOL', NULL, NULL, NULL, NULL, 'Education Dep.', 'graded', NULL),
-(2, 'Jonalyn', 'Bataller', 'B.', '', 'LCC-0002', 'LCC-631dd6d733f40', 'BSED Mathematics', '4', 'B', NULL, NULL, NULL, NULL, NULL, 'Female', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'BARAYONG HIGH SCHOOL', NULL, NULL, NULL, NULL, 'Education Dep.', 'requested', NULL),
-(10, 'Jessie', 'Santiano', 'Tardecilla', 'jessie.santiano@gmail.com', 'LCC-0004', 'test', 'AB Economics', '4', 'B', '133 Panonowan, Ilaor Sur', 'Albay', 'Bicol', '4505', '22 years old', 'Male', '2000-09-06', '09453075374', 'logo.jpg', NULL, NULL, NULL, NULL, 'Oxford-AstraZeneca', '2022-09-15', '2022-09-13', '0000-00-00', 'N/A', NULL, NULL, 'Pixel 8', '480 hours', 'Legazpi', NULL, '0936 279 9918', 'Economic Dep.', 'graded', 'requested');
+(1, 'Ian Christopher', 'Espanola', 'M.', 'yhanespanola@gmail.com', '2018-01-0018 ECO', 'LCC-632e608ade52d', 'AB Economics', '4', 'A', 'Maonon', 'Ligao City', 'Albay', '', '22', 'Male', '1999-09-15', '09308190521', NULL, NULL, NULL, NULL, NULL, 'Pfizer-BioNTech', '2021-11-07', '2021-12-07', '0000-00-00', 'N/A', NULL, NULL, 'Ligao Municipal Hall ', '120 hours', 'Ligao City', 'Mrs. Gina R. David', '', 'Economic Dep.', 'graded', NULL);
 
 --
 -- Indexes for dumped tables
@@ -315,7 +298,7 @@ ALTER TABLE `students`
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `announcements`
@@ -333,31 +316,31 @@ ALTER TABLE `courses`
 -- AUTO_INCREMENT for table `documents`
 --
 ALTER TABLE `documents`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `evaluation`
 --
 ALTER TABLE `evaluation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `reports`
 --
 ALTER TABLE `reports`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `schools`
 --
 ALTER TABLE `schools`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
