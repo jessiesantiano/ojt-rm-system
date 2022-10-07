@@ -4,9 +4,9 @@ $update_id = $_GET['id'];
 
 // Data Initialization on DATABASE
 $students = mysqli_query($db, "SELECT * FROM students WHERE id = $id");
-  //  $deleteGet= mysqli_query($db, "SELECT * FROM students WHERE id = $id");
-  //   $deleteGet = $deleteGet -> fetch_assoc();
-  //   ['evalRequest' => 'Midterm'] = $deleteGet
+//  $deleteGet= mysqli_query($db, "SELECT * FROM students WHERE id = $id");
+//   $deleteGet = $deleteGet -> fetch_assoc();
+//   ['evalRequest' => 'Midterm'] = $deleteGet
 while ($row = mysqli_fetch_array($students)) {
 
   $studentID = $row['studentID']; ?>
@@ -192,7 +192,7 @@ while ($row = mysqli_fetch_array($students)) {
                         </td>
                         <td class="p-2 text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
                           <a target="_blank" class="px-2 font-bold text-center uppercase align-middle shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-blue-400" href="./process.php?view_id=' . $id . '"><i class="mr-1 far fa-eye "></i>View</a>
-                          <a class="font-bold text-center uppercase align-middle shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-blue-400" href="./process.php?download_id=' . $id . '"><i class="mr-1 fa fa-download"></i>Download</a>
+                          <br><a class="font-bold text-center uppercase align-middle shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-blue-400" href="./process.php?download_id=' . $id . '"><i class="mr-1 fa fa-download"></i>Download</a>
                         </td>';
                       }
                     } else echo '<section class="flex items-center h-full p-5  dark:text-gray-100">
@@ -256,7 +256,7 @@ while ($row = mysqli_fetch_array($students)) {
                         </td>
                         <td class="p-2 text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
                           <a target="_blank" class="px-2 font-bold text-center uppercase align-middle bg-transparent shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-blue-400" href="./process.php?view_id=' . $id . '"><i class="mr-1 far fa-eye "></i>View</a>
-                          <a class="font-bold text-center uppercase align-middle shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-blue-400" href="./process.php?download_id=' . $id . '"><i class="mr-1 fa fa-download"></i>Download</a>
+                          <br><a class="font-bold text-center uppercase align-middle shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-blue-400" href="./process.php?download_id=' . $id . '"><i class="mr-1 fa fa-download"></i>Download</a>
                         </td>';
                       }
                     } else echo '<section class="flex items-center h-full p-5  dark:text-gray-100">
@@ -341,10 +341,13 @@ while ($row = mysqli_fetch_array($students)) {
                     <a href="./process.php?downloadR_id=' . $id . '" class="px-2 font-bold text-center uppercase align-middle shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-blue-400"> <i class="fa fa-download" aria-hidden="true"></i> &nbsp;Download </a>
 ';
 
-                  if ($rep['status'] == 'pending') {
-                    echo "<a href='#check_id" . $rep['id'] . "' data-toggle='modal' href='' class='font-bold text-center uppercase align-middle shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-blue-400'><i class='fa fa-check-circle'></i> &nbsp;Mark as check </a>";
-                  } elseif ($rep['status'] == 'checked') {
-                  }
+                  if ($accountFor == 'Coordinator') {
+                    if ($rep['status'] == 'pending') {
+                      echo "<a href='#check_id" . $rep['id'] . "' data-toggle='modal' href='' class='font-bold text-center uppercase align-middle shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-blue-400'><i class='fa fa-check-circle'></i> &nbsp;Mark as check </a>";
+                    } elseif ($rep['status'] == 'checked') {
+                    };
+                  } else echo '';
+
 
                   echo '
                   </td>
@@ -391,35 +394,35 @@ while ($row = mysqli_fetch_array($students)) {
               <ul class="flex flex-col pl-0 mb-0 rounded-lg">
                 <?php $result = mysqli_query($db, "SELECT * FROM evaluation WHERE studentID ='$studentID' AND des='Midterm'");
                 if (mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_array($result)) {
-                  $id = $row['id'];
-                  $title = $row['title'];
-                  $name = $row['name'];
-              echo '
+                  while ($row = mysqli_fetch_array($result)) {
+                    $id = $row['id'];
+                    $title = $row['title'];
+                    $name = $row['name'];
+                    echo '
                   <li class="relative flex p-6 mb-2 border-0 rounded-t-inherit rounded-xl bg-gray-50">
                     <div class="flex flex-col">
-                      <h5 class="mb-4 leading-normal text-sm">'.$title.'</h5>
-                      <span class="mb-2 leading-tight text-xs">File name: <span class="font-semibold text-slate-700 sm:ml-2">'.$name.'</span></span>
+                      <h5 class="mb-4 leading-normal text-sm">' . $title . '</h5>
+                      <span class="mb-2 leading-tight text-xs">File name: <span class="font-semibold text-slate-700 sm:ml-2">' . $name . '</span></span>
                       <span class="leading-tight text-xs">Date: <span class="font-semibold text-slate-700 sm:ml-2">';
-                      $date = DateTime::createFromFormat('Y-m-d H:i:s', $row['date']);
-                      echo $date->format('F d, Y h:i:s A'); // Change format as needed 
-                
-                   echo '   
+                    $date = DateTime::createFromFormat('Y-m-d H:i:s', $row['date']);
+                    echo $date->format('F d, Y h:i:s A'); // Change format as needed 
+
+                    echo '   
                     </span></span>
                     </div>
                     <div class="ml-auto text-right">
-                      <a target="_blank" class="px-3 font-bold text-center uppercase align-middle shadow-none text-xs border-b-solid tracking-none whitespace-nowrap text-blue-400" href="./eval_process.php?view_id='.$id.'"><i class="mr-2 far fa-eye bg-150 bg-blue-600 bg-x-25 bg-clip-text"></i>View</a>
-                      <a class="px-3 font-bold text-center uppercase align-middle shadow-none text-xs border-b-solid tracking-none whitespace-nowrap text-blue-400" href="./eval_process.php?download_id='.$id.'"><i class="mr-2 fa fa-download bg-150 bg-blue-600 bg-x-25 bg-clip-text"></i>Download</a>
+                      <a target="_blank" class="px-3 font-bold text-center uppercase align-middle shadow-none text-xs border-b-solid tracking-none whitespace-nowrap text-blue-400" href="./eval_process.php?view_id=' . $id . '"><i class="mr-2 far fa-eye bg-150 bg-blue-600 bg-x-25 bg-clip-text"></i>View</a>
+                      <a class="px-3 font-bold text-center uppercase align-middle shadow-none text-xs border-b-solid tracking-none whitespace-nowrap text-blue-400" href="./eval_process.php?download_id=' . $id . '"><i class="mr-2 fa fa-download bg-150 bg-blue-600 bg-x-25 bg-clip-text"></i>Download</a>
                       ';
-                     if ($accountFor == 'Coordinator') {
-                        echo '';
-                      } else 
-                        echo '
-                            <a class="font-bold text-center uppercase align-middle shadow-none text-xs border-b-solid tracking-none whitespace-nowrap text-blue-400" href="./eval_process.php?delete_id=' . $id . '&update_id=' .$update_id. '&request=Midterm"><i class="mr-2 fa fa-trash bg-150 bg-blue-600 bg-x-25 bg-clip-text"></i>Delete</a>
-                        ';?>
-                    </div>
-                  </li>
-                <?php }
+                    if ($accountFor == 'Coordinator') {
+                      echo '';
+                    } else
+                      echo '
+                            <a class="font-bold text-center uppercase align-middle shadow-none text-xs border-b-solid tracking-none whitespace-nowrap text-blue-400" href="./eval_process.php?delete_id=' . $id . '&update_id=' . $update_id . '&request=Midterm"><i class="mr-2 fa fa-trash bg-150 bg-blue-600 bg-x-25 bg-clip-text"></i>Delete</a>
+                        '; ?>
+            </div>
+            </li>
+        <?php }
                 } else echo '<section class="flex items-center h-full p-1  dark:text-gray-100">
                 <div class="container flex flex-col items-center justify-center px-5 mx-auto my-8">
                   <div class="max-w-md text-center">
@@ -429,49 +432,49 @@ while ($row = mysqli_fetch_array($students)) {
                   </div>
                 </div>
               </section>'; ?>
-              </ul>
-            </div>
+        </ul>
           </div>
+        </div>
 
-          <div>
-            <h6 class="mb-0 font-semibold leading-normal text-sm text-slate-700">Final Evaluation</h6>
-            <div class="flex-auto p-4 pt-6">
-              <ul class="flex flex-col pl-0 mb-0 rounded-lg">
-                <?php $result = mysqli_query($db, "SELECT * FROM evaluation WHERE studentID ='$studentID' AND des='Final'");
-           
-                if (mysqli_num_rows($result) > 0) {
+        <div>
+          <h6 class="mb-0 font-semibold leading-normal text-sm text-slate-700">Final Evaluation</h6>
+          <div class="flex-auto p-4 pt-6">
+            <ul class="flex flex-col pl-0 mb-0 rounded-lg">
+              <?php $result = mysqli_query($db, "SELECT * FROM evaluation WHERE studentID ='$studentID' AND des='Final'");
+
+              if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_array($result)) {
                   $id = $row['id'];
                   $title = $row['title'];
                   $name = $row['name'];
-              echo '
+                  echo '
                   <li class="relative flex p-6 mb-2 border-0 rounded-t-inherit rounded-xl bg-gray-50">
                     <div class="flex flex-col">
-                      <h5 class="mb-4 leading-normal text-sm">'.$title.'</h5>
-                      <span class="mb-2 leading-tight text-xs">File name: <span class="font-semibold text-slate-700 sm:ml-2">'.$name.'</span></span>
+                      <h5 class="mb-4 leading-normal text-sm">' . $title . '</h5>
+                      <span class="mb-2 leading-tight text-xs">File name: <span class="font-semibold text-slate-700 sm:ml-2">' . $name . '</span></span>
                       <span class="leading-tight text-xs">Date: <span class="font-semibold text-slate-700 sm:ml-2">';
-                      $date = DateTime::createFromFormat('Y-m-d H:i:s', $row['date']);
-                      echo $date->format('F d, Y h:i:s A'); // Change format as needed 
-                  
-                   echo '   
+                  $date = DateTime::createFromFormat('Y-m-d H:i:s', $row['date']);
+                  echo $date->format('F d, Y h:i:s A'); // Change format as needed 
+
+                  echo '   
                     </span></span>
                     </div>
                     <div class="ml-auto text-right">
-                      <a target="_blank" class="px-3 font-bold text-center uppercase align-middle shadow-none text-xs border-b-solid tracking-none whitespace-nowrap text-blue-400" href="./eval_process.php?view_id='.$id.'"><i class="mr-2 far fa-eye bg-150 bg-blue-600 bg-x-25 bg-clip-text"></i>View</a>
-                      <a class="px-3 font-bold text-center uppercase align-middle shadow-none text-xs border-b-solid tracking-none whitespace-nowrap text-blue-400" href="./eval_process.php?download_id='.$id.'"><i class="mr-2 fa fa-download bg-150 bg-blue-600 bg-x-25 bg-clip-text"></i>Download</a>
+                      <a target="_blank" class="px-3 font-bold text-center uppercase align-middle shadow-none text-xs border-b-solid tracking-none whitespace-nowrap text-blue-400" href="./eval_process.php?view_id=' . $id . '"><i class="mr-2 far fa-eye bg-150 bg-blue-600 bg-x-25 bg-clip-text"></i>View</a>
+                      <a class="px-3 font-bold text-center uppercase align-middle shadow-none text-xs border-b-solid tracking-none whitespace-nowrap text-blue-400" href="./eval_process.php?download_id=' . $id . '"><i class="mr-2 fa fa-download bg-150 bg-blue-600 bg-x-25 bg-clip-text"></i>Download</a>
                       ';
-                  
-                     if ($accountFor == 'Coordinator') {
-                        echo '';
-                      } else echo '
-                      <a class="font-bold text-center uppercase align-middle shadow-none text-xs border-b-solid tracking-none whitespace-nowrap text-blue-400" href="./eval_process.php?delete_id=' . $id . '&update_id=' .$update_id. '&request=Final"><i class="mr-2 fa fa-trash bg-150 bg-blue-600 bg-x-25 bg-clip-text"></i>Delete</a>
+
+                  if ($accountFor == 'Coordinator') {
+                    echo '';
+                  } else echo '
+                      <a class="font-bold text-center uppercase align-middle shadow-none text-xs border-b-solid tracking-none whitespace-nowrap text-blue-400" href="./eval_process.php?delete_id=' . $id . '&update_id=' . $update_id . '&request=Final"><i class="mr-2 fa fa-trash bg-150 bg-blue-600 bg-x-25 bg-clip-text"></i>Delete</a>
                     '; ?>
-                    </div>
-                  </li>
+          </div>
+          </li>
 
 
-                <?php }
-                }  else echo '<section class="flex items-center h-full p-1  dark:text-gray-100">
+      <?php }
+              } else echo '<section class="flex items-center h-full p-1  dark:text-gray-100">
                 <div class="container flex flex-col items-center justify-center px-5 mx-auto my-8">
                   <div class="max-w-md text-center">
                   <i class="fa text-gray-100 text-5xl fa-file-pdf-o" aria-hidden="true"></i>
@@ -481,12 +484,12 @@ while ($row = mysqli_fetch_array($students)) {
                 </div>
               </section>'; ?>
 
-              </ul>
-            </div>
-          </div>
+      </ul>
         </div>
       </div>
     </div>
+  </div>
+  </div>
   </div>
   <!-- Report Section End -->
 

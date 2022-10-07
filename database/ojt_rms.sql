@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 25, 2022 at 06:55 AM
+-- Generation Time: Sep 30, 2022 at 03:34 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -113,8 +113,7 @@ CREATE TABLE `documents` (
 --
 
 INSERT INTO `documents` (`id`, `title`, `destination`, `studentID`, `size`, `name`, `downloads`, `date`) VALUES
-(1, 'Sample Before Requirements', 'Before OJT Requirements', '2018-01-0018 ECO', '186731', 'midterm.pdf', 0, '2022-09-24 09:48:12'),
-(2, 'Sample After Req', 'After OJT Requirements', '2018-01-0018 ECO', '4931946', '5000 Fresh Hits Account.pdf', 0, '2022-09-24 09:48:34');
+(3, 'asd', 'Before OJT Requirements', '2018-01-0018 ECO', '186731', 'midterm.pdf', 1, '2022-09-29 14:44:42');
 
 -- --------------------------------------------------------
 
@@ -137,7 +136,9 @@ CREATE TABLE `evaluation` (
 --
 
 INSERT INTO `evaluation` (`id`, `title`, `name`, `date`, `size`, `des`, `studentID`) VALUES
-(2, 'Sample Midterm Eval', 'midterm.pdf', '2022-09-24 10:33:39', '186731', 'Midterm', '2018-01-0018 ECO');
+(2, 'Sample Midterm Eval', 'midterm.pdf', '2022-09-24 10:33:39', '186731', 'Midterm', '2018-01-0018 ECO'),
+(3, 'asd', 'midterm.pdf', '2022-09-30 09:11:47', '186731', 'Midterm', '2018-01-0018 ECO'),
+(4, 'sample', 'midterm.pdf', '2022-09-30 09:11:59', '186731', 'Final', '2018-01-0018 ECO');
 
 -- --------------------------------------------------------
 
@@ -162,7 +163,7 @@ CREATE TABLE `reports` (
 --
 
 INSERT INTO `reports` (`id`, `name`, `size`, `downloads`, `title`, `studentID`, `date`, `comment`, `status`) VALUES
-(1, 'orgchrt.pdf', '577066', '0', 'Sample Report', '2018-01-0018 ECO', '2022-09-24 09:48:48', '', 'pending');
+(1, 'orgchrt.pdf', '577066', '0', 'Sample Report', '2018-01-0018 ECO', '2022-09-24 09:48:48', '', 'checked');
 
 -- --------------------------------------------------------
 
@@ -236,7 +237,7 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`id`, `Sname`, `Slname`, `Smname`, `Semail`, `studentID`, `Spassword`, `Scourse`, `Syear`, `Sblock`, `Sstreet`, `Scity`, `Sstate`, `Szipcode`, `Sage`, `Sgender`, `Sbday`, `Snumber`, `Sphoto`, `Sinsurance`, `Sph`, `Sparentph`, `Sphnumber`, `Svax`, `S1dose`, `S2dose`, `Sbooster`, `Svaxbooster`, `Swstatus`, `Swname`, `Swcompany`, `Swnumber`, `Swlocation`, `Swemployer`, `Swcontact`, `courseCode`, `iSmidterm`, `iSfinal`) VALUES
-(1, 'Ian Christopher', 'Espanola', 'M.', 'yhanespanola@gmail.com', '2018-01-0018 ECO', 'LCC-632e608ade52d', 'AB Economics', '4', 'A', 'Maonon', 'Ligao City', 'Albay', '', '22', 'Male', '1999-09-15', '09308190521', NULL, NULL, NULL, NULL, NULL, 'Pfizer-BioNTech', '2021-11-07', '2021-12-07', '0000-00-00', 'N/A', NULL, NULL, 'Ligao Municipal Hall ', '120 hours', 'Ligao City', 'Mrs. Gina R. David', '', 'Economic Dep.', 'graded', NULL);
+(1, 'Ian Christopher', 'Espanola', 'M.', 'yhanespanola@gmail.com', '2018-01-0018 ECO', 'LCC-632e608ade52d', 'AB Economics', '4', 'A', 'Maonon', 'Ligao City', 'Albay', '', '22', 'Male', '1999-09-15', '09308190521', 'IMG_20220623_161506.jpg', NULL, NULL, NULL, NULL, 'Pfizer-BioNTech', '2021-11-07', '2021-12-07', '0000-00-00', 'N/A', NULL, NULL, 'Ligao Municipal Hall ', '120 hours', 'Ligao City', 'Mrs. Gina R. David', '', 'Economic Dep.', 'graded', 'graded');
 
 --
 -- Indexes for dumped tables
@@ -316,13 +317,13 @@ ALTER TABLE `courses`
 -- AUTO_INCREMENT for table `documents`
 --
 ALTER TABLE `documents`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `evaluation`
 --
 ALTER TABLE `evaluation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `reports`
