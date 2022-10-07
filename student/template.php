@@ -7,15 +7,13 @@
       if (isset($_POST['midterm'])) {
         $iSmidterm = $_POST['iSmidterm'];
         mysqli_query($db, "UPDATE students SET iSmidterm='$iSmidterm' WHERE id=$id");
-        header("Location: index.php?q=home");
-
+        header('location: index.php');
       }
 
       if (isset($_POST['final'])) {
         $iSfinal = $_POST['iSfinal'];
         mysqli_query($db, "UPDATE students SET iSfinal='$iSfinal' WHERE id=$id");
-        header("Location: index.php?q=home");
-
+        header('location: index.php');
       }
 
 ?>

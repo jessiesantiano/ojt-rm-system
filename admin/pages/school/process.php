@@ -33,6 +33,7 @@
             $supervisor = $_POST['supervisor'];
             mysqli_query($db, "UPDATE schools SET school='$school', supervisor='$supervisor' WHERE id=$id");
             mysqli_query($db, "UPDATE accounts SET name='$supervisor' WHERE accountFor='$school'");
+            mysqli_query($db, "UPDATE students SET Swemployer='$supervisor' WHERE Swcompany='$school'");
            
             header('location: index.php');
              session_start();
