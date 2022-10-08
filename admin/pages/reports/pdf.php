@@ -128,7 +128,8 @@ body{
    }elseif ($toprint == 'Checked Documents'){
 	$html.=' <th  style="background-color: #90EE90"><b>Checked Documents</b></th>';
    }else{
- 	$html.=' <th><b>Grades</b></th>';
+ 	$html.=' <th style="background-color: yellow"><b>Midterm</b></th>';
+ 	$html.=' <th style="background-color: #90EE90"><b>Final</b></th>';
    }
  $html.='</tr>';
 
@@ -141,6 +142,8 @@ while($row = mysqli_fetch_array($getStudent)){
     $Syear = $row['Syear'];
     $Sblock = $row['Sblock'];
     $studentID = $row['studentID'];
+    $midterm = $row['midterm'];
+    $final = $row['final'];
 
     $Sgender = $row['Sgender'];
     $Snumber = $row['Snumber'];
@@ -186,7 +189,19 @@ $html .='
 			$html.='</td>';
 		}
    else{
- 	 	$html.='<td>'.$Swemployer.'</td>';
+	if ($midterm == NULL) {
+			$html.='<td>pending</td>';
+
+	}else{
+			$html.='<td>'.$midterm.'</td>';
+	}
+	if ($final == NULL) {
+			$html.='<td>pending</td>';
+
+	}else{
+			$html.='<td>'.$final.'</td>';
+	}
+
    }
  $html.='</tr>';
 
