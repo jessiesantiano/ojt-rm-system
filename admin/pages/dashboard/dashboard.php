@@ -146,7 +146,7 @@
                 
           <!-- <div class="flex gap-2 px-3 items-center w-full py-5 mb-10" style="height: calc(100vh - 360px)"> -->
           <div class="flex gap-2 px-3 items-center w-full py-5">
-              <div class="bg-white rounded-lg pt-10 md:pt-0 lg:pt-0 w-full h-full  px-2 md:px-0 lg:px-0">
+              <!-- <div class="bg-white rounded-lg pt-10 md:pt-0 lg:pt-0 w-full h-full  px-2 md:px-0 lg:px-0">
                     <div class="py-3 w-full">
                       <h5 class="mb-3 text-gray-800 w-full" style="line-height: 18px"><span class="text-pink-400 font-bold pr-1">Generate </span>Profile Report</h5>
                         <table class="min-w-full divide-y divide-gray-200 border-collapse w-full">
@@ -240,7 +240,7 @@
                         <span class="year uppercase text-lg text-white"></span>
                     </div>
                 </div>
-              </div>
+              </div> -->
            </div>
 
         </div>
