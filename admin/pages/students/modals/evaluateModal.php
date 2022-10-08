@@ -12,7 +12,7 @@
 						<small class="font-bold">Trainee Name: <span class="pl-3"><?php echo $row['Sname'] ?> <?php echo $row['Smname'] ?> <?php echo $row['Slname'] ?></span></small>
 					</div>
                    <form action="evaluatepdf.php" method="GET" target="_blank">
-              		 <input type="hidden" name="id" value="<?php echo $id; ?>">
+              		 <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
 					<div class="flex p-4 gap-2">
 						<div>
 							<small class="font-bold">Excellent/Outstanding = 5</small> /

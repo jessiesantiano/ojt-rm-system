@@ -21,7 +21,9 @@ date_default_timezone_set("Asia/Manila");
                     $Smname = $row['Smname'];
                     $Slname = $row['Slname'];
                     $Scourse = $row['Scourse'];
+                    $midterm = $row['midterm'];
                 }
+
                 // section 1 -planning
                 $s1rate1 = $_GET['s1-rate1'];
                 $s1rate2 = $_GET['s1-rate2'];
@@ -56,6 +58,14 @@ date_default_timezone_set("Asia/Manila");
                 // formula
                 // stotal/100x50+50 = average
                  $Average = $subTotal/100*50+50;
+                 if ($midterm == NULL) {
+                     mysqli_query($db, "UPDATE students SET midterm='$Average' WHERE id=$id");
+
+                 }else{
+                     mysqli_query($db, "UPDATE students SET final='$Average' WHERE id=$id");
+
+                 }
+
 
             }
 
