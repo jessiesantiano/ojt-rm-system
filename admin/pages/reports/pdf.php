@@ -119,11 +119,19 @@ body{
   <th><b>Course</b></th>
   <th><b>Student ID</b></th>
   <th><b>Cooperating School/Company</b></th>
-  <th><b>Supervisor/School Head</b></th>
- </tr>
-';
+  <th><b>Supervisor/School Head</b></th>';
+  
+    if ($toprint == 'Vaccination') {
+ 	$html.=' <th><b>Vaccination Status</b></th>';
+   }elseif ($toprint == 'Documents') {
+	$html.=' <th><b>Documents Status</b></th>';
+   }else{
+ 	$html.=' <th><b>Grades</b></th>';
+   }
+ $html.='</tr>';
 
-$getStudent = mysqli_query($db, "SELECT * FROM students WHERE courseCode='$courseCode'");
+
+$getStudent = mysqli_query($db, "SELECT * FROM students WHERE courseCode='$courseCode' || Svax is NOT NULL");
 while($row = mysqli_fetch_array($getStudent)){
       $Sname = $row['Sname'];
     $Smname = $row['Smname'];
@@ -141,6 +149,7 @@ while($row = mysqli_fetch_array($getStudent)){
     $Swemployer = $row['Swemployer'];
 
     $courseCode = $row['courseCode'];
+    $Svax = $row['Svax'];
 
 
 $html .='
@@ -150,6 +159,7 @@ $html .='
  <td>'.$studentID.'</td>
  <td>'.$Swcompany.'</td>
  <td>'.$Swemployer.'</td>
+ <td>'.$Svax.'</td>
  </tr>
 ';
 }
