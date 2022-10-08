@@ -96,7 +96,7 @@ $pdf = new PDF('p', 'mm', 'LEGAL', true, 'UTF-8', false);
 // set document information
 $pdf->SetCreator(PDF_CREATOR);
 $pdf->SetAuthor('Administrator');
-$pdf->SetTitle('Midterm Evaluation Result');
+$pdf->SetTitle('Evaluation Result');
 $pdf->SetSubject('Student Information');
 $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
 
