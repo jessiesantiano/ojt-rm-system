@@ -18,10 +18,11 @@
 								</div>  
 								<p class="max-w-xl text-gray-600">Select to generate list.</p>
 								<div>
-									<select class="" name="toprint" style="border: 2px solid #E5E7EB; padding: 6px; width: 250px; font-size: 20px">
+									<select class="" name="toprint" style="border: 2px solid #E5E7EB; padding: 6px; width: 280px; font-size: 20px">
 										<!-- <option class="" value="" disabled selected hidden>Others</option> -->
-										<option class="" value="Vaccination" name="vaccination">Vaccination Status</option>
-										<option class="" value="Documents" name="documents">Documents Status</option>
+										<option class="" value="Vaccination Status" name="vaccination">Vaccination Status</option>
+										<option class="" value="Pending Documents" name="documents">With Pending Documents</option>
+										<option class="" value="Checked Documents" name="documents">Checked Documents</option>
 										<option class="" value="Grades" name="grades">Students Grades</option>
 									</select>
 								</div>

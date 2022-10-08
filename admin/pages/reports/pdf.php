@@ -109,7 +109,7 @@ body{
 </style>
 
 <body>
-<center><h3 style="text-align:center;">Students '.$toprint.' Status <br>('.$courseCode.')</h3></center>
+<center><h3 style="text-align:center;">Students '.$toprint.' <br>('.$courseCode.')</h3></center>
 
 
 <table border="1"  align="center"  cellpadding="1">
@@ -121,17 +121,18 @@ body{
   <th><b>Cooperating School/Company</b></th>
   <th><b>Supervisor/School Head</b></th>';
   
-    if ($toprint == 'Vaccination') {
+  if ($toprint == 'Vaccination Status') {
  	$html.=' <th><b>Vaccination Status</b></th>';
-   }elseif ($toprint == 'Documents') {
-	$html.=' <th><b>Documents Status</b></th>';
+   }elseif ($toprint == 'Pending Documents') {
+	$html.=' <th style="background-color: yellow"><b>Pending Documents</b></th>';
+   }elseif ($toprint == 'Checked Documents'){
+	$html.=' <th  style="background-color: #90EE90"><b>Checked Documents</b></th>';
    }else{
  	$html.=' <th><b>Grades</b></th>';
    }
  $html.='</tr>';
 
-
-$getStudent = mysqli_query($db, "SELECT * FROM students WHERE courseCode='$courseCode' || Svax is NOT NULL");
+$getStudent = mysqli_query($db, "SELECT * FROM students WHERE courseCode='$courseCode'");
 while($row = mysqli_fetch_array($getStudent)){
       $Sname = $row['Sname'];
     $Smname = $row['Smname'];
@@ -158,10 +159,37 @@ $html .='
  <td>'.$Scourse.' '.$Syear.'-'.$Sblock.'</td>
  <td>'.$studentID.'</td>
  <td>'.$Swcompany.'</td>
- <td>'.$Swemployer.'</td>
- <td>'.$Svax.'</td>
- </tr>
-';
+ <td>'.$Swemployer.'</td>';
+  if ($toprint == 'Vaccination Status') {
+	if ($Svax == NULL) {
+		$html.='<td style="background-color: yellow">UNVACCINATED</td>';
+	}else{
+ 		$html.='<td style="background-color: #90EE90">'.$Svax.'</td>';
+	}
+   }elseif ($toprint == 'Pending Documents') {
+		$html .='<td>';
+			$pending = mysqli_query($db, "SELECT * FROM reports WHERE studentID ='.$studentID.' OR status = 'pending'");
+			while ($row = mysqli_fetch_array($pending)) {
+					$title = $row['title'];
+					$status = $row['status'];
+					$html.='<span>'.$title.'</span> <br>';
+			}
+		$html.='</td>';
+   }elseif ($toprint == 'Checked Documents') {
+		$html .='<td>';
+				$pending = mysqli_query($db, "SELECT * FROM reports WHERE studentID ='.$studentID.' OR status = 'checked'");
+				while ($row = mysqli_fetch_array($pending)) {
+						$title = $row['title'];
+						$status = $row['status'];
+						$html.='<span>'.$title.'</span> <br>';
+				}
+			$html.='</td>';
+		}
+   else{
+ 	 	$html.='<td>'.$Swemployer.'</td>';
+   }
+ $html.='</tr>';
+
 }
 $html .='
 
