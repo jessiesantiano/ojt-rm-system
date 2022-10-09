@@ -10,8 +10,8 @@
         $email = $_POST['email'];
         $password = $_POST['password'];
         $courseCode = $_POST['courseCode'];
-        $query = "INSERT INTO schools (school, supervisor, courseCode) VALUES ('$school', '$supervisor', '$courseCode')";
-        $credentials = "INSERT INTO accounts (accountFor, name, email, password) VALUES ('$school', '$supervisor', '$email', '$password')";
+        $query = "INSERT INTO schools (school, supervisor, courseCode) VALUES (UPPER('$school'), UPPER('$supervisor'), '$courseCode')";
+        $credentials = "INSERT INTO accounts (accountFor, name, email, password) VALUES (UPPER('$school'), UPPER('$supervisor'), '$email', '$password')";
         mysqli_query($db, $query);
         mysqli_query($db, $credentials);
 
@@ -31,9 +31,9 @@
             $id = $_POST['id'];
             $school = $_POST['school'];
             $supervisor = $_POST['supervisor'];
-            mysqli_query($db, "UPDATE schools SET school='$school', supervisor='$supervisor' WHERE id=$id");
-            mysqli_query($db, "UPDATE accounts SET name='$supervisor' WHERE accountFor='$school'");
-            mysqli_query($db, "UPDATE students SET Swemployer='$supervisor' WHERE Swcompany='$school'");
+            mysqli_query($db, "UPDATE schools SET school=UPPER('$school'), supervisor=UPPER('$supervisor') WHERE id=$id");
+            mysqli_query($db, "UPDATE accounts SET name=UPPER('$supervisor') WHERE accountFor='$school'");
+            mysqli_query($db, "UPDATE students SET Swemployer=UPPER('$supervisor') WHERE Swcompany=UPPER('$school')");
            
             header('location: index.php');
              session_start();

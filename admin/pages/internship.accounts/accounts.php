@@ -22,8 +22,8 @@
 				<tbody class="text-center">
 				<?php while ($row = mysqli_fetch_array($results)) { ?>
 					<tr>
-						<td><?php echo $row['accountFor']; ?></td>
-						<td><?php echo $row['name']; ?></td>
+						<td class="uppercase"><?php echo $row['accountFor']; ?></td>
+						<td class="uppercase"><?php echo $row['name']; ?></td>
 						<td><?php echo $row['email']; ?></td>
 						<td>
 							<a href="#edit<?php echo $row['id'];?>" data-toggle="modal">

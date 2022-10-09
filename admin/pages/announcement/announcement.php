@@ -21,7 +21,7 @@
 				<tbody class="text-center">
 				<?php while ($row = mysqli_fetch_array($results)) { ?>
 					<tr>
-						<td><?php echo $row['title']; ?></td>
+						<td class="uppercase"><?php echo $row['title']; ?></td>
 						<td>
  							<?php echo $row['dateAdded']; ?>
 					    </td>

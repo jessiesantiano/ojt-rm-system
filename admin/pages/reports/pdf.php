@@ -171,7 +171,7 @@ $html .='
 	}
    }elseif ($toprint == 'Pending Documents') {
 		$html .='<td>';
-			$pending = mysqli_query($db, "SELECT * FROM reports WHERE studentID ='.$studentID.' OR status = 'pending'");
+			$pending = mysqli_query($db, "SELECT * FROM reports WHERE studentID ='.$studentID.' AND status = 'pending'");
 			while ($row = mysqli_fetch_array($pending)) {
 					$title = $row['title'];
 					$status = $row['status'];
@@ -180,7 +180,7 @@ $html .='
 		$html.='</td>';
    }elseif ($toprint == 'Checked Documents') {
 		$html .='<td>';
-				$pending = mysqli_query($db, "SELECT * FROM reports WHERE studentID ='.$studentID.' OR status = 'checked'");
+				$pending = mysqli_query($db, "SELECT * FROM reports WHERE studentID ='.$studentID.' AND status = 'checked'");
 				while ($row = mysqli_fetch_array($pending)) {
 						$title = $row['title'];
 						$status = $row['status'];

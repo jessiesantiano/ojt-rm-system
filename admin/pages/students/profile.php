@@ -27,7 +27,7 @@ while ($row = mysqli_fetch_array($students)) {
           </div>
           <div class="flex-none w-auto max-w-full px-3 my-auto">
             <div class="h-full">
-              <h5 class="mb-1"><?php echo $row['Sname'] ?> <?php echo $row['Smname'] ?> <?php echo $row['Slname'] ?></h5>
+              <h5 class="mb-1 uppercase"><?php echo $row['Sname'] ?> <?php echo $row['Smname'] ?> <?php echo $row['Slname'] ?></h5>
               <p class="mb-0 font-semibold leading-normal text-sm"><?php echo $row['courseCode'] ?></p>
             </div>
           </div>
@@ -69,7 +69,7 @@ while ($row = mysqli_fetch_array($students)) {
 
 
             <ul class="flex flex-col pl-0 mb-0 rounded-lg text-sm">
-              <li class="relative block px-4 py-2 pt-0 pl-0 leading-normal bg-white border-0 rounded-t-lg text-sm text-inherit"><strong class="text-slate-700">Full Name:</strong> &nbsp; <?php echo $row['Sname'] ?> <?php echo $row['Smname'] ?> <?php echo $row['Slname'] ?></li>
+              <li class="relative block px-4 py-2 pt-0 pl-0 leading-normal bg-white border-0 rounded-t-lg text-sm text-inherit"><strong class="text-slate-700">Full Name:</strong> &nbsp;<span class="uppercase"> <?php echo $row['Sname'] ?> <?php echo $row['Smname'] ?> <?php echo $row['Slname'] ?></span></li>
               <!-- <li class="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-sm text-inherit"><strong class="text-slate-700">Internship:</strong> &nbsp; <?php echo $row['Swcompany'] ?></li> -->
               <li class="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-sm text-inherit"><strong class="text-slate-700">Course:</strong> &nbsp; <?php echo $row['Scourse'] ?> <?php echo $row['Syear'] ?>-<?php echo $row['Sblock'] ?></li>
               <li class="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-sm text-inherit"><strong class="text-slate-700">Email:</strong> &nbsp; <?php echo $row['studentID'] ?></li>
@@ -124,10 +124,10 @@ while ($row = mysqli_fetch_array($students)) {
 
 
             <ul class="flex flex-col pl-0 mb-0 rounded-lg text-sm">
-              <li class="relative block px-4 py-2 pt-0 pl-0 leading-normal bg-white border-0 rounded-t-lg text-sm text-inherit"><strong class="text-slate-700">Name of Company/School:</strong> <br> <?php echo $row['Swcompany'] ?> </li>
+              <li class="relative block px-4 py-2 pt-0 pl-0 leading-normal bg-white border-0 rounded-t-lg text-sm text-inherit"><strong class="text-slate-700">Name of Company/School:</strong> <br> <span class="uppercase"><?php echo $row['Swcompany'] ?></span> </li>
               <li class="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-sm text-inherit"><strong class="text-slate-700">No. of hours to complete:</strong> &nbsp; <?php echo $row['Swnumber'] ?></li>
               <li class="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-sm text-inherit"><strong class="text-slate-700">Address:</strong> &nbsp; <?php echo $row['Swlocation'] ?> </li>
-              <li class="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-sm text-inherit"><strong class="text-slate-700">Name of Supervisor:</strong> &nbsp; <?php echo $row['Swemployer'] ?></li>
+              <li class="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-sm text-inherit"><strong class="text-slate-700">Name of Supervisor:</strong> &nbsp;  <span class="uppercase"><?php echo $row['Swemployer'] ?></span></li>
               <li class="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-sm text-inherit"><strong class="text-slate-700">Contact no.:</strong> &nbsp; <?php echo $row['Swcontact'] ?></li>
 
 
@@ -367,13 +367,14 @@ while ($row = mysqli_fetch_array($students)) {
         </div>
       </div>
       <div class="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border">
-        <?php $result = mysqli_query($db, "SELECT * FROM students WHERE studentID ='$studentID'");
-        while ($row = mysqli_fetch_array($result)) {
-          $studentID = $row['studentID']; ?>
+  
           <div class="flex flex-wrap -mx-3 mt-4 p-5">
             <div class="max-w-full px-3 md:w-1/2 md:flex-none">
               <h6 class="mb-0">Evaluation Reports (Midterm/Final)</h6>
             </div>
+          <?php $result = mysqli_query($db, "SELECT * FROM students WHERE studentID ='$studentID'");
+          while ($row = mysqli_fetch_array($result)) {
+          $studentID = $row['studentID']; ?>
             <?php if ($_SESSION['accountFor'] == 'Coordinator') {
               echo '';
             } else echo '
@@ -384,8 +385,9 @@ while ($row = mysqli_fetch_array($students)) {
                 </button>
               </a>
             </div>'; ?>
+           <?php } ?>
+
           </div>
-        <?php } ?>
 
         <div class="p-5">
           <div>
