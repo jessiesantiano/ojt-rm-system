@@ -2,7 +2,7 @@
 
     <div class="w-full px-6 py-2 mx-auto">
           <div class="p-3 pb-6">
-            <h2 class="mb-3 text-gray-800 w-full" style="line-height: 18px"><span class="text-pink-400 font-bold pr-1">Hello </span> <?php echo $name ?></h2>
+            <h2 class="mb-3 text-gray-800 w-full" style="line-height: 18px"><span class="text-pink-400 font-bold pr-1">Hello </span> <span class="capitalize"> <?php echo $name ?></span></h2>
             <small class="pb-3 text-gray-400">Welcome back to OJT Record Management Dashboard</small>
           </div>
         <div class="flex flex-wrap -mx-3">

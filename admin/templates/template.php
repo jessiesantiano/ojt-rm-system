@@ -170,7 +170,7 @@
               <li class="flex items-center">
                 <a href="#" class="block px-0 py-2 font-semibold transition-all ease-nav-brand text-sm text-slate-500">
                   <i class="fa fa-user sm:mr-1"></i>
-                      <span class="hidden sm:inline"><?php echo $name?></span>
+                      <span class="hidden sm:inline capitalize"><?php echo $name?></span>
                 </a>
               </li>
               <li class="flex items-center">
