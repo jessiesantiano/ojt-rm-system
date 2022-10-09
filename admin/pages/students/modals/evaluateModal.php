@@ -9,7 +9,7 @@
 				</div>
                  <div class="overflow-y-auto rounded-xl outline-0" style="height: calc(100vh - 100px)">
 				 	<div class="pl-4">
-						<small class="font-bold">Trainee Name: <span class="pl-3"><?php echo $row['Sname'] ?> <?php echo $row['Smname'] ?> <?php echo $row['Slname'] ?></span></small>
+						<small class="font-bold uppercase">Trainee Name: <span class="pl-3"><?php echo $row['Sname'] ?> <?php echo $row['Smname'] ?> <?php echo $row['Slname'] ?></span></small>
 					</div>
                    <form action="evaluatepdf.php" method="GET" target="_blank">
               		 <input type="hidden" name="id" value="<?php echo $row['id']; ?>">

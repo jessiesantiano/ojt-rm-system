@@ -21,7 +21,7 @@
         $getSupervisor = $getSupervisor -> fetch_assoc();
         ['supervisor' => $supervisor] = $getSupervisor;
 
-        $query = "INSERT INTO students (Sname, Slname, Smname, Scourse, Syear, Sblock, Sgender, Semail, Spassword, studentID, courseCode, Swcompany, Swemployer) VALUES ('$Sname', '$Slname', '$Smname', '$Scourse', '$Syear', '$Sblock', '$Sgender', '$Semail', 'LCC-$Spassword', '$studentID', '$courseCode', '$Swcompany', '$supervisor')";
+        $query = "INSERT INTO students (Sname, Slname, Smname, Scourse, Syear, Sblock, Sgender, Semail, Spassword, studentID, courseCode, Swcompany, Swemployer) VALUES (UPPER('$Sname'), UPPER('$Slname'), UPPER('$Smname'), '$Scourse', '$Syear', '$Sblock', '$Sgender', '$Semail', 'LCC-$Spassword', '$studentID', '$courseCode', '$Swcompany', '$supervisor')";
         mysqli_query($db, $query);
 
         header("location: index.php");
@@ -49,7 +49,7 @@
             $studentID = $_POST['studentID'];
             $Swcompany = $_POST['Swcompany'];
 
-            mysqli_query($db, "UPDATE students SET Sname='$Sname', Smname='$Smname', Slname='$Slname', Scourse='$Scourse', Syear='$Syear', Sblock='$Sblock', Sgender='$Sgender', studentID='$studentID', Swcompany='$Swcompany' WHERE id=$id");
+            mysqli_query($db, "UPDATE students SET Sname=UPPER('$Sname'), Smname=UPPER('$Smname'), Slname=UPPER('$Slname'), Scourse='$Scourse', Syear='$Syear', Sblock='$Sblock', Sgender='$Sgender', studentID='$studentID', Swcompany='$Swcompany' WHERE id=$id");
             $_SESSION['message'] = "record updated";
             $_SESSION['msg_type'] = "green-500";
            
