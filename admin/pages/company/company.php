@@ -22,13 +22,13 @@
 				<tbody class="text-center">
 				<?php while ($row = mysqli_fetch_array($results)) { ?>
 					<tr>
-						<td><?php echo $row['school']; ?></td>
+						<td><?php echo $row['company']; ?></td>
 						<td><?php echo $row['supervisor']; ?></td>
 						<td>
 							<a href="#edit<?php echo $row['id'];?>" data-toggle="modal">
                          	   <i class="far fa-edit text-gray-400 cursor-pointer hover:text-blue-300 transition-all" style="font-size: 13px"></i>
                        		 </a>
-							<a href="index.php?view=view&id=<?php echo $row['id']; ?>&school=<?php echo $row['school'] ?>">
+							<a href="index.php?view=view&id=<?php echo $row['id']; ?>&company=<?php echo $row['company'] ?>">
                          	  <button type="button" class="ml-2 inline-block px-2 py-1 font-bold text-center text-white uppercase align-middle transition-all rounded-lg cursor-pointer bg-gradient-to-tl from-purple-700 to-pink-500 leading-pro text-xs ease-soft-in tracking-tight-soft shadow-soft-md bg-150 bg-x-25 hover:scale-102 active:opacity-85 hover:shadow-soft-xs">
 								View List of Student Interns
 							  </button>

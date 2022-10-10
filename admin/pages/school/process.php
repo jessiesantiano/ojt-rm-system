@@ -11,7 +11,7 @@
         $password = $_POST['password'];
         $courseCode = $_POST['courseCode'];
         $query = "INSERT INTO schools (school, supervisor, courseCode) VALUES (UPPER('$school'), UPPER('$supervisor'), '$courseCode')";
-        $credentials = "INSERT INTO accounts (accountFor, name, email, password) VALUES (UPPER('$school'), UPPER('$supervisor'), '$email', '$password')";
+        $credentials = "INSERT INTO accounts (accountFor, name, email, password, courseCode) VALUES (UPPER('$school'), UPPER('$supervisor'), '$email', '$password', 'School')";
         mysqli_query($db, $query);
         mysqli_query($db, $credentials);
 

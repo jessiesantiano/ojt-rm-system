@@ -1,7 +1,7 @@
 <?php
 
  $view = (isset($_GET['view']) && $_GET['view'] != '') ? $_GET['view'] : '';
- $title = "School";
+ $title = "Company";
  $header=$view; 
 	switch ($view) {
 		case 'list' :

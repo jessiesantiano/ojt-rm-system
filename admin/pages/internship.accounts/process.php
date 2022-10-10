@@ -20,7 +20,11 @@
     }
 
     // get data from the database
-    $results = mysqli_query($db, "SELECT * FROM accounts WHERE courseCode IS NULL");
+    if ($courseCode == 'Education Dept.') {
+        $results = mysqli_query($db, "SELECT * FROM accounts WHERE courseCode='School'");
+    }else{
+        $results = mysqli_query($db, "SELECT * FROM accounts WHERE courseCode='Company'");
+    }
 
 
     // update 

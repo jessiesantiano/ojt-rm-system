@@ -1,10 +1,10 @@
-<?php $schools = mysqli_query($db, "SELECT * FROM schools"); ?>
-<?php while ($row = mysqli_fetch_array($schools)) { ?>
+<?php $companies = mysqli_query($db, "SELECT * FROM companies"); ?>
+<?php while ($row = mysqli_fetch_array($companies)) { ?>
     <div id="edit<?php echo $row['id']; ?>" class="show fade hidden">
 		<div class="fixed w-full h-full top-0 left-0 flex justify-center items-center" style="background: rgba(0,0,0,0.5);">
 			<div class="w-2/5 h-f ll relative flex  flex-col  bg-white border border-solid pointer-events-auto dark:bg-gray-950 bg-clip-padding border-black/20 rounded-xl outline-0">
 				<div class="flex items-center justify-between p-4 border-b border-solid shrink-0 border-slate-100 rounded-t-xl">
-					<h5 class="mb-0 leading-normal dark:text-white" id="ModalLabel">Edit School</h5>
+					<h5 class="mb-0 leading-normal dark:text-white" id="ModalLabel">Edit Company</h5>
 					<div>
 						 <a href="process.php?del=<?php echo $row['id'] ?>&supervisor=<?php echo $row['supervisor'] ?>">
 						    <i style="margin-right: 10px" class="fa fa-trash w-4 h-4 box-content p-2 text-black dark:text-white border-0 rounded-1.5 opacity-50 cursor-pointer"></i>
@@ -15,9 +15,9 @@
 			   <form action="process.php" method="POST">
 					<div class="relative flex-auto p-4">
 						<input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-						<input type="hidden" name="school" value="<?php echo $row['school']; ?>">
-						<b>School</b>
-						<input autocomplete="off" type="text" placeholder="Name" name="school" value="<?php echo $row['school']?>" class="uppercase dark:bg-gray-950 mb-2 focus:shadow-soft-primary-outline dark:placeholder:text-white/80 dark:text-white/80 text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none">
+						<input type="hidden" name="company" value="<?php echo $row['company']; ?>">
+						<b>Company</b>
+						<input autocomplete="off" type="text" placeholder="Name" name="company" value="<?php echo $row['company']?>" class="uppercase dark:bg-gray-950 mb-2 focus:shadow-soft-primary-outline dark:placeholder:text-white/80 dark:text-white/80 text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none">
 						<b>Trainees Supervisor</b>
 						<input autocomplete="off" type="text" placeholder="Password" name="supervisor" value="<?php echo $row['supervisor']?>" class="uppercase dark:bg-gray-950 mb-4 focus:shadow-soft-primary-outline dark:placeholder:text-white/80 dark:text-white/80 text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none">
 						<div class="flex flex-wrap items-center justify-end p-3 border-t border-solid shrink-0 border-slate-100 rounded-b-xl">
