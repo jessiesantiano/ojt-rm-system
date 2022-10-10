@@ -145,11 +145,26 @@
           </div>
                 
           <!-- <div class="flex gap-2 px-3 items-center w-full py-5 mb-10" style="height: calc(100vh - 360px)"> -->
-          <!-- <div class="flex gap-2 px-3 items-center w-full py-5"> -->
-            <div style="width: 60%;">
+          <div class="flex gap-2 px-3 items-center w-full py-5">
+            <div style="width: 90%;">
               <canvas id="myChart"></canvas>
             </div>
-           <!-- </div> -->
+            <div class="bg-white rounded-lg flex items-center justify-center pt-10 md:pt-0 lg:pt-0 w-2/4 h-full  px-5 md:px-0 lg:px-0">
+                <div class="flex flex-col h-full w-full font-light">
+                    <div class="h-full w-full bg-pink-400 rounded-t flex justify-center items-center ">
+                        <span class="day uppercase text-lg text-white"></span>
+                    </div>
+                    <div class="w-full bg-white flex justify-center items-center py-24 flex-col">
+                        <span class="month text-2xl text-gray-500"></span>
+                        <span class="date uppercase text-7xl text-gray-700 font-extralight"></span>
+                    </div>
+                    <div class="h-full w-full bg-blue-300 rounded-b flex justify-center items-center ">
+                        <span class="year uppercase text-lg text-white"></span>
+                    </div>
+                </div>
+              </div>
+           </div>
+           
 
         </div>
       </div>
@@ -187,7 +202,7 @@
         options: {
           scales: {
             y: {
-              beginAtZero: true
+              beginAtZero: false
             }
           }
         },
