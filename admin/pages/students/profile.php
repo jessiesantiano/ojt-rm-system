@@ -40,14 +40,16 @@ while ($row = mysqli_fetch_array($students)) {
               <i class="fa fa-folder-open" aria-hidden="true"></i>&nbsp; Generate Report
             </button>
           </form>
-          <?php if ($row['iSmidterm'] == 'requested'  or $row['iSfinal'] == 'requested') : ?>
-            <div>
-              <a href="#evaluate<?php echo $row['id']; ?>" data-toggle="modal">
-                <button type="submit" class="ml-2 inline-block px-2 py-1 font-bold text-center text-white uppercase align-middle transition-all rounded-lg cursor-pointer bg-gradient-to-tl from-purple-700 to-pink-500 leading-pro text-xs ease-soft-in tracking-tight-soft shadow-soft-md bg-150 bg-x-25 hover:scale-102 active:opacity-85 hover:shadow-soft-xs">
-                  <i class="fa fa-calendar-check-o" aria-hidden="true"></i> &nbsp; Evaluate
-                </button>
-              </a>
-            </div>
+          <?php if ($accountFor != 'Coordinator') : ?>
+            <?php if ($row['iSmidterm'] == 'requested'  or $row['iSfinal'] == 'requested') : ?>
+              <div>
+                <a href="#evaluate<?php echo $row['id']; ?>" data-toggle="modal">
+                  <button type="submit" class="ml-2 inline-block px-2 py-1 font-bold text-center text-white uppercase align-middle transition-all rounded-lg cursor-pointer bg-gradient-to-tl from-purple-700 to-pink-500 leading-pro text-xs ease-soft-in tracking-tight-soft shadow-soft-md bg-150 bg-x-25 hover:scale-102 active:opacity-85 hover:shadow-soft-xs">
+                    <i class="fa fa-calendar-check-o" aria-hidden="true"></i> &nbsp; Evaluate
+                  </button>
+                </a>
+              </div>
+            <?php endif; ?>
           <?php endif; ?>
 
         </div>
