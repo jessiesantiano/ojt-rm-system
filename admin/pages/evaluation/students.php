@@ -9,7 +9,7 @@
 
 		<div class="flex justify-between items-center py-2">
 			 
-              <?php if ($courseCode != NULL) : ?>
+              <?php if ($courseCode == 'Education Dept.' AND 'Economics Dept.') : ?>
               	<h5><?php echo $courseCode ?> Students List</h5>
               <?php else : ?>
                 <h5>Trainee's Evaluation Request</h5>

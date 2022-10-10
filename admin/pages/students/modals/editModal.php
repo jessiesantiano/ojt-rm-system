@@ -78,11 +78,20 @@
 					<select name="Swcompany" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
 						<option hidden selected><?php echo $row['Swcompany'] ?></option>
 
-						<?php $result = mysqli_query($db, "SELECT * FROM schools WHERE courseCode = '$courseCode'");
+						<?php  if ($courseCode == 'Education Dept.') {
+					   		$result = mysqli_query($db, "SELECT * FROM schools");
+						 }else{
+        					$result = mysqli_query($db, "SELECT * FROM companies");
+						 }
 						while ($row = mysqli_fetch_array($result)) { ?>
-							<option value="<?php echo $row['school']; ?>"><?php echo $row['school']; ?></option>
+							<?php  if ($courseCode == 'Education Dept.') : ?>
+								<option value="<?php echo $row['school']; ?>"><?php echo $row['school']; ?></option>
+							<?php else : ?>
+								<option value="<?php echo $row['company']; ?>"><?php echo $row['company']; ?></option>
+							<?php endif; ?>
 						<?php } ?>
 					</select>
+				
 						<div class="flex flex-wrap items-center justify-end p-3 border-t border-solid shrink-0 border-slate-100 rounded-b-xl">
 							<button  data-toggle="modal" type="submit" name="update" class="inline-block px-8 py-2 m-1 mb-4 text-xs font-bold text-center text-white uppercase align-middle transition-all border-0 rounded-lg cursor-pointer ease-soft-in leading-pro tracking-tight-soft bg-gradient-to-tl from-purple-700 to-pink-500 shadow-soft-md bg-150 bg-x-25 hover:scale-102 active:opacity-85">Update</button>
 						</div>
