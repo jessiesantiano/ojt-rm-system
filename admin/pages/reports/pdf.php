@@ -44,7 +44,7 @@ $pdf = new PDF('l', 'mm', 'A4', true, 'UTF-8', false);
 // set document information
 $pdf->SetCreator('OJT RECORD MONITORING SYSTEM');
 $pdf->SetAuthor('Administrator');
-$pdf->SetTitle('Student Profile');
+$pdf->SetTitle($toprint);
 $pdf->SetSubject('General Report of Student Profile');
 $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
 
@@ -171,7 +171,7 @@ $html .='
 	}
    }elseif ($toprint == 'Pending Documents') {
 		$html .='<td>';
-			$pending = mysqli_query($db, "SELECT * FROM reports WHERE studentID ='.$studentID.' AND status = 'pending'");
+			$pending = mysqli_query($db, "SELECT * FROM reports WHERE studentID ='$studentID' AND status = 'pending'");
 			while ($row = mysqli_fetch_array($pending)) {
 					$title = $row['title'];
 					$status = $row['status'];
@@ -180,7 +180,7 @@ $html .='
 		$html.='</td>';
    }elseif ($toprint == 'Checked Documents') {
 		$html .='<td>';
-				$pending = mysqli_query($db, "SELECT * FROM reports WHERE studentID ='.$studentID.' AND status = 'checked'");
+				$pending = mysqli_query($db, "SELECT * FROM reports WHERE studentID ='$studentID' AND status = 'checked'");
 				while ($row = mysqli_fetch_array($pending)) {
 						$title = $row['title'];
 						$status = $row['status'];
@@ -189,19 +189,18 @@ $html .='
 			$html.='</td>';
 		}
    else{
-	if ($midterm == NULL) {
-			$html.='<td>pending</td>';
+      if ($midterm == NULL) {
+          $html.='<td>pending</td>';
 
-	}else{
-			$html.='<td>'.$midterm.'</td>';
-	}
-	if ($final == NULL) {
-			$html.='<td>pending</td>';
+      }else{
+          $html.='<td>'.$midterm.'</td>';
+      }
+      if ($final == NULL) {
+          $html.='<td>pending</td>';
 
-	}else{
-			$html.='<td>'.$final.'</td>';
-	}
-
+      }else{
+          $html.='<td>'.$final.'</td>';
+      }
    }
  $html.='</tr>';
 
@@ -221,12 +220,5 @@ $html .='
 $pdf->writeHTML($html, true, false, true, false, '');
 // Close and output PDF document
 // This method has several options, check the source code documentation for more information.
-if ($toprint == 'Vaccination Status') {
-    $pdf->Output('Vaccination Status.pdf', 'I');
-  }elseif ($toprint == 'Pending Documents') {
-    $pdf->Output('With Pending Documents.pdf', 'I');
-  }elseif ($toprint == 'Checked Documents') {
-    $pdf->Output('Checked Documents.pdf', 'I');
-}else{
-    $pdf->Output('Grades.pdf', 'I');
-}
+
+    $pdf->Output(''.$courseCode.' '.$toprint.' .pdf', 'I');

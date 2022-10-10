@@ -227,5 +227,5 @@ $html = '<!DOCTYPE html>
 
 // END
 
-$pdf->Output('midterm.pdf', 'I');
+$pdf->Output(''.$Slname.' Evaluation Result-.pdf', 'I');
 ?>

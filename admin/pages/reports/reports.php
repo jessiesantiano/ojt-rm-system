@@ -5,7 +5,7 @@
 ?>
 	<!--Container-->
 	<div class="w-full md:w-4/5 xl:w-3/5" style="padding: 0 40px 0 40px">
-			<h1 class="h3 mb-3 text-gray-800 w-full"><span class="text-yellow-400 font-bold">Easy </span> Generate Reports</h1>
+			<h1 class="h3 mb-3 text-gray-800 w-full"><span class="text-pink-400 font-bold">Easy </span> Generate Reports</h1>
 			<div class="flex items-center gap-4 w-full pb-7 mb-10" style="height: 580px">
 				<div class="bg-white w-full h-full">
 					<!-- <p class="text-lg p-3">Easy Generate Report</p> -->

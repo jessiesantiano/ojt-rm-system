@@ -290,4 +290,4 @@ while ($row = mysqli_fetch_array($getStudent)) {
 $pdf->writeHTML($html, true, false, true, false, '');
 // Close and output PDF document
 // This method has several options, check the source code documentation for more information.
-$pdf->Output('example_001.pdf', 'I');
+$pdf->Output(''.$Sname.' '.$Smname.' '.$Slname.'.pdf', 'I');
