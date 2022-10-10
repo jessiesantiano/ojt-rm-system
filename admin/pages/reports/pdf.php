@@ -221,4 +221,12 @@ $html .='
 $pdf->writeHTML($html, true, false, true, false, '');
 // Close and output PDF document
 // This method has several options, check the source code documentation for more information.
-$pdf->Output('example_001.pdf', 'I');
+if ($toprint == 'Vaccination Status') {
+    $pdf->Output('Vaccination Status.pdf', 'I');
+  }elseif ($toprint == 'Pending Documents') {
+    $pdf->Output('With Pending Documents.pdf', 'I');
+  }elseif ($toprint == 'Checked Documents') {
+    $pdf->Output('Checked Documents.pdf', 'I');
+}else{
+    $pdf->Output('Grades.pdf', 'I');
+}

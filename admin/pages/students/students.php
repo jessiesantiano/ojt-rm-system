@@ -3,7 +3,7 @@
  <div class="w-full md:w-4/5 xl:w-3/5" style="padding: 0 40px 0 40px">
  	<div class="flex justify-between items-center py-2">
 
- 		<?php if ($courseCode != NULL) : ?>
+ 		<?php if ($accountFor == 'Coordinator') : ?>
  			<h5><?php echo $courseCode ?> Students List</h5>
 
 			 <div class="flex gap-2 items-center">
