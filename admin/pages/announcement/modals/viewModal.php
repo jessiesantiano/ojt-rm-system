@@ -13,6 +13,9 @@
 					<div>
 						<h5><?php echo $row['title'] ?></h5>
 					</div>
+					<div class="inline-block h-60 w-50 overflow-hidden  bg-gray-100 flex justify-center">
+						<img src="<?php echo 'uploads/' . $row['name'] ?>" >
+					</div>
 					<div>
 						<p><b>What for: </b> <?php echo $row['whatfor'] ?></p>
 					</div>

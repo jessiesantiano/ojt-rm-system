@@ -5,16 +5,21 @@
 						<h5 class="mb-0 leading-normal dark:text-white" id="ModalLabel">Add Announcement</h5>
 						<button type="button"  data-toggle="modal" class="fa fa-close w-4 h-4 ml-auto box-content p-2 text-black dark:text-white border-0 rounded-1.5 opacity-50 cursor-pointer -m-2 " data-dismiss="modal"></button>
 					</div>
-				<form action="process.php" method="POST">
+				<form action="process.php" method="POST" enctype="multipart/form-data">
 						<div class="relative flex-auto p-4">
 							<b>Title</b>
 							<input type="text" placeholder="Title" name="title" value="" class="dark:bg-gray-950 mb-4 focus:shadow-soft-primary-outline dark:placeholder:text-white/80 dark:text-white/80 text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none">
 							<b>What for?</b>
 							<textarea name="whatfor" rows="5" placeholder="Write your thoughts here..."  class="focus:shadow-soft-primary-outline min-h-unset text-sm leading-5.6 ease-soft block h-auto w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none mb-4"></textarea>
 							 	<input type="hidden" name="postedBy" value="<?php echo $name ?>">
+								 <div>
+								 <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="multiple_files">Upload picture/s</label>
+								 <input name="myfile" class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="multiple_files" type="file" multiple>
+							</div>
 							<div class="flex flex-wrap items-center justify-end p-3 border-t border-solid shrink-0 border-slate-100 rounded-b-xl">
 								<button   data-toggle="modal" type="submit" name="add" class="inline-block px-8 py-2 m-1 mb-4 text-xs font-bold text-center text-white uppercase align-middle transition-all border-0 rounded-lg cursor-pointer ease-soft-in leading-pro tracking-tight-soft bg-gradient-to-tl from-purple-700 to-pink-500 shadow-soft-md bg-150 bg-x-25 hover:scale-102 active:opacity-85">Add</button>
 							</div>
+							
 						</div>
 					</form>
 				</div>
