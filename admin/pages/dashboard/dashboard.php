@@ -170,14 +170,15 @@
       </div>
 
       <?php
-    $results = mysqli_query($db, "SELECT * FROM schools ");
+        include('../../../connection.php');
+        $results = mysqli_query($db, "SELECT * FROM schools");
+        while ($row = mysqli_fetch_array($results)) {
+          $school[] = $row["school"];
+        }
 
       ?>
       <script>
-        const labels = [
-          'DEOGRACIA P. PRINCESA MEMORIAL HIGH SCHOOL',
-          'BARAYONG NATIONAL HIGH SCHOOL',
-        ];
+        const labels = <?php echo json_encode($school) ?>;
 
         const data = {
           labels: labels,
@@ -192,7 +193,7 @@
               'rgb(54, 162, 235)',
             ],
             borderWidth: 1,
-                    data: [1, 1],
+            data: [4, 10],
           }]
         };
 
@@ -202,7 +203,7 @@
         options: {
           scales: {
             y: {
-              beginAtZero: false
+              beginAtZero: true
             }
           }
         },
