@@ -145,15 +145,59 @@
           </div>
                 
           <!-- <div class="flex gap-2 px-3 items-center w-full py-5 mb-10" style="height: calc(100vh - 360px)"> -->
-          <div class="flex gap-2 px-3 items-center w-full py-5">
-            
-           </div>
+          <!-- <div class="flex gap-2 px-3 items-center w-full py-5"> -->
+            <div style="width: 60%;">
+              <canvas id="myChart"></canvas>
+            </div>
+           <!-- </div> -->
 
         </div>
       </div>
 
+      <?php
+    $results = mysqli_query($db, "SELECT * FROM schools ");
+
+      ?>
+      <script>
+        const labels = [
+          'DEOGRACIA P. PRINCESA MEMORIAL HIGH SCHOOL',
+          'BARAYONG NATIONAL HIGH SCHOOL',
+        ];
+
+        const data = {
+          labels: labels,
+          datasets: [{
+            label: 'No. of Trainees',
+            backgroundColor: [
+              'rgb(255, 99, 132)',
+              'rgb(54, 162, 235)',
+            ],
+            borderColor: [
+                'rgb(255, 99, 132)',
+              'rgb(54, 162, 235)',
+            ],
+            borderWidth: 1,
+                    data: [1, 1],
+          }]
+        };
+
+      const config = {
+        type: 'bar',
+        data: data,
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        },
+      };
+        const myChart = new Chart(
+          document.getElementById('myChart'),
+          config
+        );
+      </script>
       <script src="calendar/js/jquery.min.js"></script>
       <script src="calendar/js/main.js"></script>
-            
     <?php
 

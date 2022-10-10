@@ -26,7 +26,8 @@
     <link href="../../../build/assets/css/nucleo-icons.css" rel="stylesheet" />
     <link href="../../../build/assets/css/nucleo-svg.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />
-
+  <!-- chart -->
+ <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- Popper -->
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <!-- Main Styling -->
