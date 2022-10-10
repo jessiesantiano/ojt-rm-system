@@ -64,13 +64,22 @@
             </a>
           </li>
       <?php if ($courseCode != NULL) : ?>
-         <?php if ($courseCode != "Coordinator") : ?>
+         <?php if ($courseCode == "Education Dep.") : ?>
               <li class="mt-0.5 w-full">
                 <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" href="../school">
                   <div class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
                   <i class="fa fa-handshake-o" aria-hidden="true"></i>
                   </div>
-                  <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">School / Company</span>
+                  <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">School</span>
+                </a>
+              </li>
+          <?php else : ?>
+              <li class="mt-0.5 w-full">
+                <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" href="../company">
+                  <div class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
+                  <i class="fa fa-handshake-o" aria-hidden="true"></i>
+                  </div>
+                  <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Company</span>
                 </a>
               </li>
           <?php endif; ?>
