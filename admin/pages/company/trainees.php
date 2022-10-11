@@ -1,13 +1,13 @@
  
  <?php include('process.php'); 
  	$id = $_GET['id'];
- 	$school = $_GET['school'];
- 	$students = mysqli_query($db, "SELECT * FROM students WHERE Swcompany='$school'")
+ 	$company = $_GET['company'];
+ 	$students = mysqli_query($db, "SELECT * FROM students WHERE Swcompany='$company'")
  ?>
 	<!--Container-->
 	<div class="container w-full md:w-4/5 xl:w-3/5  mx-auto px-2">
 		<div class="flex justify-between items-center py-5">
-            <h5><?php echo $school?> / List of Trainee's</h5>
+            <h5><?php echo $company?> / List of Trainee's</h5>
 			<!-- <a href="#addStudent" data-toggle="modal">
 				<button type="button" class="inline-block px-6 py-3 font-bold text-center text-white uppercase align-middle transition-all rounded-lg cursor-pointer bg-gradient-to-tl from-purple-700 to-pink-500 leading-pro text-xs ease-soft-in tracking-tight-soft shadow-soft-md bg-150 bg-x-25 hover:scale-102 active:opacity-85 hover:shadow-soft-xs">
 					Add

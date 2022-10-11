@@ -3,7 +3,7 @@
 				<div class="w-full md:w-4/5 xl:w-3/5" style="padding: 0 40px 0 40px">
 
 		<div class="flex justify-between items-center py-2">
-			<h5>Company</h5>
+			<h5>Companies</h5>
 		<a href="#addSchool" data-toggle="modal">
 				<button type="button" class="inline-block px-6 py-3 font-bold text-center text-white uppercase align-middle transition-all rounded-lg cursor-pointer bg-gradient-to-tl from-purple-700 to-pink-500 leading-pro text-xs ease-soft-in tracking-tight-soft shadow-soft-md bg-150 bg-x-25 hover:scale-102 active:opacity-85 hover:shadow-soft-xs">
 					Add
@@ -14,7 +14,7 @@
 			<table id="example" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
 				<thead>
 					<tr>
-						<th data-priority="1">Company</th>
+						<th data-priority="1">Company Name</th>
 						<th data-priority="1">Assigned Supervisor</th>
 						<th data-priority="1">Action</th>
 					</tr>

@@ -70,7 +70,7 @@
                   <div class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
                   <i class="fa fa-handshake-o" aria-hidden="true"></i>
                   </div>
-                  <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">School</span>
+                  <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Schools</span>
                 </a>
               </li>
           <?php else : ?>
@@ -79,7 +79,7 @@
                   <div class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
                   <i class="fa fa-handshake-o" aria-hidden="true"></i>
                   </div>
-                  <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Company</span>
+                  <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Companies</span>
                 </a>
               </li>
           <?php endif; ?>
