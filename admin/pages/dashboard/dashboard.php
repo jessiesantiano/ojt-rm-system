@@ -171,10 +171,15 @@
 
       <?php
         include('../../../connection.php');
+        // chart label
         $results = mysqli_query($db, "SELECT * FROM schools");
         while ($row = mysqli_fetch_array($results)) {
           $school[] = $row["school"];
+          $trainees[] = $row['trainees'];
         }
+
+        // chart data
+       
 
       ?>
       <script>
@@ -189,11 +194,11 @@
               'rgb(54, 162, 235)',
             ],
             borderColor: [
-                'rgb(255, 99, 132)',
+              'rgb(255, 99, 132)',
               'rgb(54, 162, 235)',
             ],
             borderWidth: 1,
-            data: [4, 10],
+            data: <?php echo json_encode($trainees) ?>,
           }]
         };
 
