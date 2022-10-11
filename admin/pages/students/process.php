@@ -21,8 +21,16 @@
         $getSupervisor = $getSupervisor -> fetch_assoc();
         ['supervisor' => $supervisor] = $getSupervisor;
 
+        $getStudent = mysqli_query($db, "SELECT * FROM students WHERE studentID='$studentID'");
+        if (mysqli_num_rows($getStudent) > 0) {
+            header("location: index.php");
+            session_start();
+            $_SESSION['status'] = "Woo hoo!";
+            $_SESSION['text'] = "Student already added!";
+            $_SESSION['icon'] = "warning";
+        } else {
 
-        $query = "INSERT INTO students (Sname, Slname, Smname, Scourse, Syear, Sblock, Sgender, Semail, Spassword, studentID, courseCode, Swcompany, Swemployer) VALUES (UPPER('$Sname'), UPPER('$Slname'), UPPER('$Smname'), '$Scourse', '$Syear', '$Sblock', '$Sgender', '$Semail', 'LCC-$Spassword', '$studentID', '$courseCode', '$Swcompany', '$supervisor')";
+        $query = "INSERT INTO students (Sname, Slname, Smname, Scourse, Syear, Sblock, Sgender, Semail, Spassword, studentID, courseCode, Swcompany, Swemployer) VALUES ('$Sname', '$Slname', '$Smname', '$Scourse', '$Syear', '$Sblock', '$Sgender', '$Semail', 'LCC-$Spassword', '$studentID', '$courseCode', '$Swcompany', '$supervisor')";
         mysqli_query($db, $query);
         
     
@@ -44,6 +52,7 @@
         $_SESSION['text'] = "New student added successfully!";
         $_SESSION['icon'] = "success";
     }
+}
 
     // code for retrieve from database
     // $courseCode is a global variable / in template

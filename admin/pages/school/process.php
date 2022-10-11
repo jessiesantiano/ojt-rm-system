@@ -10,8 +10,17 @@
         $email = $_POST['email'];
         $password = $_POST['password'];
         $courseCode = $_POST['courseCode'];
-        $query = "INSERT INTO schools (school, supervisor, courseCode) VALUES (UPPER('$school'), UPPER('$supervisor'), '$courseCode')";
-        $credentials = "INSERT INTO accounts (accountFor, name, email, password, courseCode) VALUES (UPPER('$school'), UPPER('$supervisor'), '$email', '$password', 'School')";
+
+        $getSchool = mysqli_query($db, "SELECT * FROM schools WHERE school='$school'");
+        if (mysqli_num_rows($getSchool) > 0) {
+            header("location: index.php");
+            session_start();
+            $_SESSION['status'] = "Woo hoo!";
+            $_SESSION['text'] = "School already added!";
+            $_SESSION['icon'] = "warning";
+        } else {
+        $query = "INSERT INTO schools (school, supervisor, courseCode) VALUES ('$school', '$supervisor', '$courseCode')";
+        $credentials = "INSERT INTO accounts (accountFor, name, email, password) VALUES ('$school', '$supervisor', '$email', '$password')";
         mysqli_query($db, $query);
         mysqli_query($db, $credentials);
 
@@ -21,6 +30,7 @@
         $_SESSION['text'] = "School added successfully!";
         $_SESSION['icon'] = "success";
     }
+}
 
     // get data from the database
     $results = mysqli_query($db, "SELECT * FROM schools ");
