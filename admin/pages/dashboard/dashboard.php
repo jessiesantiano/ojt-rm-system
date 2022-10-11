@@ -172,11 +172,22 @@
       <?php
         include('../../../connection.php');
         // chart label
-        $results = mysqli_query($db, "SELECT * FROM schools");
-        while ($row = mysqli_fetch_array($results)) {
-          $school[] = $row["school"];
-          $trainees[] = $row['trainees'];
+        if ($courseCode == 'Education Dept.') {
+         $results = mysqli_query($db, "SELECT * FROM schools");
+          while ($row = mysqli_fetch_array($results)) {
+            $ojt[] = $row["school"];
+            $trainees[] = $row['trainees'];
+          }
+        }elseif ($courseCode == 'Economics Dept.') {
+          $results = mysqli_query($db, "SELECT * FROM companies");
+          while ($row = mysqli_fetch_array($results)) {
+            $ojt[] = $row["company"];
+            $trainees[] = $row['trainees'];
+          }
+        }else{
+          echo "pota";
         }
+       
 
 
         // chart data
@@ -184,19 +195,29 @@
 
       ?>
       <script>
-        const labels = <?php echo json_encode($school) ?>;
+        const labels = <?php echo json_encode($ojt) ?>;
 
         const data = {
           labels: labels,
           datasets: [{
             label: 'No. of Trainees',
             backgroundColor: [
-              'rgb(255, 99, 132)',
-              'rgb(54, 162, 235)',
+              'rgba(255, 99, 132, 0.2)',
+              'rgba(255, 159, 64, 0.2)',
+              'rgba(255, 205, 86, 0.2)',
+              'rgba(75, 192, 192, 0.2)',
+              'rgba(54, 162, 235, 0.2)',
+              'rgba(153, 102, 255, 0.2)',
+              'rgba(201, 203, 207, 0.2)'
             ],
             borderColor: [
-              'rgb(255, 99, 132)',
+             'rgb(255, 99, 132)',
+              'rgb(255, 159, 64)',
+              'rgb(255, 205, 86)',
+              'rgb(75, 192, 192)',
               'rgb(54, 162, 235)',
+              'rgb(153, 102, 255)',
+              'rgb(201, 203, 207)'
             ],
             borderWidth: 1,
             data: <?php echo json_encode($trainees) ?>,
