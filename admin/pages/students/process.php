@@ -25,11 +25,17 @@
         $query = "INSERT INTO students (Sname, Slname, Smname, Scourse, Syear, Sblock, Sgender, Semail, Spassword, studentID, courseCode, Swcompany, Swemployer) VALUES (UPPER('$Sname'), UPPER('$Slname'), UPPER('$Smname'), '$Scourse', '$Syear', '$Sblock', '$Sgender', '$Semail', 'LCC-$Spassword', '$studentID', '$courseCode', '$Swcompany', '$supervisor')";
         mysqli_query($db, $query);
         
+    
+
         $trainees = "SELECT count(id) AS total FROM students WHERE Swcompany='$Swcompany'";
         $rows_results = mysqli_query($db, $trainees);
         $values = mysqli_fetch_assoc($rows_results);
         $total = $values['total'];
-        $traineeTotal = "UPDATE schools SET trainees='$total' WHERE school='$Swcompany'";
+        if ($courseCode == 'Education Dept.') {
+            $traineeTotal = "UPDATE schools SET trainees='$total' WHERE school='$Swcompany'";
+        }else{
+            $traineeTotal = "UPDATE companies SET trainees='$total' WHERE company='$Swcompany'";
+        }
         mysqli_query($db, $traineeTotal);
 
         header("location: index.php");
@@ -59,14 +65,23 @@
             $studentID = $_POST['studentID'];
             $Swcompany = $_POST['Swcompany'];
 
-            mysqli_query($db, "UPDATE schools SET trainees=trainees-1 WHERE id=$prevID");
+             if ($courseCode == 'Education Dept.') {
+                 mysqli_query($db, "UPDATE schools SET trainees=trainees-1 WHERE id=$prevID");
+             }else{
+                mysqli_query($db, "UPDATE companies SET trainees=trainees-1 WHERE id=$prevID");
+             }
+
          
             mysqli_query($db, "UPDATE students SET Sname=UPPER('$Sname'), Smname=UPPER('$Smname'), Slname=UPPER('$Slname'), Scourse='$Scourse', Syear='$Syear', Sblock='$Sblock', Sgender='$Sgender', studentID='$studentID', Swcompany='$Swcompany' WHERE id=$id");
             $trainees = "SELECT count(id) AS total FROM students WHERE Swcompany='$Swcompany'";
             $rows_results = mysqli_query($db, $trainees);
             $values = mysqli_fetch_assoc($rows_results);
             $total = $values['total'];
-            $traineeTotal = "UPDATE schools SET trainees='$total' WHERE school='$Swcompany'";
+            if ($courseCode == 'Education Dept.') {
+                $traineeTotal = "UPDATE schools SET trainees='$total' WHERE school='$Swcompany'";
+            }else{
+                $traineeTotal = "UPDATE companies SET trainees='$total' WHERE company='$Swcompany'";
+            }
             mysqli_query($db, $traineeTotal);
              
            
@@ -84,9 +99,13 @@
     // delete
     if (isset($_GET['del'])) {
             $id = $_GET['del'];
-            $Swcompany = $_GET['Swcompany'];
+            $prev = $_GET['prev'];
             mysqli_query($db, "DELETE FROM students WHERE id=$id");
-            mysqli_query($db, "UPDATE schools SET trainees = trainees - 1 WHERE school='$Swcompany' AND trainees > 0");
+            if ($courseCode == 'Education Dept.') {
+                  mysqli_query($db, "UPDATE schools SET trainees = trainees - 1 WHERE id=$prev AND trainees > 0");
+            }else{
+                  mysqli_query($db, "UPDATE companies SET trainees = trainees - 1 WHERE id=$prev AND trainees > 0");
+            }
             $_SESSION['message'] = "Address deleted!"; 
             header('location: index.php');
             session_start();
@@ -94,7 +113,6 @@
             $_SESSION['text'] = "Student deleted successfully!";
             $_SESSION['icon'] = "success";
         }
-
 
 
 // View files
