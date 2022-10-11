@@ -85,9 +85,9 @@
 						 }
 						while ($row = mysqli_fetch_array($result)) { ?>
 							<?php  if ($courseCode == 'Education Dept.') : ?>
-								<option value="<?php echo $row['school']; ?> "><?php echo $row['school']; ?> - <?php echo $row['supervisor'] ?></option>
+								<option value="<?php echo $row['school'];?>"><?php echo $row['school']; ?> - <?php echo $row['supervisor'] ?></option>
 							<?php else : ?>
-								<option value="<?php echo $row['company']; ?> "><?php echo $row['company']; ?> - <?php echo $row['supervisor'] ?></option>
+								<option value="<?php echo $row['company'];?>"><?php echo $row['company']; ?> - <?php echo $row['supervisor'] ?></option>
 							<?php endif; ?>
 							<?php } ?>
 					</select>
