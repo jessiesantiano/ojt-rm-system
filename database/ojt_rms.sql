@@ -2,8 +2,8 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Oct 10, 2022 at 02:42 PM
+-- Host: localhost
+-- Generation Time: Oct 11, 2022 at 10:31 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -67,35 +67,8 @@ CREATE TABLE `announcements` (
 -- Dumping data for table `announcements`
 --
 
-INSERT INTO `announcements` (`id`, `name`, `title`, `whatfor`, `dateAdded`, `postedBy`) VALUES
-(1, '', 'Orientation', 'Orientation is the process of bringing employees up to speed on organisational policies, job roles and responsibilities and other organisational attributes and concepts that will help them transition efficiently into the position. In larger companies, and for roles with greater responsibilities, the orientation process may include time spent in several departments as well as specialist learning programmes.', 'Sat Sep 10, 2022', 'Mary Merry A. Yudip'),
-(3, 'Screenshot 2022-10-09 090534.png', 'asd', 'asd', 'Mon Oct 10, 2022', 'Alicia O. Retona'),
-(4, 'logo.jpg', 'Sample report', 'asdadasdasdad', 'Mon Oct 10, 2022', 'Alicia O. Retona');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `courses`
---
-
-CREATE TABLE `courses` (
-  `id` int(11) NOT NULL,
-  `course` varchar(255) NOT NULL,
-  `courseCode` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `courses`
---
-
-INSERT INTO `courses` (`id`, `course`, `courseCode`) VALUES
-(1, 'BSED English', 'Education Dep.'),
-(2, 'BSED Mathematics', 'Education Dep.'),
-(3, 'BSED Filipino', 'Education Dep.'),
-(4, 'BSED Social Studies', 'Education Dep.'),
-(5, 'BSED Values Education', 'Education Dep.'),
-(6, 'AB Economics', 'Economic Dep.'),
-(7, 'BE Childhood Education', 'Education Dep.');
+INSERT INTO `announcements` (`id`, `title`, `whatfor`, `dateAdded`, `postedBy`) VALUES
+(3, 'OJT Orientation', 'On January 28, 2023 at precisely 1:00pm, there will be an orientation for all OJT students through google meet (https://meet.google.com/zjv-seyj-mjb).\r\n', 'Tue Sep 27, 2022', 'Alicia O. Retona');
 
 -- --------------------------------------------------------
 
@@ -119,33 +92,14 @@ CREATE TABLE `documents` (
 --
 
 INSERT INTO `documents` (`id`, `title`, `destination`, `studentID`, `size`, `name`, `downloads`, `date`) VALUES
-(3, 'asd', 'Before OJT Requirements', '2018-01-0018 ECO', '186731', 'midterm.pdf', 1, '2022-09-29 14:44:42'),
-(4, 'sadf', 'Before OJT Requirements', '2018-01-0018 ECO', '186731', 'midterm.pdf', 0, '2022-09-30 10:33:54'),
-(5, 'asdas', 'After OJT Requirements', '2018-01-0018 ECO', '186731', 'midterm.pdf', 0, '2022-09-30 10:34:01');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `evaluation`
---
-
-CREATE TABLE `evaluation` (
-  `id` int(11) NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `name` text NOT NULL,
-  `date` datetime NOT NULL DEFAULT current_timestamp(),
-  `size` varchar(255) NOT NULL,
-  `des` varchar(255) NOT NULL,
-  `studentID` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `evaluation`
---
-
-INSERT INTO `evaluation` (`id`, `title`, `name`, `date`, `size`, `des`, `studentID`) VALUES
-(8, 'asd', 'midterm.pdf', '2022-09-30 11:01:21', '186731', 'Midterm', '2018-01-0018 ECO'),
-(9, 'asda', 'midterm.pdf', '2022-09-30 11:01:40', '186731', 'Final', '2018-01-0018 ECO');
+(7, 'Certificate', 'After OJT Requirements', '2018-01-0069-ECO', '273122', 'Certificate_Ralph Opena.pdf', 0, '2022-09-27 20:31:39'),
+(16, 'Parents Permit', 'Before OJT Requirements', '2018-01-0069-ECO', '418108', 'Parents-Permit_Ralph Opena.pdf', 1, '2022-09-28 18:07:09'),
+(17, 'Application Letter', 'Before OJT Requirements', '2018-01-0020-ECO', '446801', 'Poot_Application letter.pdf', 0, '2022-09-29 23:32:52'),
+(18, 'Parents Permit', 'Before OJT Requirements', '2018-01-0020-ECO', '552400', 'Poot_parents permit.pdf', 0, '2022-09-29 23:33:40'),
+(19, 'Certificate', 'After OJT Requirements', '2018-01-0020-ECO', '249548', 'Poot certificate.pdf', 0, '2022-09-29 23:36:14'),
+(20, 'Philhealth', 'Before OJT Requirements', '2018-01-0006-Ed', '537919', 'Barde_Philhealth.pdf', 0, '2022-10-01 13:29:07'),
+(21, 'Parents Permit', 'Before OJT Requirements', '2018-01-0006-Ed', '573059', 'Barde_ParentsPermit.pdf', 0, '2022-10-01 13:29:37'),
+(22, 'Certificate', 'After OJT Requirements', '2018-01-0006-Ed', '58592', 'Certificate_Judy Ann Barde.pdf', 0, '2022-10-01 13:29:56');
 
 -- --------------------------------------------------------
 
@@ -170,7 +124,9 @@ CREATE TABLE `reports` (
 --
 
 INSERT INTO `reports` (`id`, `name`, `size`, `downloads`, `title`, `studentID`, `date`, `comment`, `status`) VALUES
-(1, 'orgchrt.pdf', '577066', '0', 'Sample Report', '2018-01-0018 ECO', '2022-09-24 09:48:48', '', 'pending');
+(6, 'Narrative Report_Marco Poot.pdf', '501123', '0', 'Narrative Report', '2018-01-0020-ECO', '2022-09-29 23:40:37', '', 'pending'),
+(7, 'Narrative Report_Ralph Opeña.pdf', '8219652', '0', 'Narrative Report', '2018-01-0069-ECO', '2022-10-01 13:15:15', '', 'pending'),
+(8, 'Barde, Judy Ann_Portfolio.pdf', '1117254', '0', 'Portfolio', '2018-01-0006-Ed', '2022-10-01 13:30:21', '', 'checked');
 
 -- --------------------------------------------------------
 
@@ -247,10 +203,12 @@ CREATE TABLE `students` (
 -- Dumping data for table `students`
 --
 
-INSERT INTO `students` (`id`, `Sname`, `Slname`, `Smname`, `Semail`, `studentID`, `Spassword`, `Scourse`, `Syear`, `Sblock`, `Sstreet`, `Scity`, `Sstate`, `Szipcode`, `Sage`, `Sgender`, `Sbday`, `Snumber`, `Sphoto`, `Sinsurance`, `Sph`, `Sparentph`, `Sphnumber`, `Svax`, `S1dose`, `S2dose`, `Sbooster`, `Svaxbooster`, `Swstatus`, `Swname`, `Swcompany`, `Swnumber`, `Swlocation`, `Swemployer`, `Swcontact`, `courseCode`, `iSmidterm`, `iSfinal`) VALUES
-(1, 'Ian Christopher', 'Espanola', 'M.', 'yhanespanola@gmail.com', '2018-01-0018 ECO', 'LCC-632e608ade52d', 'AB Economics', '4', 'A', 'Maonon', 'Ligao City', 'Albay', '4505', '22', 'Male', '1999-09-15', '09308190521', 'temp-profile.jpg', NULL, NULL, NULL, NULL, 'Pfizer-BioNTech', '2021-11-07', '2021-12-07', '0000-00-00', 'N/A', NULL, NULL, 'Ligao Municipal Hall', '120 hours', 'Ligao City', 'Mrs. Gina R. David', '9999999', 'Economic Dep.', 'graded', 'graded'),
-(2, 'asd', 'asd', 'asd', '', '2018-01-0018 ECO', 'LCC-6343d6292a953', 'BSED Mathematics', '4', 'A', NULL, NULL, NULL, NULL, NULL, 'Male', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Select', NULL, NULL, '', NULL, 'Education Dep.', NULL, NULL),
-(3, 'Jessie', 'Santiano', 'Tardecilla', '', '2018-01-0018 ECO', 'LCC-6343d6369df3e', 'BSED Mathematics', '4', 'B', NULL, NULL, NULL, NULL, NULL, 'Male', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Select', NULL, NULL, '', NULL, 'Education Dep.', NULL, NULL);
+INSERT INTO `students` (`id`, `Sname`, `Slname`, `Smname`, `Semail`, `studentID`, `Spassword`, `Scourse`, `Syear`, `Sblock`, `Sstreet`, `Scity`, `Sstate`, `Szipcode`, `Sage`, `Sgender`, `Sbday`, `Snumber`, `Sphoto`, `Sinsurance`, `Sph`, `Sparentph`, `Sphnumber`, `Svax`, `S1dose`, `S2dose`, `Sbooster`, `Svaxbooster`, `Swstatus`, `Swname`, `Swcompany`, `Swnumber`, `Swlocation`, `Swemployer`, `Swcontact`, `courseCode`, `iSmidterm`, `iSfinal`, `midterm`, `final`) VALUES
+(5, 'RALPH', 'OPENA', 'ORPIANA', 'ralphopena378@gmail.com', '2018-01-0069-ECO', 'LCC-633062469fbd9', 'AB Economics', '', 'A', 'P-2 Inamnan Grande', 'Guinobatan', 'Albay', '4503', '22', 'Male', '2000-06-07', '09664622660', 'Opeña_Pic.jpg', NULL, NULL, NULL, NULL, 'Pfizer-BioNTech', '2021-10-13', '2021-11-03', '0000-00-00', 'N/A', NULL, NULL, 'CITY AGRICULTURE OFFICE', '200', 'Binatagan, Ligao City', 'NOEL M. CERILLO', '', 'Economics Dept.', 'requested', NULL, NULL, NULL),
+(6, 'IAN CHRISSTOPHER', 'ESPANOLA', 'MASARATE', 'yhanespanola@gmail.com', '2018-01-0018-ECO', 'LCC-63306552c8c6d', 'AB Economics', '', 'A', 'P5, Maonon', 'Ligao City', 'Albay', '4504', '22', 'Male', '', '09308190521', NULL, NULL, NULL, NULL, NULL, 'Pfizer-BioNTech', '2021-11-07', '2021-12-28', '0000-00-00', '', NULL, NULL, 'CITY AGRICULTURE OFFICE', '120', 'Binatagan, Ligao City', 'GINA R. DAVID', '', 'Economics Dept.', 'requested', NULL, NULL, NULL),
+(7, 'MARY JOY', 'ORENSE', 'RELOX', '', '2018-01-0057-Ed', 'LCC-6330f37c53efe', 'BSED English', '', 'A', NULL, NULL, NULL, NULL, NULL, 'Female', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'BARAYONG NATIONAL HIGH SCHOOL', NULL, NULL, 'SHIRLY GONGORA', NULL, 'Education Dept.', 'graded', NULL, NULL, NULL),
+(9, 'JUDY ANN', 'BARDE', 'APARICIO', 'judeannbarde@gmail.com', '2018-01-0006-Ed', 'LCC-6335358a2270a', 'BSED Filipino', '', 'A', 'P6, Pinamaniquian,', 'Ligao City', 'Albay', '4504', '25', 'Female', '1996-11-17', '09517507803', 'FB_IMG_1664602253473.jpg', NULL, NULL, NULL, NULL, 'Moderna', '2021-10-14', '2021-11-21', '0000-00-00', '', NULL, NULL, 'DEOGRACIA P. PRINCESA MEMORIAL HIGH SCHOOL', '360', 'Ranao - Ranao, Ligao City', 'PHOEBE ANN R. LOPEZ', '', 'Education Dept.', 'graded', 'requested', '91', NULL),
+(10, 'MARCO', 'POOT', 'POCUA', '', '2018-01-0020-ECO', 'LCC-6335b5cd4b911', 'AB Economics', '', 'A', NULL, NULL, NULL, NULL, NULL, 'Male', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'LIGAO MUNICIPAL HALL', NULL, NULL, 'GINA R. DAVID', NULL, 'Economics Dept.', NULL, NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -306,25 +264,13 @@ ALTER TABLE `accounts`
 -- AUTO_INCREMENT for table `announcements`
 --
 ALTER TABLE `announcements`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `courses`
---
-ALTER TABLE `courses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `documents`
 --
 ALTER TABLE `documents`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT for table `evaluation`
---
-ALTER TABLE `evaluation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `reports`
@@ -342,7 +288,7 @@ ALTER TABLE `schools`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
