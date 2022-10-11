@@ -178,6 +178,7 @@
           $trainees[] = $row['trainees'];
         }
 
+
         // chart data
        
 

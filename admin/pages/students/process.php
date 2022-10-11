@@ -21,8 +21,16 @@
         $getSupervisor = $getSupervisor -> fetch_assoc();
         ['supervisor' => $supervisor] = $getSupervisor;
 
+
         $query = "INSERT INTO students (Sname, Slname, Smname, Scourse, Syear, Sblock, Sgender, Semail, Spassword, studentID, courseCode, Swcompany, Swemployer) VALUES (UPPER('$Sname'), UPPER('$Slname'), UPPER('$Smname'), '$Scourse', '$Syear', '$Sblock', '$Sgender', '$Semail', 'LCC-$Spassword', '$studentID', '$courseCode', '$Swcompany', '$supervisor')";
         mysqli_query($db, $query);
+        
+        $trainees = "SELECT count(id) AS total FROM students WHERE Swcompany='$Swcompany'";
+        $rows_results = mysqli_query($db, $trainees);
+        $values = mysqli_fetch_assoc($rows_results);
+        $total = $values['total'];
+        $traineeTotal = "UPDATE schools SET trainees='$total' WHERE school='$Swcompany'";
+        mysqli_query($db, $traineeTotal);
 
         header("location: index.php");
         session_start();
@@ -49,7 +57,18 @@
             $studentID = $_POST['studentID'];
             $Swcompany = $_POST['Swcompany'];
 
+            mysqli_query($db, "UPDATE schools SET trainees=trainees-1 WHERE school='$Swcompany'");
+         
             mysqli_query($db, "UPDATE students SET Sname=UPPER('$Sname'), Smname=UPPER('$Smname'), Slname=UPPER('$Slname'), Scourse='$Scourse', Syear='$Syear', Sblock='$Sblock', Sgender='$Sgender', studentID='$studentID', Swcompany='$Swcompany' WHERE id=$id");
+            $trainees = "SELECT count(id) AS total FROM students WHERE Swcompany='$Swcompany'";
+            $rows_results = mysqli_query($db, $trainees);
+            $values = mysqli_fetch_assoc($rows_results);
+            $total = $values['total'];
+            $traineeTotal = "UPDATE schools SET trainees='$total' WHERE school='$Swcompany'";
+            mysqli_query($db, $traineeTotal);
+             
+           
+            
             $_SESSION['message'] = "record updated";
             $_SESSION['msg_type'] = "green-500";
            
@@ -63,7 +82,9 @@
     // delete
     if (isset($_GET['del'])) {
             $id = $_GET['del'];
+            $Swcompany = $_GET['Swcompany'];
             mysqli_query($db, "DELETE FROM students WHERE id=$id");
+            mysqli_query($db, "UPDATE schools SET trainees = trainees - 1 WHERE school='$Swcompany' AND trainees > 0");
             $_SESSION['message'] = "Address deleted!"; 
             header('location: index.php');
             session_start();
