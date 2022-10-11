@@ -43,9 +43,11 @@
     // $courseCode is a global variable / in template
         $results = mysqli_query($db, "SELECT * FROM students WHERE courseCode = '$courseCode' OR Swcompany = '$accountFor'");
 
+        
     // update 
     if (isset($_POST['update'])) {
             $id = $_POST['id'];
+            $prevID = $_POST['prev'];
             $Sname = $_POST['Sname'];
             $Slname = $_POST['Slname'];
             $Smname = $_POST['Smname'];
@@ -57,7 +59,7 @@
             $studentID = $_POST['studentID'];
             $Swcompany = $_POST['Swcompany'];
 
-            mysqli_query($db, "UPDATE schools SET trainees=trainees-1 WHERE school='$Swcompany'");
+            mysqli_query($db, "UPDATE schools SET trainees=trainees-1 WHERE id=$prevID");
          
             mysqli_query($db, "UPDATE students SET Sname=UPPER('$Sname'), Smname=UPPER('$Smname'), Slname=UPPER('$Slname'), Scourse='$Scourse', Syear='$Syear', Sblock='$Sblock', Sgender='$Sgender', studentID='$studentID', Swcompany='$Swcompany' WHERE id=$id");
             $trainees = "SELECT count(id) AS total FROM students WHERE Swcompany='$Swcompany'";

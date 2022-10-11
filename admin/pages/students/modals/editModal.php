@@ -72,6 +72,14 @@
 								<label for="checkbox-1" class="cursor-pointer select-none text-slate-700 ml-2">Female</label>
 							</div>
 						</div>
+					    <?php
+							// get id of the previous ojt when update
+							$prev = $row['Swcompany'];
+							$getID = mysqli_query($db, "SELECT * FROM schools WHERE school = '$prev'");
+							$getID = $getID -> fetch_assoc();
+    						['id' => $id] = $getID;
+						?>
+							<input type="hidden" value="<?php echo $id?>" name="prev">
 						<br>
 							<?php  if ($accountFor == 'Coordinator') : ?>
 								<b>OJT School/Company</b>
