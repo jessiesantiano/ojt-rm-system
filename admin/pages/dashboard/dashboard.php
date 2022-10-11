@@ -185,7 +185,7 @@
             $trainees[] = $row['trainees'];
           }
         }else{
-          echo "pota";
+          echo "other layout";
         }
        
 
