@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 11, 2022 at 10:31 AM
+-- Generation Time: Oct 11, 2022 at 11:20 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -43,10 +43,10 @@ CREATE TABLE `accounts` (
 INSERT INTO `accounts` (`id`, `email`, `password`, `name`, `accountFor`, `courseCode`) VALUES
 (1, 'coordinator1@gmail.com', 'admin1', 'ALICIA O. RETONA', 'Coordinator', 'Education Dept.'),
 (2, 'coordinator2@gmail.com', 'admin2', 'LENNIE ROSE P. PODRIDO', 'Coordinator', 'Economics Dept.'),
+(21, 'shirlygongora@gmail.com', 'shirly.gongora3', 'SHIRLY GONGORA', 'BARAYONG NATIONAL HIGH SCHOOL', 'School'),
 (23, 'phoebeann@gmail.com', 'phoebeann10', 'PHOEBE ANN R. LOPEZ', 'DEOGRACIA P. PRINCESA MEMORIAL HIGH SCHOOL', 'School'),
-(25, 'noelcerillo@gmail.com', 'noel.cerillo5', 'NOEL M. CERILLO', 'CITY AGRICULTURE OFFICE\n', 'Company'),
-(26, 'ginadavid@gmail.com', 'gina.david2', 'GINA R. DAVID', 'LIGAO MUNICIPAL HALL', 'Company'),
-(31, 'shirlygongora@gmail.com', 'shirly.gongora2', 'SHIRLY GONGORA	', 'BARAYONG NATIONAL HIGH SCHOOL', 'School');
+(25, 'noelcerillo@gmail.com', 'noel.cerillo5', 'NOEL M. CERILLO	', 'CITY AGRICULTURE OFFICE', 'Company'),
+(26, 'ginadavid@gmail.com', 'gina.david2', 'GINA R. DAVID', 'LIGAO MUNICIPAL HALL', 'Company');
 
 -- --------------------------------------------------------
 
@@ -56,19 +56,20 @@ INSERT INTO `accounts` (`id`, `email`, `password`, `name`, `accountFor`, `course
 
 CREATE TABLE `announcements` (
   `id` int(11) NOT NULL,
-  `name` text NOT NULL,
   `title` varchar(255) NOT NULL,
   `whatfor` longtext NOT NULL,
   `dateAdded` varchar(255) NOT NULL,
-  `postedBy` varchar(255) DEFAULT NULL
+  `postedBy` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `announcements`
 --
 
-INSERT INTO `announcements` (`id`, `title`, `whatfor`, `dateAdded`, `postedBy`) VALUES
-(3, 'OJT Orientation', 'On January 28, 2023 at precisely 1:00pm, there will be an orientation for all OJT students through google meet (https://meet.google.com/zjv-seyj-mjb).\r\n', 'Tue Sep 27, 2022', 'Alicia O. Retona');
+INSERT INTO `announcements` (`id`, `title`, `whatfor`, `dateAdded`, `postedBy`, `name`) VALUES
+(3, 'OJT Orientation', 'On January 28, 2023 at precisely 1:00pm, there will be an orientation for all OJT students through google meet (https://meet.google.com/zjv-seyj-mjb).\r\n', 'Tue Sep 27, 2022', 'Alicia O. Retona', NULL),
+(6, 'grssfsafss', 'zcvxbfhg', 'Thu Oct 06, 2022', 'Alicia O. Retona', NULL);
 
 -- --------------------------------------------------------
 
@@ -147,8 +148,8 @@ CREATE TABLE `schools` (
 --
 
 INSERT INTO `schools` (`id`, `school`, `supervisor`, `courseCode`, `trainees`) VALUES
-(1, 'DEOGRACIA P. PRINCESA MEMORIAL HIGH SCHOOL', 'PHOEBE ANN R. LOPEZ', 'Education Dept.', 1),
-(2, 'BARAYONG NATIONAL HIGH SCHOOL', 'SHIRLY GONGORA	', 'Education Dept.', 1);
+(12, 'BARAYONG NATIONAL HIGH SCHOOL', 'SHIRLY GONGORA', 'Education Dept.', 1),
+(14, 'DEOGRACIA P. PRINCESA MEMORIAL HIGH SCHOOL', 'PHOEBE ANN R. LOPEZ', 'Education Dept.', 1);
 
 -- --------------------------------------------------------
 
@@ -204,11 +205,11 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`id`, `Sname`, `Slname`, `Smname`, `Semail`, `studentID`, `Spassword`, `Scourse`, `Syear`, `Sblock`, `Sstreet`, `Scity`, `Sstate`, `Szipcode`, `Sage`, `Sgender`, `Sbday`, `Snumber`, `Sphoto`, `Sinsurance`, `Sph`, `Sparentph`, `Sphnumber`, `Svax`, `S1dose`, `S2dose`, `Sbooster`, `Svaxbooster`, `Swstatus`, `Swname`, `Swcompany`, `Swnumber`, `Swlocation`, `Swemployer`, `Swcontact`, `courseCode`, `iSmidterm`, `iSfinal`, `midterm`, `final`) VALUES
-(5, 'RALPH', 'OPENA', 'ORPIANA', 'ralphopena378@gmail.com', '2018-01-0069-ECO', 'LCC-633062469fbd9', 'AB Economics', '', 'A', 'P-2 Inamnan Grande', 'Guinobatan', 'Albay', '4503', '22', 'Male', '2000-06-07', '09664622660', 'Opeña_Pic.jpg', NULL, NULL, NULL, NULL, 'Pfizer-BioNTech', '2021-10-13', '2021-11-03', '0000-00-00', 'N/A', NULL, NULL, 'CITY AGRICULTURE OFFICE', '200', 'Binatagan, Ligao City', 'NOEL M. CERILLO', '', 'Economics Dept.', 'requested', NULL, NULL, NULL),
-(6, 'IAN CHRISSTOPHER', 'ESPANOLA', 'MASARATE', 'yhanespanola@gmail.com', '2018-01-0018-ECO', 'LCC-63306552c8c6d', 'AB Economics', '', 'A', 'P5, Maonon', 'Ligao City', 'Albay', '4504', '22', 'Male', '', '09308190521', NULL, NULL, NULL, NULL, NULL, 'Pfizer-BioNTech', '2021-11-07', '2021-12-28', '0000-00-00', '', NULL, NULL, 'CITY AGRICULTURE OFFICE', '120', 'Binatagan, Ligao City', 'GINA R. DAVID', '', 'Economics Dept.', 'requested', NULL, NULL, NULL),
-(7, 'MARY JOY', 'ORENSE', 'RELOX', '', '2018-01-0057-Ed', 'LCC-6330f37c53efe', 'BSED English', '', 'A', NULL, NULL, NULL, NULL, NULL, 'Female', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'BARAYONG NATIONAL HIGH SCHOOL', NULL, NULL, 'SHIRLY GONGORA', NULL, 'Education Dept.', 'graded', NULL, NULL, NULL),
-(9, 'JUDY ANN', 'BARDE', 'APARICIO', 'judeannbarde@gmail.com', '2018-01-0006-Ed', 'LCC-6335358a2270a', 'BSED Filipino', '', 'A', 'P6, Pinamaniquian,', 'Ligao City', 'Albay', '4504', '25', 'Female', '1996-11-17', '09517507803', 'FB_IMG_1664602253473.jpg', NULL, NULL, NULL, NULL, 'Moderna', '2021-10-14', '2021-11-21', '0000-00-00', '', NULL, NULL, 'DEOGRACIA P. PRINCESA MEMORIAL HIGH SCHOOL', '360', 'Ranao - Ranao, Ligao City', 'PHOEBE ANN R. LOPEZ', '', 'Education Dept.', 'graded', 'requested', '91', NULL),
-(10, 'MARCO', 'POOT', 'POCUA', '', '2018-01-0020-ECO', 'LCC-6335b5cd4b911', 'AB Economics', '', 'A', NULL, NULL, NULL, NULL, NULL, 'Male', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'LIGAO MUNICIPAL HALL', NULL, NULL, 'GINA R. DAVID', NULL, 'Economics Dept.', NULL, NULL, NULL, NULL);
+(5, 'RALPH', 'OPENA', 'ORPIANA', 'ralphopena378@gmail.com', '2018-01-0069-ECO', 'LCC-633062469fbd9', 'AB Economics', '', 'A', 'P-2 Inamnan Grande', 'Guinobatan', 'Albay', '4503', '22', 'Male', '2000-06-07', '09664622660', 'Opeña_Pic.jpg', NULL, NULL, NULL, NULL, 'Pfizer-BioNTech', '2021-10-13', '2021-11-03', '0000-00-00', 'N/A', NULL, NULL, 'CITY AGRICULTURE OFFICE', '200', 'Binatagan, Ligao City', 'Noel M. Cerillo', '', 'Economics Dept.', 'requested', NULL, '0', NULL),
+(6, 'IAN CHRISSTOPHER', 'ESPANOLA', 'MASARATE', 'yhanespanola@gmail.com', '2018-01-0018-ECO', 'LCC-63306552c8c6d', 'AB Economics', '', 'A', 'P5, Maonon', 'Ligao City', 'Albay', '4504', '22', 'Male', '', '09308190521', NULL, NULL, NULL, NULL, NULL, 'Pfizer-BioNTech', '2021-11-07', '2021-12-28', '0000-00-00', '', NULL, NULL, 'LIGAO MUNICIPAL HALL', '120', 'Binatagan, Ligao City', 'Gina R. David', '', 'Economics Dept.', 'requested', NULL, '0', NULL),
+(7, 'MARY JOY', 'ORENSE', 'RELOX', '', '2018-01-0057-Ed', 'LCC-6330f37c53efe', 'BSED English', '', 'A', NULL, NULL, NULL, NULL, NULL, 'Female', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'BARAYONG NATIONAL HIGH SCHOOL', NULL, NULL, 'SHIRLY GONGORA', NULL, 'Education Dept.', 'graded', NULL, '0', NULL),
+(9, 'JUDY ANN', 'BARDE', 'APARICIO', 'judeannbarde@gmail.com', '2018-01-0006-Ed', 'LCC-6335358a2270a', 'BSED Filipino', '', 'A', 'P6, Pinamaniquian,', 'Ligao City', 'Albay', '4504', '25', 'Female', '1996-11-17', '09517507803', 'FB_IMG_1664602253473.jpg', NULL, NULL, NULL, NULL, 'Moderna', '2021-10-14', '2021-11-21', '0000-00-00', '', NULL, NULL, 'DEOGRACIA P. PRINCESA MEMORIAL HIGH SCHOOL', '360', 'Ranao - Ranao, Ligao City', 'PHOEBE ANN R. LOPEZ', '', 'Education Dept.', 'graded', 'requested', '0', NULL),
+(10, 'MARCO', 'POOT', 'POCUA', '', '2018-01-0020-ECO', 'LCC-6335b5cd4b911', 'AB Economics', '', 'A', NULL, NULL, NULL, NULL, NULL, 'Male', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'LIGAO MUNICIPAL HALL', NULL, NULL, 'Gina R. David', NULL, 'Economics Dept.', NULL, NULL, '0', NULL);
 
 --
 -- Indexes for dumped tables
@@ -258,7 +259,7 @@ ALTER TABLE `students`
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `announcements`
@@ -282,13 +283,13 @@ ALTER TABLE `reports`
 -- AUTO_INCREMENT for table `schools`
 --
 ALTER TABLE `schools`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
