@@ -1,7 +1,7 @@
 <?php
     // connection
     include "../../../connection.php";
-     $results = mysqli_query($db, "SELECT * FROM students WHERE Swcompany = '$accountFor' AND iSmidterm = 'requested' AND iSfinal IS NULL OR iSfinal = 'requested'");
+     $results = mysqli_query($db, "SELECT * FROM students WHERE iSmidterm = 'requested' AND iSfinal IS NULL OR iSfinal = 'requested'");
 
 ?>
 	<!--Container-->
@@ -33,28 +33,32 @@
 				</thead>
 				<tbody class="text-center">
 				<?php while ($row = mysqli_fetch_array($results)) { ?>
-					<tr>
-						<td><?php echo $row['Sname']; ?> <?php echo $row['Slname']; ?></td>
-						<td><?php echo $row['studentID']; ?></td>
-						<td>
-							<?php if ($row['iSmidterm'] == 'requested') : ?>
-								Midterm Evaluation
-							<?php else : ?>
-								Final Evaluation
-							<?php endif;?>
-						</td>
-						<td>
-							<!-- <a href="#edit<?php echo $row['id'];?>" data-toggle="modal">
-                         	   <i class="far fa-edit text-gray-400 cursor-pointer hover:text-blue-300 transition-all" style="font-size: 13px"></i>
-                       		 </a> -->
-							<a href="../students/index.php?view=view&id=<?php echo $row['id']; ?>">
-                         	  <button type="button" class="ml-2 inline-block px-2 py-1 font-bold text-center text-white uppercase align-middle transition-all rounded-lg cursor-pointer bg-gradient-to-tl from-purple-700 to-pink-500 leading-pro text-xs ease-soft-in tracking-tight-soft shadow-soft-md bg-150 bg-x-25 hover:scale-102 active:opacity-85 hover:shadow-soft-xs">
-								View Profile
-							  </button>
-                       		 </a>
-							
-						</td>
-					</tr>
+				    <?php if ($row['Swcompany'] == $accountFor) : ?>
+						<tr>
+							<td><?php echo $row['Sname']; ?> <?php echo $row['Slname']; ?></td>
+							<td><?php echo $row['studentID']; ?></td>
+							<td>
+								<?php if ($row['iSmidterm'] == 'requested') : ?>
+									Midterm Evaluation
+								<?php else : ?>
+									Final Evaluation
+								<?php endif;?>
+							</td>
+							<td>
+								<!-- <a href="#edit<?php echo $row['id'];?>" data-toggle="modal">
+								<i class="far fa-edit text-gray-400 cursor-pointer hover:text-blue-300 transition-all" style="font-size: 13px"></i>
+								</a> -->
+								<a href="../students/index.php?view=view&id=<?php echo $row['id']; ?>">
+								<button type="button" class="ml-2 inline-block px-2 py-1 font-bold text-center text-white uppercase align-middle transition-all rounded-lg cursor-pointer bg-gradient-to-tl from-purple-700 to-pink-500 leading-pro text-xs ease-soft-in tracking-tight-soft shadow-soft-md bg-150 bg-x-25 hover:scale-102 active:opacity-85 hover:shadow-soft-xs">
+									View Profile
+								</button>
+								</a>
+								
+							</td>
+						</tr>
+				     <?php endif; ?>
+
+					
 				<?php } ?>
 				</tbody>
 			</table>
