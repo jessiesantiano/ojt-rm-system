@@ -20,7 +20,12 @@
                             $values = mysqli_fetch_assoc($rows_results);
                             $totalStudents = $values['total'];
                             echo $totalStudents
-                          ?>  students
+                          ?> 
+                           <?php if ($totalStudents > 1) : ?>
+                              students
+                           <?php else : ?>
+                              student
+                           <?php endif; ?>
                       </h5>
                     </div>
                   </div>
@@ -52,7 +57,12 @@
                             $values = mysqli_fetch_assoc($rows_results);
                             $totalMale = $values['total'];
                             echo $totalMale
-                          ?>  students
+                          ?>
+                           <?php if ($totalMale > 1) : ?>
+                              students
+                           <?php else : ?>
+                              student
+                           <?php endif; ?>
                       </h5>
                     </div>
                   </div>
@@ -84,7 +94,12 @@
                             $values = mysqli_fetch_assoc($rows_results);
                             $totalFemale = $values['total'];
                             echo $totalFemale
-                        ?>  students
+                        ?>
+                         <?php if ($totalFemale > 1) : ?>
+                              students
+                           <?php else : ?>
+                              student
+                           <?php endif; ?>
                       </h5>
                     </div>
                   </div>
@@ -127,7 +142,8 @@
                                 $values = mysqli_fetch_assoc($rows_results);
                                 $totalStudents = $values['total'];
                                 echo $totalStudents
-                              ?> request
+                              ?>
+                               request
                           </h5>
                       </div>
                     <?php endif; ?>
