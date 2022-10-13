@@ -10,7 +10,16 @@
         $email = $_POST['email'];
         $password = $_POST['password'];
         $courseCode = $_POST['courseCode'];
-        $query = "INSERT INTO companies (company, supervisor, courseCode) VALUES (UPPER('$company'), UPPER('$supervisor'), '$courseCode')";
+
+        $getCompany = mysqli_query($db, "SELECT * FROM companies WHERE company='$company'");
+        if (mysqli_num_rows($getCompany) > 0) {
+            header("location: index.php");
+            session_start();
+            $_SESSION['status'] = "Woo hoo!";
+            $_SESSION['text'] = "School already added!";
+            $_SESSION['icon'] = "warning";
+        }
+        else { $query = "INSERT INTO companies (company, supervisor, courseCode) VALUES (UPPER('$company'), UPPER('$supervisor'), '$courseCode')";
         $credentials = "INSERT INTO accounts (accountFor, name, email, password, courseCode) VALUES (UPPER('$company'), UPPER('$supervisor'), '$email', '$password', 'Company')";
         mysqli_query($db, $query);
         mysqli_query($db, $credentials);
@@ -20,6 +29,7 @@
         $_SESSION['status'] = "Woo hoo!";
         $_SESSION['text'] = "Company added successfully!";
         $_SESSION['icon'] = "success";
+        }
     }
 
     // get data from the database
