@@ -19,8 +19,8 @@
             $_SESSION['text'] = "School already added!";
             $_SESSION['icon'] = "warning";
         } else {
-        $query = "INSERT INTO schools (school, supervisor, courseCode) VALUES ('$school', '$supervisor', '$courseCode')";
-        $credentials = "INSERT INTO accounts (accountFor, name, email, password, courseCode) VALUES ('$school', '$supervisor', '$email', '$password', 'School')";
+        $query = "INSERT INTO schools (school, supervisor, courseCode) VALUES (UPPER('$school'), UPPER('$supervisor'), '$courseCode')";
+        $credentials = "INSERT INTO accounts (accountFor, name, email, password, courseCode) VALUES (UPPER('$school'), UPPER('$supervisor'), '$email', '$password', 'School')";
         mysqli_query($db, $query);
         mysqli_query($db, $credentials);
 
