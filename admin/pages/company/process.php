@@ -16,7 +16,7 @@
             header("location: index.php");
             session_start();
             $_SESSION['status'] = "Woo hoo!";
-            $_SESSION['text'] = "School already added!";
+            $_SESSION['text'] = "Company already added!";
             $_SESSION['icon'] = "warning";
         }
         else { $query = "INSERT INTO companies (company, supervisor, courseCode) VALUES (UPPER('$company'), UPPER('$supervisor'), '$courseCode')";
