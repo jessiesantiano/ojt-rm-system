@@ -17,7 +17,11 @@
         $courseCode = $_POST['courseCode'];
         $Swcompany = $_POST['Swcompany'];
 
-        $getSupervisor= mysqli_query($db, "SELECT * FROM schools WHERE school = '$Swcompany'");
+        if ($courseCode == 'Education Dept.') {
+            $getSupervisor= mysqli_query($db, "SELECT * FROM schools WHERE school = '$Swcompany'");
+        }else{
+            $getSupervisor= mysqli_query($db, "SELECT * FROM companies WHERE company = '$Swcompany'");
+        }
         $getSupervisor = $getSupervisor -> fetch_assoc();
         ['supervisor' => $supervisor] = $getSupervisor;
 
@@ -30,7 +34,7 @@
             $_SESSION['icon'] = "warning";
         } else {
 
-        $query = "INSERT INTO students (Sname, Slname, Smname, Scourse, Syear, Sblock, Sgender, Semail, Spassword, studentID, courseCode, Swcompany, Swemployer) VALUES ('$Sname', '$Slname', '$Smname', '$Scourse', '$Syear', '$Sblock', '$Sgender', '$Semail', 'LCC-$Spassword', '$studentID', '$courseCode', '$Swcompany', '$supervisor')";
+        $query = "INSERT INTO students (Sname, Slname, Smname, Scourse, Syear, Sblock, Sgender, Semail, Spassword, studentID, courseCode, Swcompany, Swemployer) VALUES (UPPER('$Sname'), UPPER('$Slname'), UPPER('$Smname'), '$Scourse', '$Syear', '$Sblock', '$Sgender', '$Semail', 'LCC-$Spassword', '$studentID', '$courseCode', '$Swcompany', UPPER('$supervisor'))";
         mysqli_query($db, $query);
         
     
