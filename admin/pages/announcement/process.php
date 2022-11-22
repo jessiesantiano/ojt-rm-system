@@ -61,17 +61,15 @@ if (isset($_POST['add'])) {
             $_SESSION['icon'] = "error";
         }
     }
-       $query = "INSERT INTO announcements (name, title, whatfor, postedBy, dateAdded) VALUES ('$filename', '$title', '$whatfor', '$postedBy', '$dateAdded')";
-            if (mysqli_query($db, $query)) {
+        $query = "INSERT INTO announcements (name, title, whatfor, postedBy, dateAdded) VALUES ('$filename', '$title', '$whatfor', '$postedBy', '$dateAdded')";
+        if (mysqli_query($db, $query)) {
 
-            header("location: index.php");
-            session_start();
-            $_SESSION['status'] = "Woo hoo!";
-            $_SESSION['text'] = "New announcement added successfully!";
-            $_SESSION['icon'] = "success";
-            }
-
-            
+        header("location: index.php");
+        session_start();
+        $_SESSION['status'] = "Woo hoo!";
+        $_SESSION['text'] = "New announcement added successfully!";
+        $_SESSION['icon'] = "success";
+        }
 }
 
 // code for retrieve from database
