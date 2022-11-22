@@ -219,9 +219,15 @@ while ($row = mysqli_fetch_array($students)) {
       <div class="flex flex-wrap -mx-3">
         <div class="flex-none w-full max-w-full px-3">
           <div class="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border">
-            <div class="p-6 pb-0 mb-0 bg-white border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
-              <h6>List of Documents After OJT</h6>
-            </div>
+          <div class="flex justify-between">
+              <div class="p-6 pb-0 mb-0 bg-white border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
+                  <h6>Certificate</h6>
+                </div>
+              <button type="button" data-modal-toggle="authentication-modal" data-target=" #upload" class="flex items-center justify-end max-w-full px-3 md:w-1/2 md:flex-none">
+                  <a class="inline-block px-6 py-3 font-bold text-center text-white uppercase align-middle transition-all bg-transparent rounded-lg cursor-pointer leading-pro text-xs ease-soft-in shadow-soft-md bg-150 bg-gradient-to-tl from-gray-900 to-slate-800 hover:shadow-soft-xs active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25" href="javascript:;"> <i class="fas fa-plus"> </i>&nbsp;&nbsp;Upload File</a>
+                </button>
+           </div>  
+        
             <div class="flex-auto px-0 pt-0 pb-2">
               <div class="p-0 overflow-x-auto">
                 <table class="items-center w-full mb-0 align-top border-gray-200 ">
@@ -502,3 +508,4 @@ while ($row = mysqli_fetch_array($students)) {
 <?php include './modals/addModal.php'; ?>
 <?php include './modals/evaluateModal.php'; ?>
 <?php include './modals/uploadDocument.php'; ?>
+<?php include './modals/uploadCertificate.php'; ?>

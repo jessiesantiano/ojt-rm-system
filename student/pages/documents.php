@@ -24,22 +24,22 @@
                     <span class="sr-only">Close modal</span>
                   </button>
                   <div class="py-6 px-6 lg:px-8">
-                    <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Upload a Document</h3>
+                    <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">OJT Document/Requirements</h3>
                     <form class="space-y-6" action="pages/controller.php" method="post" enctype="multipart/form-data">
                       <div>
                         <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Title</label>
                         <input type="text" name="title" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Document file name" required="">
                         <input type="hidden" name="studentID" value="<?php echo $_SESSION["studentID"]; ?>">
                       </div>
-                      <div>
+                      <!-- <div>
                         <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Where you will upload the document?</label>
                         <select name="des" id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                          <!-- <option selected>Select</option> -->
                           <option value="Before OJT Requirements">Before OJT Requirements</option>
                           <option value="After OJT Requirements">After OJT Requirements</option>
 
                         </select>
-                      </div>
+                      </div> -->
+                      <input type="hidden" name="des" value="Before OJT Requirements"/>
                       <div class="flex justify-between">
                         <div class="flex justify-center items-center w-full">
                           <label for="dropzone-file" class="flex flex-col justify-center items-center w-full h-64 bg-gray-50 rounded-lg border-2 border-gray-300 border-dashed cursor-pointer dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
@@ -141,7 +141,7 @@
 <div class="inline-flex justify-center items-center w-full">
       <hr class="my-8 w-64 h-px bg-gray-200 border-0 dark:bg-gray-700">
       <span class="absolute left-1/2 px-3 font-medium text-gray-900 bg-white -translate-x-1/2 ">
-        <h6 class="mb-0 font-semibold leading-normal text-sm text-slate-700">Documents After the OJT</h6>
+        <h6 class="mb-0 font-semibold leading-normal text-sm text-slate-700">Your Certificate</h6>
       </span>
     </div>
     <?php
@@ -179,11 +179,6 @@
                 </button>
               </a>
 
-              <a href="./pages/controller.php?delete_id='.$id.'">
-                <button name="delete" class="inline-block px-0 py-3 mb-0 ml-6 font-bold leading-normal text-center uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-sm active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700">
-                  <i class="fa fa-trash" aria-hidden="true"></i> Delete
-                </button>
-              </a>
             </div>
           </li>
         </ul>
