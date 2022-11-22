@@ -3,7 +3,7 @@
     <div class="w-full px-6 py-2 mx-auto">
           <div class="p-3 pb-6">
             <h2 class="mb-3 text-gray-800 w-full" style="line-height: 18px"><span class="text-pink-400 font-bold pr-1">Hello </span> <span class="capitalize"> <?php echo $name ?></span></h2>
-            <small class="pb-3 text-gray-400">Welcome back to OJT Record Management Dashboard</small>
+            <small class="pb-3 text-gray-400">Welcome back to OJT Record Monitoring Dashboard</small>
           </div>
         <div class="flex flex-wrap -mx-3">
           <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
@@ -317,7 +317,10 @@
             options: {
               scales: {
                 y: {
-                  beginAtZero: true
+                  beginAtZero: true,
+                  ticks:{
+                    display: false,
+                  }
                 }
               }
             },
