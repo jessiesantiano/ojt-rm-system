@@ -311,17 +311,24 @@
             data: <?php echo json_encode($trainees) ?>,
           }]
         };
+
+        
           const config = {
             type: 'bar',
             data: data,
             options: {
               scales: {
                 y: {
-                  beginAtZero: true
+                  beginAtZero: true,
+                  ticks: {
+                    display: false,
+                  }
                 }
               }
             },
           };
+
+
           const myChart = new Chart(
             document.getElementById('myChart'),
             config

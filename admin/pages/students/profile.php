@@ -340,7 +340,7 @@ while ($row = mysqli_fetch_array($students)) {
                   </td>
                   <td class="p-1 text-center justify-content-center bg-transparent border-b whitespace-nowrap shadow-transparent">
                     <a target="_blank" href="./process.php?viewR_id=' . $id . '" class="px-2 font-bold text-center uppercase align-middle shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-blue-400"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp; View </a>
-                    <a href="./process.php?downloadR_id=' . $id . '" class="px-2 font-bold text-center uppercase align-middle shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-blue-400"> <i class="fa fa-download" aria-hidden="true"></i> &nbsp;Download </a>
+                    <a href="./process.php?download_id=' . $id . '" class="px-2 font-bold text-center uppercase align-middle shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-blue-400"> <i class="fa fa-download" aria-hidden="true"></i> &nbsp;Download </a>
 ';
 
                   if ($accountFor == 'Coordinator') {
