@@ -42,16 +42,26 @@ if (isset($_POST['add'])) {
         // move the uploaded (temporary) file to the specified destination
         if (move_uploaded_file($file, $destination)) {
 
-            $query = "INSERT INTO announcements (name, title, whatfor, postedBy, dateAdded) VALUES ('$filename', '$title', '$whatfor', '$postedBy', '$dateAdded')";
-            if (mysqli_query($db, $query)) {
+            $getAnc = mysqli_query($db, "SELECT * FROM announcements WHERE title='$title'");
+                if (mysqli_num_rows($getAnc) > 0) {
+                    header("location: index.php");
+                    session_start();
+                    $_SESSION['status'] = "Woo hoo!";
+                    $_SESSION['text'] = "Announcement already added!";
+                    $_SESSION['icon'] = "warning";
+                } 
+                else{
+                    $query = "INSERT INTO announcements (name, title, whatfor, postedBy, dateAdded) VALUES ('$filename', '$title', '$whatfor', '$postedBy', '$dateAdded')";
+                    if (mysqli_query($db, $query)) {
 
-            header("location: index.php");
-            session_start();
-            $_SESSION['status'] = "Woo hoo!";
-            $_SESSION['text'] = "New announcement added successfully!";
-            $_SESSION['icon'] = "success";
+                    header("location: index.php");
+                    session_start();
+                    $_SESSION['status'] = "Woo hoo!";
+                    $_SESSION['text'] = "New announcement added successfully!";
+                    $_SESSION['icon'] = "success";
+                }
+
             }
-
 
         } else {
             header("location: index.php");
@@ -61,15 +71,26 @@ if (isset($_POST['add'])) {
             $_SESSION['icon'] = "error";
         }
     }
-        $query = "INSERT INTO announcements (name, title, whatfor, postedBy, dateAdded) VALUES ('$filename', '$title', '$whatfor', '$postedBy', '$dateAdded')";
-        if (mysqli_query($db, $query)) {
+         $getAnc = mysqli_query($db, "SELECT * FROM announcements WHERE title='$title'");
+                if (mysqli_num_rows($getAnc) > 0) {
+                    header("location: index.php");
+                    session_start();
+                    $_SESSION['status'] = "Woo hoo!";
+                    $_SESSION['text'] = "Announcement already added!";
+                    $_SESSION['icon'] = "warning";
+                } 
+                else{
+                    $query = "INSERT INTO announcements (name, title, whatfor, postedBy, dateAdded) VALUES ('$filename', '$title', '$whatfor', '$postedBy', '$dateAdded')";
+                    if (mysqli_query($db, $query)) {
 
-        header("location: index.php");
-        session_start();
-        $_SESSION['status'] = "Woo hoo!";
-        $_SESSION['text'] = "New announcement added successfully!";
-        $_SESSION['icon'] = "success";
-        }
+                    header("location: index.php");
+                    session_start();
+                    $_SESSION['status'] = "Woo hoo!";
+                    $_SESSION['text'] = "New announcement added successfully!";
+                    $_SESSION['icon'] = "success";
+                }
+
+            }
 }
 
 // code for retrieve from database
