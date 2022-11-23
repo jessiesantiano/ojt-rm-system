@@ -43,7 +43,11 @@
           <div class="h-full  rounded-xl">
            
             <div class="relative flex items-center justify-center h-full rounded-xl">
-              <img class="relative z-20 w-full pt-6 rounded-xl" src="<?php echo '../admin/pages/announcement/uploads/' . $row['name']; ?>" />
+                <?php if ($row['name'] == '') : ?>
+              	<h5></h5>
+              <?php else : ?>
+                             <img class="relative z-20 w-full pt-6 rounded-xl" src="<?php echo '../admin/pages/announcement/uploads/' . $row['name']; ?>" />
+              <?php endif; ?>
             </div>
           </div>
         </div>
