@@ -45,7 +45,7 @@
                 <?php if ($row['name'] == '') : ?>
               	<h5></h5>
               <?php else : ?>
-                             <img class="relative z-20 w-full pt-6 rounded-xl" src="<?php echo '../admin/pages/announcement/uploads/' . $row['name']; ?>" />
+                <img class="relative z-20  pt-6 rounded-xl w-2/3" src="<?php echo '../admin/pages/announcement/uploads/' . $row['name']; ?>" />
               <?php endif; ?>
             </div>
           </div>
