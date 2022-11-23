@@ -1,4 +1,5 @@
 <?php
+
     // connection
     include "../../../connection.php";
 
@@ -224,6 +225,7 @@ if (isset($_GET['viewR_id'])) {
 
 // Downloads files
 if (isset($_GET['downloadR_id'])) {
+
     $id = $_GET['downloadR_id'];
 
     // fetch file to download from database
@@ -275,6 +277,8 @@ if (isset($_GET['downloadR_id'])) {
 // Uploads certificate
 if (isset($_POST['Dupload'])) { // if upload button on the form is clicked
     // // data initialization
+session_start();
+
     $title = $_POST['title'];
     $des = $_POST['des'];
     $studentID = $_POST['studentID'];
@@ -336,6 +340,7 @@ if (isset($_POST['Dupload'])) { // if upload button on the form is clicked
 
 // Delete dertificate
 if (isset($_GET['delete_id'])) {
+session_start();
 
     $id = $_GET['delete_id'];
     $redirectID = $_GET['redirectID'];

@@ -17,9 +17,9 @@
                         <input type="text" name="title" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Document file name" required="">
                       </div>
                     
-                      <input type="text" name="des" value="After OJT Requirements"/>
-                      <input type="text" name="studentID" value="<?php echo $studentID; ?>">
-                      <input type="text" name="ID" value="<?php echo $ID; ?>">
+                      <input type="hidden" name="des" value="After OJT Requirements"/>
+                      <input type="hidden" name="studentID" value="<?php echo $studentID; ?>">
+                      <input type="hidden" name="ID" value="<?php echo $ID; ?>">
                       <div class="flex justify-between">
                         <div class="flex justify-center items-center w-full">
                           <label for="dropzone-file" class="flex flex-col justify-center items-center w-full h-64 bg-gray-50 rounded-lg border-2 border-gray-300 border-dashed cursor-pointer dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
