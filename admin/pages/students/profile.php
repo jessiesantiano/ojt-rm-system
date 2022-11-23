@@ -9,7 +9,9 @@ $students = mysqli_query($db, "SELECT * FROM students WHERE id = $id");
 //   ['evalRequest' => 'Midterm'] = $deleteGet
 while ($row = mysqli_fetch_array($students)) {
 
-  $studentID = $row['studentID']; ?>
+  $studentID = $row['studentID'];
+   $ID = $row['id'];
+  ?>
   <!-- Student Profile -->
   <div class="ease-soft-in-out  relative h-full  transition-all duration-200">
     <div class="w-full px-6 mx-auto">
@@ -219,9 +221,20 @@ while ($row = mysqli_fetch_array($students)) {
       <div class="flex flex-wrap -mx-3">
         <div class="flex-none w-full max-w-full px-3">
           <div class="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border">
-            <div class="p-6 pb-0 mb-0 bg-white border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
-              <h6>List of Documents After OJT</h6>
-            </div>
+          <div class="flex justify-between">
+              <div class="p-6 pb-0 mb-0 bg-white border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
+                  <h6>Certificate</h6>
+                </div>
+                <?php if ($_SESSION['accountFor'] != 'Coordinator') : ?>
+                   <button type="button" data-modal-toggle="authentication-modal" data-target=" #upload" class="flex items-center justify-end max-w-full px-3 md:w-1/2 md:flex-none">
+                  <a class="inline-block px-6 py-3 font-bold text-center text-white uppercase align-middle transition-all bg-transparent rounded-lg cursor-pointer leading-pro text-xs ease-soft-in shadow-soft-md bg-150 bg-gradient-to-tl from-gray-900 to-slate-800 hover:shadow-soft-xs active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25" href="javascript:;"> <i class="fas fa-plus"> </i>&nbsp;&nbsp;Upload File</a>
+                </button>
+                <?php else : ?>
+                 <span></span>
+                <?php endif; ?>
+               
+           </div>  
+        
             <div class="flex-auto px-0 pt-0 pb-2">
               <div class="p-0 overflow-x-auto">
                 <table class="items-center w-full mb-0 align-top border-gray-200 ">
@@ -238,7 +251,7 @@ while ($row = mysqli_fetch_array($students)) {
                       while ($row = mysqli_fetch_array($result)) {
                         $title = $row['title'];
                         $name = $row['name'];
-                        $id = $row['id'];
+                        $fileid = $row['id'];
                         echo '
                     <tr>
                         <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">                          
@@ -252,14 +265,22 @@ while ($row = mysqli_fetch_array($students)) {
                         <td class="p-2 text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
                           <span class="font-bold text-center uppercase align-middle shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-800">';
                         $date = DateTime::createFromFormat('Y-m-d H:i:s', $row['date']);
-                        echo $date->format('m/d/y'); // Change format as needed 
-
-                        echo ' </span>
-                        </td>
-                        <td class="p-2 text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                          <a target="_blank" class="px-2 font-bold text-center uppercase align-middle bg-transparent shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-blue-400" href="./process.php?view_id=' . $id . '"><i class="mr-1 far fa-eye "></i>View</a>
-                          <br><a class="font-bold text-center uppercase align-middle shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-blue-400" href="./process.php?download_id=' . $id . '"><i class="mr-1 fa fa-download"></i>Download</a>
+                       echo $date->format('m/d/y');  // Change format as needed 
+                       echo '</span>
                         </td>';
+                       echo '<td class="p-2 text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
+                         <a target="_blank" class="px-2 font-bold text-center uppercase align-middle bg-transparent shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-blue-400" href="./process.php?view_id=' . $fileid . '"><i class="mr-1 far fa-eye "></i>View</a>
+                          <br><a class="font-bold text-center uppercase align-middle shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-blue-400" href="./process.php?download_id=' . $fileid . '"><i class="mr-1 fa fa-download"></i>Download</a>
+                       ';
+                          if ($_SESSION['accountFor'] != 'Coordinator') {
+                           echo '  <br><a href="process.php?delete_id='.$fileid.'&redirectID='.$ID.'" class="px-2 font-bold text-center uppercase align-middle bg-transparent shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-blue-400">
+                                       <i class="fa fa-trash" aria-hidden="true"></i> Delete
+                                   </a>';
+                          }else{
+                            echo'
+                            ';
+                          }
+                         echo  '</td>';
                       }
                     } else echo '<section class="flex items-center h-full p-5  dark:text-gray-100">
                       <div class="container flex flex-col items-center justify-center px-5 mx-auto my-8">
@@ -496,6 +517,8 @@ while ($row = mysqli_fetch_array($students)) {
   </div>
   </div>
   <!-- Report Section End -->
+<?php include './modals/uploadCertificate.php'; ?>
+
 
 <?php } ?>
 

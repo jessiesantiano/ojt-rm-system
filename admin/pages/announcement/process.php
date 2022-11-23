@@ -51,6 +51,8 @@ if (isset($_POST['add'])) {
             $_SESSION['text'] = "New announcement added successfully!";
             $_SESSION['icon'] = "success";
             }
+
+
         } else {
             header("location: index.php");
             session_start();

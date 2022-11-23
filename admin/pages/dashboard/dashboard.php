@@ -311,6 +311,8 @@
             data: <?php echo json_encode($trainees) ?>,
           }]
         };
+
+        
           const config = {
             type: 'bar',
             data: data,
@@ -325,6 +327,8 @@
               }
             },
           };
+
+
           const myChart = new Chart(
             document.getElementById('myChart'),
             config
