@@ -35,7 +35,6 @@
             <p class="text-sm"><?php echo $row['whatfor'] ?></p>
             <a class="mt-auto mb-0 font-semibold leading-normal text-sm group text-slate-500" href="javascript:;">
              Posted by: &nbsp; <?php echo $row ['postedBy'] ?>
-
             </a>
           </div>
         </div>
