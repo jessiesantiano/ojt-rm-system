@@ -169,7 +169,7 @@ while ($row = mysqli_fetch_array($result)) {
           <div class="md:col-span-1">
             <div class="px-4 sm:px-0">
               <h3 class="text-lg font-medium leading-6 text-gray-900">Student Health Information</h3>
-              <p class="mt-1 text-sm text-gray-600">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore tenetur molestiae quasi! Neque, omnis eveniet vitae voluptates et impedit dolorem ut, veniam, inventore quas nihil magnam provident exercitationem architecto aspernatur.</p>
+              <p class="mt-1 text-sm text-gray-600"></p>
             </div>
           </div>
           <div class="mt-5 md:col-span-2 md:mt-0">
@@ -265,7 +265,7 @@ while ($row = mysqli_fetch_array($result)) {
           <div class="md:col-span-1">
             <div class="px-4 sm:px-0">
               <h3 class="text-lg font-medium leading-6 text-gray-900">Student OJT Information</h3>
-              <p class="mt-1 text-sm text-gray-600">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium odio itaque iusto nisi nostrum fugiat? Esse quasi dolorum beatae dolore! Deserunt reprehenderit voluptate magnam quam accusantium similique quia, error sit.</p>
+              <p class="mt-1 text-sm text-gray-600"></p>
             </div>
           </div>
           <div class="mt-5 md:col-span-2 md:mt-0">

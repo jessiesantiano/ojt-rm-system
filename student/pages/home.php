@@ -35,7 +35,6 @@
             <p class="text-sm"><?php echo $row['whatfor'] ?></p>
             <a class="mt-auto mb-0 font-semibold leading-normal text-sm group text-slate-500" href="javascript:;">
              Posted by: &nbsp; <?php echo $row ['postedBy'] ?>
-
             </a>
           </div>
         </div>
@@ -43,7 +42,11 @@
           <div class="h-full  rounded-xl">
            
             <div class="relative flex items-center justify-center h-full rounded-xl">
-              <img class="relative z-20 w-full pt-6 rounded-xl" src="<?php echo '../admin/pages/announcement/uploads/' . $row['name']; ?>" />
+                <?php if ($row['name'] == '') : ?>
+              	<h5></h5>
+              <?php else : ?>
+                <img class="relative z-20  pt-6 rounded-xl w-2/3" src="<?php echo '../admin/pages/announcement/uploads/' . $row['name']; ?>" />
+              <?php endif; ?>
             </div>
           </div>
         </div>
