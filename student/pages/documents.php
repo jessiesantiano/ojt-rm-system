@@ -50,7 +50,7 @@
                               <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to upload</span></p>
                               <p class="text-xs text-gray-500 dark:text-gray-400">PDF (MAX. 15MB)</p>
                             </div>
-                            <input name="myfile" id="dropzone-file" type="file" class="rounded-lg border " />
+                            <input name="myfile" id="dropzone-file" type="file" class="rounded-lg border " required/>
                           </label>
                         </div>
 

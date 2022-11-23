@@ -320,11 +320,7 @@
               scales: {
                 y: {
                   beginAtZero: true,
-<<<<<<< HEAD
-                  ticks: {
-=======
                   ticks:{
->>>>>>> production
                     display: false,
                   }
                 }
