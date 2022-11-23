@@ -27,8 +27,9 @@ if (isset($_POST['add'])) {
     $file = $_FILES['myfile']['tmp_name'];
     $size = $_FILES['myfile']['size'];
 
-    $getStudent = mysqli_query($db, "SELECT * FROM announcements WHERE title='$title'");
-    if (mysqli_num_rows($getStudent) > 0) {
+    $getAnc = mysqli_query($db, "SELECT * FROM announcements WHERE title='$title'");
+    
+    if (mysqli_num_rows($getAnc) > 0) {
             header("location: index.php");
             session_start();
             $_SESSION['status'] = "Woo hoo!";
@@ -73,7 +74,7 @@ if (isset($_POST['add'])) {
         }
 
         if ($filename == null) {
-              if (mysqli_num_rows($getStudent) > 0) {
+              if (mysqli_num_rows($getAnc) > 0) {
             header("location: index.php");
             session_start();
             $_SESSION['status'] = "Woo hoo!";
