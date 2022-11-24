@@ -318,10 +318,10 @@ session_start();
         if (move_uploaded_file($file, $destination)) {
             $sql = "INSERT INTO documents (name, size, downloads, title, destination, studentID) VALUES 
             ('$filename', $size, 0, '$title', '$des', '$studentID')";
+             
             if (mysqli_query($db, $sql)) {
-
-                         header("location: index.php?view=view&id=$ID");
-
+                mysqli_query($db, "UPDATE students SET isCertificate='uploaded' WHERE id=$ID");
+                header("location: index.php?view=view&id=$ID");
                 $_SESSION['status'] = "Woo hoo!";
                 $_SESSION['text'] = "Document uploaded successfully!";
                 $_SESSION['icon'] = "success";

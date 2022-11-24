@@ -46,6 +46,14 @@
                 <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Evaluation Request</span>
               </a>
             </li>
+            <li class="mt-0.5 w-full">
+              <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" href="../certificate">
+                <div class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center fill-current stroke-0 text-center xl:p-2.5">
+                <i class="fa fa-commenting" aria-hidden="true"></i>
+                </div>
+                <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Certificate Request</span>
+              </a>
+            </li>
            <?php else : ?>
             <!-- dont display -->
            <?php endif; ?>
