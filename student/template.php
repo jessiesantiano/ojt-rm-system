@@ -16,6 +16,13 @@
         header('location: index.php');
       }
 
+
+      if (isset($_POST['certificate'])) {
+        $isCertificate = $_POST['isCertificate'];
+        mysqli_query($db, "UPDATE students SET isCertificate='$isCertificate' WHERE id=$id");
+        header('location: index.php');
+      }
+
         if (isset($_POST['update'])) {
             $id = $_POST['id'];
             $studentID = $_POST['studentID'];
@@ -122,6 +129,7 @@
           while ($row = mysqli_fetch_array($students)) {
           $iSmidterm = $row['iSmidterm'];  
           $iSfinal = $row['iSfinal'];  
+          $isCertificate = $row['isCertificate'];  
           ?>
       <hr class="my-8 h-px bg-gray-200 border-0 dark:bg-gray-300">
 
@@ -186,6 +194,30 @@
                     <?php endif; ?>
                   </div>
                <?php endif; ?>
+
+
+                <?php if ($iSmidterm == 'graded' AND $iSfinal == 'graded') : ?>
+                  <div>
+                    <small>Certification</small>
+                    <?php if ($isCertificate == NUll) : ?>
+                      <form action="" method="POST">
+                          <input type="text" value="requested" name="isCertificate" hidden>
+                          <button type="submit" name="certificate" class="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-xs px-5 py-2.5 text-center mr-2 mb-2">Request certificate</button>
+                      </form>
+                    <?php else : ?>
+                      <div>
+                          <b><small>Status: </small></b>
+                          <?php if ($isCertificate == 'requested') : ?>
+                            <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-yellow-200 dark:text-yellow-900">Pending</span>
+                          <?php else : ?>
+                              <span class="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-green-200 dark:text-green-900">Uploaded</span>
+                          <?php endif; ?>
+                      </div>
+                    <?php endif; ?>
+                  </div>
+               <?php endif; ?>
+
+
            </div>
       
         <ul class="flex flex-col pl-0 mb-0">
