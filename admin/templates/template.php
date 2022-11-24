@@ -249,7 +249,7 @@
               ['courseCode' => $courseCode, 'name' => $name, 'accountFor' => $accountFor] = $getUserLoggedin;
               require_once $content;
              ?> 
-               <!-- <?php include("alert.php"); ?> -->
+               <?php include("alert.php"); ?>
         </div>
        <!--end Pages Content -->
 

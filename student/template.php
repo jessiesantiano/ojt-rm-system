@@ -16,6 +16,19 @@
         header('location: index.php');
       }
 
+        if (isset($_POST['update'])) {
+            $id = $_POST['id'];
+            $studentID = $_POST['studentID'];
+            $Spassword = $_POST['Spassword'];
+
+            mysqli_query($db, "UPDATE students SET studentID='$studentID', Spassword='$Spassword' WHERE id=$id");
+           
+            session_start();
+            session_unset();
+            session_destroy();
+            header("location: index.php");
+        }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -111,22 +124,26 @@
           $iSfinal = $row['iSfinal'];  
           ?>
       <hr class="my-8 h-px bg-gray-200 border-0 dark:bg-gray-300">
-      <div class="mt-1 pl-7 flex items-center ">
-          <span class=" h-8 w-8 overflow-hidden rounded-full bg-gray-100 flex justify-center">
-            <img src="<?php
-                     if ($row['Sphoto'] == NULL) {
-                      echo './image/temp-profile.jpg';
-                     }else{
-                        echo './image/' . $row['Sphoto'];
-                      }
-                    
-                        ?>" >
-              
-            </img>
-          </span>
-          <span class="text-xs px-3"><?php echo $_SESSION["Sname"]; ?> <?php echo $_SESSION["Slname"]; ?></span>
-        </div>
-    
+
+
+        <a href="#" data-modal-toggle="authentication-modal" data-target=" #upload" >
+        <div class="mt-1 pl-7 flex items-center ">
+            <span class=" h-8 w-8 overflow-hidden rounded-full bg-gray-100 flex justify-center">
+              <img src="<?php
+                      if ($row['Sphoto'] == NULL) {
+                        echo './image/temp-profile.jpg';
+                      }else{
+                          echo './image/' . $row['Sphoto'];
+                        }
+                      
+                          ?>" >
+                
+              </img>
+            </span>
+            <span class="text-xs px-3"><?php echo $_SESSION["Sname"]; ?> <?php echo $_SESSION["Slname"]; ?></span>
+          </div>
+        </a>
+
 
               <div class="p-3 pl-9">
                 <small>Evaluation Status</small>
@@ -170,7 +187,6 @@
                   </div>
                <?php endif; ?>
            </div>
-				<?php } ?>
       
         <ul class="flex flex-col pl-0 mb-0">
         <li class="mt-0.5 w-full">
@@ -187,6 +203,38 @@
 </nav>
 
   <!-- end navigation left side -->
+            <!-- Main modal -->
+            <div id="authentication-modal" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center flex" aria-modal="true" role="dialog">
+              <div class="relative p-4 w-full max-w-md h-full md:h-auto">
+                <!-- Modal content -->
+                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                  <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-toggle="authentication-modal">
+                    <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="sr-only">Close modal</span>
+                  </button>
+                  <div class="py-6 px-6 lg:px-8">
+                    <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Edit your credentials</h3>
+                    <form class="space-y-6" action="" method="post" enctype="multipart/form-data">
+                      <input type="hidden" name="id" value="<?php echo $row['id']?>">
+                      <div>
+                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your email</label>
+                        <input type="text"  autocomplete="off" value="<?php echo $row['studentID'] ?>" name="studentID" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Document file name" required="">
+                      </div>
+                      <div>
+                        <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your password</label>
+                        <input type="text" autocomplete="off" value="<?php echo $row['Spassword']?>" name="Spassword" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Document file name" required="">
+                      </div>
+                      <button type="submit" name="update" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        Update and Logout
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+				<?php } ?>
 
   <div class="ease-soft-in-out xl:ml-68.5 relative h-full max-h-screen bg-gray-50 transition-all duration-200" style="padding-top:-1000px ;">
 
