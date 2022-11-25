@@ -1,7 +1,7 @@
 <?php
     // connection
     include "../../../connection.php";
-     $results = mysqli_query($db, "SELECT * FROM students WHERE isCertificate = 'requested'");
+     $results = mysqli_query($db, "SELECT * FROM students WHERE isCertificate = 'requested' AND Swcompany='$accountFor'");
 
 ?>
 	<!--Container-->

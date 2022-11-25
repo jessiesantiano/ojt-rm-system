@@ -1,7 +1,7 @@
 <?php
     // connection
     include "../../../connection.php";
-     $results = mysqli_query($db, "SELECT * FROM students WHERE iSmidterm = 'requested' AND iSfinal IS NULL OR iSfinal = 'requested'");
+     $results = mysqli_query($db, "SELECT * FROM students WHERE iSmidterm = 'requested' AND iSfinal IS NULL OR iSfinal = 'requested' AND Swcompany='$accountFor'");
 
 ?>
 	<!--Container-->
