@@ -11,6 +11,7 @@ while ($row = mysqli_fetch_array($students)) {
 
   $studentID = $row['studentID'];
    $ID = $row['id'];
+   $isCertificate = $row['isCertificate'];
   ?>
   <!-- Student Profile -->
   <div class="ease-soft-in-out  relative h-full  transition-all duration-200">
@@ -225,14 +226,14 @@ while ($row = mysqli_fetch_array($students)) {
               <div class="p-6 pb-0 mb-0 bg-white border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
                   <h6>Certificate</h6>
                 </div>
-                <?php if ($_SESSION['accountFor'] != 'Coordinator') : ?>
-                   <button type="button" data-modal-toggle="authentication-modal" data-target=" #upload" class="flex items-center justify-end max-w-full px-3 md:w-1/2 md:flex-none">
-                  <a class="inline-block px-6 py-3 font-bold text-center text-white uppercase align-middle transition-all bg-transparent rounded-lg cursor-pointer leading-pro text-xs ease-soft-in shadow-soft-md bg-150 bg-gradient-to-tl from-gray-900 to-slate-800 hover:shadow-soft-xs active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25" href="javascript:;"> <i class="fas fa-plus"> </i>&nbsp;&nbsp;Upload File</a>
-                </button>
-                <?php else : ?>
-                 <span></span>
-                <?php endif; ?>
-               
+
+                  <?php if ($accountFor != 'Coordinator') : ?>
+                    <?php if ($isCertificate == 'requested') : ?>
+                      <button type="button" data-modal-toggle="authentication-modal" data-target=" #upload" class="flex items-center justify-end max-w-full px-3 md:w-1/2 md:flex-none">
+                        <a class="inline-block px-6 py-3 font-bold text-center text-white uppercase align-middle transition-all bg-transparent rounded-lg cursor-pointer leading-pro text-xs ease-soft-in shadow-soft-md bg-150 bg-gradient-to-tl from-gray-900 to-slate-800 hover:shadow-soft-xs active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25" href="javascript:;"> <i class="fas fa-plus"> </i>&nbsp;&nbsp;Upload File</a>
+                      </button>
+                    <?php endif; ?>
+                  <?php endif; ?>
            </div>  
         
             <div class="flex-auto px-0 pt-0 pb-2">

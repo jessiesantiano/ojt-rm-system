@@ -318,10 +318,10 @@ session_start();
         if (move_uploaded_file($file, $destination)) {
             $sql = "INSERT INTO documents (name, size, downloads, title, destination, studentID) VALUES 
             ('$filename', $size, 0, '$title', '$des', '$studentID')";
+             
             if (mysqli_query($db, $sql)) {
-
-                         header("location: index.php?view=view&id=$ID");
-
+                mysqli_query($db, "UPDATE students SET isCertificate='uploaded' WHERE id=$ID");
+                header("location: index.php?view=view&id=$ID");
                 $_SESSION['status'] = "Woo hoo!";
                 $_SESSION['text'] = "Document uploaded successfully!";
                 $_SESSION['icon'] = "success";
@@ -345,7 +345,7 @@ session_start();
     $id = $_GET['delete_id'];
     $redirectID = $_GET['redirectID'];
     mysqli_query($db, "DELETE FROM documents WHERE id=$id");
-
+    mysqli_query($db, "UPDATE students SET isCertificate='requested' WHERE id=$redirectID");
     header("location: index.php?view=view&id=$redirectID");
     $_SESSION['status'] = "Woo hoo!";
     $_SESSION['text'] = "Document deleted successfully!";

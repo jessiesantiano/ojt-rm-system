@@ -12,11 +12,7 @@
                   <div class="py-6 px-6 lg:px-8">
                     <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Upload Certificate</h3>
                     <form class="space-y-6" action="process.php" method="post" enctype="multipart/form-data">
-                      <div>
-                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Title</label>
-                        <input type="text" name="title" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Document file name" required="">
-                      </div>
-                    
+                      <input type="hidden" name="title" value="Certificate">
                       <input type="hidden" name="des" value="After OJT Requirements"/>
                       <input type="hidden" name="studentID" value="<?php echo $studentID; ?>">
                       <input type="hidden" name="ID" value="<?php echo $ID; ?>">

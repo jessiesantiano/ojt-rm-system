@@ -104,6 +104,7 @@ if (isset($_POST['update_id'])) {
 // Uploads Document Files
 if (isset($_POST['Dupload'])) { // if upload button on the form is clicked
     // data initialization
+    $id = $_POST['id'];
     $title = $_POST['title'];
     $des = $_POST['des'];
     $studentID = $_SESSION['studentID'];
@@ -140,6 +141,8 @@ if (isset($_POST['Dupload'])) { // if upload button on the form is clicked
         if (move_uploaded_file($file, $destination)) {
             $sql = "INSERT INTO documents (name, size, downloads, title, destination, studentID) VALUES 
             ('$filename', $size, 0, '$title', '$des', '$studentID')";
+            mysqli_query($db, "UPDATE students SET uploadRequest=NULL WHERE id=$id");
+            mysqli_query($db, "UPDATE students SET whatDocu=NULL WHERE id=$id");
             if (mysqli_query($db, $sql)) {
 
                 header('location: ../index.php?q=documents');
@@ -282,3 +285,17 @@ if (isset($_POST['Rupload'])) { // if upload button on the form is clicked
         }
     }
 }
+
+
+   // update 
+    if (isset($_POST['sendrequest'])) {
+            $uploadRequest = $_POST['uploadRequest'];
+            $id = $_POST['id'];
+            mysqli_query($db, "UPDATE students SET uploadRequest='$uploadRequest' WHERE id=$id");
+           header('location: ../index.php?q=documents');
+              session_start();
+            $_SESSION['status'] = "Woo hoo!";
+            $_SESSION['text'] = "Request sent successfully!";
+            $_SESSION['icon'] = "success";
+        }
+    

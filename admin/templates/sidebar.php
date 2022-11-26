@@ -43,7 +43,36 @@
                 <div class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center fill-current stroke-0 text-center xl:p-2.5">
                 <i class="fa fa-commenting" aria-hidden="true"></i>
                 </div>
-                <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Evaluation Request</span>
+                <div class="relative">
+
+                <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft pr-1">Evaluation Request</span>
+                  <?php
+                      $certReq = "SELECT count(id) AS total FROM students WHERE Swcompany='$accountFor' AND isMidterm = 'requested' OR isFinal = NULL OR isFinal='requested'";
+                      $rows_results = mysqli_query($db, $certReq);
+                      $values = mysqli_fetch_assoc($rows_results);
+                      $total = $values['total'];
+                      echo '<span class="text-white py-1 px-2 rounded-full bg-red-300">'.$total.'</span>';
+                   ?>
+                </div>
+
+              </a>
+            </li>
+            <li class="mt-0.5 w-full">
+              <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" href="../certificate">
+                <div class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center fill-current stroke-0 text-center xl:p-2.5">
+                <i class="fa fa-commenting" aria-hidden="true"></i>
+                </div>
+             
+              <div class="relative">
+                  <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft pr-1">Certificate Request</span>
+                     <?php
+                      $certReq = "SELECT count(id) AS total FROM students WHERE isCertificate='requested' AND Swcompany='$accountFor'";
+                      $rows_results = mysqli_query($db, $certReq);
+                      $values = mysqli_fetch_assoc($rows_results);
+                      $total = $values['total'];
+                      echo '<span class="text-white py-1 px-2 rounded-full bg-red-300">'.$total.'</span>';
+                      ?>
+                </div>
               </a>
             </li>
            <?php else : ?>
@@ -63,7 +92,39 @@
               <?php endif; ?>
             </a>
           </li>
+         
       <?php if ($accountFor == 'Coordinator') : ?>
+            <li class="mt-0.5 w-full">
+                <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" href="../requirements">
+                  <div class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
+                  <i class="fa fa-address-card" aria-hidden="true"></i>
+                  </div>
+                   <div class="relative">
+
+                    <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Manage Requirements</span>
+                </div>
+
+                </a>
+            </li>
+            <li class="mt-0.5 w-full">
+                <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" href="../uploadRequest">
+                  <div class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
+                  <i class="fa fa-address-card" aria-hidden="true"></i>
+                  </div>
+               
+                   <div class="relative">
+                    <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Upload Request</span>
+                     <?php
+                      $certReq = "SELECT count(id) AS total FROM students WHERE uploadRequest <> 'Yes' AND uploadRequest IS NOT NULL";
+                      $rows_results = mysqli_query($db, $certReq);
+                      $values = mysqli_fetch_assoc($rows_results);
+                      $total = $values['total'];
+                      echo '<span class="text-white py-1 px-2 rounded-full bg-red-300">'.$total.'</span>';
+                      ?>
+                </div>
+
+                </a>
+            </li>
          <?php if ($courseCode == "Education Dept.") : ?>
               <li class="mt-0.5 w-full">
                 <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" href="../school">
@@ -83,6 +144,7 @@
                 </a>
               </li>
           <?php endif; ?>
+          
            <li class="mt-0.5 w-full">
                 <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" href="../reports">
                   <div class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">

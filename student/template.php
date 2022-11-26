@@ -4,6 +4,10 @@
     require_once '../connection.php';
     if (isset($_SESSION['id'])) {
       $id = $_SESSION['id'];
+      $requestUpload= mysqli_query($db, "SELECT * FROM students WHERE id = $id");
+      $requestUpload = $requestUpload -> fetch_assoc();
+      ['uploadRequest' => $uploadRequest, 'whatDocu' => $whatDocu, 'courseCode' => $courseCode] = $requestUpload;
+
       if (isset($_POST['midterm'])) {
         $iSmidterm = $_POST['iSmidterm'];
         mysqli_query($db, "UPDATE students SET iSmidterm='$iSmidterm' WHERE id=$id");
@@ -15,6 +19,26 @@
         mysqli_query($db, "UPDATE students SET iSfinal='$iSfinal' WHERE id=$id");
         header('location: index.php');
       }
+
+
+      if (isset($_POST['certificate'])) {
+        $isCertificate = $_POST['isCertificate'];
+        mysqli_query($db, "UPDATE students SET isCertificate='$isCertificate' WHERE id=$id");
+        header('location: index.php');
+      }
+
+        if (isset($_POST['update'])) {
+            $id = $_POST['id'];
+            $Semail = $_POST['Semail'];
+            $Spassword = $_POST['Spassword'];
+
+            mysqli_query($db, "UPDATE students SET Semail='$Semail', Spassword='$Spassword' WHERE id=$id");
+           
+            session_start();
+            session_unset();
+            session_destroy();
+            header("location: index.php");
+        }
 
 ?>
 <!DOCTYPE html>
@@ -109,24 +133,29 @@
           while ($row = mysqli_fetch_array($students)) {
           $iSmidterm = $row['iSmidterm'];  
           $iSfinal = $row['iSfinal'];  
+          $isCertificate = $row['isCertificate'];  
           ?>
       <hr class="my-8 h-px bg-gray-200 border-0 dark:bg-gray-300">
-      <div class="mt-1 pl-7 flex items-center ">
-          <span class=" h-8 w-8 overflow-hidden rounded-full bg-gray-100 flex justify-center">
-            <img src="<?php
-                     if ($row['Sphoto'] == NULL) {
-                      echo './image/temp-profile.jpg';
-                     }else{
-                        echo './image/' . $row['Sphoto'];
-                      }
-                    
-                        ?>" >
-              
-            </img>
-          </span>
-          <span class="text-xs px-3"><?php echo $_SESSION["Sname"]; ?> <?php echo $_SESSION["Slname"]; ?></span>
-        </div>
-    
+
+
+        <a href="#" data-modal-toggle="updateAccount" data-target=" #upload" >
+        <div class="mt-1 pl-7 flex items-center ">
+            <span class=" h-8 w-8 overflow-hidden rounded-full bg-gray-100 flex justify-center">
+              <img src="<?php
+                      if ($row['Sphoto'] == NULL) {
+                        echo './image/temp-profile.jpg';
+                      }else{
+                          echo './image/' . $row['Sphoto'];
+                        }
+                      
+                          ?>" >
+                
+              </img>
+            </span>
+            <span class="text-xs px-3"><?php echo $_SESSION["Sname"]; ?> <?php echo $_SESSION["Slname"]; ?></span>
+          </div>
+        </a>
+
 
               <div class="p-3 pl-9">
                 <small>Evaluation Status</small>
@@ -169,8 +198,31 @@
                     <?php endif; ?>
                   </div>
                <?php endif; ?>
+
+
+                <?php if ($iSmidterm == 'graded' AND $iSfinal == 'graded') : ?>
+                  <div>
+                    <small>Certification</small>
+                    <?php if ($isCertificate == NUll) : ?>
+                      <form action="" method="POST">
+                          <input type="text" value="requested" name="isCertificate" hidden>
+                          <button type="submit" name="certificate" class="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-xs px-5 py-2.5 text-center mr-2 mb-2">Request certificate</button>
+                      </form>
+                    <?php else : ?>
+                      <div>
+                          <b><small>Status: </small></b>
+                          <?php if ($isCertificate == 'requested') : ?>
+                            <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-yellow-200 dark:text-yellow-900">Pending</span>
+                          <?php else : ?>
+                              <span class="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-green-200 dark:text-green-900">Uploaded</span>
+                          <?php endif; ?>
+                      </div>
+                    <?php endif; ?>
+                  </div>
+               <?php endif; ?>
+
+
            </div>
-				<?php } ?>
       
         <ul class="flex flex-col pl-0 mb-0">
         <li class="mt-0.5 w-full">
@@ -187,6 +239,38 @@
 </nav>
 
   <!-- end navigation left side -->
+            <!-- Main modal -->
+            <div id="updateAccount" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center flex" aria-modal="true" role="dialog">
+              <div class="relative p-4 w-full max-w-md h-full md:h-auto">
+                <!-- Modal content -->
+                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                  <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-toggle="updateAccount">
+                    <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="sr-only">Close modal</span>
+                  </button>
+                  <div class="py-6 px-6 lg:px-8">
+                    <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Edit your account</h3>
+                    <form class="space-y-6" action="" method="post" enctype="multipart/form-data">
+                      <input type="hidden" name="id" value="<?php echo $row['id']?>">
+                      <div>
+                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Add your new email</label>
+                        <input type="email"  autocomplete="off" value="<?php echo $row['Semail'] ?>" name="Semail" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Email" required="">
+                      </div>
+                      <div>
+                        <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Add your new password</label>
+                        <input type="text" autocomplete="off" value="<?php echo $row['Spassword']?>" name="Spassword" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Password" required="">
+                      </div>
+                      <button type="submit" name="update" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        Update and Logout
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+				<?php } ?>
 
   <div class="ease-soft-in-out xl:ml-68.5 relative h-full max-h-screen bg-gray-50 transition-all duration-200" style="padding-top:-1000px ;">
 
