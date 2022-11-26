@@ -7,14 +7,26 @@
             <h6 class="mb-0 font-semibold leading-normal">Documents / Requirements</h6>
           </div>
           <div class="flex items-center justify-end max-w-full px-3 md:w-1/2 md:flex-none">
-            <!-- <button type="button" data-modal-toggle="authentication-modal" data-target=" #upload" class="flex items-center justify-end max-w-full px-3 md:w-1/2 md:flex-none">
-              <a class="inline-block px-6 py-3 font-bold text-center text-white uppercase align-middle transition-all bg-transparent rounded-lg cursor-pointer leading-pro text-xs ease-soft-in shadow-soft-md bg-150 bg-gradient-to-tl from-green-500 to-green-700 hover:shadow-soft-xs active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25" href="javascript:;"> <i class="fas fa-plus"> </i>&nbsp;&nbsp;Upload File</a>
-            </button> -->
-            <button type="button" data-modal-toggle="sendrequest" data-target=" #upload" class="flex items-center justify-end max-w-full px-3 md:w-1/2 md:flex-none">
-              <a class="inline-block px-6 py-3 font-bold text-center text-white uppercase align-middle transition-all bg-transparent rounded-lg cursor-pointer leading-pro text-xs ease-soft-in shadow-soft-md bg-150 bg-gradient-to-tl from-gray-900 to-slate-400 hover:shadow-soft-xs active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25" href="javascript:;"> <i class="fas fa-check"> </i>&nbsp;&nbsp;Send Request</a>
-            </button>
+           
+          
+              <?php if ($uploadRequest !='Yes' AND $uploadRequest == NULL) : ?>
+                <button type="button" data-modal-toggle="sendrequest" data-target=" #upload" class="flex items-center justify-end max-w-full px-3 md:w-1/2 md:flex-none">
+                  <a class="inline-block px-6 py-3 font-bold text-center text-white uppercase align-middle transition-all bg-transparent rounded-lg cursor-pointer leading-pro text-xs ease-soft-in shadow-soft-md bg-150 bg-gradient-to-tl from-gray-900 to-slate-400 hover:shadow-soft-xs active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25" href="javascript:;"> <i class="fas fa-check"> </i>&nbsp;&nbsp;Send Request</a>
+                </button>
+              <?php endif; ?>
+
+               <?php if ($uploadRequest != 'Yes' AND $uploadRequest == !NULL) : ?>
+                <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-yellow-200 dark:text-yellow-900">Request Pending</span>
+              <?php endif; ?>
+      
+             <?php if ($uploadRequest == 'Yes') : ?>
+              	 <button type="button" data-modal-toggle="authentication-modal" data-target=" #upload" class="flex items-center justify-end max-w-full px-3 md:w-1/2 md:flex-none">
+                    <a class="inline-block px-6 py-3 font-bold text-center text-white uppercase align-middle transition-all bg-transparent rounded-lg cursor-pointer leading-pro text-xs ease-soft-in shadow-soft-md bg-150 bg-gradient-to-tl from-green-500 to-green-700 hover:shadow-soft-xs active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25" href="javascript:;"> <i class="fas fa-plus"> </i>&nbsp;&nbsp;Upload File</a>
+                  </button>
+             <?php endif; ?>
 
 
+		
             <!-- Main modal -->
             <div id="authentication-modal" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center flex" aria-modal="true" role="dialog">
               <div class="relative p-4 w-full max-w-md h-full md:h-auto">
@@ -30,8 +42,8 @@
                     <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">OJT Document/Requirements</h3>
                     <form class="space-y-6" action="pages/controller.php" method="post" enctype="multipart/form-data">
                       <div>
-                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Title</label>
-                        <input type="text" name="title" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Document file name" required="">
+                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Document you request to upload</label>
+                        <input type="text" name="title" disabled value="<?php echo $whatDocu?>" class="bg-gray-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Document file name" required="">
                         <input type="hidden" name="studentID" value="<?php echo $_SESSION["studentID"]; ?>">
                       </div>
                       <!-- <div>
@@ -43,6 +55,8 @@
                         </select>
                       </div> -->
                       <input type="hidden" name="des" value="Before OJT Requirements"/>
+                        <input type="hidden" name="id" value="<?php echo $_SESSION["id"]; ?>">
+
                       <div class="flex justify-between">
                         <div class="flex justify-center items-center w-full">
                           <label for="dropzone-file" class="flex flex-col justify-center items-center w-full h-64 bg-gray-50 rounded-lg border-2 border-gray-300 border-dashed cursor-pointer dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">

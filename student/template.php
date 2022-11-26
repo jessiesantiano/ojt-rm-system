@@ -4,6 +4,10 @@
     require_once '../connection.php';
     if (isset($_SESSION['id'])) {
       $id = $_SESSION['id'];
+      $requestUpload= mysqli_query($db, "SELECT * FROM students WHERE id = $id");
+      $requestUpload = $requestUpload -> fetch_assoc();
+      ['uploadRequest' => $uploadRequest, 'whatDocu' => $whatDocu] = $requestUpload;
+
       if (isset($_POST['midterm'])) {
         $iSmidterm = $_POST['iSmidterm'];
         mysqli_query($db, "UPDATE students SET iSmidterm='$iSmidterm' WHERE id=$id");

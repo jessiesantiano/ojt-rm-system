@@ -103,7 +103,7 @@
                    <div class="relative">
                     <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Upload Request</span>
                      <?php
-                      $certReq = "SELECT count(id) AS total FROM students WHERE isCertificate='requested' AND Swcompany='$accountFor'";
+                      $certReq = "SELECT count(id) AS total FROM students WHERE uploadRequest <> 'Yes' AND uploadRequest IS NOT NULL";
                       $rows_results = mysqli_query($db, $certReq);
                       $values = mysqli_fetch_assoc($rows_results);
                       $total = $values['total'];
