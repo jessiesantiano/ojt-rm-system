@@ -8,9 +8,7 @@
 					<div class="w-full md:w-4/5 xl:w-3/5" style="padding: 0 40px 0 40px">
 
 		<div class="flex justify-between items-center py-2">
-
                 <h5>Uploading Document Request</h5>
-
 		</div>
 		<div id='recipients' class="mt-6 xl:mt-0  bg-white">
 			<table id="example" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
