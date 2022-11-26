@@ -282,3 +282,17 @@ if (isset($_POST['Rupload'])) { // if upload button on the form is clicked
         }
     }
 }
+
+
+   // update 
+    if (isset($_POST['sendrequest'])) {
+            $uploadRequest = $_POST['uploadRequest'];
+            $id = $_POST['id'];
+            mysqli_query($db, "UPDATE students SET uploadRequest='$uploadRequest' WHERE id=$id");
+           header('location: ../index.php?q=documents');
+              session_start();
+            $_SESSION['status'] = "Woo hoo!";
+            $_SESSION['text'] = "Request sent successfully!";
+            $_SESSION['icon'] = "success";
+        }
+    
