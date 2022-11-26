@@ -43,6 +43,7 @@
                     <form class="space-y-6" action="pages/controller.php" method="post" enctype="multipart/form-data">
                       <div>
                         <input type="hidden" name="studentID" value="<?php echo $_SESSION["studentID"]; ?>">
+                        <input type="hidden" name="title" value="<?php echo $whatDocu; ?>">
                       </div>
                       <!-- <div>
                         <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Where you will upload the document?</label>
@@ -102,8 +103,10 @@
                       <div>
                         <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">What document you want to upload?</label>
                         <select name="uploadRequest" id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                          <option value="Application Letter">Application Letter</option>
-                          <option value="Parents Permit">Parents Permit</option>
+                         <?php $result = mysqli_query($db, "SELECT * FROM requirements WHERE courseCode = '$courseCode'");
+                            while ($row = mysqli_fetch_array($result)) { ?>
+                              <option value="<?php echo $row['document']; ?>"><?php echo $row['document']; ?></option>
+                            <?php } ?>
 
                         </select>
                       </div>

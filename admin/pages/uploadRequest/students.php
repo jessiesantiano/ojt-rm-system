@@ -1,7 +1,7 @@
 <?php
     // connection
     include "../../../connection.php";
-     $results = mysqli_query($db, "SELECT * FROM students WHERE uploadRequest <> 'Yes' AND uploadRequest IS NOT NULL");
+     $results = mysqli_query($db, "SELECT * FROM students WHERE uploadRequest <> 'Yes' AND uploadRequest IS NOT NULL AND courseCode = '$courseCode'");
 
 ?>
 	<!--Container-->

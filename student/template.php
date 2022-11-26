@@ -6,7 +6,7 @@
       $id = $_SESSION['id'];
       $requestUpload= mysqli_query($db, "SELECT * FROM students WHERE id = $id");
       $requestUpload = $requestUpload -> fetch_assoc();
-      ['uploadRequest' => $uploadRequest, 'whatDocu' => $whatDocu] = $requestUpload;
+      ['uploadRequest' => $uploadRequest, 'whatDocu' => $whatDocu, 'courseCode' => $courseCode] = $requestUpload;
 
       if (isset($_POST['midterm'])) {
         $iSmidterm = $_POST['iSmidterm'];
@@ -29,10 +29,10 @@
 
         if (isset($_POST['update'])) {
             $id = $_POST['id'];
-            $studentID = $_POST['studentID'];
+            $Semail = $_POST['Semail'];
             $Spassword = $_POST['Spassword'];
 
-            mysqli_query($db, "UPDATE students SET studentID='$studentID', Spassword='$Spassword' WHERE id=$id");
+            mysqli_query($db, "UPDATE students SET Semail='$Semail', Spassword='$Spassword' WHERE id=$id");
            
             session_start();
             session_unset();
@@ -251,16 +251,16 @@
                     <span class="sr-only">Close modal</span>
                   </button>
                   <div class="py-6 px-6 lg:px-8">
-                    <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Edit your credentials</h3>
+                    <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Edit your account</h3>
                     <form class="space-y-6" action="" method="post" enctype="multipart/form-data">
                       <input type="hidden" name="id" value="<?php echo $row['id']?>">
                       <div>
-                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Student ID</label>
-                        <input type="text" disabled  autocomplete="off" value="<?php echo $row['studentID'] ?>" name="studentID" class="bg-gray-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Document file name" required="">
+                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Add your new email</label>
+                        <input type="email"  autocomplete="off" value="<?php echo $row['Semail'] ?>" name="Semail" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Email" required="">
                       </div>
                       <div>
-                        <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Input your new password</label>
-                        <input type="text" autocomplete="off" value="<?php echo $row['Spassword']?>" name="Spassword" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Document file name" required="">
+                        <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Add your new password</label>
+                        <input type="text" autocomplete="off" value="<?php echo $row['Spassword']?>" name="Spassword" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Password" required="">
                       </div>
                       <button type="submit" name="update" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                         Update and Logout
