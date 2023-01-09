@@ -1,9 +1,9 @@
 # LICOMCO OJT Record Management System
 
-Language/s Used: PHP, Tailwind CSS and JavaScript
-Database: MySQL Database
-Type: Web Application
-Users: School Coordinator, Company/School Supervisor, Students
+Language/s Used: PHP, Tailwind CSS and JavaScript <br>
+Database: MySQL Database <br>
+Type: Web Application <br>
+Users: School Coordinator, Company/School Supervisor, Students <br>
 
 Features: Add Annoucement, Upload Reports, Manage Students, Generate Reports, Evaluate Students and generate student grade, etc.
 
