@@ -1,38 +1,16 @@
-Project Name:	LICOMCO OJT Record Management System
-Language/s Used:	PHP, Tailwind CSS and JavaScript
-Database:	MySQL Database
-Type:	Web Application
+# LICOMCO OJT Record Management System
 
-For Coordinator Features:
-Coordinator Dashboard
-View List of all LICOMCO students
-Add School Announcement
-Manage LICOMCO Supervisor Accounts
-View/Add/Edit/Delete student infos
+Language/s Used: PHP, Tailwind CSS and JavaScript
+Database: MySQL Database
+Type: Web Application
+Users: School Coordinator, Company/School Supervisor, Students
 
-For Course Supervisor Features:
-Course Supervisor Dashboard
-Add Course Announcement
-View/Add/Edit/Delete student infos
+Features: Add Annoucement, Upload Reports, Manage Students, Generate Reports, Evaluate Students and generate student grade, etc.
 
-For School/Company Supervisor Features:
-School/COmpany Supervisor Dashboard
-Add Announcement
-View students details
-
-For Students/Trainee Features:
-View Announcement,
-Update personal profile,
-Upload reports
-
-
-Log in Credentials:
-Coordinator/Supervisors:
-Email: 
-Password: 
-
-Student:
-StudentID: 
-Password: 
-
-
+Screenshot:
+Dashboard
+![This is an image](/screenshot/dashboard.png) <br>
+Student
+![This is an image](/screenshot/student.png) <br>
+Easy Generate Reports
+![This is an image](/screenshot/easygenerate.png) <br>
